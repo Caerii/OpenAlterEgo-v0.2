@@ -1,0 +1,9 @@
+CERN Open Hardware Licence Version 2 - Permissive (CERN-OHL-P-2.0)
+
+This project’s *hardware design files* (schematics, PCB layouts, mechanical CAD, etc.)
+are intended to be released under CERN-OHL-P-2.0.
+
+Full text: https://ohwr.org/cern_ohl_p_v2.txt
+
+NOTE: This starter repo contains mostly documentation placeholders; update licensing
+as you add actual design files.
