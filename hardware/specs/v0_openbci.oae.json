@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "name": "v0_openbci",
+  "tier": "v0",
+  "description": "V0 benchtop: OpenBCI Cyton-class 8ch @ 250 Hz, wet gel, AlterEgo montage",
+  "literature_refs": ["Kapur 2018 IUI", "TI ADS1299", "OpenBCI Cyton"],
+  "afe": {
+    "part": "ads1299",
+    "channels": 8,
+    "fs_hz": 250,
+    "gain": 24.0,
+    "adc_bits": 16,
+    "internal_adc_bits": 24,
+    "vref_v": 2.4
+  },
+  "electrodes": {
+    "type": "wet_ag_agcl",
+    "montage": "alterego_8ch",
+    "reference": "earlobe"
+  },
+  "preprocess": { "mode": "standard", "notch_hz": 60.0, "notch_harmonics": true },
+  "ble": {
+    "transport": "usb",
+    "packet_format": "oa_v1",
+    "frames_per_packet": 12,
+    "device_name": "OpenBCICyton"
+  },
+  "sim": {
+    "engine": "heuristic",
+    "realism": "wearable",
+    "emg_paradigm": "alterego_envelope",
+    "noise_uV": 18.0,
+    "line_noise_uV": 8.0
+  }
+}

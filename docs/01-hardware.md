@@ -1,94 +1,69 @@
 # Hardware
 
-This project intentionally supports *multiple* hardware tiers:
-
-1. **V0 Benchtop rig (fast):** Off-the-shelf biopotential AFE dev board + adhesive electrodes.
-2. **V1 Wearable prototype:** Custom PCB with low-noise AFE + BLE microcontroller + battery.
-3. **V2 Comfort + repeatability:** Mechanical design to keep electrodes stable, repeatable, adjustable.
+> **Canonical hardware documentation** lives in [`hardware/`](../hardware/README.md). This page is a short index.
 
 ---
 
-## V0: Benchtop rig (recommended first)
+## Start here
 
-### Why
-Because the hard parts are:
-- getting clean signals, and
-- getting repeatable electrode placement.
-
-A benchtop rig lets you debug DSP + ML without fighting mechanical design.
-
-### Suggested parts (examples)
-- 8-channel biopotential AFE board (ADS1299-based) OR an OpenBCI Cyton/Ganglion.
-- Pre-gelled Ag/AgCl electrodes (or dry electrodes if you want “wearable” pain now).
-- Shielded electrode leads.
-- Battery power for the AFE and any laptop connection via **USB isolator** if you’re not 100% sure.
-
----
-
-## V1: Wearable PCB architecture (block level)
-
-### Must-haves
-- 7–8 differential channels
-- 24-bit ADC class
-- Input protection (ESD + series resistors)
-- Bias/DRL-style circuit if your AFE supports it
-- BLE radio (nRF52-class tends to be quiet and power efficient)
-- Battery + charger (LiPo) + proper power tree (analog clean rail)
-
-### Nice-to-haves
-- On-board IMU (useful to model head motion artifacts)
-- Electrode impedance measurement (for quality checks)
-- Trigger button or marker channel
+| Document | Content |
+|----------|---------|
+| [**hardware/README.md**](../hardware/README.md) | Overview, parameter summary, build order |
+| [**block_diagram.md**](../hardware/block_diagram.md) | Electrodes → AFE → BLE → host |
+| [**01-architecture-tiers.md**](../hardware/01-architecture-tiers.md) | V0 benchtop → V1 PCB → V2 mechanical |
+| [**02-analog-front-end.md**](../hardware/02-analog-front-end.md) | ADS1299, gain, fs, noise budget |
+| [**03-electrodes-montage.md**](../hardware/03-electrodes-montage.md) | Muscle map, dry vs wet, 8-ch layout |
+| [**04-ble-firmware-protocol.md**](../hardware/04-ble-firmware-protocol.md) | OA v1 packet, nRF52, firmware workflow |
+| [**05-power-safety.md**](../hardware/05-power-safety.md) | LiPo tree, isolation, safety checklist |
+| [**06-mechanical-wearable.md**](../hardware/06-mechanical-wearable.md) | Head band, neckband, cable routing |
+| [**BOM.md**](../hardware/BOM.md) | Parts list by tier |
+| [**07-references.md**](../hardware/07-references.md) | Hardware-specific bibliography |
 
 ---
 
-## Electrode placement (research-friendly, not medical advice)
+## Three tiers (summary)
 
-**General principle:** you want a mix of face/jaw and neck regions that correlate with articulation.
+1. **V0 Benchtop** — OpenBCI / ADS1299 dev kit + gel electrodes. Debug DSP/ML without custom PCB.
+2. **V1 Wearable PCB** — ADS1299 + nRF52840 + LiPo + OA v1 BLE firmware.
+3. **V2 Comfort** — Mechanical frame (AlterEgo head band, neckband, or headphone) for repeatable placement.
 
-Public work reports channels roughly in:
-- chin / mentum region
-- around the lips / mouth corners (orbicularis oris / levator anguli oris region)
-- under the jaw (digastric area)
-- front neck (hyoid / laryngeal / platysma regions)
-
-**Reference & bias:** later work describes using reference + bias electrodes on the earlobes.
-
-> Your placement will be user-specific. Expect to tune it.
+Exit criteria per tier: [01-architecture-tiers.md](../hardware/01-architecture-tiers.md).
 
 ---
 
-## Electrical safety checklist (do not skip)
+## Literature-aligned defaults
 
-- ✅ Battery-powered while worn.
-- ✅ No direct galvanic path from the user to mains earth.
-- ✅ If you debug while tethered to a laptop: use a **medical-grade** or at least high-quality USB isolator.
-- ✅ Keep leakage current tiny: series resistors + ESD protection.
-- ✅ Enclosure: strain relief so leads can’t yank electrodes and tear skin.
+| Parameter | Default | Primary reference |
+|-----------|---------|-------------------|
+| Channels | 7–8 (4 min) | Kapur 2018; Wang 2021 |
+| Sample rate | 250 Hz (500–1000 for wide DSP) | Kapur 2018; Tang 2025 |
+| ADC / gain | 24-bit, PGA 24× | Kapur 2018/2020; ADS1299 |
+| Reference | Earlobe BIAS | Kapur 2020 |
+| Transport | BLE + OA v1 packets | Kapur 2018; `acquisition/packet.py` |
+
+Full bibliography: [hardware/07-references.md](../hardware/07-references.md) and [12-references.md](12-references.md).
 
 ---
 
-## Mechanical design notes
+## Software integration
 
-Repeatability beats cleverness.
+Before building custom firmware:
 
-- Make electrode arms **rigid** but adjustable.
-- Use spring compliance only where it improves comfort without introducing slop.
-- Minimize cable motion: route wires along the frame, not dangling.
-- If you’re using gel electrodes, design for easy re-application and cleaning.
+```bash
+openalterego sim-dataset --out ./session
+openalterego serve --source virtual_ble
+```
 
-
+Firmware should emit **OpenAlterEgo v1** packets (`software/python/openalterego/acquisition/packet.py`) for drop-in host compatibility.
 
 ---
 
 ## Simulation-first workflow
 
-Before you build hardware, this repo lets you iterate end-to-end in software:
+The repo supports full end-to-end iteration without hardware:
 
-- synthetic multichannel signals (`openalterego.sim`)
-- “virtual BLE” notifications with packet loss/jitter (`openalterego.acquisition.virtual`)
-- OpenAlterEgo v1 packet framing (`openalterego.acquisition.packet`)
-- realtime websocket output (`openalterego.api.server`)
+- Synthetic multichannel EMG (`openalterego.sim`)
+- Virtual BLE with loss/jitter (`openalterego.acquisition.virtual`)
+- Realtime WebSocket tokens (`openalterego.api.server`)
 
-If/when you implement firmware, prefer the **OpenAlterEgo v1** framed packet format so the host can detect packet loss
-and survive BLE MTU changes.
+See [14-systematic-roadmap.md](14-systematic-roadmap.md) Phase B for hardware bring-up alongside Phase A validation.

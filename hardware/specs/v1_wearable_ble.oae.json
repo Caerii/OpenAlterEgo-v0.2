@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "name": "v1_wearable_ble",
+  "tier": "v1",
+  "description": "V1 custom PCB: ADS1299 + nRF52840 BLE, wide DSP @ 500 Hz",
+  "literature_refs": ["Wang 2021", "Tang 2025", "TI ADS1299"],
+  "afe": {
+    "part": "ads1299",
+    "channels": 8,
+    "fs_hz": 500,
+    "gain": 12.0,
+    "adc_bits": 16,
+    "internal_adc_bits": 24,
+    "vref_v": 2.4
+  },
+  "electrodes": {
+    "type": "dry_textile",
+    "montage": "alterego_8ch",
+    "reference": "earlobe"
+  },
+  "preprocess": { "mode": "wide", "notch_hz": 60.0, "notch_harmonics": true },
+  "ble": {
+    "transport": "ble",
+    "packet_format": "oa_v1",
+    "frames_per_packet": 12,
+    "device_name": "OpenAlterEgo"
+  },
+  "link": { "loss_prob": 0.01, "jitter_ms": 2.0, "extra_latency_ms": 5.0 },
+  "sim": {
+    "engine": "heuristic",
+    "realism": "field",
+    "emg_paradigm": "semg_literature_clamped",
+    "noise_uV": 28.0,
+    "line_noise_uV": 12.0
+  }
+}

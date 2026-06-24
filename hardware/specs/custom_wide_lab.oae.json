@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "name": "custom_wide_lab",
+  "extends": "v1_wearable_ble",
+  "description": "Example extends chain: V1 base + higher noise for stress test",
+  "sim": {
+    "realism": "field",
+    "noise_uV": 40.0,
+    "line_noise_uV": 20.0
+  },
+  "link": { "loss_prob": 0.03, "jitter_ms": 5.0 }
+}
