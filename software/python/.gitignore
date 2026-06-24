@@ -1,0 +1,14 @@
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+openalterego.egg-info/
+accel/target/
+accel/Cargo.lock
+datasets/
+corpus/
+**/gaddy_download/
+sessions/
+**/preprocess_cache/

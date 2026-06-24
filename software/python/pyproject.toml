@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "openalterego"
 version = "0.2.0"
 description = "Open-source, AlterEgo-style silent-speech interface: simulation + DSP + ML + realtime websocket output."
-readme = "../../README.md"
+readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "OpenAlterEgo contributors"}]
@@ -26,6 +26,43 @@ dependencies = [
 
 [project.scripts]
 openalterego = "openalterego.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+  "hypothesis>=6.0",
+  "pytest-asyncio>=1.0.0",
+  "pytest-cov>=5.0",
+  "pytest-xdist>=3.0",
+  "anyio>=4.0",
+]
+
+[project.optional-dependencies]
+accel = [
+    "numba>=0.59",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu124", marker = "sys_platform == 'win32' or sys_platform == 'linux'" },
+  { index = "pytorch-cpu", marker = "sys_platform == 'darwin'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.setuptools]
 package-dir = {"" = "."}
