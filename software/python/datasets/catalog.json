@@ -1,0 +1,25 @@
+{
+  "datasets": [
+    {
+      "id": "gaddy_silent_speech",
+      "title": "Gaddy Silent Speech EMG (EMNLP 2020)",
+      "url": "https://doi.org/10.5281/zenodo.4064409",
+      "size_gb": 3.9,
+      "fs_hz": 1000,
+      "channels": 8,
+      "license": "CC-BY-4.0",
+      "import": "openalterego dataset import gaddy --out ./sessions/gaddy"
+    },
+    {
+      "id": "gowda_geometry",
+      "title": "Gowda Orofacial EMG (Geometry paper, OSF YM5JD)",
+      "url": "https://doi.org/10.17605/OSF.IO/YM5JD",
+      "size_gb": 40,
+      "fs_hz": 5000,
+      "channels": 31,
+      "license": "see OSF",
+      "import": "openalterego dataset import gowda --data-npy ./DATA/dataSmallVocab.npy --labels-npy ./DATA/labelsSmallVocab.npy --out ./sessions/gowda_sv",
+      "manual_download": "https://osf.io/bgh7t/files/box (small-vocab npy files)"
+    }
+  ]
+}
