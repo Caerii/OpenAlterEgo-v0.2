@@ -4,7 +4,7 @@ Curated bibliography for **OpenAlterEgo** — organized by topic, with explicit 
 
 **Last updated:** June 2026
 
-**Master index:** [`literature/README.md`](literature/README.md) — maps all bibliography locations, featured papers, and offline extracts.
+**Master index:** [`literature/README.md`](literature/README.md) — maps all bibliography locations, **local PDF library** (`literature/papers/`), featured papers, and offline extracts.
 
 ---
 
@@ -12,7 +12,7 @@ Curated bibliography for **OpenAlterEgo** — organized by topic, with explicit 
 
 | Section | Use when… |
 |---------|-----------|
-| [Literature hub](literature/README.md) | Finding any paper quickly; offline archive paths |
+| [Literature hub](literature/README.md) | Finding any paper quickly; **local PDFs** under `literature/papers/` |
 | [Surveys](#a-surveys--reviews) | Onboarding; scoping modalities and clinical goals |
 | [AlterEgo lineage](#b-foundation-alterego-lineage) | Validating our closed-vocabulary, wearable EMG approach |
 | [Wearable & electrodes](#d-wearable-hardware--form-factors) | Hardware BOM, electrode count, dry vs wet |
@@ -299,7 +299,7 @@ Curated bibliography for **OpenAlterEgo** — organized by topic, with explicit 
 ### H5. Silent Speech Recognition using EMG — Seq2Seq sentence-level (IITK)
 
 **Authors:** Amitangshu et al.  
-**Link:** [IITK PDF](https://www.cse.iitk.ac.in/users/amitangshu/Silent_Speech_Recognition_using_Electromyography_Signals.pdf)
+**Link:** [IITK PDF](https://www.cse.iitk.ac.in/users/amitangshu/Silent_Speech_Recognition_using_Electromyography_Signals.pdf) · **Local:** [`literature/papers/H-open-vocab/iitk-emg-seq2seq-silent-speech.pdf`](literature/papers/H-open-vocab/iitk-emg-seq2seq-silent-speech.pdf)
 
 **Key finding:** Attention Seq2Seq on OpenBCI Cyton; **9.3% WER** on continuous sEMG sentences vs CNN+BiLSTM+CTC baseline.
 
@@ -376,7 +376,7 @@ Curated bibliography for **OpenAlterEgo** — organized by topic, with explicit 
 |----------|------|-----|
 | **Hardware design (systematic)** | [`hardware/README.md`](../hardware/README.md) | AFE, electrodes, BLE, BOM, safety, mechanical |
 | **Hardware bibliography** | [`hardware/07-references.md`](../hardware/07-references.md) | Electrode/AFE/wearable-specific papers |
-| **Literature hub & offline archive** | [`literature/README.md`](literature/README.md) | Master index + searchable extracts |
+| **Literature hub & local PDFs** | [`literature/README.md`](literature/README.md) · [`literature/papers/`](literature/papers/README.md) | Master index + offline PDF library |
 | LibEMG | [github.com/LibEMG/libemg](https://github.com/LibEMG/libemg) | EMG processing utilities |
 | dgaddy/silent_speech | [GitHub](https://github.com/dgaddy/silent_speech) | Gaddy data + baselines |
 | OpenBCI | [openbci.com](https://openbci.com/) | V0 benchtop acquisition |

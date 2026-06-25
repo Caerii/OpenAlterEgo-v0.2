@@ -7,8 +7,10 @@ __pycache__/
 openalterego.egg-info/
 accel/target/
 accel/Cargo.lock
-software/python/datasets/
+datasets/
 corpus/
 **/gaddy_download/
+**/gowda_download/
+**/*_import.log
 sessions/
 **/preprocess_cache/

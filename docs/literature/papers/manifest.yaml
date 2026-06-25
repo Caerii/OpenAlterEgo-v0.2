@@ -1,0 +1,247 @@
+# OpenAlterEgo local paper library — download manifest
+# Run: python docs/literature/scripts/download_papers.py
+# Paywalled entries get a .source.md stub with official links.
+
+papers:
+  - id: A1
+    section: A-surveys
+    file: gonzalez-lopez-2020-ssi-review
+    title: "Silent Speech Interfaces for Speech Restoration: A Review"
+    year: 2020
+    urls:
+      - https://www.ugr.es/~joseangl/publication/gonzalez-lopez-silent-2020/gonzalez-lopez-silent-2020.pdf
+      - https://ieeexplore.ieee.org/document/9194690
+
+  - id: A2
+    section: A-surveys
+    file: xu-2026-ssi-llm-taxonomy-review
+    title: "Silent Speech Interfaces in the Era of Large Language Models"
+    year: 2026
+    urls:
+      - https://arxiv.org/pdf/2603.11877.pdf
+
+  - id: B1
+    section: B-alterego
+    file: kapur-2018-alterego-iui
+    title: "AlterEgo: A Personalized Wearable Silent Speech Interface"
+    year: 2018
+    official: https://dl.acm.org/doi/10.1145/3172944.3172977
+    notes: "Local PDF manually added from ACM download (3172944.3172977.pdf)"
+
+  - id: B2
+    section: B-alterego
+    file: kapur-2020-dysphonic-ms-ml4h
+    title: "Non-Invasive Silent Speech Recognition in Dysphonic Multiple Sclerosis"
+    year: 2020
+    paywalled: true
+    official: https://proceedings.mlr.press/v136/kapur20a.html
+
+  - id: B3
+    section: B-alterego
+    file: kapur-patent-us10878818b2
+    title: "Methods and Apparatus for Silent Speech Interface (Patent)"
+    year: 2020
+    official: https://patents.google.com/patent/US10878818B2
+    urls:
+      - https://patentimages.storage.googleapis.com/pdfs/US10878818.pdf
+
+  - id: C1
+    section: C-clinical
+    file: mdpi-2025-electrode-setup-pilot
+    title: "Electrode Setup for EMG-Based Silent Speech Interfaces: A Pilot Study"
+    year: 2025
+    official: https://www.mdpi.com/1424-8220/25/3/781
+    notes: "Local PDF manually added from MDPI download (sensors-25-00781.pdf)"
+
+  - id: D1
+    section: D-wearables
+    file: wang-2021-tattoo-like-electronics
+    title: "All-weather, natural silent speech recognition via tattoo-like electronics"
+    year: 2021
+    urls:
+      - https://www.nature.com/articles/s41528-021-00119-7.pdf
+
+  - id: D2
+    section: D-wearables
+    file: tang-2025-headphone-textile-emg
+    title: "Wireless Silent Speech Interface Using Multi-Channel Textile EMG in Headphones"
+    year: 2025
+    urls:
+      - https://arxiv.org/pdf/2504.13921.pdf
+
+  - id: D3
+    section: D-wearables
+    file: meier-2025-silentwear
+    title: "SilentWear: Ultra-Low Power Wearable EMG Silent Speech"
+    year: 2025
+    urls:
+      - https://arxiv.org/pdf/2603.02847.pdf
+
+  - id: D4
+    section: D-wearables
+    file: meier-2025-silentwear-neckband
+    title: "Fully-dry neckband silent speech (conference)"
+    year: 2025
+    urls:
+      - https://arxiv.org/pdf/2509.21964.pdf
+
+  - id: D5
+    section: D-wearables
+    file: tang-2026-nature-sensors-ssi-survey
+    title: "Sensing technologies for silent speech interfaces"
+    year: 2026
+    urls:
+      - https://www.nature.com/articles/s44460-025-00010-2.pdf
+
+  - id: E1
+    section: E-electrodes
+    file: ji-2021-hd-electrode-optimization
+    title: "Towards optimizing electrode configurations for SSR based on HD-sEMG"
+    year: 2021
+    paywalled: true
+    official: https://doi.org/10.1088/1741-2552/abca14
+
+  - id: E2
+    section: E-electrodes
+    file: deng-2023-few-electrode-sites
+    title: "Silent Speech Recognition Using Few Electrode Sites Guided by HD Arrays"
+    year: 2023
+    paywalled: true
+    official: https://doi.org/10.1109/TIM.2023.3276540
+
+  - id: E3
+    section: E-electrodes
+    file: zhang-2023-hd-semg-hybrid-networks
+    title: "HD-sEMG Silent Speech with Hybrid Networks & Anomaly Detection"
+    year: 2023
+    paywalled: true
+    official: https://doi.org/10.1109/THMS.2022.3226197
+
+  - id: F1
+    section: F-signal-processing
+    file: lai-2023-knowledge-distilled-ensemble
+    title: "Knowledge Distilled Ensemble Model for sEMG-based SSI"
+    year: 2023
+    urls:
+      - https://arxiv.org/pdf/2308.06533.pdf
+
+  - id: F2
+    section: F-signal-processing
+    file: semg-silent-voice-recognition-2022
+    title: "sEMG-based technology for silent voice recognition"
+    year: 2022
+    paywalled: true
+    official: https://www.sciencedirect.com/science/article/abs/pii/S0010482522010447
+
+  - id: F3
+    section: F-signal-processing
+    file: silent-speech-system-semg-2024
+    title: "Design and implementation of a silent speech system based on sEMG"
+    year: 2024
+    paywalled: true
+    official: https://www.sciencedirect.com/science/article/abs/pii/S1746809424001101
+
+  - id: G1
+    section: G-ml-decoding
+    file: gowda-2024-geometry-orofacial
+    title: "Geometry of orofacial neuromuscular signals"
+    year: 2024
+    urls:
+      - https://arxiv.org/pdf/2411.02591.pdf
+
+  - id: G2
+    section: G-ml-decoding
+    file: gowda-2025-emg-neuroprosthesis-geometric
+    title: "Non-invasive EMG speech neuroprosthesis: a geometric perspective"
+    year: 2025
+    urls:
+      - https://arxiv.org/pdf/2502.05762.pdf
+
+  - id: H1
+    section: H-open-vocab
+    file: gaddy-2020-digital-voicing-silent-speech
+    title: "Digital Voicing of Silent Speech"
+    year: 2020
+    urls:
+      - https://aclanthology.org/2020.emnlp-main.445.pdf
+
+  - id: H2
+    section: H-open-vocab
+    file: gaddy-2021-improved-voicing-silent-speech
+    title: "An Improved Model for Voicing Silent Speech"
+    year: 2021
+    urls:
+      - https://aclanthology.org/2021.acl-short.23.pdf
+
+  - id: H3
+    section: H-open-vocab
+    file: gaddy-2022-voicing-dissertation
+    title: "Voicing Silent Speech (Dissertation)"
+    year: 2022
+    urls:
+      - https://www2.eecs.berkeley.edu/Pubs/TechRpts/2022/EECS-2022-68.pdf
+
+  - id: H4
+    section: H-open-vocab
+    file: benster-2024-mona-lisa-cross-modal-llm
+    title: "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition"
+    year: 2024
+    urls:
+      - https://arxiv.org/pdf/2403.05583.pdf
+
+  - id: H5
+    section: H-open-vocab
+    file: iitk-emg-seq2seq-silent-speech
+    title: "Silent Speech Recognition using EMG (IITK Seq2Seq)"
+    year: 2020
+    official: https://www.cse.iitk.ac.in/users/amitangshu/Silent_Speech_Recognition_using_Electromyography_Signals.pdf
+    notes: "Local PDF from author-hosted mirror (Silent_Speech_Recognition_using_Electromyography_Signals.pdf)"
+
+  - id: I1
+    section: I-multimodal
+    file: mdpi-2024-emg-eeg-sentence-level
+    title: "Sentence-Level SSR with wearable EMG+EEG + LM"
+    year: 2024
+    urls:
+      - https://www.mdpi.com/1424-8220/25/19/6168/pdf
+
+  - id: K3
+    section: K-foundational
+    file: wand-2014-emg-uka-corpus
+    title: "The EMG-UKA Corpus for Electromyographic Speech Processing"
+    year: 2014
+    urls:
+      - https://www.isca-archive.org/interspeech_2014/wand14b_interspeech.pdf
+
+  - id: K4
+    section: K-foundational
+    file: toth-2009-synthesizing-speech-from-emg
+    title: "Synthesizing speech from electromyography"
+    year: 2009
+    urls:
+      - https://www.isca-archive.org/interspeech_2009/toth09_interspeech.pdf
+
+  - id: HW-D1
+    section: hardware
+    file: li-2023-soft-dry-electrodes-review
+    title: "Soft dry electrodes review (Soft Science)"
+    year: 2023
+    urls:
+      - https://www.oaepublish.com/articles/ss.2023.16/pdf
+
+  - id: HW-D2
+    section: hardware
+    file: kim-2022-textile-dry-electrode-fabrication
+    title: "Textile dry electrode fabrication"
+    year: 2022
+    urls:
+      - https://pmc.ncbi.nlm.nih.gov/articles/PMC9460933/pdf/main.pdf
+      - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9460933/pdf/main.pdf
+
+  - id: HW-F1
+    section: hardware
+    file: ti-ads1299-datasheet
+    title: "TI ADS1299 datasheet"
+    year: 2024
+    urls:
+      - https://www.ti.com/lit/ds/symlink/ads1299.pdf
