@@ -73,4 +73,6 @@ Fit an inverse encoder to `p(content, timing, stress | y[<=t], past_calibration)
 4. **Rendering:** compare content-fixed, voice-fixed listening trials for intelligibility, speaker similarity and expression control. Record whether listeners can tell *intended* expression apart from generic TTS prior. This requires human judgment eventually; offline objective metrics alone cannot close it.
 5. **Interaction:** measure from articulation onset through stable decode, synthesis, transport and earbud playback. MCU inference alone is one component.
 
-The next bounded experiment is official Gaddy preprocessing/alignment parity followed by a prospectively locked, past-only calibration and normalized-shuffle test on a new voiced session. It can falsify the energy-cue hypothesis efficiently, while leaving the silent prosody claim explicitly open.
+The next bounded experiment is utterance-level uncertainty and temporal negative controls on a reserved voiced session, alongside exact Gaddy feature-alignment parity. These checks can falsify the energy-cue interpretation efficiently, while leaving the silent prosody claim explicitly open.
+
+**Progress update, 2026-10-21:** The [5-9 locked test](11-gaddy-causal-filter-5-9-outcome.md) passed its all-frame vocalized energy criterion with forward-only filtering: 0.590 MAE against 0.816 mean-prior and 0.807 shuffled-control MAE. Exact published feature alignment and the official book/sentence benchmark split remain open; no silent expression result follows from this energy test.
