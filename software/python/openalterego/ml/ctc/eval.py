@@ -165,6 +165,7 @@ def eval_checkpoint(
     device_preferred: str = "auto",
     use_upper_tri: bool = False,
     feature_mode: str = "full",
+    cache_dir: Optional[Path] = None,
 ) -> Dict[str, Any]:
     data_dir = Path(data_dir)
     device = resolve_device(device_preferred)
@@ -180,6 +181,7 @@ def eval_checkpoint(
     if ft == "spd":
         spd_basis = ensure_gowda_spd_basis(
             data_dir,
+            basis_cache_dir=cache_dir / "basis" if cache_dir is not None else None,
             fs_hz=int(ckpt.get("fs", 5000)),
             emg_mode=str(ckpt.get("emg_mode", "gowda")),
             seed=int(ckpt.get("seed", 1337)),
@@ -197,7 +199,7 @@ def eval_checkpoint(
         per_event_preprocess=True,
         feature_type=ft,  # type: ignore[arg-type]
         spd_basis=spd_basis,
-        session_dir=str(data_dir),
+        session_dir=str(cache_dir / "sequences" if cache_dir is not None else data_dir),
         use_upper_tri=bool(ckpt.get("use_upper_tri", use_upper_tri)),
         feature_mode=str(ckpt.get("feature_mode", feature_mode)),
     )

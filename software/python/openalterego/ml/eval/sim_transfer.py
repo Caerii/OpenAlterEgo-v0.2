@@ -27,10 +27,10 @@ def _trial_fraction_events(events: pd.DataFrame, frac: float, seed: int) -> pd.D
     frac = float(np.clip(frac, 0.0, 1.0))
     if frac <= 0.0:
         return events.iloc[0:0].reset_index(drop=True)
-    if frac >= 1.0:
-        return events.reset_index(drop=True)
     trial_ids = events["trial_id"].astype(int).values
     tr_trials = sorted(set(trial_ids[trial_ids < 370]))
+    if frac >= 1.0:
+        return events.loc[events["trial_id"].astype(int).isin(tr_trials)].reset_index(drop=True)
     rng = random.Random(int(seed))
     rng.shuffle(tr_trials)
     n_take = max(1, int(round(len(tr_trials) * frac)))
@@ -39,8 +39,10 @@ def _trial_fraction_events(events: pd.DataFrame, frac: float, seed: int) -> pd.D
     return events.loc[mask].reset_index(drop=True)
 
 
-def _merge_sim_real_train(sim_dir: Path, real_dir: Path, real_frac: float, seed: int) -> Path:
-    """Write combined train session under ``real_dir/ablations/sim_transfer_merged``."""
+def _merge_sim_real_train(
+    sim_dir: Path, real_dir: Path, real_frac: float, seed: int, *, work_dir: Optional[Path] = None
+) -> Path:
+    """Write a combined train session in the experiment workspace."""
     sim_ev = sanitize_trial_events(pd.read_csv(sim_dir / "events.csv"))
     real_ev = load_gowda_events(real_dir)
     real_sub = _trial_fraction_events(real_ev, real_frac, seed)
@@ -48,9 +50,16 @@ def _merge_sim_real_train(sim_dir: Path, real_dir: Path, real_frac: float, seed:
     sim_sig = np.load(sim_dir / "signals.npy", mmap_mode="r")
     real_sig = np.load(real_dir / "signals.npy", mmap_mode="r")
 
-    # Concatenate signals; offset real event samples.
-    offset = int(sim_sig.shape[0])
-    sig = np.concatenate([np.asarray(sim_sig, dtype=np.float32), np.asarray(real_sig, dtype=np.float32)], axis=0)
+    if sim_sig.ndim != 2 or real_sig.ndim != 2 or sim_sig.shape[1] != real_sig.shape[1]:
+        raise ValueError("sim and real signals must have matching two-dimensional channel layouts")
+    # Copy only selected real training event windows. The merged corpus must
+    # never contain held-out real waveforms, even as unreferenced samples.
+    real_windows = []
+    for _, row in real_sub.iterrows():
+        start, end = int(row["start_sample"]), int(row["end_sample"])
+        if start < 0 or end <= start or end > real_sig.shape[0]:
+            raise ValueError(f"invalid real event window [{start}, {end})")
+        real_windows.append((start, end))
 
     sim_rows = sim_ev.copy()
     if "trial_id" not in sim_rows.columns or sim_rows.empty:
@@ -58,14 +67,30 @@ def _merge_sim_real_train(sim_dir: Path, real_dir: Path, real_frac: float, seed:
     sim_trials = int(sim_rows["trial_id"].max()) + 1
 
     real_rows = real_sub.copy()
-    real_rows["start_sample"] = real_rows["start_sample"].astype(int) + offset
-    real_rows["end_sample"] = real_rows["end_sample"].astype(int) + offset
+    position = int(sim_sig.shape[0])
+    for index, (start, end) in zip(real_rows.index, real_windows):
+        real_rows.at[index, "start_sample"] = position
+        position += end - start
+        real_rows.at[index, "end_sample"] = position
     real_rows["trial_id"] = real_rows["trial_id"].astype(int) + sim_trials
 
     merged = pd.concat([sim_rows, real_rows], ignore_index=True)
-    out = real_dir / "ablations" / f"sim_transfer_merged_frac{real_frac:.2f}_seed{seed}"
+    base = Path(work_dir) if work_dir is not None else real_dir / "ablations"
+    out = base / f"sim_transfer_merged_frac{real_frac:.2f}_seed{seed}"
     out.mkdir(parents=True, exist_ok=True)
-    np.save(out / "signals.npy", sig)
+    sig = np.lib.format.open_memmap(
+        out / "signals.npy", mode="w+", dtype=np.float32,
+        shape=(position, int(sim_sig.shape[1])),
+    )
+    for start in range(0, int(sim_sig.shape[0]), 100_000):
+        end = min(start + 100_000, int(sim_sig.shape[0]))
+        sig[start:end] = sim_sig[start:end]
+    position = int(sim_sig.shape[0])
+    for start, end in real_windows:
+        length = end - start
+        sig[position : position + length] = real_sig[start:end]
+        position += length
+    sig.flush()
     merged.to_csv(out / "events.csv", index=False)
     meta = {
         "fs_hz": int(json.loads((sim_dir / "meta.json").read_text())["fs_hz"]),
@@ -87,6 +112,7 @@ def eval_checkpoint_on_real(
     *,
     device_preferred: str = "auto",
     decode_mode: str = "trial_lm",
+    cache_dir: Optional[Path] = None,
 ) -> Dict[str, Any]:
     device = resolve_device(device_preferred)
     ckpt = torch.load(Path(checkpoint), map_location=device, weights_only=False)
@@ -97,8 +123,18 @@ def eval_checkpoint_on_real(
     if decode_mode == "trial_lm":
         te_idx = gowda_official_train_val_test_indices(events["trial_id"].astype(int).values)[2]
         te_events = events.iloc[te_idx].reset_index(drop=True)
-        ds = _build_dataset(real_dir, te_events, ckpt)
-        lm_w = tune_trial_lm_weight(model, _build_dataset(real_dir, events.iloc[gowda_official_train_val_test_indices(events["trial_id"].astype(int).values)[1]].reset_index(drop=True), ckpt), device, lm)
+        ds = _build_dataset(real_dir, te_events, ckpt, cache_dir=cache_dir)
+        lm_w = tune_trial_lm_weight(
+            model,
+            _build_dataset(
+                real_dir,
+                events.iloc[gowda_official_train_val_test_indices(events["trial_id"].astype(int).values)[1]].reset_index(drop=True),
+                ckpt,
+                cache_dir=cache_dir,
+            ),
+            device,
+            lm,
+        )
         return evaluate_ctc_trial_lm(model, ds, device, lm, lm_weight=float(lm_w))
 
     from ..ctc.eval import eval_checkpoint
@@ -109,6 +145,7 @@ def eval_checkpoint_on_real(
         split="test",
         decode_mode=decode_mode,  # type: ignore[arg-type]
         device_preferred=device_preferred,
+        cache_dir=cache_dir,
     )
 
 
@@ -125,10 +162,13 @@ def run_sim_transfer(
     device_preferred: str = "auto",
     feature_mode: str = "diag_delta",
     decode_mode: str = "trial_lm",
+    work_dir: Optional[Path] = None,
 ) -> Dict[str, Any]:
     """Train sim-only and sim+real fractions; evaluate on real test split."""
     sim_dir = Path(sim_dir)
     real_dir = Path(real_dir)
+    work_dir = Path(work_dir) if work_dir is not None else real_dir / "ablations"
+    work_dir.mkdir(parents=True, exist_ok=True)
     real_fracs = list(real_fracs if real_fracs is not None else [0.0, 0.1, 0.5, 1.0])
 
     print(f"[openalterego] sim-transfer sim={sim_dir} real={real_dir} (SPD basis from real)")
@@ -136,6 +176,9 @@ def run_sim_transfer(
         "sim_dir": str(sim_dir),
         "real_dir": str(real_dir),
         "basis_session_dir": str(real_dir),
+        "basis_fit_source": "real_training_trials",
+        "sim_only_uses_real_feature_basis": True,
+        "work_dir": str(work_dir),
         "runs": [],
     }
 
@@ -153,6 +196,7 @@ def run_sim_transfer(
         val_decode_mode="greedy",
         eval_test=False,
         basis_session_dir=real_dir,
+        basis_cache_dir=work_dir / "basis",
     )
 
     for frac in real_fracs:
@@ -163,13 +207,13 @@ def run_sim_transfer(
             lr = 1.5e-3
             augment = False
         else:
-            train_dir = _merge_sim_real_train(sim_dir, real_dir, float(frac), seed)
+            train_dir = _merge_sim_real_train(sim_dir, real_dir, float(frac), seed, work_dir=work_dir)
             tag = f"sim_plus_real_{frac:.2f}"
             epochs = int(finetune_epochs)
             lr = 8e-4
             augment = True
 
-        ckpt_path = real_dir / "ablations" / f"sim_transfer_{tag}_seed{seed}.pt"
+        ckpt_path = work_dir / f"sim_transfer_{tag}_seed{seed}.pt"
         print(f"[openalterego] training {tag} -> {ckpt_path}")
         train_row = train_gowda_ctc(
             train_dir,
@@ -177,16 +221,19 @@ def run_sim_transfer(
             epochs=epochs,
             lr=lr,
             save_path=ckpt_path,
+            cache_dir=work_dir / f"cache_{tag}",
             **train_kw,
         )
 
         if decode_mode == "trial_lm":
             metrics = eval_checkpoint_on_real(
-                ckpt_path, real_dir, device_preferred=device_preferred, decode_mode="trial_lm"
+                ckpt_path, real_dir, device_preferred=device_preferred, decode_mode="trial_lm",
+                cache_dir=work_dir / "eval_cache",
             )
         else:
             metrics = eval_checkpoint_on_real(
-                ckpt_path, real_dir, device_preferred=device_preferred, decode_mode=str(decode_mode)
+                ckpt_path, real_dir, device_preferred=device_preferred, decode_mode=str(decode_mode),
+                cache_dir=work_dir / "eval_cache",
             )
 
         run = {
@@ -204,7 +251,7 @@ def run_sim_transfer(
         )
 
         if float(frac) <= 0.0 and bool(anchor_after_sim):
-            anchor_ckpt = real_dir / "ablations" / f"sim_transfer_sim_pretrain_anchor_seed{seed}.pt"
+            anchor_ckpt = work_dir / f"sim_transfer_sim_pretrain_anchor_seed{seed}.pt"
             print(f"[openalterego] anchor finetune on real -> {anchor_ckpt}")
             anchor_train = train_gowda_ctc(
                 real_dir,
@@ -212,11 +259,13 @@ def run_sim_transfer(
                 epochs=int(anchor_epochs),
                 lr=8e-4,
                 save_path=anchor_ckpt,
+                cache_dir=work_dir / "cache_anchor",
                 init_checkpoint=ckpt_path,
                 **train_kw,
             )
             anchor_metrics = eval_checkpoint_on_real(
-                anchor_ckpt, real_dir, device_preferred=device_preferred, decode_mode=str(decode_mode)
+                anchor_ckpt, real_dir, device_preferred=device_preferred, decode_mode=str(decode_mode),
+                cache_dir=work_dir / "eval_cache",
             )
             results["runs"].append(
                 {
@@ -273,6 +322,7 @@ def main() -> None:
     ap.add_argument("--real", type=str, required=True, help="Real Gowda OSF session (e.g. gowda_sv_full)")
     ap.add_argument("--device", type=str, default="auto", choices=["auto", "cuda", "cpu"])
     ap.add_argument("--out", type=str, default="")
+    ap.add_argument("--work-dir", type=str, default="", help="Keep generated checkpoints and merged data outside inputs")
     ap.add_argument("--seed", type=int, default=1337)
     ap.add_argument("--pretrain-epochs", type=int, default=30)
     ap.add_argument("--finetune-epochs", type=int, default=15)
@@ -296,6 +346,7 @@ def main() -> None:
         device_preferred=str(args.device),
         feature_mode=str(args.feature_mode),
         decode_mode=str(args.decode_mode),
+        work_dir=Path(args.work_dir) if args.work_dir else None,
     )
     out = Path(args.out) if args.out else Path(args.real) / "ablations" / "sim_transfer_report.json"
     out.parent.mkdir(parents=True, exist_ok=True)
