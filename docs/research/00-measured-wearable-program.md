@@ -2,6 +2,11 @@
 
 Status: protocol and engineering plan, not a claim of a validated device.
 
+The current work phase uses simulation and freely downloadable recordings.
+See [the public-data lane](01-public-data-simulation.md) and its locked S04
+check. Electrical and participant studies below are future gates; they are
+not prerequisites for the present offline iterations.
+
 ## Decisive question
 
 Can a model trained on measured acquisition behavior predict which change to an

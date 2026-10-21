@@ -1,0 +1,1107 @@
+{
+  "schema": "openalterego.virtual-montage-cohort.v1",
+  "scope": "Offline public data; virtual subsets of recorded channels only.",
+  "split": "train session 1, candidate selection session 2, report session 3",
+  "subjects": {
+    "S01": {
+      "inputs": {
+        "session_1": [
+          {
+            "file": "sess_1_batch_1.h5",
+            "sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7"
+          },
+          {
+            "file": "sess_1_batch_2.h5",
+            "sha256": "90d20ac02f40784dbd5c86e724871a34d521a742f2a16e84a13cb546865becfb"
+          },
+          {
+            "file": "sess_1_batch_3.h5",
+            "sha256": "5c8ad332a59749359ea5fdbe1a72c2959e31a10b7b24496c8074bab8c02106f0"
+          },
+          {
+            "file": "sess_1_batch_4.h5",
+            "sha256": "a1385ea7035f1463f1bd42dcc9b4d6a33546d0b1179c92f5263ddf751b55a62b"
+          },
+          {
+            "file": "sess_1_batch_5.h5",
+            "sha256": "e932285439f0a081bce0e6ee4ecdf032e6f994300ac669721009027a24f7c2c3"
+          }
+        ],
+        "session_2": [
+          {
+            "file": "sess_2_batch_1.h5",
+            "sha256": "fb0f24eba44822c127139e037e5a81525bbeecca6b8358b52bf3d8230cae6159"
+          },
+          {
+            "file": "sess_2_batch_2.h5",
+            "sha256": "8ac1dd314dd68c9795b4e739066f83e0fdd20d9230f6ae69218d4cff849d7ef5"
+          },
+          {
+            "file": "sess_2_batch_3.h5",
+            "sha256": "937f3b377d4da2e6d4fe6a8e1ab52d1b9ed31404ea36482fe34232ee6c5bef1a"
+          },
+          {
+            "file": "sess_2_batch_4.h5",
+            "sha256": "19c7cd840d0f6d8e61be34536976deafcc5444261ab2863a093655c552beb0ca"
+          },
+          {
+            "file": "sess_2_batch_5.h5",
+            "sha256": "2628310ebe8f378ea9544b53de19642026f1978965bb57280fd42b381ac89b69"
+          }
+        ],
+        "session_3": [
+          {
+            "file": "sess_3_batch_1.h5",
+            "sha256": "6c10ee96cbc100e35c7c306b8addd27e2a8dc182095e948fea0371da33f3f4c0"
+          },
+          {
+            "file": "sess_3_batch_2.h5",
+            "sha256": "2092983b51fb7ae009eb60e75f007a145698508d290454319fadb77bf14950db"
+          },
+          {
+            "file": "sess_3_batch_3.h5",
+            "sha256": "d4d4af55db536119eaa18f4e324f642e6687da2cefccc1c25c3e176c0aea0cfb"
+          },
+          {
+            "file": "sess_3_batch_4.h5",
+            "sha256": "65e1d61f83143ce9192c9286b40aeef6e352a4b9a6f152d98448eef420f68bb3"
+          },
+          {
+            "file": "sess_3_batch_5.h5",
+            "sha256": "0ec37f8760916a2bb3dcc79e15e9c47a08b7e8fa051ec9b7a75506c709ba7e7b"
+          }
+        ]
+      },
+      "normalizations": {
+        "none": {
+          "candidates": {
+            "alternate": {
+              "channels": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "simulated_feature_drift_test_mean": 0.1939489302967564,
+              "simulated_feature_drift_validation_mean": 0.2120552104899931,
+              "test": {
+                "balanced_accuracy": 0.2229399585921325,
+                "command_accuracy": 0.13,
+                "rest_false_activation": 0.03354037267080745
+              },
+              "validation": {
+                "balanced_accuracy": 0.26015873015873014,
+                "command_accuracy": 0.17125,
+                "rest_false_activation": 0.02857142857142857
+              }
+            },
+            "high_index": {
+              "channels": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.20471635610766045,
+              "simulated_feature_drift_validation_mean": 0.2297449965493444,
+              "test": {
+                "balanced_accuracy": 0.20600414078674947,
+                "command_accuracy": 0.1125,
+                "rest_false_activation": 0.04596273291925466
+              },
+              "validation": {
+                "balanced_accuracy": 0.28420289855072467,
+                "command_accuracy": 0.20125,
+                "rest_false_activation": 0.05217391304347826
+              }
+            },
+            "low_index": {
+              "channels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "simulated_feature_drift_test_mean": 0.18922946859903383,
+              "simulated_feature_drift_validation_mean": 0.19134472049689438,
+              "test": {
+                "balanced_accuracy": 0.22795031055900625,
+                "command_accuracy": 0.1375,
+                "rest_false_activation": 0.0484472049689441
+              },
+              "validation": {
+                "balanced_accuracy": 0.2086335403726708,
+                "command_accuracy": 0.11375,
+                "rest_false_activation": 0.03229813664596273
+              }
+            },
+            "mid_index": {
+              "channels": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "simulated_feature_drift_test_mean": 0.20341062801932366,
+              "simulated_feature_drift_validation_mean": 0.2256093857832988,
+              "test": {
+                "balanced_accuracy": 0.2348861283643892,
+                "command_accuracy": 0.14375,
+                "rest_false_activation": 0.03602484472049689
+              },
+              "validation": {
+                "balanced_accuracy": 0.26752933057280887,
+                "command_accuracy": 0.18125,
+                "rest_false_activation": 0.0422360248447205
+              }
+            },
+            "spread": {
+              "channels": [
+                0,
+                2,
+                5,
+                8,
+                11,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.20837819185645273,
+              "simulated_feature_drift_validation_mean": 0.22760317460317459,
+              "test": {
+                "balanced_accuracy": 0.22753623188405797,
+                "command_accuracy": 0.1375,
+                "rest_false_activation": 0.05217391304347826
+              },
+              "validation": {
+                "balanced_accuracy": 0.2544789510006901,
+                "command_accuracy": 0.1675,
+                "rest_false_activation": 0.049689440993788817
+              }
+            }
+          },
+          "choices": {
+            "validation_accuracy": {
+              "candidate": "high_index",
+              "test_balanced_accuracy": 0.20600414078674947,
+              "test_decision_regret": 0.02888198757763974
+            },
+            "validation_drift_robustness": {
+              "candidate": "high_index",
+              "test_balanced_accuracy": 0.20600414078674947,
+              "test_decision_regret": 0.02888198757763974
+            }
+          },
+          "decisive_pairs": 10,
+          "event_counts": {
+            "test": 1605,
+            "train": 1605,
+            "validation": 1605
+          },
+          "feature_drift_draws": 20,
+          "feature_drift_sigma": 0.35,
+          "pairwise_ranking_accuracy": 0.3,
+          "schema": "openalterego.virtual-montage.v1",
+          "scope": "Existing-channel subset and uncalibrated synthetic feature-drift sensitivity; no unrecorded electrode positions.",
+          "seed": 42,
+          "test_decision_regret": 0.02888198757763974,
+          "test_oracle_balanced_accuracy": 0.2348861283643892,
+          "validation_choice": "high_index"
+        },
+        "recording_robust": {
+          "candidates": {
+            "alternate": {
+              "channels": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "simulated_feature_drift_test_mean": 0.18316563146997933,
+              "simulated_feature_drift_validation_mean": 0.20741545893719807,
+              "test": {
+                "balanced_accuracy": 0.23788129744651487,
+                "command_accuracy": 0.16125,
+                "rest_false_activation": 0.14906832298136646
+              },
+              "validation": {
+                "balanced_accuracy": 0.26394755003450654,
+                "command_accuracy": 0.1825,
+                "rest_false_activation": 0.084472049689441
+              }
+            },
+            "high_index": {
+              "channels": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.19132608695652176,
+              "simulated_feature_drift_validation_mean": 0.22338612836438926,
+              "test": {
+                "balanced_accuracy": 0.2368944099378882,
+                "command_accuracy": 0.1575,
+                "rest_false_activation": 0.12795031055900621
+              },
+              "validation": {
+                "balanced_accuracy": 0.3389440993788819,
+                "command_accuracy": 0.26625,
+                "rest_false_activation": 0.07950310559006211
+              }
+            },
+            "low_index": {
+              "channels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "simulated_feature_drift_test_mean": 0.1957308488612836,
+              "simulated_feature_drift_validation_mean": 0.20058419599723948,
+              "test": {
+                "balanced_accuracy": 0.25582470669427193,
+                "command_accuracy": 0.18625,
+                "rest_false_activation": 0.18757763975155278
+              },
+              "validation": {
+                "balanced_accuracy": 0.2702277432712215,
+                "command_accuracy": 0.195,
+                "rest_false_activation": 0.12795031055900621
+              }
+            },
+            "mid_index": {
+              "channels": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "simulated_feature_drift_test_mean": 0.20387750172532776,
+              "simulated_feature_drift_validation_mean": 0.21248205659075223,
+              "test": {
+                "balanced_accuracy": 0.288543823326432,
+                "command_accuracy": 0.2125,
+                "rest_false_activation": 0.1031055900621118
+              },
+              "validation": {
+                "balanced_accuracy": 0.29408557625948933,
+                "command_accuracy": 0.21625,
+                "rest_false_activation": 0.08322981366459627
+              }
+            },
+            "spread": {
+              "channels": [
+                0,
+                2,
+                5,
+                8,
+                11,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.21051587301587302,
+              "simulated_feature_drift_validation_mean": 0.22294720496894413,
+              "test": {
+                "balanced_accuracy": 0.28553485162180814,
+                "command_accuracy": 0.2175,
+                "rest_false_activation": 0.1701863354037267
+              },
+              "validation": {
+                "balanced_accuracy": 0.2885507246376811,
+                "command_accuracy": 0.21375,
+                "rest_false_activation": 0.11304347826086956
+              }
+            }
+          },
+          "choices": {
+            "validation_accuracy": {
+              "candidate": "high_index",
+              "test_balanced_accuracy": 0.2368944099378882,
+              "test_decision_regret": 0.05164941338854381
+            },
+            "validation_drift_robustness": {
+              "candidate": "high_index",
+              "test_balanced_accuracy": 0.2368944099378882,
+              "test_decision_regret": 0.05164941338854381
+            }
+          },
+          "decisive_pairs": 10,
+          "event_counts": {
+            "test": 1605,
+            "train": 1605,
+            "validation": 1605
+          },
+          "feature_drift_draws": 20,
+          "feature_drift_sigma": 0.35,
+          "pairwise_ranking_accuracy": 0.6,
+          "schema": "openalterego.virtual-montage.v1",
+          "scope": "Existing-channel subset and uncalibrated synthetic feature-drift sensitivity; no unrecorded electrode positions.",
+          "seed": 42,
+          "test_decision_regret": 0.05164941338854381,
+          "test_oracle_balanced_accuracy": 0.288543823326432,
+          "validation_choice": "high_index"
+        }
+      }
+    },
+    "S02": {
+      "inputs": {
+        "session_1": [
+          {
+            "file": "sess_1_batch_1.h5",
+            "sha256": "4a76cddfe56cc2fc08aadff70039fee450151e72f085f09a08e22bc379e0209b"
+          },
+          {
+            "file": "sess_1_batch_2.h5",
+            "sha256": "2144520ac3b66c121aeef8b77ce3ff11fe8930592b500aef032c3f210c0432da"
+          },
+          {
+            "file": "sess_1_batch_3.h5",
+            "sha256": "6c54f617c658615b0bacc763a0fd1b4122f7d11567b5c3f2ef76f589e091f297"
+          },
+          {
+            "file": "sess_1_batch_4.h5",
+            "sha256": "b9646761debd45c29af0dd430a671bde0ecc02ab8a6c17f9fd739ae701358a2a"
+          },
+          {
+            "file": "sess_1_batch_5.h5",
+            "sha256": "93ab3608ffdb56fd716c7913e2c087a415b217d97dbb2e87a95b8716f389bc47"
+          }
+        ],
+        "session_2": [
+          {
+            "file": "sess_2_batch_1.h5",
+            "sha256": "80b43e5aa9d763b2214ac0816dcb9c4593a85d657cd513ac14dc4569b6126833"
+          },
+          {
+            "file": "sess_2_batch_2.h5",
+            "sha256": "137bd682558357f0b0ff9c69e169c61fa6deb886d51ebcdc7d2432219c89fbe8"
+          },
+          {
+            "file": "sess_2_batch_3.h5",
+            "sha256": "6e3352bb62ddb2312730972b47a0970e24e4a55e23472aaa7482b06c72605dc9"
+          },
+          {
+            "file": "sess_2_batch_4.h5",
+            "sha256": "edb7380f4d92d2e8f64ea785b4814ca3387cefc24b2d0f5c88834491678e842e"
+          },
+          {
+            "file": "sess_2_batch_5.h5",
+            "sha256": "9a166f6b06956fb23999beccbd6fce583387ad0b576515452885382725460bb3"
+          }
+        ],
+        "session_3": [
+          {
+            "file": "sess_3_batch_1.h5",
+            "sha256": "094a75b9aee41d565317a41a86bff5f07e63887e174a6aeccc244ceb330bc468"
+          },
+          {
+            "file": "sess_3_batch_2.h5",
+            "sha256": "7a4b90c3b372aa5d5afbbfe68d5bc722bc962250d3a9b33832ef2b260faa73de"
+          },
+          {
+            "file": "sess_3_batch_3.h5",
+            "sha256": "91e0b1efb4b48cb0ad89897cd3264492b31ce446c2165073cf1052eb5c02a8a1"
+          },
+          {
+            "file": "sess_3_batch_4.h5",
+            "sha256": "fbaea364b35f38ceacb5670ba2b8e37fcb0bc6da094e3b23b771985c6b23f6b0"
+          },
+          {
+            "file": "sess_3_batch_5.h5",
+            "sha256": "0c098e1abbbb46741d41ddc9aff898a8a20cc90e9f7cd3ada16a269b22e8cb70"
+          }
+        ]
+      },
+      "normalizations": {
+        "none": {
+          "candidates": {
+            "alternate": {
+              "channels": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "simulated_feature_drift_test_mean": 0.16362560386473432,
+              "simulated_feature_drift_validation_mean": 0.18475603864734302,
+              "test": {
+                "balanced_accuracy": 0.17275362318840579,
+                "command_accuracy": 0.115,
+                "rest_false_activation": 0.3652173913043478
+              },
+              "validation": {
+                "balanced_accuracy": 0.18549344375431334,
+                "command_accuracy": 0.1725,
+                "rest_false_activation": 0.7105590062111802
+              }
+            },
+            "high_index": {
+              "channels": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.14507073844030366,
+              "simulated_feature_drift_validation_mean": 0.15030020703933747,
+              "test": {
+                "balanced_accuracy": 0.15252587991718428,
+                "command_accuracy": 0.05125,
+                "rest_false_activation": 0.037267080745341616
+              },
+              "validation": {
+                "balanced_accuracy": 0.13670117322291236,
+                "command_accuracy": 0.035,
+                "rest_false_activation": 0.049689440993788817
+              }
+            },
+            "low_index": {
+              "channels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "simulated_feature_drift_test_mean": 0.1471207729468599,
+              "simulated_feature_drift_validation_mean": 0.17003588681849552,
+              "test": {
+                "balanced_accuracy": 0.18848171152518978,
+                "command_accuracy": 0.16375,
+                "rest_false_activation": 0.613664596273292
+              },
+              "validation": {
+                "balanced_accuracy": 0.18066252587991716,
+                "command_accuracy": 0.1975,
+                "rest_false_activation": 0.9540372670807453
+              }
+            },
+            "mid_index": {
+              "channels": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "simulated_feature_drift_test_mean": 0.15453450655624568,
+              "simulated_feature_drift_validation_mean": 0.18764458247066942,
+              "test": {
+                "balanced_accuracy": 0.17171842650103522,
+                "command_accuracy": 0.1525,
+                "rest_false_activation": 0.6745341614906832
+              },
+              "validation": {
+                "balanced_accuracy": 0.19475500345065563,
+                "command_accuracy": 0.2,
+                "rest_false_activation": 0.8472049689440994
+              }
+            },
+            "spread": {
+              "channels": [
+                0,
+                2,
+                5,
+                8,
+                11,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.14341890959282264,
+              "simulated_feature_drift_validation_mean": 0.16248205659075227,
+              "test": {
+                "balanced_accuracy": 0.16706694271911665,
+                "command_accuracy": 0.185,
+                "rest_false_activation": 0.9763975155279503
+              },
+              "validation": {
+                "balanced_accuracy": 0.2021463077984817,
+                "command_accuracy": 0.21375,
+                "rest_false_activation": 0.8906832298136645
+              }
+            }
+          },
+          "choices": {
+            "validation_accuracy": {
+              "candidate": "spread",
+              "test_balanced_accuracy": 0.16706694271911665,
+              "test_decision_regret": 0.021414768806073126
+            },
+            "validation_drift_robustness": {
+              "candidate": "mid_index",
+              "test_balanced_accuracy": 0.17171842650103522,
+              "test_decision_regret": 0.016763285024154556
+            }
+          },
+          "decisive_pairs": 10,
+          "event_counts": {
+            "test": 1605,
+            "train": 1605,
+            "validation": 1605
+          },
+          "feature_drift_draws": 20,
+          "feature_drift_sigma": 0.35,
+          "pairwise_ranking_accuracy": 0.4,
+          "schema": "openalterego.virtual-montage.v1",
+          "scope": "Existing-channel subset and uncalibrated synthetic feature-drift sensitivity; no unrecorded electrode positions.",
+          "seed": 42,
+          "test_decision_regret": 0.021414768806073126,
+          "test_oracle_balanced_accuracy": 0.18848171152518978,
+          "validation_choice": "spread"
+        },
+        "recording_robust": {
+          "candidates": {
+            "alternate": {
+              "channels": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "simulated_feature_drift_test_mean": 0.19763975155279506,
+              "simulated_feature_drift_validation_mean": 0.22485300207039338,
+              "test": {
+                "balanced_accuracy": 0.22403036576949623,
+                "command_accuracy": 0.1775,
+                "rest_false_activation": 0.40372670807453415
+              },
+              "validation": {
+                "balanced_accuracy": 0.25590062111801243,
+                "command_accuracy": 0.2,
+                "rest_false_activation": 0.2968944099378882
+              }
+            },
+            "high_index": {
+              "channels": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.19214665286404417,
+              "simulated_feature_drift_validation_mean": 0.2070766045548654,
+              "test": {
+                "balanced_accuracy": 0.21906832298136647,
+                "command_accuracy": 0.20375,
+                "rest_false_activation": 0.6583850931677019
+              },
+              "validation": {
+                "balanced_accuracy": 0.2405175983436853,
+                "command_accuracy": 0.18875,
+                "rest_false_activation": 0.3453416149068323
+              }
+            },
+            "low_index": {
+              "channels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "simulated_feature_drift_test_mean": 0.16730986887508625,
+              "simulated_feature_drift_validation_mean": 0.20530676328502415,
+              "test": {
+                "balanced_accuracy": 0.19609385783298827,
+                "command_accuracy": 0.1675,
+                "rest_false_activation": 0.5751552795031056
+              },
+              "validation": {
+                "balanced_accuracy": 0.23338164251207727,
+                "command_accuracy": 0.19625,
+                "rest_false_activation": 0.46956521739130436
+              }
+            },
+            "mid_index": {
+              "channels": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "simulated_feature_drift_test_mean": 0.19255900621118016,
+              "simulated_feature_drift_validation_mean": 0.24889510006901308,
+              "test": {
+                "balanced_accuracy": 0.2206142167011732,
+                "command_accuracy": 0.18375,
+                "rest_false_activation": 0.484472049689441
+              },
+              "validation": {
+                "balanced_accuracy": 0.31197377501725326,
+                "command_accuracy": 0.25625,
+                "rest_false_activation": 0.2422360248447205
+              }
+            },
+            "spread": {
+              "channels": [
+                0,
+                2,
+                5,
+                8,
+                11,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.18233609385783298,
+              "simulated_feature_drift_validation_mean": 0.22804727398205657,
+              "test": {
+                "balanced_accuracy": 0.20601104209799861,
+                "command_accuracy": 0.21375,
+                "rest_false_activation": 0.8559006211180125
+              },
+              "validation": {
+                "balanced_accuracy": 0.26636991028295376,
+                "command_accuracy": 0.27125,
+                "rest_false_activation": 0.7726708074534161
+              }
+            }
+          },
+          "choices": {
+            "validation_accuracy": {
+              "candidate": "mid_index",
+              "test_balanced_accuracy": 0.2206142167011732,
+              "test_decision_regret": 0.003416149068323021
+            },
+            "validation_drift_robustness": {
+              "candidate": "mid_index",
+              "test_balanced_accuracy": 0.2206142167011732,
+              "test_decision_regret": 0.003416149068323021
+            }
+          },
+          "decisive_pairs": 10,
+          "event_counts": {
+            "test": 1605,
+            "train": 1605,
+            "validation": 1605
+          },
+          "feature_drift_draws": 20,
+          "feature_drift_sigma": 0.35,
+          "pairwise_ranking_accuracy": 0.7,
+          "schema": "openalterego.virtual-montage.v1",
+          "scope": "Existing-channel subset and uncalibrated synthetic feature-drift sensitivity; no unrecorded electrode positions.",
+          "seed": 42,
+          "test_decision_regret": 0.003416149068323021,
+          "test_oracle_balanced_accuracy": 0.22403036576949623,
+          "validation_choice": "mid_index"
+        }
+      }
+    },
+    "S03": {
+      "inputs": {
+        "session_1": [
+          {
+            "file": "sess_1_batch_1.h5",
+            "sha256": "d9ada20da0f1ab0525fe2b994e350a758c39b8bf70276a0a7087c67675971a4f"
+          },
+          {
+            "file": "sess_1_batch_2.h5",
+            "sha256": "712c673ad5d4f759bc45f8adcd4c3dc19d9556d11d3240c6348bc7772634e62b"
+          },
+          {
+            "file": "sess_1_batch_3.h5",
+            "sha256": "042a63aa91031c0ee5702895eedf188baf97888c63e955bd578c1c62d2249427"
+          },
+          {
+            "file": "sess_1_batch_4.h5",
+            "sha256": "10f30d458d6e21793d9bbd44e84aebe7282f4ddd1d50e5aad0cfd01f81f2450c"
+          },
+          {
+            "file": "sess_1_batch_5.h5",
+            "sha256": "99db8397a214a4e6f117ad296ce6237ad849abbda6d688143a79323d3aacd145"
+          }
+        ],
+        "session_2": [
+          {
+            "file": "sess_2_batch_1.h5",
+            "sha256": "b95a318541677eb2dcc0015e7fffb459a6b7af15651676366a8742c1936a2811"
+          },
+          {
+            "file": "sess_2_batch_2.h5",
+            "sha256": "f5745317e3438a62c1323ceb93e0d347cefeedc595c7030cae6d64ca0c583114"
+          },
+          {
+            "file": "sess_2_batch_3.h5",
+            "sha256": "75ea3c29d87e838e1c00cc233a12b72233af20060e0b255cac3490e3f5fea83b"
+          },
+          {
+            "file": "sess_2_batch_4.h5",
+            "sha256": "c7e661b92db5778e6e08ee196d48090313722ddec94e77054a1ee96acab2994a"
+          },
+          {
+            "file": "sess_2_batch_5.h5",
+            "sha256": "b06105fa1e3660903e56797cb93bdb15a615cad38d95af6a4a49cf13fa113fee"
+          }
+        ],
+        "session_3": [
+          {
+            "file": "sess_3_batch_1.h5",
+            "sha256": "2b02aa99342c59354a1a14127d2e8f389358f4f695f4702298c1231f0e7bf201"
+          },
+          {
+            "file": "sess_3_batch_2.h5",
+            "sha256": "9bedf70cffa8863ac0540e8dc111c7bfd5bdfb219324a88b5f168b98b0d68d0d"
+          },
+          {
+            "file": "sess_3_batch_3.h5",
+            "sha256": "8c5ea3b622fb7c6b25638b56853ae2f0477e98bac9e5f46e89d683aaf9fb2ddf"
+          },
+          {
+            "file": "sess_3_batch_4.h5",
+            "sha256": "05742c3e3eac9a852d70f0fffa7871af32740991495ed540f32addca38169836"
+          },
+          {
+            "file": "sess_3_batch_5.h5",
+            "sha256": "eb4f48555ce28598339648567f3428e3285cd3f3783707498b5fc28ce7bb8618"
+          }
+        ]
+      },
+      "normalizations": {
+        "none": {
+          "candidates": {
+            "alternate": {
+              "channels": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "simulated_feature_drift_test_mean": 0.19189820565907525,
+              "simulated_feature_drift_validation_mean": 0.1895904071773637,
+              "test": {
+                "balanced_accuracy": 0.23550724637681159,
+                "command_accuracy": 0.15625,
+                "rest_false_activation": 0.13043478260869565
+              },
+              "validation": {
+                "balanced_accuracy": 0.24653554175293305,
+                "command_accuracy": 0.17875,
+                "rest_false_activation": 0.2111801242236025
+              }
+            },
+            "high_index": {
+              "channels": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.18769427191166324,
+              "simulated_feature_drift_validation_mean": 0.1791815044858523,
+              "test": {
+                "balanced_accuracy": 0.2293029675638371,
+                "command_accuracy": 0.1575,
+                "rest_false_activation": 0.19627329192546583
+              },
+              "validation": {
+                "balanced_accuracy": 0.21683919944789512,
+                "command_accuracy": 0.15,
+                "rest_false_activation": 0.2484472049689441
+              }
+            },
+            "low_index": {
+              "channels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "simulated_feature_drift_test_mean": 0.18315838509316767,
+              "simulated_feature_drift_validation_mean": 0.17511007591442376,
+              "test": {
+                "balanced_accuracy": 0.21048999309868877,
+                "command_accuracy": 0.125,
+                "rest_false_activation": 0.10559006211180125
+              },
+              "validation": {
+                "balanced_accuracy": 0.21191166321601104,
+                "command_accuracy": 0.1825,
+                "rest_false_activation": 0.5527950310559007
+              }
+            },
+            "mid_index": {
+              "channels": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "simulated_feature_drift_test_mean": 0.20272187715665976,
+              "simulated_feature_drift_validation_mean": 0.18446376811594203,
+              "test": {
+                "balanced_accuracy": 0.2591166321601104,
+                "command_accuracy": 0.1825,
+                "rest_false_activation": 0.12795031055900621
+              },
+              "validation": {
+                "balanced_accuracy": 0.21714285714285717,
+                "command_accuracy": 0.13,
+                "rest_false_activation": 0.08571428571428572
+              }
+            },
+            "spread": {
+              "channels": [
+                0,
+                2,
+                5,
+                8,
+                11,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.20923119392684608,
+              "simulated_feature_drift_validation_mean": 0.18950103519668737,
+              "test": {
+                "balanced_accuracy": 0.2543961352657005,
+                "command_accuracy": 0.1775,
+                "rest_false_activation": 0.13043478260869565
+              },
+              "validation": {
+                "balanced_accuracy": 0.20429261559696343,
+                "command_accuracy": 0.1275,
+                "rest_false_activation": 0.1813664596273292
+              }
+            }
+          },
+          "choices": {
+            "validation_accuracy": {
+              "candidate": "alternate",
+              "test_balanced_accuracy": 0.23550724637681159,
+              "test_decision_regret": 0.023609385783298797
+            },
+            "validation_drift_robustness": {
+              "candidate": "alternate",
+              "test_balanced_accuracy": 0.23550724637681159,
+              "test_decision_regret": 0.023609385783298797
+            }
+          },
+          "decisive_pairs": 10,
+          "event_counts": {
+            "test": 1605,
+            "train": 1605,
+            "validation": 1605
+          },
+          "feature_drift_draws": 20,
+          "feature_drift_sigma": 0.35,
+          "pairwise_ranking_accuracy": 0.6,
+          "schema": "openalterego.virtual-montage.v1",
+          "scope": "Existing-channel subset and uncalibrated synthetic feature-drift sensitivity; no unrecorded electrode positions.",
+          "seed": 42,
+          "test_decision_regret": 0.023609385783298797,
+          "test_oracle_balanced_accuracy": 0.2591166321601104,
+          "validation_choice": "alternate"
+        },
+        "recording_robust": {
+          "candidates": {
+            "alternate": {
+              "channels": [
+                1,
+                3,
+                5,
+                7,
+                9,
+                11
+              ],
+              "simulated_feature_drift_test_mean": 0.22274085576259495,
+              "simulated_feature_drift_validation_mean": 0.23382091097308488,
+              "test": {
+                "balanced_accuracy": 0.28245686680469295,
+                "command_accuracy": 0.21,
+                "rest_false_activation": 0.13788819875776398
+              },
+              "validation": {
+                "balanced_accuracy": 0.2893926846100759,
+                "command_accuracy": 0.21625,
+                "rest_false_activation": 0.12546583850931678
+              }
+            },
+            "high_index": {
+              "channels": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.2298664596273292,
+              "simulated_feature_drift_validation_mean": 0.23539924085576258,
+              "test": {
+                "balanced_accuracy": 0.27663216011042097,
+                "command_accuracy": 0.205,
+                "rest_false_activation": 0.15031055900621118
+              },
+              "validation": {
+                "balanced_accuracy": 0.27304347826086955,
+                "command_accuracy": 0.205,
+                "rest_false_activation": 0.1826086956521739
+              }
+            },
+            "low_index": {
+              "channels": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "simulated_feature_drift_test_mean": 0.20029399585921323,
+              "simulated_feature_drift_validation_mean": 0.21914527260179434,
+              "test": {
+                "balanced_accuracy": 0.2436991028295376,
+                "command_accuracy": 0.165,
+                "rest_false_activation": 0.1267080745341615
+              },
+              "validation": {
+                "balanced_accuracy": 0.2556728778467909,
+                "command_accuracy": 0.18375,
+                "rest_false_activation": 0.168944099378882
+              }
+            },
+            "mid_index": {
+              "channels": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "simulated_feature_drift_test_mean": 0.21722084195997243,
+              "simulated_feature_drift_validation_mean": 0.24551483781918565,
+              "test": {
+                "balanced_accuracy": 0.2893926846100759,
+                "command_accuracy": 0.21625,
+                "rest_false_activation": 0.12546583850931678
+              },
+              "validation": {
+                "balanced_accuracy": 0.27982746721877155,
+                "command_accuracy": 0.20875,
+                "rest_false_activation": 0.1515527950310559
+              }
+            },
+            "spread": {
+              "channels": [
+                0,
+                2,
+                5,
+                8,
+                11,
+                13
+              ],
+              "simulated_feature_drift_test_mean": 0.23770738440303663,
+              "simulated_feature_drift_validation_mean": 0.2685069013112491,
+              "test": {
+                "balanced_accuracy": 0.2539958592132505,
+                "command_accuracy": 0.18,
+                "rest_false_activation": 0.15403726708074533
+              },
+              "validation": {
+                "balanced_accuracy": 0.28151138716356106,
+                "command_accuracy": 0.21375,
+                "rest_false_activation": 0.1763975155279503
+              }
+            }
+          },
+          "choices": {
+            "validation_accuracy": {
+              "candidate": "alternate",
+              "test_balanced_accuracy": 0.28245686680469295,
+              "test_decision_regret": 0.006935817805382938
+            },
+            "validation_drift_robustness": {
+              "candidate": "spread",
+              "test_balanced_accuracy": 0.2539958592132505,
+              "test_decision_regret": 0.03539682539682537
+            }
+          },
+          "decisive_pairs": 10,
+          "event_counts": {
+            "test": 1605,
+            "train": 1605,
+            "validation": 1605
+          },
+          "feature_drift_draws": 20,
+          "feature_drift_sigma": 0.35,
+          "pairwise_ranking_accuracy": 0.7,
+          "schema": "openalterego.virtual-montage.v1",
+          "scope": "Existing-channel subset and uncalibrated synthetic feature-drift sensitivity; no unrecorded electrode positions.",
+          "seed": 42,
+          "test_decision_regret": 0.006935817805382938,
+          "test_oracle_balanced_accuracy": 0.2893926846100759,
+          "validation_choice": "alternate"
+        }
+      }
+    }
+  },
+  "summary": {
+    "none": {
+      "validation_accuracy": {
+        "mean_test_decision_regret": 0.02463538072233722,
+        "regret_by_subject": {
+          "S01": 0.02888198757763974,
+          "S02": 0.021414768806073126,
+          "S03": 0.023609385783298797
+        }
+      },
+      "validation_drift_robustness": {
+        "mean_test_decision_regret": 0.023084886128364363,
+        "regret_by_subject": {
+          "S01": 0.02888198757763974,
+          "S02": 0.016763285024154556,
+          "S03": 0.023609385783298797
+        }
+      }
+    },
+    "recording_robust": {
+      "validation_accuracy": {
+        "mean_test_decision_regret": 0.02066712675408326,
+        "regret_by_subject": {
+          "S01": 0.05164941338854381,
+          "S02": 0.003416149068323021,
+          "S03": 0.006935817805382938
+        }
+      },
+      "validation_drift_robustness": {
+        "mean_test_decision_regret": 0.03015412928456407,
+        "regret_by_subject": {
+          "S01": 0.05164941338854381,
+          "S02": 0.003416149068323021,
+          "S03": 0.03539682539682537
+        }
+      }
+    }
+  }
+}

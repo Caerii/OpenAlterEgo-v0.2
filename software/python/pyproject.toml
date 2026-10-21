@@ -39,6 +39,7 @@ dev = [
 ]
 
 [project.optional-dependencies]
+public-data = ["h5py>=3.10"]
 accel = [
     "numba>=0.59",
 ]
