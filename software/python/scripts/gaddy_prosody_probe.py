@@ -70,11 +70,20 @@ def robust_session_normalize(features: np.ndarray) -> np.ndarray:
     return (features - median) / np.maximum(q75 - q25, 0.1)
 
 
+def normalize_from_calibration(features: np.ndarray, calibration: np.ndarray) -> np.ndarray:
+    """Use only earlier, unlabeled calibration frames to set session gain."""
+    median = np.median(calibration, axis=0)
+    q25, q75 = np.quantile(calibration, [0.25, 0.75], axis=0)
+    return (features - median) / np.maximum(q75 - q25, 0.1)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--subset", type=Path, required=True)
     parser.add_argument("--test-subset", type=Path, help="independent voiced session for cross-session evaluation")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--calibration-trials", type=int, default=0,
+                        help="reserve this many earliest test trials for unlabeled causal calibration")
     args = parser.parse_args()
     manifest = json.loads((args.subset / "manifest.json").read_text(encoding="utf-8"))
     if manifest["schema"] != "openalterego.gaddy-voiced-subset.v1":
@@ -108,28 +117,45 @@ def main() -> None:
 
     train_rows = load_rows(args.subset, train_ids)
     test_rows = load_rows(args.test_subset or args.subset, test_ids)
+    if args.calibration_trials < 0 or args.calibration_trials >= len(test_ids):
+        parser.error("calibration trials must leave at least one test trial")
+    evaluation_ids = test_ids[args.calibration_trials:]
     train_x = np.concatenate([train_rows[i][0] for i in train_ids])
-    test_x = np.concatenate([test_rows[i][0] for i in test_ids])
+    test_x = np.concatenate([test_rows[i][0] for i in evaluation_ids])
     train_x_robust = robust_session_normalize(train_x)
     test_x_robust = robust_session_normalize(test_x)
+    test_x_calibrated = None
+    if args.calibration_trials:
+        calibration = np.concatenate([test_rows[i][0] for i in test_ids[:args.calibration_trials]])
+        test_x_calibrated = normalize_from_calibration(test_x, calibration)
     results = {}
     for name, column in (("log_audio_rms", 1), ("log_audio_rms_voiced", 1), ("f0_hz", 2)):
         train_y = np.concatenate([train_rows[i][column] for i in train_ids])
-        test_y = np.concatenate([test_rows[i][column] for i in test_ids])
+        test_y = np.concatenate([test_rows[i][column] for i in evaluation_ids])
         if name in ("f0_hz", "log_audio_rms_voiced"):
             train_pitch = np.concatenate([train_rows[i][2] for i in train_ids])
-            test_pitch = np.concatenate([test_rows[i][2] for i in test_ids])
+            test_pitch = np.concatenate([test_rows[i][2] for i in evaluation_ids])
             train_mask, test_mask = train_pitch > 0, test_pitch > 0
             train_x_target, test_x_target = train_x[train_mask], test_x[test_mask]
             train_x_robust_target, test_x_robust_target = train_x_robust[train_mask], test_x_robust[test_mask]
+            test_x_calibrated_target = test_x_calibrated[test_mask] if test_x_calibrated is not None else None
             train_y, test_y = train_y[train_mask], test_y[test_mask]
         else:
             train_x_target, test_x_target = train_x, test_x
             train_x_robust_target, test_x_robust_target = train_x_robust, test_x_robust
+            test_x_calibrated_target = test_x_calibrated
         results[name] = score(train_x_target, train_y, test_x_target, test_y)
         normalized = score(train_x_robust_target, train_y, test_x_robust_target, test_y)
         results[name]["session_robust_emg_mae"] = normalized["emg_mae"]
         results[name]["session_robust_emg_r2"] = normalized["emg_r2"]
+        if test_x_calibrated_target is not None:
+            causal = score(train_x_robust_target, train_y, test_x_calibrated_target, test_y)
+            results[name]["calibration_only_emg_mae"] = causal["emg_mae"]
+            results[name]["calibration_only_emg_r2"] = causal["emg_r2"]
+        normalized_shuffled = score(
+            train_x_robust_target[np.random.default_rng(43).permutation(len(train_y))],
+            train_y, test_x_robust_target, test_y)
+        results[name]["normalized_shuffled_emg_mae"] = normalized_shuffled["emg_mae"]
         shuffled = score(train_x_target[np.random.default_rng(43).permutation(len(train_y))],
                          train_y, test_x_target, test_y)
         results[name]["shuffled_training_emg_mae"] = shuffled["emg_mae"]
@@ -138,7 +164,8 @@ def main() -> None:
               "source_path": manifest["source_path"],
               "test_source_path": test_manifest["source_path"] if test_manifest else manifest["source_path"],
               "seed": 42, "train_trial_ids": sorted(train_ids),
-              "test_trial_ids": sorted(test_ids), "results": results,
+              "test_trial_ids": sorted(evaluation_ids),
+              "calibration_trial_ids": sorted(test_ids[:args.calibration_trials]), "results": results,
               "scope": ("Exploratory two-session vocalized transfer with repeated-prompt risk; "
                         if args.test_subset else "Exploratory one-session vocalized speech; ")
                        + "autocorrelation F0 targets; no silent prosody validation."}

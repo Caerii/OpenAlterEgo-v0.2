@@ -1,7 +1,8 @@
 import numpy as np
 import pytest
 
-from scripts.gaddy_prosody_probe import estimate_f0, robust_session_normalize, score, trial_frames
+from scripts.gaddy_prosody_probe import (estimate_f0, normalize_from_calibration,
+                                         robust_session_normalize, score, trial_frames)
 
 
 def test_pitch_probe_finds_clean_sine_and_rejects_silence():
@@ -28,3 +29,11 @@ def test_session_normalization_removes_unlabeled_shift():
     base = np.arange(40, dtype=float).reshape(20, 2)
     assert np.allclose(robust_session_normalize(base),
                        robust_session_normalize(base * 3 + 10))
+
+
+def test_calibration_only_normalization_uses_prior_frames():
+    calibration = np.arange(40, dtype=float).reshape(20, 2)
+    future = np.array([[1000.0, 2000.0]])
+    expected = normalize_from_calibration(future, calibration)
+    assert np.allclose(expected, normalize_from_calibration(future, calibration.copy()))
+    assert not np.allclose(expected, robust_session_normalize(np.concatenate([calibration, future]))[-1])
