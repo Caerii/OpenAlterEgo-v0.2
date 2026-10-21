@@ -57,6 +57,46 @@ uv run --frozen python scripts/gaddy_prosody_probe.py \
   --subset /data/Gaddy/voiced-first100 --output /runs/gaddy-prosody.json
 ```
 
+## Cross-session challenge and negative result
+
+The same extractor imported the first 100 IDs from voiced parallel sessions
+5-5 and 5-6. It excluded reference records, leaving 83 training utterances
+and 80 test utterances. Prompts may repeat across these parallel sessions,
+so this tests recording-session transfer under a narrow task. No frames from
+the test session entered model fitting. Both subsets came from the same
+MD5-verified archive.
+
+| Held-out session 5-6 target | Raw EMG MAE | Label-free normalized EMG MAE | Mean-prior MAE |
+| --- | ---: | ---: | ---: |
+| Log audio RMS, all frames | 10.790 | 0.845 | 0.827 |
+| Log audio RMS, voiced frames | 7.968 | 0.784 | 0.810 |
+| F0, Hz, voiced frames | 386.54 | 81.78 | 77.42 |
+
+The unnormalized model failed badly. Median EMG channel RMS of three sampled
+trials was about 17.8k in session 5-5 and 8.0k in session 5-6, consistent with
+large gain drift. A label-free median/IQR transform calculated separately on
+the entire available train and test sessions removed extreme extrapolation.
+Its small voiced-energy advantage over the constant prior does not establish
+robust expressive transfer, and F0 remained worse. This transform was chosen
+after observing the raw failure and assumes full unlabeled test-session data,
+so it is exploratory and transductive; a streaming wearable would need a
+different calibration strategy. Preserve both the [raw failure](results/gaddy-prosody-cross-session-raw.json)
+and [normalized follow-up](results/gaddy-prosody-cross-session-robust.json).
+
+Reproduce the cross-session follow-up using separate new output directories:
+
+```bash
+uv run --frozen python scripts/extract_gaddy_voiced_subset.py \
+  --archive /data/Gaddy/emg_data.tar.gz --session parallel-5-5 \
+  --out /data/Gaddy/parallel-5-5 --count 100
+uv run --frozen python scripts/extract_gaddy_voiced_subset.py \
+  --archive /data/Gaddy/emg_data.tar.gz --session parallel-5-6 \
+  --out /data/Gaddy/parallel-5-6 --count 100
+uv run --frozen python scripts/gaddy_prosody_probe.py \
+  --subset /data/Gaddy/parallel-5-5 --test-subset /data/Gaddy/parallel-5-6 \
+  --output /runs/cross-session.json
+```
+
 ## Evidence available now
 
 - [Gaddy and Klein's open corpus](https://zenodo.org/records/4064409)

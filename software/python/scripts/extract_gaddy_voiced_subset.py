@@ -13,7 +13,9 @@ from pathlib import Path
 
 
 PUBLISHED_MD5 = "7f97d2182b896652999b1b2d0c69fd7b"
-PREFIX = "emg_data/closed_vocab/voiced/5-19/"
+PREFIXES = {"closed-5-19": "emg_data/closed_vocab/voiced/5-19/",
+            "parallel-5-5": "emg_data/voiced_parallel_data/5-5/",
+            "parallel-5-6": "emg_data/voiced_parallel_data/5-6/"}
 SUFFIXES = ("emg.npy", "audio_clean.flac", "info.json")
 
 
@@ -22,6 +24,7 @@ def main() -> None:
     parser.add_argument("--archive", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--count", type=int, default=20)
+    parser.add_argument("--session", choices=tuple(PREFIXES), default="closed-5-19")
     args = parser.parse_args()
     if args.count < 1 or args.count > 100:
         parser.error("count must be between 1 and 100")
@@ -33,14 +36,15 @@ def main() -> None:
             digest.update(chunk)
     if digest.hexdigest() != PUBLISHED_MD5:
         parser.error("archive differs from publisher MD5")
+    prefix = PREFIXES[args.session]
     args.out.mkdir(parents=True, exist_ok=True)
     wanted = {f"{sample}_{suffix}" for sample in range(args.count) for suffix in SUFFIXES}
     manifest = {}
     with tarfile.open(args.archive, "r|gz") as archive:
         for member in archive:
-            if not member.name.startswith(PREFIX) or not member.isfile():
+            if not member.name.startswith(prefix) or not member.isfile():
                 continue
-            name = member.name[len(PREFIX):]
+            name = member.name[len(prefix):]
             if name not in wanted or not re.fullmatch(r"[0-9]+_(emg\.npy|audio_clean\.flac|info\.json)", name):
                 continue
             if member.size < 1 or member.size > 5_000_000:
@@ -63,7 +67,7 @@ def main() -> None:
         raise ValueError(f"archive lacks {len(wanted)} requested components")
     with (args.out / "manifest.json").open("x", encoding="utf-8") as output:
         json.dump({"schema": "openalterego.gaddy-voiced-subset.v1", "source_md5": PUBLISHED_MD5,
-                   "source_path": PREFIX, "files": manifest}, output, indent=2, sort_keys=True)
+                   "source_path": prefix, "files": manifest}, output, indent=2, sort_keys=True)
         output.write("\n")
     print(f"extracted {args.count} matched voiced examples to {args.out}")
 

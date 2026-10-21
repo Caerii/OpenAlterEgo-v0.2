@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from scripts.gaddy_prosody_probe import estimate_f0, score, trial_frames
+from scripts.gaddy_prosody_probe import estimate_f0, robust_session_normalize, score, trial_frames
 
 
 def test_pitch_probe_finds_clean_sine_and_rejects_silence():
@@ -22,3 +22,9 @@ def test_trial_frames_and_split_score_are_finite():
     result = score(np.arange(40).reshape(20, 2), np.arange(20),
                    np.arange(20).reshape(10, 2), np.arange(10))
     assert np.isfinite(result["emg_mae"])
+
+
+def test_session_normalization_removes_unlabeled_shift():
+    base = np.arange(40, dtype=float).reshape(20, 2)
+    assert np.allclose(robust_session_normalize(base),
+                       robust_session_normalize(base * 3 + 10))

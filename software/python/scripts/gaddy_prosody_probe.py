@@ -63,9 +63,17 @@ def score(train_x: np.ndarray, train_y: np.ndarray, test_x: np.ndarray, test_y: 
             "mean_prior_r2": float(r2_score(test_y, constant))}
 
 
+def robust_session_normalize(features: np.ndarray) -> np.ndarray:
+    """Label-free per-session transform; requires the full session offline."""
+    median = np.median(features, axis=0)
+    q25, q75 = np.quantile(features, [0.25, 0.75], axis=0)
+    return (features - median) / np.maximum(q75 - q25, 0.1)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--subset", type=Path, required=True)
+    parser.add_argument("--test-subset", type=Path, help="independent voiced session for cross-session evaluation")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     manifest = json.loads((args.subset / "manifest.json").read_text(encoding="utf-8"))
@@ -73,39 +81,67 @@ def main() -> None:
         parser.error("unexpected subset manifest")
     ids = sorted({int(name.split("_", 1)[0]) for name in manifest["files"]})
     valid = [i for i in ids if json.loads((args.subset / f"{i}_info.json").read_text())["sentence_index"] >= 0]
-    rng = np.random.default_rng(42)
-    rng.shuffle(valid)
-    cut = int(len(valid) * 0.8)
-    train_ids, test_ids = valid[:cut], valid[cut:]
-    rows = {}
-    for i in valid:
-        emg = np.load(args.subset / f"{i}_emg.npy", allow_pickle=False).astype(np.float64)
-        if emg.ndim != 2 or emg.shape[1] != 8 or not np.isfinite(emg).all():
-            raise ValueError(f"bad EMG shape or values for trial {i}")
-        rows[i] = trial_frames(emg, decode_flac(args.subset / f"{i}_audio_clean.flac"))
-    train_x = np.concatenate([rows[i][0] for i in train_ids])
-    test_x = np.concatenate([rows[i][0] for i in test_ids])
+    test_manifest = None
+    if args.test_subset:
+        test_manifest = json.loads((args.test_subset / "manifest.json").read_text(encoding="utf-8"))
+        if test_manifest["schema"] != manifest["schema"] or test_manifest["source_md5"] != manifest["source_md5"]:
+            parser.error("test subset provenance differs")
+        if test_manifest["source_path"] == manifest["source_path"]:
+            parser.error("cross-session test must use a distinct source directory")
+        train_ids = valid
+        test_ids = sorted({int(name.split("_", 1)[0]) for name in test_manifest["files"]})
+        test_ids = [i for i in test_ids if json.loads((args.test_subset / f"{i}_info.json").read_text())["sentence_index"] >= 0]
+    else:
+        rng = np.random.default_rng(42)
+        rng.shuffle(valid)
+        cut = int(len(valid) * 0.8)
+        train_ids, test_ids = valid[:cut], valid[cut:]
+
+    def load_rows(path: Path, trial_ids: list[int]) -> dict:
+        rows = {}
+        for i in trial_ids:
+            emg = np.load(path / f"{i}_emg.npy", allow_pickle=False).astype(np.float64)
+            if emg.ndim != 2 or emg.shape[1] != 8 or not np.isfinite(emg).all():
+                raise ValueError(f"bad EMG shape or values for trial {i}")
+            rows[i] = trial_frames(emg, decode_flac(path / f"{i}_audio_clean.flac"))
+        return rows
+
+    train_rows = load_rows(args.subset, train_ids)
+    test_rows = load_rows(args.test_subset or args.subset, test_ids)
+    train_x = np.concatenate([train_rows[i][0] for i in train_ids])
+    test_x = np.concatenate([test_rows[i][0] for i in test_ids])
+    train_x_robust = robust_session_normalize(train_x)
+    test_x_robust = robust_session_normalize(test_x)
     results = {}
     for name, column in (("log_audio_rms", 1), ("log_audio_rms_voiced", 1), ("f0_hz", 2)):
-        train_y = np.concatenate([rows[i][column] for i in train_ids])
-        test_y = np.concatenate([rows[i][column] for i in test_ids])
+        train_y = np.concatenate([train_rows[i][column] for i in train_ids])
+        test_y = np.concatenate([test_rows[i][column] for i in test_ids])
         if name in ("f0_hz", "log_audio_rms_voiced"):
-            train_pitch = np.concatenate([rows[i][2] for i in train_ids])
-            test_pitch = np.concatenate([rows[i][2] for i in test_ids])
+            train_pitch = np.concatenate([train_rows[i][2] for i in train_ids])
+            test_pitch = np.concatenate([test_rows[i][2] for i in test_ids])
             train_mask, test_mask = train_pitch > 0, test_pitch > 0
             train_x_target, test_x_target = train_x[train_mask], test_x[test_mask]
+            train_x_robust_target, test_x_robust_target = train_x_robust[train_mask], test_x_robust[test_mask]
             train_y, test_y = train_y[train_mask], test_y[test_mask]
         else:
             train_x_target, test_x_target = train_x, test_x
+            train_x_robust_target, test_x_robust_target = train_x_robust, test_x_robust
         results[name] = score(train_x_target, train_y, test_x_target, test_y)
+        normalized = score(train_x_robust_target, train_y, test_x_robust_target, test_y)
+        results[name]["session_robust_emg_mae"] = normalized["emg_mae"]
+        results[name]["session_robust_emg_r2"] = normalized["emg_r2"]
         shuffled = score(train_x_target[np.random.default_rng(43).permutation(len(train_y))],
                          train_y, test_x_target, test_y)
         results[name]["shuffled_training_emg_mae"] = shuffled["emg_mae"]
         results[name]["shuffled_training_emg_r2"] = shuffled["emg_r2"]
     report = {"schema": "openalterego.gaddy-prosody-probe.v1", "source_md5": manifest["source_md5"],
-              "source_path": manifest["source_path"], "seed": 42, "train_trial_ids": sorted(train_ids),
+              "source_path": manifest["source_path"],
+              "test_source_path": test_manifest["source_path"] if test_manifest else manifest["source_path"],
+              "seed": 42, "train_trial_ids": sorted(train_ids),
               "test_trial_ids": sorted(test_ids), "results": results,
-              "scope": "Exploratory one-session vocalized speech; autocorrelation F0 targets; no silent prosody validation."}
+              "scope": ("Exploratory two-session vocalized transfer with repeated-prompt risk; "
+                        if args.test_subset else "Exploratory one-session vocalized speech; ")
+                       + "autocorrelation F0 targets; no silent prosody validation."}
     with args.output.open("x", encoding="utf-8") as output:
         json.dump(report, output, indent=2, sort_keys=True, allow_nan=False)
         output.write("\n")
