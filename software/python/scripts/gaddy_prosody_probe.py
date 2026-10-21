@@ -37,13 +37,47 @@ def estimate_f0(audio: np.ndarray) -> tuple[float, float]:
     return (16000.0 / lag if confidence >= 0.45 else 0.0), confidence
 
 
-def trial_frames(emg: np.ndarray, audio: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    duration = min(len(emg) / 1000, len(audio) / 16000)
+def official_offline_emg(raw: np.ndarray, before: np.ndarray, after: np.ndarray) -> np.ndarray:
+    """Gaddy read_emg.py filter and resample, before feature extraction.
+
+    This uses filtfilt and future neighboring trials, so it is an offline parity
+    condition and must never be described as streaming preprocessing. The
+    six-sample offset in that source applies to its raw-EMG model input, not
+    to the hand-engineered feature path used by this probe.
+    """
+    x = np.concatenate([before, raw, after], axis=0)
+    for harmonic in range(1, 8):
+        b, a = signal.iirnotch(60 * harmonic, 30, 1000)
+        x = signal.filtfilt(b, a, x, axis=0)
+    b, a = signal.butter(3, 2, "highpass", fs=1000)
+    x = signal.filtfilt(b, a, x, axis=0)
+    x = x[len(before):len(before) + len(raw)]
+    times = np.arange(len(x)) / 1000
+    sample_times = np.arange(0, times[-1], 1 / 516.79)
+    return np.stack([np.interp(sample_times, times, x[:, channel])
+                     for channel in range(x.shape[1])], axis=1)
+
+
+def causal_filter_emg(raw: np.ndarray) -> np.ndarray:
+    """Per-trial forward-only filtering at 1000 Hz; no adjacent trial access."""
+    x = raw.copy()
+    for harmonic in range(1, 8):
+        b, a = signal.iirnotch(60 * harmonic, 30, 1000)
+        x = signal.lfilter(b, a, x, axis=0)
+    b, a = signal.butter(3, 2, "highpass", fs=1000)
+    return signal.lfilter(b, a, x, axis=0)
+
+
+def trial_frames(emg: np.ndarray, audio: np.ndarray,
+                 emg_sample_rate: float = 1000) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    duration = min(len(emg) / emg_sample_rate, len(audio) / 16000)
     features, energy, f0 = [], [], []
+    window = round(0.1 * emg_sample_rate)
     for center in np.arange(0.15, duration - 0.15, 0.05):
-        e = emg[int(center * 1000) - 50:int(center * 1000) + 50]
+        start = int(center * emg_sample_rate) - window // 2
+        e = emg[start:start + window]
         a = audio[int(center * 16000) - 320:int(center * 16000) + 320]
-        if e.shape != (100, 8) or len(a) != 640:
+        if e.shape != (window, 8) or len(a) != 640:
             continue
         features.append(np.r_[np.log1p(np.sqrt(np.mean(e * e, axis=0))),
                                 np.log1p(np.mean(np.abs(np.diff(e, axis=0)), axis=0))])
@@ -84,6 +118,8 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--calibration-trials", type=int, default=0,
                         help="reserve this many earliest test trials for unlabeled causal calibration")
+    parser.add_argument("--emg-preprocessing", choices=("raw", "official-offline", "causal-filter"),
+                        default="raw")
     args = parser.parse_args()
     manifest = json.loads((args.subset / "manifest.json").read_text(encoding="utf-8"))
     if manifest["schema"] != "openalterego.gaddy-voiced-subset.v1":
@@ -112,7 +148,18 @@ def main() -> None:
             emg = np.load(path / f"{i}_emg.npy", allow_pickle=False).astype(np.float64)
             if emg.ndim != 2 or emg.shape[1] != 8 or not np.isfinite(emg).all():
                 raise ValueError(f"bad EMG shape or values for trial {i}")
-            rows[i] = trial_frames(emg, decode_flac(path / f"{i}_audio_clean.flac"))
+            rate = 1000
+            if args.emg_preprocessing == "official-offline":
+                empty = np.empty((0, 8))
+                before = (np.load(path / f"{i-1}_emg.npy", allow_pickle=False)
+                          if (path / f"{i-1}_emg.npy").exists() else empty)
+                after = (np.load(path / f"{i+1}_emg.npy", allow_pickle=False)
+                         if (path / f"{i+1}_emg.npy").exists() else empty)
+                emg = official_offline_emg(emg, before, after)
+                rate = 516.79
+            elif args.emg_preprocessing == "causal-filter":
+                emg = causal_filter_emg(emg)
+            rows[i] = trial_frames(emg, decode_flac(path / f"{i}_audio_clean.flac"), rate)
         return rows
 
     train_rows = load_rows(args.subset, train_ids)
@@ -152,6 +199,10 @@ def main() -> None:
             causal = score(train_x_robust_target, train_y, test_x_calibrated_target, test_y)
             results[name]["calibration_only_emg_mae"] = causal["emg_mae"]
             results[name]["calibration_only_emg_r2"] = causal["emg_r2"]
+            causal_shuffled = score(
+                train_x_robust_target[np.random.default_rng(43).permutation(len(train_y))],
+                train_y, test_x_calibrated_target, test_y)
+            results[name]["calibration_shuffled_emg_mae"] = causal_shuffled["emg_mae"]
         normalized_shuffled = score(
             train_x_robust_target[np.random.default_rng(43).permutation(len(train_y))],
             train_y, test_x_robust_target, test_y)
@@ -160,13 +211,22 @@ def main() -> None:
                          train_y, test_x_target, test_y)
         results[name]["shuffled_training_emg_mae"] = shuffled["emg_mae"]
         results[name]["shuffled_training_emg_r2"] = shuffled["emg_r2"]
+    def prompts(path: Path, trial_ids: list[int]) -> set[tuple[str, int]]:
+        return {(info["book"], info["sentence_index"])
+                for i in trial_ids
+                for info in [json.loads((path / f"{i}_info.json").read_text(encoding="utf-8"))]}
+
+    prompt_overlap = len(prompts(args.subset, train_ids) &
+                         prompts(args.test_subset or args.subset, evaluation_ids))
     report = {"schema": "openalterego.gaddy-prosody-probe.v1", "source_md5": manifest["source_md5"],
               "source_path": manifest["source_path"],
               "test_source_path": test_manifest["source_path"] if test_manifest else manifest["source_path"],
               "seed": 42, "train_trial_ids": sorted(train_ids),
               "test_trial_ids": sorted(evaluation_ids),
               "calibration_trial_ids": sorted(test_ids[:args.calibration_trials]), "results": results,
-              "scope": ("Exploratory two-session vocalized transfer with repeated-prompt risk; "
+              "emg_preprocessing": args.emg_preprocessing,
+              "train_test_prompt_overlap": prompt_overlap,
+              "scope": ("Exploratory two-session vocalized transfer; inspect prompt overlap count; "
                         if args.test_subset else "Exploratory one-session vocalized speech; ")
                        + "autocorrelation F0 targets; no silent prosody validation."}
     with args.output.open("x", encoding="utf-8") as output:

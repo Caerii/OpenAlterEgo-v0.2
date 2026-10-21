@@ -29,3 +29,9 @@ movement. Repeated prompts, one speaker, crude F0 targets, and access to the
 whole unlabeled test session limit the inference. The next prospective check
 should ask whether a *causal* calibration available at utterance time retains
 the energy advantage and whether it survives unseen text or another corpus.
+
+**Later metadata correction (after this outcome):** An audit of the first-100
+non-reference utterances found no overlapping book/sentence keys or identical
+text strings between sessions 5-5 and 5-8. The repeated-prompt caveat above
+was conservative and does not describe these actual subsets. The one-speaker,
+alignment, full-session normalization and acoustic-target limitations remain.

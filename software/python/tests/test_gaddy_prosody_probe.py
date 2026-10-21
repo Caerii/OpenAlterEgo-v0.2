@@ -1,8 +1,9 @@
 import numpy as np
 import pytest
 
-from scripts.gaddy_prosody_probe import (estimate_f0, normalize_from_calibration,
-                                         robust_session_normalize, score, trial_frames)
+from scripts.gaddy_prosody_probe import (causal_filter_emg, estimate_f0, normalize_from_calibration,
+                                         official_offline_emg, robust_session_normalize,
+                                         score, trial_frames)
 
 
 def test_pitch_probe_finds_clean_sine_and_rejects_silence():
@@ -37,3 +38,23 @@ def test_calibration_only_normalization_uses_prior_frames():
     expected = normalize_from_calibration(future, calibration)
     assert np.allclose(expected, normalize_from_calibration(future, calibration.copy()))
     assert not np.allclose(expected, robust_session_normalize(np.concatenate([calibration, future]))[-1])
+
+
+def test_official_offline_preprocessing_rejects_mains_and_preserves_frameability():
+    t = np.arange(2000) / 1000
+    x = np.sin(2 * np.pi * 60 * t) + 0.25 * np.sin(2 * np.pi * 120 * t)
+    raw = np.tile(x[:, None], (1, 8))
+    prepared = official_offline_emg(raw, raw, raw)
+    assert prepared.shape[1] == 8
+    assert len(prepared) == len(np.arange(0, (len(raw) - 1) / 1000, 1 / 516.79))
+    assert np.sqrt(np.mean(prepared[100:-100] ** 2)) < 0.1
+    features, _, _ = trial_frames(prepared, np.zeros(32000), 516.79)
+    assert len(features) > 0
+
+
+def test_causal_filter_does_not_change_past_when_future_changes():
+    rng = np.random.default_rng(17)
+    raw = rng.normal(size=(2000, 8))
+    changed = raw.copy()
+    changed[1000:] *= 100
+    assert np.array_equal(causal_filter_emg(raw)[:1000], causal_filter_emg(changed)[:1000])
