@@ -153,3 +153,8 @@ for a first conversational prototype. Both paths must distinguish what was
 measured from what the generator supplied. The listener should be able to
 understand, interrupt, and correct an utterance before accidental expressive
 or lexical content is committed.
+
+The [locked third-session check](08-prosody-third-session-outcome.md) met its
+voiced-frame acoustic-energy criterion after the exploratory 5-6 failure;
+F0 remained worse than a constant prior. That narrows the next engineering
+bet to causal intensity/timing controls before expressive pitch synthesis.
