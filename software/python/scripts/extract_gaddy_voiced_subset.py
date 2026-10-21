@@ -17,7 +17,8 @@ PREFIXES = {"closed-5-19": "emg_data/closed_vocab/voiced/5-19/",
             "parallel-5-5": "emg_data/voiced_parallel_data/5-5/",
             "parallel-5-6": "emg_data/voiced_parallel_data/5-6/",
             "parallel-5-8": "emg_data/voiced_parallel_data/5-8/",
-            "parallel-5-9": "emg_data/voiced_parallel_data/5-9/"}
+            "parallel-5-9": "emg_data/voiced_parallel_data/5-9/",
+            "parallel-5-10": "emg_data/voiced_parallel_data/5-10/"}
 SUFFIXES = ("emg.npy", "audio_clean.flac", "info.json")
 
 

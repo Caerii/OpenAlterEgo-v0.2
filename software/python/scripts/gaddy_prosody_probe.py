@@ -111,6 +111,14 @@ def normalize_from_calibration(features: np.ndarray, calibration: np.ndarray) ->
     return (features - median) / np.maximum(q75 - q25, 0.1)
 
 
+def paired_bootstrap_interval(differences: np.ndarray, draws: int = 5000) -> list[float]:
+    """Percentile interval after resampling whole utterances, seed fixed at 42."""
+    rng = np.random.default_rng(42)
+    indices = rng.integers(0, len(differences), size=(draws, len(differences)))
+    means = differences[indices].mean(axis=1)
+    return [float(x) for x in np.quantile(means, [0.025, 0.975])]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--subset", type=Path, required=True)
@@ -120,7 +128,11 @@ def main() -> None:
                         help="reserve this many earliest test trials for unlabeled causal calibration")
     parser.add_argument("--emg-preprocessing", choices=("raw", "official-offline", "causal-filter"),
                         default="raw")
+    parser.add_argument("--temporal-audit", action="store_true",
+                        help="utterance-level primary energy audit with fixed 1-second feature shift")
     args = parser.parse_args()
+    if args.temporal_audit and (not args.test_subset or not args.calibration_trials):
+        parser.error("temporal audit needs cross-session data and past-only calibration")
     manifest = json.loads((args.subset / "manifest.json").read_text(encoding="utf-8"))
     if manifest["schema"] != "openalterego.gaddy-voiced-subset.v1":
         parser.error("unexpected subset manifest")
@@ -218,6 +230,34 @@ def main() -> None:
 
     prompt_overlap = len(prompts(args.subset, train_ids) &
                          prompts(args.test_subset or args.subset, evaluation_ids))
+    audit = None
+    if args.temporal_audit:
+        train_energy = np.concatenate([train_rows[i][1] for i in train_ids])
+        predictor = make_pipeline(StandardScaler(), Ridge(alpha=100.0)).fit(train_x_robust, train_energy)
+        shuffled_predictor = make_pipeline(StandardScaler(), Ridge(alpha=100.0)).fit(
+            train_x_robust[np.random.default_rng(43).permutation(len(train_energy))], train_energy)
+        assert test_x_calibrated is not None
+        utterances = []
+        offset = 0
+        for i in evaluation_ids:
+            target = test_rows[i][1]
+            features = test_x_calibrated[offset:offset + len(target)]
+            offset += len(target)
+            if len(target) <= 20:
+                raise ValueError(f"trial {i} is too short for fixed 1-second shift")
+            mae = lambda prediction: float(np.mean(np.abs(target - prediction)))
+            utterances.append({"trial_id": i, "frames": len(target),
+                               "emg_mae": mae(predictor.predict(features)),
+                               "prior_mae": mae(np.full(len(target), float(np.mean(train_energy)))),
+                               "shuffled_mae": mae(shuffled_predictor.predict(features)),
+                               "shifted_mae": mae(predictor.predict(np.roll(features, 20, axis=0)))})
+        audit = {"schema": "openalterego.gaddy-temporal-audit.v1", "shift_frames": 20,
+                 "frame_step_ms": 50, "bootstrap_draws": 5000,
+                 "unit": "utterance", "utterances": utterances}
+        for control in ("prior", "shuffled", "shifted"):
+            difference = np.array([u[f"{control}_mae"] - u["emg_mae"] for u in utterances])
+            audit[f"{control}_minus_emg_mean"] = float(np.mean(difference))
+            audit[f"{control}_minus_emg_ci95"] = paired_bootstrap_interval(difference)
     report = {"schema": "openalterego.gaddy-prosody-probe.v1", "source_md5": manifest["source_md5"],
               "source_path": manifest["source_path"],
               "test_source_path": test_manifest["source_path"] if test_manifest else manifest["source_path"],
@@ -226,6 +266,7 @@ def main() -> None:
               "calibration_trial_ids": sorted(test_ids[:args.calibration_trials]), "results": results,
               "emg_preprocessing": args.emg_preprocessing,
               "train_test_prompt_overlap": prompt_overlap,
+              "temporal_audit": audit,
               "scope": ("Exploratory two-session vocalized transfer; inspect prompt overlap count; "
                         if args.test_subset else "Exploratory one-session vocalized speech; ")
                        + "autocorrelation F0 targets; no silent prosody validation."}

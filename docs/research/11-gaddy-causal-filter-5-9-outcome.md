@@ -44,3 +44,10 @@ Next: prespecify utterance-level uncertainty and within-utterance temporal
 negative controls, then test them on untouched 5-10. Separately evaluate
 silent-to-voiced transfer using paired prompts, without equating a parallel
 voiced recording's F0 with the silent wearer's intended F0.
+
+**Post hoc audit on already examined 5-9:** The [utterance-level diagnostic](results/gaddy-prosody-5-9-temporal-exploratory.json)
+found positive paired-bootstrap lower endpoints for differences against the
+mean prior (0.208), shuffled training (0.194), and a fixed one-second
+within-utterance feature shift (0.292). This audit was designed after seeing
+the 5-9 primary result; it serves only as development evidence for the
+[locked 5-10 test](12-gaddy-temporal-audit-5-10-lock.md).
