@@ -1,0 +1,94 @@
+{
+  "mean_across_phases": {
+    "a_to_b_balanced_accuracy": 0.3277777777777778,
+    "a_to_b_unlabeled_affine_match_accuracy": 0.4055555555555556,
+    "a_to_b_unlabeled_mean_shift_accuracy": 0.37777777777777777,
+    "configuration_a_within_balanced_accuracy": 0.6333333333333333,
+    "configuration_b_within_balanced_accuracy": 0.6611111111111111
+  },
+  "phases": {
+    "exaggerated": {
+      "a_plus_b_calibration_by_shots_per_class": {
+        "1": 0.44999999999999996,
+        "10": 0.6,
+        "3": 0.48333333333333334,
+        "5": 0.5333333333333333
+      },
+      "a_to_b_balanced_accuracy": 0.35000000000000003,
+      "a_to_b_unlabeled_affine_match_accuracy": 0.4166666666666667,
+      "a_to_b_unlabeled_mean_shift_accuracy": 0.39999999999999997,
+      "configuration_a_within_balanced_accuracy": 0.6833333333333335,
+      "configuration_b_within_balanced_accuracy": 0.7833333333333332,
+      "samples": {
+        "b_test": 60,
+        "configuration_a": 300,
+        "configuration_b": 300
+      },
+      "schema": "openalterego.cross-configuration.v1",
+      "scope": "Same participant, two configurations recorded at different times; observational domain shift, not causal electrode effect.",
+      "seed": 42,
+      "skipped": {
+        "configuration_a": [],
+        "configuration_b": []
+      }
+    },
+    "mouthing": {
+      "a_plus_b_calibration_by_shots_per_class": {
+        "1": 0.2333333333333333,
+        "10": 0.3,
+        "3": 0.2333333333333333,
+        "5": 0.25
+      },
+      "a_to_b_balanced_accuracy": 0.2333333333333333,
+      "a_to_b_unlabeled_affine_match_accuracy": 0.3,
+      "a_to_b_unlabeled_mean_shift_accuracy": 0.2833333333333333,
+      "configuration_a_within_balanced_accuracy": 0.5499999999999999,
+      "configuration_b_within_balanced_accuracy": 0.5833333333333333,
+      "samples": {
+        "b_test": 60,
+        "configuration_a": 300,
+        "configuration_b": 300
+      },
+      "schema": "openalterego.cross-configuration.v1",
+      "scope": "Same participant, two configurations recorded at different times; observational domain shift, not causal electrode effect.",
+      "seed": 42,
+      "skipped": {
+        "configuration_a": [],
+        "configuration_b": []
+      }
+    },
+    "overt": {
+      "a_plus_b_calibration_by_shots_per_class": {
+        "1": 0.45,
+        "10": 0.48333333333333334,
+        "3": 0.45,
+        "5": 0.45
+      },
+      "a_to_b_balanced_accuracy": 0.39999999999999997,
+      "a_to_b_unlabeled_affine_match_accuracy": 0.5,
+      "a_to_b_unlabeled_mean_shift_accuracy": 0.45,
+      "configuration_a_within_balanced_accuracy": 0.6666666666666666,
+      "configuration_b_within_balanced_accuracy": 0.6166666666666667,
+      "samples": {
+        "b_test": 60,
+        "configuration_a": 299,
+        "configuration_b": 300
+      },
+      "schema": "openalterego.cross-configuration.v1",
+      "scope": "Same participant, two configurations recorded at different times; observational domain shift, not causal electrode effect.",
+      "seed": 42,
+      "skipped": {
+        "configuration_a": [
+          {
+            "file": "NOISE_007_20260211_155013.csv",
+            "reason": "recording too short"
+          }
+        ],
+        "configuration_b": []
+      }
+    }
+  },
+  "schema": "openalterego.cross-configuration-phases.v1",
+  "source_commit": "5ad28f5bdca7e56610285ae9302f1890df5560e6",
+  "source_license": "CC BY 4.0, Somach-Systems-Inc/semg-silent-speech/LICENSE-DATA"
+}

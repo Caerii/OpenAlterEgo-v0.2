@@ -20,7 +20,8 @@ drift has no measured contact-impedance calibration here.
 | [SilentWear](https://huggingface.co/datasets/PulpBio/SilentWear) | Direct Hugging Face download; dataset card says Apache-2.0; 4 participants, 3 days, silent/vocalized commands, 14 recorded channels. Full repository is about 10.9 GB. | First virtual-montage, day-transfer and synthetic-drift benchmark. |
 | [Gowda small vocabulary](../gowda/datasets/01-small-vocab.md) | Existing project benchmark; OSF data provenance and rights recorded in the Gowda legal notes. | Pinned sim-to-real transfer and phoneme/decoder diagnostics. Do not select models on its test partition. |
 | [CSL-EMG_Array](https://www.uni-bremen.de/en/csl/research/silent-speech-communication/csl-emg-array-corpus) | University describes CC BY 4.0, 8 speakers, 12 sessions, approximately 8.8 GB; its download link is emailed after an address is entered. | Later spatial array and cross-speaker test after independent import. |
-| [Gaddy Silent Speech EMG](https://zenodo.org/records/4064409) | Open Zenodo record, approximately 3.9 GB; check its record-level license before reuse. | Later 8-channel continuous-speech and cross-corpus test. |
+| [Gaddy Silent Speech EMG](https://zenodo.org/records/4064409) | Open Zenodo record; its API reports CC BY 4.0 and a 3.9 GB archive. | Later 8-channel continuous-speech and cross-corpus test. |
+| [Somach two-configuration data](https://github.com/Somach-Systems-Inc/semg-silent-speech) | Public Git repository; its `LICENSE-DATA` says CC BY 4.0; about 87 MB CSV data from one participant and two configurations. | Exploratory configuration-transfer test, with session/time confounding made explicit. |
 
 Keep raw data outside Git and preserve the publisher's attribution and license.
 Do not treat dataset rights as rights to the publisher's hardware design or to
@@ -72,8 +73,14 @@ in [the development result](results/silentwear-development-cohort.json).
 
 ## Next locked check
 
-[The S04 holdout rule](02-public-holdout-s04.md) is frozen before importing S04.
-After that check, continue with larger public datasets, stronger signal
+[The S04 holdout rule](02-public-holdout-s04.md) was frozen before importing
+S04. [Its outcome](03-public-holdout-s04-outcome.md) improved ranking but missed
+the declared regret threshold. Continue with larger public datasets, stronger signal
 features, session-aware models, and physics perturbations calibrated against
 observed session variation. Track each tested idea and its outcome; do not
 relabel a repeatedly inspected participant as untouched.
+
+The [two-configuration pilot](04-public-cross-configuration.md) is a separate
+public-data stress test. It shows that simple feature-distribution adaptation
+recovers some transfer accuracy but leaves a large gap to models trained on
+the target configuration. It does not isolate a causal electrode effect.
