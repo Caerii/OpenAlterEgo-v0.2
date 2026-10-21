@@ -76,3 +76,5 @@ Fit an inverse encoder to `p(content, timing, stress | y[<=t], past_calibration)
 The next bounded experiment is utterance-level uncertainty and temporal negative controls on a reserved voiced session, alongside exact Gaddy feature-alignment parity. These checks can falsify the energy-cue interpretation efficiently, while leaving the silent prosody claim explicitly open.
 
 **Progress update, 2026-10-21:** The [5-9 locked test](11-gaddy-causal-filter-5-9-outcome.md) passed its all-frame vocalized energy criterion with forward-only filtering: 0.590 MAE against 0.816 mean-prior and 0.807 shuffled-control MAE. Exact published feature alignment and the official book/sentence benchmark split remain open; no silent expression result follows from this energy test.
+
+The [5-10 locked temporal audit](13-gaddy-temporal-audit-5-10-outcome.md) also passed three utterance-level controls, including a one-second within-utterance feature shift. This strengthens the vocalized timing association but does not separate articulatory expression from actual phonation or speech activity. Session 5-11 remains unexamined for a prespecified residual-expression check.
