@@ -90,3 +90,8 @@ both existing synthetic engines with an S01 training recording at the same
 sample rate and channel count. It finds a large command/rest contrast and
 spectral mismatch, providing a measurable calibration target before any claim
 about wearable device physics.
+
+The [expressive silent-voice track](06-expressive-silent-voice.md) runs in
+parallel on public paired EMG/audio. It tests timing and prosodic cues where
+acoustic targets exist, while keeping generated voice identity and optional
+emotion controls separate from what silent EMG can establish.
