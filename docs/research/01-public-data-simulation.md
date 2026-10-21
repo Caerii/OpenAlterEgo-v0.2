@@ -84,3 +84,9 @@ The [two-configuration pilot](04-public-cross-configuration.md) is a separate
 public-data stress test. It shows that simple feature-distribution adaptation
 recovers some transfer accuracy but leaves a large gap to models trained on
 the target configuration. It does not isolate a causal electrode effect.
+
+The [simulator signature check](05-silentwear-simulator-signature.md) compares
+both existing synthetic engines with an S01 training recording at the same
+sample rate and channel count. It finds a large command/rest contrast and
+spectral mismatch, providing a measurable calibration target before any claim
+about wearable device physics.
