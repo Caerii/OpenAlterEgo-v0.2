@@ -80,6 +80,16 @@ on forearm EMG. Translating it to a wearable silent-speech design still
 requires spatial facial recordings and, eventually, measured electrode
 interventions.
 
+The coverage constraint was tested on the same development trio before that
+gate. It caps each grid at two sites, yielding exactly two per grid in an
+eight-site design. Next-day balanced accuracy for coverage greedy was
+0.370, 0.281, and 0.030 on subjects 01–03, against fixed-grid 0.571,
+0.242, and 0.441. The [development result](results/hyser-program-search-coverage-dev-v2.json)
+records all choices and source hashes. Coverage helped subjects 01 and 02
+relative to unconstrained greedy but did not solve subject 03. This is the
+complete development evidence used to select the
+[frozen subjects 04–05 protocol](30-hyser-heldout-coverage-protocol.md).
+
 ## Reproduction
 
 Run from the repository root with `PYTHONPATH=software/python` and the Python

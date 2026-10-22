@@ -23,6 +23,8 @@ def test_grid_spacing_uses_site_labels_not_flat_indices():
     coordinates = site_coordinates(sites)
     assert not feasible((0, 1), coordinates)
     assert feasible((0, 2, 64), coordinates)
+    assert not feasible((0, 2, 4), coordinates, max_per_grid=2)
+    assert feasible((0, 2, 64), coordinates, max_per_grid=2)
 
 
 def test_wfdb_reader_checks_interleaving_and_header_checksum(tmp_path: Path):

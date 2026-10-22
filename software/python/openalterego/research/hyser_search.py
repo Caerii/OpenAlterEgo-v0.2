@@ -77,9 +77,14 @@ def score_designs(folds: list[Fold], designs: np.ndarray, *, alpha: float = 10.0
     return result
 
 
-def feasible(design: tuple[int, ...], sites: np.ndarray, *, min_grid_distance: int = 2) -> bool:
+def feasible(design: tuple[int, ...], sites: np.ndarray, *, min_grid_distance: int = 2,
+             max_per_grid: int | None = None) -> bool:
     """Enforce a topological separation within each of four recorded grids."""
     if any(index < 0 or index >= len(sites) for index in design) or len(set(design)) != len(design):
+        return False
+    if max_per_grid is not None and any(
+            sum(sites[index, 0] == grid for index in design) > max_per_grid
+            for grid in range(4)):
         return False
     for left, index in enumerate(design):
         for other in design[left + 1:]:
@@ -89,12 +94,14 @@ def feasible(design: tuple[int, ...], sites: np.ndarray, *, min_grid_distance: i
     return True
 
 
-def greedy_search(folds: list[Fold], sites: np.ndarray, *, width: int = 8) -> tuple[list[int], float, int]:
+def greedy_search(folds: list[Fold], sites: np.ndarray, *, width: int = 8,
+                  max_per_grid: int | None = None) -> tuple[list[int], float, int]:
     chosen = []
     evaluated = 0
     for _ in range(width):
         candidates = [index for index in range(256)
-                      if feasible(tuple(chosen + [index]), sites)]
+                      if feasible(tuple(chosen + [index]), sites,
+                                  max_per_grid=max_per_grid)]
         programs = np.asarray([chosen + [index] for index in candidates], dtype=np.int16)
         scores = score_designs(folds, programs)
         evaluated += len(candidates)
@@ -104,13 +111,15 @@ def greedy_search(folds: list[Fold], sites: np.ndarray, *, width: int = 8) -> tu
 
 
 def random_budget_search(folds: list[Fold], sites: np.ndarray, *, width: int,
-                         budget: int, seed: int = 42) -> tuple[list[int], float]:
+                         budget: int, seed: int = 42,
+                         max_per_grid: int | None = None) -> tuple[list[int], float]:
     rng = np.random.default_rng(seed)
     programs = []
     seen = set()
     while len(programs) < budget:
         design = tuple(sorted(map(int, rng.choice(256, size=width, replace=False))))
-        if design not in seen and feasible(design, sites):
+        if design not in seen and feasible(design, sites,
+                                           max_per_grid=max_per_grid):
             programs.append(design)
             seen.add(design)
     scores = score_designs(folds, np.asarray(programs, dtype=np.int16))

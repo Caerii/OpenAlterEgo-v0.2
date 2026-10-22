@@ -59,21 +59,24 @@ def main():
     parser.add_argument("--subjects", nargs="+", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--grid-quota", action="store_true",
+                        help="select exactly two sites per grid for eight-site designs")
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     if any(subject not in {f"{index:02d}" for index in range(1, 21)} for subject in args.subjects):
         parser.error("invalid Hyser subjects")
     config = {"subjects": args.subjects, "seed": args.seed, "width": 8,
               "min_grid_distance_cells": 2, "cv_folds": 3,
-              "ridge_alpha": 10.0, "features": "whole-trial log RMS and waveform length"}
+              "ridge_alpha": 10.0, "features": "whole-trial log RMS and waveform length",
+              "max_per_grid": 2 if args.grid_quota else None}
     if args.output.exists():
         if not args.resume:
             parser.error("output exists; use --resume")
         result = json.loads(args.output.read_text())
-        if result.get("schema") != "openalterego.hyser-program-search.v1" or result.get("config") != config:
+        if result.get("schema") != "openalterego.hyser-program-search.v2" or result.get("config") != config:
             parser.error("existing output configuration differs")
     else:
-        result = {"schema": "openalterego.hyser-program-search.v1", "config": config,
+        result = {"schema": "openalterego.hyser-program-search.v2", "config": config,
                   "scope": "256 recorded forearm electrodes; next-day gesture transfer tests the search method, not facial silent speech or unrecorded positions.",
                   "subjects": {}}
     code_hash = hashlib.sha256(Path(__file__).read_bytes() +
@@ -85,17 +88,20 @@ def main():
         sites = site_coordinates(tuple(meta["site_names"]))
         folds = prepare_folds(*train, seed=args.seed)
         started = time.perf_counter()
-        greedy, greedy_cv, evaluated = greedy_search(folds, sites)
+        grid_cap = 2 if args.grid_quota else None
+        greedy, greedy_cv, evaluated = greedy_search(folds, sites,
+                                                     max_per_grid=grid_cap)
         greedy_seconds = time.perf_counter() - started
         started = time.perf_counter()
         random_best, random_cv = random_budget_search(
-            folds, sites, width=8, budget=evaluated, seed=args.seed)
+            folds, sites, width=8, budget=evaluated, seed=args.seed,
+            max_per_grid=grid_cap)
         random_seconds = time.perf_counter() - started
         fixed = fixed_grid_design(sites)
         rng = np.random.default_rng(args.seed)
         while True:
             random_one = list(map(int, rng.choice(256, size=8, replace=False)))
-            if feasible(tuple(random_one), sites):
+            if feasible(tuple(random_one), sites, max_per_grid=grid_cap):
                 break
         choices = {"greedy": {"channels": greedy, "cv_balanced_accuracy": greedy_cv},
                    "random_budget": {"channels": random_best,
@@ -104,7 +110,7 @@ def main():
                                   "cv_balanced_accuracy": float(score_designs(folds, np.asarray([fixed]))[0])},
                    "random_one": {"channels": random_one,
                                   "cv_balanced_accuracy": float(score_designs(folds, np.asarray([random_one]))[0])}}
-        record = {"schema": "openalterego.hyser-program-selection.v1",
+        record = {"schema": "openalterego.hyser-program-selection.v2",
                   "subject": subject, "code_sha256": code_hash,
                   "input_source_record_sha256": meta["source_record_sha256"],
                   "seed": args.seed, "objective_evaluations_each": evaluated,
