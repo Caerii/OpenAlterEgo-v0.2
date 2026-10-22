@@ -61,3 +61,7 @@ Before replacing their compiled implementation with Rust, profile their
 internal work and compare a candidate on output parity and repeated
 end-to-end timing. The cache already makes feature-only experiments cheap;
 the full locked comparison should continue to run all controls.
+
+An optional [content-addressed model and dictionary cache](20-gaddy-model-cache-performance.md)
+now makes identical replays faster while preserving fresh-fit behavior when
+inputs or parameters change.

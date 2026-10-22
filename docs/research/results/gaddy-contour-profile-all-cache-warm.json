@@ -1,0 +1,41 @@
+{
+  "schema": "openalterego.gaddy-contour-stage-profile.v1",
+  "feature_backend": "rust",
+  "cache_enabled": true,
+  "model_cache_enabled": true,
+  "dictionary_cache_hit": true,
+  "model_cache_hits": {
+    "activity": true,
+    "full_all_frames": true,
+    "global_all_frames": true,
+    "full_speech_trained": true,
+    "global_speech_trained": true,
+    "latent_dense_speech_trained": true,
+    "sparse_speech_trained": true
+  },
+  "train_sessions": [
+    "parallel-5-5-first100",
+    "parallel-5-6-first100",
+    "parallel-5-8-first100",
+    "parallel-5-9-first100",
+    "parallel-5-10-first100",
+    "parallel-5-11-first100"
+  ],
+  "dev_session": "parallel-5-4-first100",
+  "timings": {
+    "train_feature_load_s": 0.37290069996379316,
+    "dev_feature_load_s": 0.04711809998843819,
+    "design_matrices_s": 0.10473679995629936,
+    "dictionary_fit_and_transform_s": 0.0454081998905167,
+    "dictionary_design_s": 0.11647270002868026,
+    "activity_fit_and_predict_s": 0.08666729996912181,
+    "model_full_all_frames_fit_and_predict_s": 0.10901929996907711,
+    "model_global_all_frames_fit_and_predict_s": 0.015655099996365607,
+    "model_full_speech_trained_fit_and_predict_s": 0.07153250009287149,
+    "model_global_speech_trained_fit_and_predict_s": 0.01608890003990382,
+    "model_latent_dense_speech_trained_fit_and_predict_s": 0.04927529999986291,
+    "model_sparse_speech_trained_fit_and_predict_s": 0.05058220005594194,
+    "metrics_and_result_write_s": 0.20229340007063001,
+    "total_s": 1.2905931000132114
+  }
+}

@@ -17,9 +17,11 @@ from sklearn.metrics import average_precision_score, f1_score, mean_absolute_err
 
 try:
     from scripts.gaddy_energy_model_compare import activity_features, lag_features, session_rows
+    from scripts.gaddy_model_cache import fit_dictionary_cached, fit_predict_cached
     from scripts.gaddy_prosody_probe import paired_bootstrap_interval
 except ModuleNotFoundError:
     from gaddy_energy_model_compare import activity_features, lag_features, session_rows
+    from gaddy_model_cache import fit_dictionary_cached, fit_predict_cached
     from gaddy_prosody_probe import paired_bootstrap_interval
 
 
@@ -101,6 +103,8 @@ def main() -> None:
     parser.add_argument("--feature-backend", choices=("python", "rust"), default="python")
     parser.add_argument("--feature-cache-dir", type=Path,
                         help="provenance-keyed cache outside Git; raw-derived arrays remain local")
+    parser.add_argument("--model-cache-dir", type=Path,
+                        help="content-addressed dictionary codes and fixed-fit predictions outside Git")
     parser.add_argument("--profile-output", type=Path,
                         help="write per-stage wall times separately from scientific results")
     args = parser.parse_args()
@@ -137,22 +141,23 @@ def main() -> None:
                               max_iter=100, transform_max_iter=80, alpha_W=0.01,
                               alpha_H=0.01, l1_ratio=1.0, random_state=42)
     stage = time.perf_counter()
-    dictionary.fit(current[sample])
-    timings["dictionary_fit_s"] = time.perf_counter() - stage
+    components, latent_train, latent_dev, dictionary_cache_hit = fit_dictionary_cached(
+        dictionary, current[sample], [row[0] for row in train],
+        [row[0] for row in dev], cache_dir=args.model_cache_dir)
+    timings["dictionary_fit_and_transform_s"] = time.perf_counter() - stage
     stage = time.perf_counter()
-    latent_train = [dictionary.transform(row[0]) for row in train]
-    latent_dev = [dictionary.transform(row[0]) for row in dev]
     sparse_train = [top_k_codes(code) for code in latent_train]
     sparse_dev = [top_k_codes(code) for code in latent_dev]
     x_latent = np.concatenate([lag_features(code) for code in latent_train])
     dev_latent = [lag_features(code) for code in latent_dev]
     x_sparse = np.concatenate([lag_features(code) for code in sparse_train])
     dev_sparse = [lag_features(code) for code in sparse_dev]
-    timings["dictionary_transform_and_design_s"] = time.perf_counter() - stage
+    timings["dictionary_design_s"] = time.perf_counter() - stage
 
     stage = time.perf_counter()
-    activity_model = make_model(False).fit(x_full, activity)
-    dev_probability = [activity_model.predict_proba(x)[:, 1] for x in dev_full]
+    dev_probability, activity_cache_hit = fit_predict_cached(
+        "activity", make_model(False), x_full, activity, dev_full,
+        method="predict_proba", cache_dir=args.model_cache_dir)
     timings["activity_fit_and_predict_s"] = time.perf_counter() - stage
     models = {
         "full_all_frames": (x_full, dev_full, np.ones(len(y), dtype=bool)),
@@ -163,10 +168,12 @@ def main() -> None:
         "sparse_speech_trained": (x_sparse, dev_sparse, activity),
     }
     predictions = {}
+    model_cache_hits = {"activity": activity_cache_hit}
     for name, (training_x, development_x, mask) in models.items():
         stage = time.perf_counter()
-        fitted = make_model(True).fit(training_x[mask], y[mask])
-        predictions[name] = [fitted.predict(x) for x in development_x]
+        predictions[name], model_cache_hits[name] = fit_predict_cached(
+            name, make_model(True), training_x[mask], y[mask], development_x,
+            cache_dir=args.model_cache_dir)
         timings[f"model_{name}_fit_and_predict_s"] = time.perf_counter() - stage
     stage = time.perf_counter()
     inactive_mean = float(y[~activity].mean())
@@ -196,7 +203,7 @@ def main() -> None:
         "sparse_dictionary": {"components": 8, "alpha_w": 0.01, "alpha_h": 0.01,
                               "active_codes_per_frame": 2,
                               "train_code_zero_fraction": float(np.mean(np.concatenate(sparse_train) < 1e-8)),
-                              "components_matrix": dictionary.components_.tolist()},
+                              "components_matrix": components.tolist()},
         "activity": {"frames": int(len(dev_labels)), "positive_rate": float(dev_labels.mean()),
                      "average_precision": float(average_precision_score(dev_labels, probabilities)),
                      "roc_auc": float(roc_auc_score(dev_labels, probabilities)),
@@ -232,6 +239,9 @@ def main() -> None:
             "schema": "openalterego.gaddy-contour-stage-profile.v1",
             "feature_backend": args.feature_backend,
             "cache_enabled": args.feature_cache_dir is not None,
+            "model_cache_enabled": args.model_cache_dir is not None,
+            "dictionary_cache_hit": dictionary_cache_hit,
+            "model_cache_hits": model_cache_hits,
             "train_sessions": [path.name for path in args.train],
             "dev_session": args.dev.name,
             "timings": timings,
