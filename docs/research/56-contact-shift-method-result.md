@@ -42,8 +42,15 @@ program-selection rule.
 The simulator component here is a topological channel mapping backed
 by simultaneous measured array channels, which is stronger evidence
 than synthetic waveform resemblance for this specific intervention.
-It remains limited: translations are one full grid cell, not known
-millimetre displacements; all four grids shift in the same direction;
+The [NEMAR BIDS conversion](https://www.nemar.org/dataset/nm000108)
+publishes local electrode coordinates at 10 mm grid spacing. Its
+[subject 01, session 1 electrode table](https://data.nemar.org/nm000108/v1.0.1/sub-01/ses-1/emg/sub-01_ses-1_electrodes.tsv)
+and [session 2 table](https://data.nemar.org/nm000108/v1.0.1/sub-01/ses-2/emg/sub-01_ses-2_electrodes.tsv)
+are byte-identical schematic coordinates, so they do not measure the
+actual reseating displacement. Our one-cell replay corresponds to a
+nominal 10 mm translation within those local grids, not an observed
+10 mm device shift. It remains limited: all four grids shift in the same
+direction;
 contact impedance, analog AFE noise, skin deformation, and facial
 anatomy are absent. The classwise support split is not globally
 chronological, and participants/day-two data were exposed in earlier
