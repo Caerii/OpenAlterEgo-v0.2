@@ -1,0 +1,714 @@
+{
+  "schema": "openalterego.hyser-support-rotation-stress.v1",
+  "scope": "Retrospective support sensitivity, not independent validation or chronological calibration",
+  "candidate_count": 5000,
+  "candidate_seed": 42,
+  "support_ranks": [
+    0,
+    1,
+    2
+  ],
+  "support_weight": 4.0,
+  "subjects": {
+    "06": {
+      "day1_source_record_sha256": "9f2533a4c3b647ab21cb80e96bc4f794a185b69a6e8b1a1da6d901de20c2ec62",
+      "day2_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "ranks": {
+        "0": {
+          "program": [
+            30,
+            124,
+            147,
+            222,
+            319,
+            372,
+            549,
+            652
+          ],
+          "array_contacts": [
+            22,
+            30,
+            124,
+            125,
+            147,
+            155,
+            222,
+            223
+          ],
+          "support_trials": 34,
+          "query_trials": 167,
+          "selected_balanced_accuracy": 0.8411764705882352,
+          "fixed_balanced_accuracy": 0.8294117647058822,
+          "rank_zero_program_balanced_accuracy": 0.8411764705882352,
+          "selected_same_contacts_all_shared_reference": 0.664705882352941,
+          "selected_minus_fixed": 0.01176470588235301,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            27,
+            111,
+            138,
+            222,
+            310,
+            398,
+            566,
+            654
+          ],
+          "array_contacts": [
+            27,
+            35,
+            110,
+            111,
+            138,
+            146,
+            221,
+            222
+          ],
+          "support_trials": 34,
+          "query_trials": 167,
+          "selected_balanced_accuracy": 0.8588235294117649,
+          "fixed_balanced_accuracy": 0.8470588235294119,
+          "rank_zero_program_balanced_accuracy": 0.888235294117647,
+          "selected_same_contacts_all_shared_reference": 0.7470588235294118,
+          "selected_minus_fixed": 0.01176470588235301,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 1
+        },
+        "2": {
+          "program": [
+            30,
+            124,
+            147,
+            222,
+            319,
+            372,
+            549,
+            652
+          ],
+          "array_contacts": [
+            22,
+            30,
+            124,
+            125,
+            147,
+            155,
+            222,
+            223
+          ],
+          "support_trials": 34,
+          "query_trials": 167,
+          "selected_balanced_accuracy": 0.9235294117647058,
+          "fixed_balanced_accuracy": 0.8823529411764707,
+          "rank_zero_program_balanced_accuracy": 0.9235294117647058,
+          "selected_same_contacts_all_shared_reference": 0.788235294117647,
+          "selected_minus_fixed": 0.04117647058823515,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        }
+      },
+      "elapsed_seconds": 4.635185100021772
+    },
+    "07": {
+      "day1_source_record_sha256": "105ebc02d879cd8a9fb116f3468eff0b8472ca2ddbdd12f8da1610cf2a09ff7d",
+      "day2_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "ranks": {
+        "0": {
+          "program": [
+            17,
+            18,
+            125,
+            186,
+            234,
+            372,
+            490,
+            632
+          ],
+          "array_contacts": [
+            17,
+            18,
+            124,
+            125,
+            185,
+            186,
+            233,
+            234
+          ],
+          "support_trials": 34,
+          "query_trials": 170,
+          "selected_balanced_accuracy": 0.8058823529411766,
+          "fixed_balanced_accuracy": 0.7411764705882353,
+          "rank_zero_program_balanced_accuracy": 0.8058823529411766,
+          "selected_same_contacts_all_shared_reference": 0.7705882352941177,
+          "selected_minus_fixed": 0.06470588235294128,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            17,
+            114,
+            162,
+            225,
+            341,
+            391,
+            521,
+            649
+          ],
+          "array_contacts": [
+            17,
+            18,
+            114,
+            115,
+            162,
+            170,
+            224,
+            225
+          ],
+          "support_trials": 34,
+          "query_trials": 170,
+          "selected_balanced_accuracy": 0.8823529411764706,
+          "fixed_balanced_accuracy": 0.8058823529411765,
+          "rank_zero_program_balanced_accuracy": 0.8235294117647057,
+          "selected_same_contacts_all_shared_reference": 0.7588235294117648,
+          "selected_minus_fixed": 0.07647058823529407,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 2
+        },
+        "2": {
+          "program": [
+            18,
+            125,
+            166,
+            196,
+            341,
+            373,
+            528,
+            700
+          ],
+          "array_contacts": [
+            17,
+            18,
+            117,
+            125,
+            158,
+            166,
+            195,
+            196
+          ],
+          "support_trials": 34,
+          "query_trials": 170,
+          "selected_balanced_accuracy": 0.9058823529411766,
+          "fixed_balanced_accuracy": 0.8235294117647058,
+          "rank_zero_program_balanced_accuracy": 0.8647058823529412,
+          "selected_same_contacts_all_shared_reference": 0.7352941176470589,
+          "selected_minus_fixed": 0.08235294117647074,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 3
+        }
+      },
+      "elapsed_seconds": 4.155861899955198
+    },
+    "08": {
+      "day1_source_record_sha256": "473301671965c6dd855cf8de9e01e0e44aef04ffb5affbe63cba6be2831de6fb",
+      "day2_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "ranks": {
+        "0": {
+          "program": [
+            24,
+            89,
+            90,
+            133,
+            210,
+            328,
+            575,
+            677
+          ],
+          "array_contacts": [
+            24,
+            25,
+            89,
+            90,
+            133,
+            141,
+            209,
+            210
+          ],
+          "support_trials": 34,
+          "query_trials": 169,
+          "selected_balanced_accuracy": 0.6867647058823528,
+          "fixed_balanced_accuracy": 0.6705882352941179,
+          "rank_zero_program_balanced_accuracy": 0.6867647058823528,
+          "selected_same_contacts_all_shared_reference": 0.598529411764706,
+          "selected_minus_fixed": 0.016176470588234904,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            62,
+            90,
+            149,
+            195,
+            256,
+            424,
+            557,
+            701
+          ],
+          "array_contacts": [
+            62,
+            63,
+            90,
+            98,
+            149,
+            150,
+            194,
+            195
+          ],
+          "support_trials": 34,
+          "query_trials": 169,
+          "selected_balanced_accuracy": 0.7514705882352942,
+          "fixed_balanced_accuracy": 0.7235294117647061,
+          "rank_zero_program_balanced_accuracy": 0.7470588235294118,
+          "selected_same_contacts_all_shared_reference": 0.7000000000000002,
+          "selected_minus_fixed": 0.027941176470588136,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 1
+        },
+        "2": {
+          "program": [
+            24,
+            89,
+            90,
+            133,
+            210,
+            328,
+            575,
+            677
+          ],
+          "array_contacts": [
+            24,
+            25,
+            89,
+            90,
+            133,
+            141,
+            209,
+            210
+          ],
+          "support_trials": 34,
+          "query_trials": 169,
+          "selected_balanced_accuracy": 0.7455882352941177,
+          "fixed_balanced_accuracy": 0.7352941176470589,
+          "rank_zero_program_balanced_accuracy": 0.7455882352941177,
+          "selected_same_contacts_all_shared_reference": 0.6044117647058824,
+          "selected_minus_fixed": 0.010294117647058787,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        }
+      },
+      "elapsed_seconds": 4.573496900033206
+    },
+    "17": {
+      "day1_source_record_sha256": "86b378aaf7f105bb586e5d124bb023016f4d9786ece9bfc22cfb63878f197bdc",
+      "day2_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "ranks": {
+        "0": {
+          "program": [
+            32,
+            33,
+            89,
+            153,
+            229,
+            230,
+            438,
+            550
+          ],
+          "array_contacts": [
+            32,
+            33,
+            89,
+            90,
+            153,
+            154,
+            229,
+            230
+          ],
+          "support_trials": 34,
+          "query_trials": 168,
+          "selected_balanced_accuracy": 0.707843137254902,
+          "fixed_balanced_accuracy": 0.7137254901960784,
+          "rank_zero_program_balanced_accuracy": 0.707843137254902,
+          "selected_same_contacts_all_shared_reference": 0.7431372549019608,
+          "selected_minus_fixed": -0.00588235294117645,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            55,
+            89,
+            90,
+            163,
+            171,
+            208,
+            209,
+            272
+          ],
+          "array_contacts": [
+            47,
+            55,
+            89,
+            90,
+            163,
+            171,
+            208,
+            209
+          ],
+          "support_trials": 34,
+          "query_trials": 168,
+          "selected_balanced_accuracy": 0.6784313725490195,
+          "fixed_balanced_accuracy": 0.7607843137254902,
+          "rank_zero_program_balanced_accuracy": 0.707843137254902,
+          "selected_same_contacts_all_shared_reference": 0.6607843137254902,
+          "selected_minus_fixed": -0.08235294117647063,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 2
+        },
+        "2": {
+          "program": [
+            30,
+            104,
+            172,
+            218,
+            304,
+            412,
+            516,
+            648
+          ],
+          "array_contacts": [
+            30,
+            38,
+            96,
+            104,
+            171,
+            172,
+            218,
+            226
+          ],
+          "support_trials": 34,
+          "query_trials": 168,
+          "selected_balanced_accuracy": 0.7725490196078433,
+          "fixed_balanced_accuracy": 0.8137254901960785,
+          "rank_zero_program_balanced_accuracy": 0.7137254901960784,
+          "selected_same_contacts_all_shared_reference": 0.6901960784313727,
+          "selected_minus_fixed": -0.04117647058823526,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 0
+        }
+      },
+      "elapsed_seconds": 3.318922800011933
+    },
+    "18": {
+      "day1_source_record_sha256": "d7a0f3295262d514af3781aa08f24c1e53cbf00743d4a3bb855588732f98b590",
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "ranks": {
+        "0": {
+          "program": [
+            11,
+            103,
+            170,
+            235,
+            354,
+            413,
+            518,
+            630
+          ],
+          "array_contacts": [
+            10,
+            11,
+            102,
+            103,
+            170,
+            171,
+            234,
+            235
+          ],
+          "support_trials": 34,
+          "query_trials": 169,
+          "selected_balanced_accuracy": 0.75,
+          "fixed_balanced_accuracy": 0.7058823529411765,
+          "rank_zero_program_balanced_accuracy": 0.75,
+          "selected_same_contacts_all_shared_reference": 0.6470588235294117,
+          "selected_minus_fixed": 0.044117647058823484,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            54,
+            85,
+            171,
+            235,
+            273,
+            433,
+            504,
+            616
+          ],
+          "array_contacts": [
+            53,
+            54,
+            85,
+            93,
+            171,
+            179,
+            235,
+            243
+          ],
+          "support_trials": 34,
+          "query_trials": 169,
+          "selected_balanced_accuracy": 0.788235294117647,
+          "fixed_balanced_accuracy": 0.7,
+          "rank_zero_program_balanced_accuracy": 0.7588235294117647,
+          "selected_same_contacts_all_shared_reference": 0.6117647058823529,
+          "selected_minus_fixed": 0.08823529411764708,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 2
+        },
+        "2": {
+          "program": [
+            5,
+            13,
+            77,
+            188,
+            236,
+            448,
+            487,
+            628
+          ],
+          "array_contacts": [
+            5,
+            13,
+            77,
+            85,
+            180,
+            188,
+            235,
+            236
+          ],
+          "support_trials": 34,
+          "query_trials": 169,
+          "selected_balanced_accuracy": 0.8441176470588238,
+          "fixed_balanced_accuracy": 0.775,
+          "rank_zero_program_balanced_accuracy": 0.7691176470588236,
+          "selected_same_contacts_all_shared_reference": 0.7132352941176472,
+          "selected_minus_fixed": 0.06911764705882373,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 1
+        }
+      },
+      "elapsed_seconds": 2.4015241999877617
+    },
+    "19": {
+      "day1_source_record_sha256": "e1762d38e9a110f6c209672799f94c224c4f035f7f53f9276af9e9e3c0499573",
+      "day2_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "ranks": {
+        "0": {
+          "program": [
+            43,
+            51,
+            117,
+            188,
+            229,
+            385,
+            484,
+            641
+          ],
+          "array_contacts": [
+            43,
+            51,
+            117,
+            118,
+            188,
+            189,
+            228,
+            229
+          ],
+          "support_trials": 33,
+          "query_trials": 164,
+          "selected_balanced_accuracy": 0.8000000000000002,
+          "fixed_balanced_accuracy": 0.8303030303030304,
+          "rank_zero_program_balanced_accuracy": 0.8000000000000002,
+          "selected_same_contacts_all_shared_reference": 0.8181818181818183,
+          "selected_minus_fixed": -0.030303030303030276,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            35,
+            124,
+            125,
+            172,
+            246,
+            254,
+            310,
+            516
+          ],
+          "array_contacts": [
+            27,
+            35,
+            124,
+            125,
+            171,
+            172,
+            246,
+            254
+          ],
+          "support_trials": 33,
+          "query_trials": 164,
+          "selected_balanced_accuracy": 0.793939393939394,
+          "fixed_balanced_accuracy": 0.793939393939394,
+          "rank_zero_program_balanced_accuracy": 0.8727272727272727,
+          "selected_same_contacts_all_shared_reference": 0.7636363636363636,
+          "selected_minus_fixed": 0.0,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 0
+        },
+        "2": {
+          "program": [
+            54,
+            83,
+            155,
+            207,
+            273,
+            449,
+            534,
+            683
+          ],
+          "array_contacts": [
+            53,
+            54,
+            83,
+            84,
+            155,
+            163,
+            199,
+            207
+          ],
+          "support_trials": 33,
+          "query_trials": 164,
+          "selected_balanced_accuracy": 0.8666666666666666,
+          "fixed_balanced_accuracy": 0.8606060606060606,
+          "rank_zero_program_balanced_accuracy": 0.8727272727272728,
+          "selected_same_contacts_all_shared_reference": 0.8727272727272729,
+          "selected_minus_fixed": 0.006060606060605989,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 0
+        }
+      },
+      "elapsed_seconds": 3.812679799972102
+    },
+    "20": {
+      "day1_source_record_sha256": "d0959078e3e66ce4e5f824861358d93172cc0bc3bd7e718ca280b98f43c682c8",
+      "day2_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "ranks": {
+        "0": {
+          "program": [
+            49,
+            84,
+            162,
+            210,
+            284,
+            447,
+            521,
+            675
+          ],
+          "array_contacts": [
+            41,
+            49,
+            84,
+            85,
+            162,
+            170,
+            210,
+            211
+          ],
+          "support_trials": 34,
+          "query_trials": 170,
+          "selected_balanced_accuracy": 0.7823529411764708,
+          "fixed_balanced_accuracy": 0.6352941176470589,
+          "rank_zero_program_balanced_accuracy": 0.7823529411764708,
+          "selected_same_contacts_all_shared_reference": 0.6529411764705884,
+          "selected_minus_fixed": 0.1470588235294119,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        },
+        "1": {
+          "program": [
+            56,
+            57,
+            124,
+            147,
+            211,
+            374,
+            564,
+            673
+          ],
+          "array_contacts": [
+            56,
+            57,
+            123,
+            124,
+            139,
+            147,
+            211,
+            212
+          ],
+          "support_trials": 34,
+          "query_trials": 170,
+          "selected_balanced_accuracy": 0.7058823529411765,
+          "fixed_balanced_accuracy": 0.6588235294117648,
+          "rank_zero_program_balanced_accuracy": 0.7823529411764706,
+          "selected_same_contacts_all_shared_reference": 0.611764705882353,
+          "selected_minus_fixed": 0.04705882352941171,
+          "exact_program_as_rank_zero": false,
+          "contact_overlap_with_rank_zero": 1
+        },
+        "2": {
+          "program": [
+            49,
+            84,
+            162,
+            210,
+            284,
+            447,
+            521,
+            675
+          ],
+          "array_contacts": [
+            41,
+            49,
+            84,
+            85,
+            162,
+            170,
+            210,
+            211
+          ],
+          "support_trials": 34,
+          "query_trials": 170,
+          "selected_balanced_accuracy": 0.8411764705882353,
+          "fixed_balanced_accuracy": 0.6823529411764706,
+          "rank_zero_program_balanced_accuracy": 0.8411764705882353,
+          "selected_same_contacts_all_shared_reference": 0.6647058823529413,
+          "selected_minus_fixed": 0.1588235294117647,
+          "exact_program_as_rank_zero": true,
+          "contact_overlap_with_rank_zero": 8
+        }
+      },
+      "elapsed_seconds": 3.5377326000016183
+    }
+  }
+}
