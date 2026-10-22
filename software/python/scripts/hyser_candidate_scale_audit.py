@@ -1,6 +1,7 @@
 """Nested large-pool search and later-day selection-overfit diagnostic."""
 
 import argparse
+import hashlib
 import json
 import time
 from pathlib import Path
@@ -18,7 +19,9 @@ from scripts.hyser_two_support_robust_search import two_support_split
 
 
 def analyze_subject(mono_cache: Path, pair_cache: Path, subject: str,
-                    budgets: tuple[int, ...], backend: str = "numpy") -> dict:
+                    budgets: tuple[int, ...], backend: str = "numpy",
+                    *, shared_programs: np.ndarray | None = None,
+                    shared_topology: tuple | None = None) -> dict:
     day1, meta1 = load_mixed(mono_cache, pair_cache, subject, 1)
     day2, meta2 = load_mixed(mono_cache, pair_cache, subject, 2)
     if (meta1["site_names"] != meta2["site_names"] or
@@ -26,9 +29,16 @@ def analyze_subject(mono_cache: Path, pair_cache: Path, subject: str,
             meta1["source_record_sha256"] == meta2["source_record_sha256"]):
         raise ValueError("day pair does not align")
     first, second, support_ids, query_ids = two_support_split(day2[1])
-    start = time.perf_counter()
-    programs = uniform_program_prefix(edge_mode_options(meta1), max(budgets), 42)
-    sampling_seconds = time.perf_counter() - start
+    if shared_programs is None:
+        start = time.perf_counter()
+        programs = uniform_program_prefix(edge_mode_options(meta1), max(budgets), 42)
+        sampling_seconds = time.perf_counter() - start
+    else:
+        if (shared_topology != (meta1["site_names"], meta1["pairs"]) or
+                shared_programs.shape != (max(budgets), 8)):
+            raise ValueError("shared candidate pool does not match subject topology")
+        programs = shared_programs
+        sampling_seconds = 0.0
     cv_folds = prepare_cv_folds(*day1, features_per_site=2)
     transfer_folds = [prepare_fold(day1, (day2[0][ids], day2[1][ids]),
                                    features_per_site=2)
@@ -89,17 +99,28 @@ def main():
             tuple(sorted(set(budgets))) != budgets):
         parser.error("new output and unique increasing positive budgets required")
     people = {}
+    first_meta = load_mixed(args.mono_cache, args.pair_cache,
+                            args.subjects[0], 1)[1]
+    topology = (first_meta["site_names"], first_meta["pairs"])
+    sampling_start = time.perf_counter()
+    programs = uniform_program_prefix(edge_mode_options(first_meta),
+                                      max(budgets), 42)
+    shared_sampling_seconds = time.perf_counter() - sampling_start
     for subject in args.subjects:
         people[subject] = analyze_subject(args.mono_cache, args.pair_cache,
-                                          subject, budgets, args.backend)
+                                          subject, budgets, args.backend,
+                                          shared_programs=programs,
+                                          shared_topology=topology)
         print(subject, {name: round(row["query_balanced_accuracy"], 3)
                         for name, row in people[subject]["choices"].items()},
               flush=True)
     result = {
-        "schema": "openalterego.hyser-candidate-scale-audit.v1",
+        "schema": "openalterego.hyser-candidate-scale-audit.v2",
         "scope": "Retrospective exposed forearm digital replay; later-day query labels used only after selections",
         "budgets": budgets, "candidate_seed": 42,
         "backend": args.backend,
+        "candidate_pool_sha256": hashlib.sha256(programs.tobytes()).hexdigest(),
+        "shared_candidate_sampling_seconds": shared_sampling_seconds,
         "selection": "half day-one CV plus one-quarter each of two separate support transfer accuracies",
         "subjects": people,
     }
