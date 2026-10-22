@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from openalterego.research.dense_programs import (
     prepare_fold, score_programs, score_programs_by_fold)
@@ -53,3 +54,20 @@ def test_brier_score_handles_unseen_validation_class_as_zero_probability():
     assert value.shape == (1,)
     assert np.isfinite(value).all()
     assert 0 <= value[0] <= 1
+
+
+def test_rust_accuracy_matches_numpy_on_multiple_folds_and_missing_class():
+    pytest.importorskip("openalterego_accel")
+    rng = np.random.default_rng(72)
+    train = (rng.normal(size=(48, 12)), np.tile(np.arange(4), 12))
+    validation_a = (rng.normal(size=(25, 12)), np.r_[np.tile(np.arange(4), 6), 8])
+    validation_b = (rng.normal(size=(20, 12)), np.tile(np.arange(4), 5))
+    folds = [prepare_fold(train, validation, features_per_site=2)
+             for validation in (validation_a, validation_b)]
+    programs = np.asarray([[0, 1, 2], [1, 3, 5], [0, 4, 5]],
+                          dtype=np.int16)
+    reference = score_programs_by_fold(
+        folds, programs, features_per_site=2, backend="numpy")
+    actual = score_programs_by_fold(
+        folds, programs, features_per_site=2, backend="rust")
+    np.testing.assert_allclose(actual, reference, rtol=0, atol=1e-12)

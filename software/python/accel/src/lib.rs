@@ -5,6 +5,193 @@ use numpy::{
 };
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
+use rayon::prelude::*;
+
+fn dense_program_accuracy(
+    program: &[i16],
+    gram: &[f64],
+    cross: &[f64],
+    validation: &[f64],
+    groups: &[i32],
+    train_ids: &[i32],
+    feature_count: usize,
+    class_count: usize,
+    group_count: usize,
+    features_per_site: usize,
+    alpha: f64,
+) -> Result<f64, String> {
+    let k = program.len() * features_per_site + 1;
+    let mut columns = Vec::with_capacity(k);
+    for &channel in program {
+        for feature in 0..features_per_site {
+            columns.push(channel as usize * features_per_site + feature);
+        }
+    }
+    columns.push(feature_count - 1);
+    let mut lower = vec![0.0; k * k];
+    for i in 0..k {
+        for j in 0..=i {
+            let mut value = gram[columns[i] * feature_count + columns[j]];
+            if i == j && i + 1 < k {
+                value += alpha;
+            }
+            for t in 0..j {
+                value -= lower[i * k + t] * lower[j * k + t];
+            }
+            if i == j {
+                if !value.is_finite() || value <= 0.0 {
+                    return Err("ridge gram is not positive definite".into());
+                }
+                lower[i * k + j] = value.sqrt();
+            } else {
+                lower[i * k + j] = value / lower[j * k + j];
+            }
+        }
+    }
+    let mut coefficients = vec![0.0; k * class_count];
+    let mut work = vec![0.0; k];
+    for class in 0..class_count {
+        for i in 0..k {
+            let mut value = cross[columns[i] * class_count + class];
+            for j in 0..i {
+                value -= lower[i * k + j] * work[j];
+            }
+            work[i] = value / lower[i * k + i];
+        }
+        for i in (0..k).rev() {
+            let mut value = work[i];
+            for j in (i + 1)..k {
+                value -= lower[j * k + i] * coefficients[j * class_count + class];
+            }
+            coefficients[i * class_count + class] = value / lower[i * k + i];
+        }
+    }
+    let mut hits = vec![0usize; group_count];
+    let mut totals = vec![0usize; group_count];
+    for (row, (&group, &target)) in groups.iter().zip(train_ids).enumerate() {
+        let mut best_class = 0usize;
+        let mut best_value = f64::NEG_INFINITY;
+        for class in 0..class_count {
+            let mut value = 0.0;
+            for (local, &column) in columns.iter().enumerate() {
+                value += validation[row * feature_count + column]
+                    * coefficients[local * class_count + class];
+            }
+            if value > best_value {
+                best_value = value;
+                best_class = class;
+            }
+        }
+        let group = group as usize;
+        totals[group] += 1;
+        if best_class as i32 == target {
+            hits[group] += 1;
+        }
+    }
+    Ok(hits
+        .iter()
+        .zip(totals.iter())
+        .map(|(&hit, &total)| hit as f64 / total as f64)
+        .sum::<f64>()
+        / group_count as f64)
+}
+
+/// Balanced accuracy for many complete ridge programs on one prepared fold.
+#[pyfunction]
+fn score_dense_programs(
+    py: Python<'_>,
+    gram: PyReadonlyArray2<f64>,
+    cross: PyReadonlyArray2<f64>,
+    validation: PyReadonlyArray2<f64>,
+    groups: PyReadonlyArray1<i32>,
+    train_ids: PyReadonlyArray1<i32>,
+    designs: PyReadonlyArray2<i16>,
+    features_per_site: usize,
+    alpha: f64,
+    group_count: usize,
+) -> PyResult<Py<PyArray1<f64>>> {
+    let g_shape = gram.shape();
+    let c_shape = cross.shape();
+    let v_shape = validation.shape();
+    let d_shape = designs.shape();
+    if g_shape[0] < 2
+        || g_shape[0] != g_shape[1]
+        || c_shape[0] != g_shape[0]
+        || v_shape[1] != g_shape[0]
+        || v_shape[0] < 1
+        || c_shape[1] < 1
+        || d_shape[0] < 1
+        || d_shape[1] < 1
+        || features_per_site < 1
+        || group_count < 1
+        || !alpha.is_finite()
+        || alpha <= 0.0
+        || (g_shape[0] - 1) % features_per_site != 0
+        || groups.len() != v_shape[0]
+        || train_ids.len() != v_shape[0]
+    {
+        return Err(PyValueError::new_err("invalid dense program fold"));
+    }
+    let gram = gram.as_slice()?;
+    let cross = cross.as_slice()?;
+    let validation = validation.as_slice()?;
+    let groups = groups.as_slice()?;
+    let train_ids = train_ids.as_slice()?;
+    let designs = designs.as_slice()?;
+    let channel_count = (g_shape[0] - 1) / features_per_site;
+    let mut group_counts = vec![0usize; group_count];
+    for &group in groups {
+        if group >= 0 && (group as usize) < group_count {
+            group_counts[group as usize] += 1;
+        }
+    }
+    if d_shape[1] > channel_count
+        || group_counts.contains(&0)
+        || groups
+            .iter()
+            .any(|&group| group < 0 || group as usize >= group_count)
+        || train_ids
+            .iter()
+            .any(|&id| id < -1 || id >= c_shape[1] as i32)
+        || designs.chunks_exact(d_shape[1]).any(|row| {
+            row.iter()
+                .any(|&channel| channel < 0 || channel as usize >= channel_count)
+                || row
+                    .iter()
+                    .enumerate()
+                    .any(|(i, channel)| row[..i].contains(channel))
+        })
+    {
+        return Err(PyValueError::new_err(
+            "invalid program or validation labels",
+        ));
+    }
+    let scores: Vec<Result<f64, String>> = py.detach(|| {
+        designs
+            .par_chunks_exact(d_shape[1])
+            .map(|program| {
+                dense_program_accuracy(
+                    program,
+                    gram,
+                    cross,
+                    validation,
+                    groups,
+                    train_ids,
+                    g_shape[0],
+                    c_shape[1],
+                    group_count,
+                    features_per_site,
+                    alpha,
+                )
+            })
+            .collect()
+    });
+    let scores: Vec<f64> = scores
+        .into_iter()
+        .collect::<Result<_, _>>()
+        .map_err(PyValueError::new_err)?;
+    Ok(scores.into_pyarray(py).unbind())
+}
 
 #[pyfunction]
 fn decode_gaddy_flac(py: Python<'_>, path: &str) -> PyResult<Py<PyArray1<f64>>> {
@@ -252,6 +439,7 @@ fn scatter_pool_batched(
 
 #[pymodule]
 fn openalterego_accel(m: &Bound<'_, PyModule>) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(score_dense_programs, m)?)?;
     m.add_function(wrap_pyfunction!(decode_gaddy_flac, m)?)?;
     m.add_function(wrap_pyfunction!(extract_energy_features, m)?)?;
     m.add_function(wrap_pyfunction!(scatter_unit_multichannel, m)?)?;

@@ -51,18 +51,21 @@ def prepare_cv_folds(features: np.ndarray, labels: np.ndarray,
 
 def score_programs(folds: list[DenseFold], designs: np.ndarray,
                    *, features_per_site: int, alpha: float = 10.0,
-                   batch_size: int = 32, metric: str = "accuracy") -> np.ndarray:
-    """Mean balanced accuracy across validation folds."""
+                   batch_size: int = 32, metric: str = "accuracy",
+                   backend: str = "numpy") -> np.ndarray:
+    """Mean requested class-balanced score across validation folds."""
     return score_programs_by_fold(
         folds, designs, features_per_site=features_per_site,
-        alpha=alpha, batch_size=batch_size, metric=metric).mean(axis=0)
+        alpha=alpha, batch_size=batch_size, metric=metric,
+        backend=backend).mean(axis=0)
 
 
 def score_programs_by_fold(folds: list[DenseFold], designs: np.ndarray,
                            *, features_per_site: int, alpha: float = 10.0,
                            batch_size: int = 32,
-                           metric: str = "accuracy") -> np.ndarray:
-    """Balanced accuracy per fold and program, retaining temporal variation."""
+                           metric: str = "accuracy",
+                           backend: str = "numpy") -> np.ndarray:
+    """Class-balanced score per fold and program; Rust supports accuracy."""
     designs = np.asarray(designs, dtype=np.int16)
     channel_count = ((folds[0].gram.shape[0] - 1) // features_per_site
                      if folds and features_per_site >= 1 else 0)
@@ -71,8 +74,34 @@ def score_programs_by_fold(folds: list[DenseFold], designs: np.ndarray,
             np.any((designs < 0) | (designs >= channel_count)) or
             any(len(set(row)) != len(row) for row in designs) or
             features_per_site < 1 or alpha <= 0 or batch_size < 1 or
-            metric not in ("accuracy", "brier")):
+            metric not in ("accuracy", "brier") or
+            backend not in ("numpy", "rust") or
+            (backend == "rust" and metric != "accuracy")):
         raise ValueError("invalid design batch")
+    if backend == "rust":
+        try:
+            import openalterego_accel
+        except ImportError as error:
+            raise RuntimeError("Rust scorer requires openalterego_accel; build with maturin develop --release --manifest-path software/python/accel/Cargo.toml") from error
+        result = np.empty((len(folds), len(designs)), dtype=np.float64)
+        for index, fold in enumerate(folds):
+            classes, groups = np.unique(fold.validation_labels,
+                                        return_inverse=True)
+            train_ids = np.searchsorted(fold.train_classes,
+                                        fold.validation_labels)
+            safe = np.minimum(train_ids, len(fold.train_classes) - 1)
+            present = ((train_ids < len(fold.train_classes)) &
+                       (fold.train_classes[safe] == fold.validation_labels))
+            train_ids = np.where(present, train_ids, -1).astype(np.int32)
+            result[index] = openalterego_accel.score_dense_programs(
+                np.ascontiguousarray(fold.gram, dtype=np.float64),
+                np.ascontiguousarray(fold.cross, dtype=np.float64),
+                np.ascontiguousarray(fold.validation_design, dtype=np.float64),
+                np.ascontiguousarray(groups, dtype=np.int32),
+                np.ascontiguousarray(train_ids),
+                np.ascontiguousarray(designs),
+                features_per_site, alpha, len(classes))
+        return result
     result = np.empty((len(folds), len(designs)), dtype=np.float64)
     bias = channel_count * features_per_site
     for start in range(0, len(designs), batch_size):

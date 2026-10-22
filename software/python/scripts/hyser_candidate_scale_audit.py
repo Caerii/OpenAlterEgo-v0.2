@@ -18,7 +18,7 @@ from scripts.hyser_two_support_robust_search import two_support_split
 
 
 def analyze_subject(mono_cache: Path, pair_cache: Path, subject: str,
-                    budgets: tuple[int, ...]) -> dict:
+                    budgets: tuple[int, ...], backend: str = "numpy") -> dict:
     day1, meta1 = load_mixed(mono_cache, pair_cache, subject, 1)
     day2, meta2 = load_mixed(mono_cache, pair_cache, subject, 2)
     if (meta1["site_names"] != meta2["site_names"] or
@@ -34,13 +34,15 @@ def analyze_subject(mono_cache: Path, pair_cache: Path, subject: str,
                                    features_per_site=2)
                       for ids in (first, second)]
     start = time.perf_counter()
-    cv = score_programs(cv_folds, programs, features_per_site=2)
+    cv = score_programs(cv_folds, programs, features_per_site=2,
+                        backend=backend)
     cv_seconds = time.perf_counter() - start
     transfers = []
     transfer_seconds = []
     for fold in transfer_folds:
         start = time.perf_counter()
-        transfers.append(score_programs([fold], programs, features_per_site=2))
+        transfers.append(score_programs([fold], programs,
+                                        features_per_site=2, backend=backend))
         transfer_seconds.append(time.perf_counter() - start)
     selection = .5 * cv + .25 * (transfers[0] + transfers[1])
     choices = {budget: int(np.argmax(selection[:budget])) for budget in budgets}
@@ -53,7 +55,7 @@ def analyze_subject(mono_cache: Path, pair_cache: Path, subject: str,
         features_per_site=2, support_weight=4.0)
     query = score_programs([fold], np.asarray(list(named.values()),
                                              dtype=np.int16),
-                           features_per_site=2)
+                           features_per_site=2, backend=backend)
     return {
         "day1_source_record_sha256": meta1["source_record_sha256"],
         "day2_source_record_sha256": meta2["source_record_sha256"],
@@ -80,6 +82,7 @@ def main():
     parser.add_argument("--budgets", type=int, nargs="+",
                         default=[5000, 20000, 100000])
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--backend", choices=("numpy", "rust"), default="numpy")
     args = parser.parse_args()
     budgets = tuple(args.budgets)
     if (args.output.exists() or not budgets or any(n < 1 for n in budgets) or
@@ -88,7 +91,7 @@ def main():
     people = {}
     for subject in args.subjects:
         people[subject] = analyze_subject(args.mono_cache, args.pair_cache,
-                                          subject, budgets)
+                                          subject, budgets, args.backend)
         print(subject, {name: round(row["query_balanced_accuracy"], 3)
                         for name, row in people[subject]["choices"].items()},
               flush=True)
@@ -96,6 +99,7 @@ def main():
         "schema": "openalterego.hyser-candidate-scale-audit.v1",
         "scope": "Retrospective exposed forearm digital replay; later-day query labels used only after selections",
         "budgets": budgets, "candidate_seed": 42,
+        "backend": args.backend,
         "selection": "half day-one CV plus one-quarter each of two separate support transfer accuracies",
         "subjects": people,
     }
