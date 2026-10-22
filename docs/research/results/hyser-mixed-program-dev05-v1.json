@@ -1,0 +1,175 @@
+{
+  "schema": "openalterego.hyser-mixed-program-pilot.v1",
+  "scope": "Retrospective measured forearm replay; digital differences omit analog contact and AFE behavior",
+  "program": "one shared-reference contact and one adjacent difference sharing that contact on each grid; eight channels, eight array contacts plus common reference",
+  "candidate_count": 5000,
+  "seed": 42,
+  "alpha": 10.0,
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "selected_channels": [
+        18,
+        102,
+        189,
+        226,
+        342,
+        416,
+        485,
+        647
+      ],
+      "selected_day1_cv": 0.8774509803921569,
+      "selected_day2": 0.5222222222222223,
+      "fixed_mixed_day2": 0.5101010101010102,
+      "fixed_monopolar_day2": 0.5707070707070709,
+      "selected_same_contacts_monopolar_day2": 0.44949494949494945,
+      "fixed_mixed_same_contacts_monopolar_day2": 0.5555555555555554,
+      "selected_array_contacts": [
+        10,
+        18,
+        94,
+        102,
+        181,
+        189,
+        225,
+        226
+      ],
+      "candidate_day2_median": 0.40909090909090917,
+      "candidate_day2_oracle": 0.7474747474747475,
+      "day1_cv_day2_spearman": 0.3325045483651726
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "selected_channels": [
+        15,
+        82,
+        151,
+        214,
+        347,
+        454,
+        555,
+        669
+      ],
+      "selected_day1_cv": 0.9411764705882353,
+      "selected_day2": 0.24117647058823527,
+      "fixed_mixed_day2": 0.1411764705882353,
+      "fixed_monopolar_day2": 0.24215686274509807,
+      "selected_same_contacts_monopolar_day2": 0.24117647058823527,
+      "fixed_mixed_same_contacts_monopolar_day2": 0.15294117647058827,
+      "selected_array_contacts": [
+        7,
+        15,
+        74,
+        82,
+        150,
+        151,
+        213,
+        214
+      ],
+      "candidate_day2_median": 0.19705882352941176,
+      "candidate_day2_oracle": 0.4470588235294118,
+      "day1_cv_day2_spearman": 0.17375021310055905
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "selected_channels": [
+        9,
+        107,
+        189,
+        217,
+        359,
+        407,
+        485,
+        665
+      ],
+      "selected_day1_cv": 0.9141414141414141,
+      "selected_day2": 0.5777777777777777,
+      "fixed_mixed_day2": 0.4212121212121212,
+      "fixed_monopolar_day2": 0.4414141414141415,
+      "selected_same_contacts_monopolar_day2": 0.3888888888888889,
+      "fixed_mixed_same_contacts_monopolar_day2": 0.45151515151515154,
+      "selected_array_contacts": [
+        1,
+        9,
+        99,
+        107,
+        181,
+        189,
+        209,
+        217
+      ],
+      "candidate_day2_median": 0.297979797979798,
+      "candidate_day2_oracle": 0.6717171717171716,
+      "day1_cv_day2_spearman": 0.24151225520330352
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "selected_channels": [
+        38,
+        89,
+        150,
+        216,
+        304,
+        441,
+        558,
+        666
+      ],
+      "selected_day1_cv": 0.9215686274509804,
+      "selected_day2": 0.4656862745098039,
+      "fixed_mixed_day2": 0.5098039215686275,
+      "fixed_monopolar_day2": 0.5980392156862745,
+      "selected_same_contacts_monopolar_day2": 0.5686274509803921,
+      "fixed_mixed_same_contacts_monopolar_day2": 0.5882352941176471,
+      "selected_array_contacts": [
+        30,
+        38,
+        81,
+        89,
+        142,
+        150,
+        208,
+        216
+      ],
+      "candidate_day2_median": 0.4411764705882352,
+      "candidate_day2_oracle": 0.7009803921568628,
+      "day1_cv_day2_spearman": 0.26232522324022817
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "selected_channels": [
+        39,
+        104,
+        182,
+        227,
+        302,
+        412,
+        498,
+        645
+      ],
+      "selected_day1_cv": 0.8737373737373738,
+      "selected_day2": 0.2794117647058823,
+      "fixed_mixed_day2": 0.37745098039215685,
+      "fixed_monopolar_day2": 0.5147058823529411,
+      "selected_same_contacts_monopolar_day2": 0.31862745098039225,
+      "fixed_mixed_same_contacts_monopolar_day2": 0.3872549019607843,
+      "selected_array_contacts": [
+        31,
+        39,
+        96,
+        104,
+        174,
+        182,
+        226,
+        227
+      ],
+      "candidate_day2_median": 0.2647058823529412,
+      "candidate_day2_oracle": 0.6029411764705882,
+      "day1_cv_day2_spearman": 0.20406384825681514
+    }
+  }
+}

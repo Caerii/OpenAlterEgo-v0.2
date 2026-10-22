@@ -1,0 +1,1421 @@
+{
+  "schema": "openalterego.hyser-pair-stability-loo.v1",
+  "scope": "Retrospective 12-person development; donor day-two features exclude target person, target day-two labels score only",
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "donors": [
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.505050505050505,
+      "candidate_day2_oracle": 0.6585858585858586,
+      "choices": {
+        "0.0": {
+          "channels": [
+            0,
+            2,
+            113,
+            127,
+            293,
+            307,
+            430,
+            432
+          ],
+          "day1_cv": 0.892156862745098,
+          "donor_drift_rank": 0.5300982800982801,
+          "day2_balanced_accuracy": 0.32525252525252524,
+          "minus_fixed_differential": -0.17979797979797973
+        },
+        "0.01": {
+          "channels": [
+            2,
+            5,
+            115,
+            127,
+            304,
+            319,
+            423,
+            425
+          ],
+          "day1_cv": 0.892156862745098,
+          "donor_drift_rank": 0.5122850122850122,
+          "day2_balanced_accuracy": 0.3707070707070707,
+          "minus_fixed_differential": -0.13434343434343426
+        },
+        "0.02": {
+          "channels": [
+            2,
+            5,
+            115,
+            127,
+            304,
+            319,
+            423,
+            425
+          ],
+          "day1_cv": 0.892156862745098,
+          "donor_drift_rank": 0.5122850122850122,
+          "day2_balanced_accuracy": 0.3707070707070707,
+          "minus_fixed_differential": -0.13434343434343426
+        },
+        "0.05": {
+          "channels": [
+            2,
+            5,
+            115,
+            127,
+            304,
+            319,
+            423,
+            425
+          ],
+          "day1_cv": 0.892156862745098,
+          "donor_drift_rank": 0.5122850122850122,
+          "day2_balanced_accuracy": 0.3707070707070707,
+          "minus_fixed_differential": -0.13434343434343426
+        },
+        "0.1": {
+          "channels": [
+            2,
+            5,
+            115,
+            127,
+            304,
+            319,
+            423,
+            425
+          ],
+          "day1_cv": 0.892156862745098,
+          "donor_drift_rank": 0.5122850122850122,
+          "day2_balanced_accuracy": 0.3707070707070707,
+          "minus_fixed_differential": -0.13434343434343426
+        },
+        "0.2": {
+          "channels": [
+            18,
+            32,
+            112,
+            115,
+            245,
+            248,
+            338,
+            341
+          ],
+          "day1_cv": 0.8823529411764706,
+          "donor_drift_rank": 0.42270679770679775,
+          "day2_balanced_accuracy": 0.35353535353535354,
+          "minus_fixed_differential": -0.15151515151515144
+        }
+      }
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "donors": [
+        "01",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.0892156862745098,
+      "candidate_day2_oracle": 0.392156862745098,
+      "choices": {
+        "0.0": {
+          "channels": [
+            5,
+            17,
+            149,
+            161,
+            280,
+            294,
+            381,
+            384
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.4235257985257985,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.07745098039215688
+        },
+        "0.01": {
+          "channels": [
+            5,
+            17,
+            149,
+            161,
+            280,
+            294,
+            381,
+            384
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.4235257985257985,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.07745098039215688
+        },
+        "0.02": {
+          "channels": [
+            5,
+            17,
+            149,
+            161,
+            280,
+            294,
+            381,
+            384
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.4235257985257985,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.07745098039215688
+        },
+        "0.05": {
+          "channels": [
+            5,
+            17,
+            149,
+            161,
+            280,
+            294,
+            381,
+            384
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.4235257985257985,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.07745098039215688
+        },
+        "0.1": {
+          "channels": [
+            5,
+            17,
+            149,
+            161,
+            280,
+            294,
+            381,
+            384
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.4235257985257985,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.07745098039215688
+        },
+        "0.2": {
+          "channels": [
+            5,
+            17,
+            149,
+            161,
+            280,
+            294,
+            381,
+            384
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.4235257985257985,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.07745098039215688
+        }
+      }
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "donors": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.40303030303030307,
+      "candidate_day2_oracle": 0.5898989898989899,
+      "choices": {
+        "0.0": {
+          "channels": [
+            7,
+            19,
+            141,
+            156,
+            297,
+            311,
+            367,
+            382
+          ],
+          "day1_cv": 0.9393939393939394,
+          "donor_drift_rank": 0.39619164619164615,
+          "day2_balanced_accuracy": 0.3878787878787878,
+          "minus_fixed_differential": -0.015151515151515249
+        },
+        "0.01": {
+          "channels": [
+            7,
+            19,
+            141,
+            156,
+            297,
+            311,
+            367,
+            382
+          ],
+          "day1_cv": 0.9393939393939394,
+          "donor_drift_rank": 0.39619164619164615,
+          "day2_balanced_accuracy": 0.3878787878787878,
+          "minus_fixed_differential": -0.015151515151515249
+        },
+        "0.02": {
+          "channels": [
+            7,
+            19,
+            141,
+            156,
+            297,
+            311,
+            367,
+            382
+          ],
+          "day1_cv": 0.9393939393939394,
+          "donor_drift_rank": 0.39619164619164615,
+          "day2_balanced_accuracy": 0.3878787878787878,
+          "minus_fixed_differential": -0.015151515151515249
+        },
+        "0.05": {
+          "channels": [
+            7,
+            19,
+            141,
+            156,
+            297,
+            311,
+            367,
+            382
+          ],
+          "day1_cv": 0.9393939393939394,
+          "donor_drift_rank": 0.39619164619164615,
+          "day2_balanced_accuracy": 0.3878787878787878,
+          "minus_fixed_differential": -0.015151515151515249
+        },
+        "0.1": {
+          "channels": [
+            7,
+            19,
+            141,
+            156,
+            297,
+            311,
+            367,
+            382
+          ],
+          "day1_cv": 0.9393939393939394,
+          "donor_drift_rank": 0.39619164619164615,
+          "day2_balanced_accuracy": 0.3878787878787878,
+          "minus_fixed_differential": -0.015151515151515249
+        },
+        "0.2": {
+          "channels": [
+            7,
+            19,
+            141,
+            156,
+            297,
+            311,
+            367,
+            382
+          ],
+          "day1_cv": 0.9393939393939394,
+          "donor_drift_rank": 0.39619164619164615,
+          "day2_balanced_accuracy": 0.3878787878787878,
+          "minus_fixed_differential": -0.015151515151515249
+        }
+      }
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.12745098039215688,
+      "candidate_day2_oracle": 0.6029411764705881,
+      "choices": {
+        "0.0": {
+          "channels": [
+            26,
+            38,
+            180,
+            181,
+            317,
+            330,
+            364,
+            378
+          ],
+          "day1_cv": 0.946078431372549,
+          "donor_drift_rank": 0.5136158886158886,
+          "day2_balanced_accuracy": 0.5196078431372549,
+          "minus_fixed_differential": 0.3921568627450981
+        },
+        "0.01": {
+          "channels": [
+            66,
+            68,
+            146,
+            148,
+            283,
+            296,
+            412,
+            426
+          ],
+          "day1_cv": 0.946078431372549,
+          "donor_drift_rank": 0.44113431613431614,
+          "day2_balanced_accuracy": 0.4852941176470588,
+          "minus_fixed_differential": 0.3578431372549019
+        },
+        "0.02": {
+          "channels": [
+            66,
+            68,
+            146,
+            148,
+            283,
+            296,
+            412,
+            426
+          ],
+          "day1_cv": 0.946078431372549,
+          "donor_drift_rank": 0.44113431613431614,
+          "day2_balanced_accuracy": 0.4852941176470588,
+          "minus_fixed_differential": 0.3578431372549019
+        },
+        "0.05": {
+          "channels": [
+            66,
+            68,
+            146,
+            148,
+            283,
+            296,
+            412,
+            426
+          ],
+          "day1_cv": 0.946078431372549,
+          "donor_drift_rank": 0.44113431613431614,
+          "day2_balanced_accuracy": 0.4852941176470588,
+          "minus_fixed_differential": 0.3578431372549019
+        },
+        "0.1": {
+          "channels": [
+            66,
+            68,
+            146,
+            148,
+            283,
+            296,
+            412,
+            426
+          ],
+          "day1_cv": 0.946078431372549,
+          "donor_drift_rank": 0.44113431613431614,
+          "day2_balanced_accuracy": 0.4852941176470588,
+          "minus_fixed_differential": 0.3578431372549019
+        },
+        "0.2": {
+          "channels": [
+            66,
+            68,
+            146,
+            148,
+            283,
+            296,
+            412,
+            426
+          ],
+          "day1_cv": 0.946078431372549,
+          "donor_drift_rank": 0.44113431613431614,
+          "day2_balanced_accuracy": 0.4852941176470588,
+          "minus_fixed_differential": 0.3578431372549019
+        }
+      }
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.12254901960784315,
+      "candidate_day2_oracle": 0.48039215686274506,
+      "choices": {
+        "0.0": {
+          "channels": [
+            68,
+            71,
+            120,
+            123,
+            244,
+            258,
+            355,
+            358
+          ],
+          "day1_cv": 0.8838383838383839,
+          "donor_drift_rank": 0.4952907452907453,
+          "day2_balanced_accuracy": 0.22549019607843138,
+          "minus_fixed_differential": 0.10294117647058823
+        },
+        "0.01": {
+          "channels": [
+            68,
+            71,
+            120,
+            123,
+            244,
+            258,
+            355,
+            358
+          ],
+          "day1_cv": 0.8838383838383839,
+          "donor_drift_rank": 0.4952907452907453,
+          "day2_balanced_accuracy": 0.22549019607843138,
+          "minus_fixed_differential": 0.10294117647058823
+        },
+        "0.02": {
+          "channels": [
+            68,
+            71,
+            120,
+            123,
+            244,
+            258,
+            355,
+            358
+          ],
+          "day1_cv": 0.8838383838383839,
+          "donor_drift_rank": 0.4952907452907453,
+          "day2_balanced_accuracy": 0.22549019607843138,
+          "minus_fixed_differential": 0.10294117647058823
+        },
+        "0.05": {
+          "channels": [
+            68,
+            71,
+            120,
+            123,
+            244,
+            258,
+            355,
+            358
+          ],
+          "day1_cv": 0.8838383838383839,
+          "donor_drift_rank": 0.4952907452907453,
+          "day2_balanced_accuracy": 0.22549019607843138,
+          "minus_fixed_differential": 0.10294117647058823
+        },
+        "0.1": {
+          "channels": [
+            68,
+            71,
+            120,
+            123,
+            244,
+            258,
+            355,
+            358
+          ],
+          "day1_cv": 0.8838383838383839,
+          "donor_drift_rank": 0.4952907452907453,
+          "day2_balanced_accuracy": 0.22549019607843138,
+          "minus_fixed_differential": 0.10294117647058823
+        },
+        "0.2": {
+          "channels": [
+            103,
+            111,
+            178,
+            181,
+            232,
+            234,
+            389,
+            390
+          ],
+          "day1_cv": 0.8737373737373737,
+          "donor_drift_rank": 0.4362203112203112,
+          "day2_balanced_accuracy": 0.3137254901960784,
+          "minus_fixed_differential": 0.19117647058823528
+        }
+      }
+    },
+    "06": {
+      "day1_source_record_sha256": "9f2533a4c3b647ab21cb80e96bc4f794a185b69a6e8b1a1da6d901de20c2ec62",
+      "day2_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.46078431372549017,
+      "candidate_day2_oracle": 0.7205882352941178,
+      "choices": {
+        "0.0": {
+          "channels": [
+            68,
+            69,
+            211,
+            220,
+            262,
+            264,
+            437,
+            446
+          ],
+          "day1_cv": 0.9607843137254902,
+          "donor_drift_rank": 0.5356265356265356,
+          "day2_balanced_accuracy": 0.2107843137254902,
+          "minus_fixed_differential": -0.24999999999999997
+        },
+        "0.01": {
+          "channels": [
+            68,
+            69,
+            211,
+            220,
+            262,
+            264,
+            437,
+            446
+          ],
+          "day1_cv": 0.9607843137254902,
+          "donor_drift_rank": 0.5356265356265356,
+          "day2_balanced_accuracy": 0.2107843137254902,
+          "minus_fixed_differential": -0.24999999999999997
+        },
+        "0.02": {
+          "channels": [
+            68,
+            69,
+            211,
+            220,
+            262,
+            264,
+            437,
+            446
+          ],
+          "day1_cv": 0.9607843137254902,
+          "donor_drift_rank": 0.5356265356265356,
+          "day2_balanced_accuracy": 0.2107843137254902,
+          "minus_fixed_differential": -0.24999999999999997
+        },
+        "0.05": {
+          "channels": [
+            68,
+            69,
+            211,
+            220,
+            262,
+            264,
+            437,
+            446
+          ],
+          "day1_cv": 0.9607843137254902,
+          "donor_drift_rank": 0.5356265356265356,
+          "day2_balanced_accuracy": 0.2107843137254902,
+          "minus_fixed_differential": -0.24999999999999997
+        },
+        "0.1": {
+          "channels": [
+            83,
+            86,
+            146,
+            149,
+            267,
+            282,
+            370,
+            372
+          ],
+          "day1_cv": 0.9509803921568627,
+          "donor_drift_rank": 0.4217854217854218,
+          "day2_balanced_accuracy": 0.20098039215686272,
+          "minus_fixed_differential": -0.2598039215686274
+        },
+        "0.2": {
+          "channels": [
+            83,
+            86,
+            146,
+            149,
+            267,
+            282,
+            370,
+            372
+          ],
+          "day1_cv": 0.9509803921568627,
+          "donor_drift_rank": 0.4217854217854218,
+          "day2_balanced_accuracy": 0.20098039215686272,
+          "minus_fixed_differential": -0.2598039215686274
+        }
+      }
+    },
+    "07": {
+      "day1_source_record_sha256": "105ebc02d879cd8a9fb116f3468eff0b8472ca2ddbdd12f8da1610cf2a09ff7d",
+      "day2_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "08",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.4509803921568627,
+      "candidate_day2_oracle": 0.6764705882352942,
+      "choices": {
+        "0.0": {
+          "channels": [
+            73,
+            85,
+            135,
+            138,
+            257,
+            269,
+            422,
+            437
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.5717649467649468,
+          "day2_balanced_accuracy": 0.49509803921568624,
+          "minus_fixed_differential": 0.04411764705882354
+        },
+        "0.01": {
+          "channels": [
+            73,
+            85,
+            135,
+            138,
+            257,
+            269,
+            422,
+            437
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.5717649467649468,
+          "day2_balanced_accuracy": 0.49509803921568624,
+          "minus_fixed_differential": 0.04411764705882354
+        },
+        "0.02": {
+          "channels": [
+            73,
+            85,
+            135,
+            138,
+            257,
+            269,
+            422,
+            437
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.5717649467649468,
+          "day2_balanced_accuracy": 0.49509803921568624,
+          "minus_fixed_differential": 0.04411764705882354
+        },
+        "0.05": {
+          "channels": [
+            73,
+            85,
+            135,
+            138,
+            257,
+            269,
+            422,
+            437
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.5717649467649468,
+          "day2_balanced_accuracy": 0.49509803921568624,
+          "minus_fixed_differential": 0.04411764705882354
+        },
+        "0.1": {
+          "channels": [
+            73,
+            85,
+            135,
+            138,
+            257,
+            269,
+            422,
+            437
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.5717649467649468,
+          "day2_balanced_accuracy": 0.49509803921568624,
+          "minus_fixed_differential": 0.04411764705882354
+        },
+        "0.2": {
+          "channels": [
+            73,
+            85,
+            135,
+            138,
+            257,
+            269,
+            422,
+            437
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.5717649467649468,
+          "day2_balanced_accuracy": 0.49509803921568624,
+          "minus_fixed_differential": 0.04411764705882354
+        }
+      }
+    },
+    "08": {
+      "day1_source_record_sha256": "473301671965c6dd855cf8de9e01e0e44aef04ffb5affbe63cba6be2831de6fb",
+      "day2_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.18627450980392157,
+      "candidate_day2_oracle": 0.5539215686274509,
+      "choices": {
+        "0.0": {
+          "channels": [
+            84,
+            96,
+            191,
+            194,
+            254,
+            257,
+            413,
+            414
+          ],
+          "day1_cv": 0.9117647058823529,
+          "donor_drift_rank": 0.5337837837837838,
+          "day2_balanced_accuracy": 0.24509803921568624,
+          "minus_fixed_differential": 0.05882352941176466
+        },
+        "0.01": {
+          "channels": [
+            84,
+            96,
+            191,
+            194,
+            254,
+            257,
+            413,
+            414
+          ],
+          "day1_cv": 0.9117647058823529,
+          "donor_drift_rank": 0.5337837837837838,
+          "day2_balanced_accuracy": 0.24509803921568624,
+          "minus_fixed_differential": 0.05882352941176466
+        },
+        "0.02": {
+          "channels": [
+            84,
+            96,
+            191,
+            194,
+            254,
+            257,
+            413,
+            414
+          ],
+          "day1_cv": 0.9117647058823529,
+          "donor_drift_rank": 0.5337837837837838,
+          "day2_balanced_accuracy": 0.24509803921568624,
+          "minus_fixed_differential": 0.05882352941176466
+        },
+        "0.05": {
+          "channels": [
+            84,
+            96,
+            191,
+            194,
+            254,
+            257,
+            413,
+            414
+          ],
+          "day1_cv": 0.9117647058823529,
+          "donor_drift_rank": 0.5337837837837838,
+          "day2_balanced_accuracy": 0.24509803921568624,
+          "minus_fixed_differential": 0.05882352941176466
+        },
+        "0.1": {
+          "channels": [
+            84,
+            96,
+            191,
+            194,
+            254,
+            257,
+            413,
+            414
+          ],
+          "day1_cv": 0.9117647058823529,
+          "donor_drift_rank": 0.5337837837837838,
+          "day2_balanced_accuracy": 0.24509803921568624,
+          "minus_fixed_differential": 0.05882352941176466
+        },
+        "0.2": {
+          "channels": [
+            45,
+            48,
+            210,
+            213,
+            304,
+            318,
+            336,
+            338
+          ],
+          "day1_cv": 0.9068627450980391,
+          "donor_drift_rank": 0.4906838656838657,
+          "day2_balanced_accuracy": 0.303921568627451,
+          "minus_fixed_differential": 0.11764705882352944
+        }
+      }
+    },
+    "17": {
+      "day1_source_record_sha256": "86b378aaf7f105bb586e5d124bb023016f4d9786ece9bfc22cfb63878f197bdc",
+      "day2_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "18",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.19117647058823528,
+      "candidate_day2_oracle": 0.4754901960784313,
+      "choices": {
+        "0.0": {
+          "channels": [
+            32,
+            34,
+            170,
+            182,
+            273,
+            276,
+            353,
+            356
+          ],
+          "day1_cv": 0.9558823529411764,
+          "donor_drift_rank": 0.43294430794430794,
+          "day2_balanced_accuracy": 0.27941176470588236,
+          "minus_fixed_differential": 0.08823529411764708
+        },
+        "0.01": {
+          "channels": [
+            32,
+            34,
+            170,
+            182,
+            273,
+            276,
+            353,
+            356
+          ],
+          "day1_cv": 0.9558823529411764,
+          "donor_drift_rank": 0.43294430794430794,
+          "day2_balanced_accuracy": 0.27941176470588236,
+          "minus_fixed_differential": 0.08823529411764708
+        },
+        "0.02": {
+          "channels": [
+            32,
+            34,
+            170,
+            182,
+            273,
+            276,
+            353,
+            356
+          ],
+          "day1_cv": 0.9558823529411764,
+          "donor_drift_rank": 0.43294430794430794,
+          "day2_balanced_accuracy": 0.27941176470588236,
+          "minus_fixed_differential": 0.08823529411764708
+        },
+        "0.05": {
+          "channels": [
+            32,
+            34,
+            170,
+            182,
+            273,
+            276,
+            353,
+            356
+          ],
+          "day1_cv": 0.9558823529411764,
+          "donor_drift_rank": 0.43294430794430794,
+          "day2_balanced_accuracy": 0.27941176470588236,
+          "minus_fixed_differential": 0.08823529411764708
+        },
+        "0.1": {
+          "channels": [
+            32,
+            34,
+            170,
+            182,
+            273,
+            276,
+            353,
+            356
+          ],
+          "day1_cv": 0.9558823529411764,
+          "donor_drift_rank": 0.43294430794430794,
+          "day2_balanced_accuracy": 0.27941176470588236,
+          "minus_fixed_differential": 0.08823529411764708
+        },
+        "0.2": {
+          "channels": [
+            32,
+            34,
+            170,
+            182,
+            273,
+            276,
+            353,
+            356
+          ],
+          "day1_cv": 0.9558823529411764,
+          "donor_drift_rank": 0.43294430794430794,
+          "day2_balanced_accuracy": 0.27941176470588236,
+          "minus_fixed_differential": 0.08823529411764708
+        }
+      }
+    },
+    "18": {
+      "day1_source_record_sha256": "d7a0f3295262d514af3781aa08f24c1e53cbf00743d4a3bb855588732f98b590",
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "19",
+        "20"
+      ],
+      "fixed_differential_day2": 0.357843137254902,
+      "candidate_day2_oracle": 0.6078431372549019,
+      "choices": {
+        "0.0": {
+          "channels": [
+            0,
+            3,
+            182,
+            185,
+            261,
+            276,
+            415,
+            417
+          ],
+          "day1_cv": 0.9166666666666667,
+          "donor_drift_rank": 0.501023751023751,
+          "day2_balanced_accuracy": 0.4529411764705882,
+          "minus_fixed_differential": 0.09509803921568616
+        },
+        "0.01": {
+          "channels": [
+            0,
+            3,
+            182,
+            185,
+            261,
+            276,
+            415,
+            417
+          ],
+          "day1_cv": 0.9166666666666667,
+          "donor_drift_rank": 0.501023751023751,
+          "day2_balanced_accuracy": 0.4529411764705882,
+          "minus_fixed_differential": 0.09509803921568616
+        },
+        "0.02": {
+          "channels": [
+            0,
+            3,
+            182,
+            185,
+            261,
+            276,
+            415,
+            417
+          ],
+          "day1_cv": 0.9166666666666667,
+          "donor_drift_rank": 0.501023751023751,
+          "day2_balanced_accuracy": 0.4529411764705882,
+          "minus_fixed_differential": 0.09509803921568616
+        },
+        "0.05": {
+          "channels": [
+            0,
+            3,
+            182,
+            185,
+            261,
+            276,
+            415,
+            417
+          ],
+          "day1_cv": 0.9166666666666667,
+          "donor_drift_rank": 0.501023751023751,
+          "day2_balanced_accuracy": 0.4529411764705882,
+          "minus_fixed_differential": 0.09509803921568616
+        },
+        "0.1": {
+          "channels": [
+            0,
+            3,
+            182,
+            185,
+            261,
+            276,
+            415,
+            417
+          ],
+          "day1_cv": 0.9166666666666667,
+          "donor_drift_rank": 0.501023751023751,
+          "day2_balanced_accuracy": 0.4529411764705882,
+          "minus_fixed_differential": 0.09509803921568616
+        },
+        "0.2": {
+          "channels": [
+            0,
+            3,
+            182,
+            185,
+            261,
+            276,
+            415,
+            417
+          ],
+          "day1_cv": 0.9166666666666667,
+          "donor_drift_rank": 0.501023751023751,
+          "day2_balanced_accuracy": 0.4529411764705882,
+          "minus_fixed_differential": 0.09509803921568616
+        }
+      }
+    },
+    "19": {
+      "day1_source_record_sha256": "e1762d38e9a110f6c209672799f94c224c4f035f7f53f9276af9e9e3c0499573",
+      "day2_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "20"
+      ],
+      "fixed_differential_day2": 0.6212121212121212,
+      "candidate_day2_oracle": 0.7767676767676768,
+      "choices": {
+        "0.0": {
+          "channels": [
+            37,
+            49,
+            132,
+            144,
+            233,
+            245,
+            360,
+            372
+          ],
+          "day1_cv": 0.9656862745098039,
+          "donor_drift_rank": 0.4312039312039312,
+          "day2_balanced_accuracy": 0.6818181818181819,
+          "minus_fixed_differential": 0.06060606060606066
+        },
+        "0.01": {
+          "channels": [
+            37,
+            49,
+            132,
+            144,
+            233,
+            245,
+            360,
+            372
+          ],
+          "day1_cv": 0.9656862745098039,
+          "donor_drift_rank": 0.4312039312039312,
+          "day2_balanced_accuracy": 0.6818181818181819,
+          "minus_fixed_differential": 0.06060606060606066
+        },
+        "0.02": {
+          "channels": [
+            37,
+            49,
+            132,
+            144,
+            233,
+            245,
+            360,
+            372
+          ],
+          "day1_cv": 0.9656862745098039,
+          "donor_drift_rank": 0.4312039312039312,
+          "day2_balanced_accuracy": 0.6818181818181819,
+          "minus_fixed_differential": 0.06060606060606066
+        },
+        "0.05": {
+          "channels": [
+            37,
+            49,
+            132,
+            144,
+            233,
+            245,
+            360,
+            372
+          ],
+          "day1_cv": 0.9656862745098039,
+          "donor_drift_rank": 0.4312039312039312,
+          "day2_balanced_accuracy": 0.6818181818181819,
+          "minus_fixed_differential": 0.06060606060606066
+        },
+        "0.1": {
+          "channels": [
+            37,
+            49,
+            132,
+            144,
+            233,
+            245,
+            360,
+            372
+          ],
+          "day1_cv": 0.9656862745098039,
+          "donor_drift_rank": 0.4312039312039312,
+          "day2_balanced_accuracy": 0.6818181818181819,
+          "minus_fixed_differential": 0.06060606060606066
+        },
+        "0.2": {
+          "channels": [
+            37,
+            49,
+            132,
+            144,
+            233,
+            245,
+            360,
+            372
+          ],
+          "day1_cv": 0.9656862745098039,
+          "donor_drift_rank": 0.4312039312039312,
+          "day2_balanced_accuracy": 0.6818181818181819,
+          "minus_fixed_differential": 0.06060606060606066
+        }
+      }
+    },
+    "20": {
+      "day1_source_record_sha256": "d0959078e3e66ce4e5f824861358d93172cc0bc3bd7e718ca280b98f43c682c8",
+      "day2_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "donors": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "17",
+        "18",
+        "19"
+      ],
+      "fixed_differential_day2": 0.12745098039215685,
+      "candidate_day2_oracle": 0.4019607843137255,
+      "choices": {
+        "0.0": {
+          "channels": [
+            75,
+            77,
+            192,
+            204,
+            263,
+            275,
+            409,
+            423
+          ],
+          "day1_cv": 0.9411764705882353,
+          "donor_drift_rank": 0.5507780507780509,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.03921568627450983
+        },
+        "0.01": {
+          "channels": [
+            75,
+            77,
+            192,
+            204,
+            263,
+            275,
+            409,
+            423
+          ],
+          "day1_cv": 0.9411764705882353,
+          "donor_drift_rank": 0.5507780507780509,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.03921568627450983
+        },
+        "0.02": {
+          "channels": [
+            75,
+            77,
+            192,
+            204,
+            263,
+            275,
+            409,
+            423
+          ],
+          "day1_cv": 0.9411764705882353,
+          "donor_drift_rank": 0.5507780507780509,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.03921568627450983
+        },
+        "0.05": {
+          "channels": [
+            75,
+            77,
+            192,
+            204,
+            263,
+            275,
+            409,
+            423
+          ],
+          "day1_cv": 0.9411764705882353,
+          "donor_drift_rank": 0.5507780507780509,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.03921568627450983
+        },
+        "0.1": {
+          "channels": [
+            75,
+            77,
+            192,
+            204,
+            263,
+            275,
+            409,
+            423
+          ],
+          "day1_cv": 0.9411764705882353,
+          "donor_drift_rank": 0.5507780507780509,
+          "day2_balanced_accuracy": 0.16666666666666669,
+          "minus_fixed_differential": 0.03921568627450983
+        },
+        "0.2": {
+          "channels": [
+            30,
+            31,
+            112,
+            113,
+            294,
+            295,
+            389,
+            390
+          ],
+          "day1_cv": 0.9264705882352942,
+          "donor_drift_rank": 0.45935708435708433,
+          "day2_balanced_accuracy": 0.14215686274509803,
+          "minus_fixed_differential": 0.01470588235294118
+        }
+      }
+    }
+  },
+  "penalties": [
+    0.0,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "candidate_count": 5000,
+  "candidate_seed": 42,
+  "pair_prior": "class-centroid day drift divided by day-one class signal plus 0.5, within-grid percentile, mean of other 11 people"
+}
