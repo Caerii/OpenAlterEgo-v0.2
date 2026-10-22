@@ -1,0 +1,1067 @@
+{
+  "schema": "openalterego.silentwear-channel-ceiling.v1",
+  "split": "fit sessions 1+2, evaluate session 3",
+  "scope": "Previously exposed development sessions; all fourteen *recorded* channels are not an unobserved-position oracle.",
+  "normalization": "recording_robust",
+  "classifier": "standardized class-balanced logistic C=1",
+  "subsets": {
+    "fixed_six": [
+      0,
+      2,
+      5,
+      8,
+      11,
+      13
+    ],
+    "all_fourteen": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  "subjects": {
+    "S01": {
+      "scores": {
+        "fixed_six": {
+          "balanced_accuracy": 0.3557763975155279,
+          "command_balanced_accuracy": 0.29000000000000004,
+          "per_class_recall": [
+            0.8819875776397516,
+            0.43,
+            0.28,
+            0.24,
+            0.31,
+            0.34,
+            0.11,
+            0.19,
+            0.42
+          ],
+          "confusion_matrix": [
+            [
+              710,
+              42,
+              1,
+              16,
+              2,
+              9,
+              8,
+              11,
+              6
+            ],
+            [
+              19,
+              43,
+              2,
+              6,
+              2,
+              3,
+              0,
+              13,
+              12
+            ],
+            [
+              1,
+              12,
+              28,
+              5,
+              16,
+              7,
+              5,
+              5,
+              21
+            ],
+            [
+              7,
+              27,
+              5,
+              24,
+              12,
+              13,
+              5,
+              5,
+              2
+            ],
+            [
+              1,
+              7,
+              14,
+              1,
+              31,
+              19,
+              1,
+              10,
+              16
+            ],
+            [
+              0,
+              0,
+              3,
+              1,
+              1,
+              34,
+              8,
+              17,
+              36
+            ],
+            [
+              0,
+              0,
+              13,
+              1,
+              4,
+              15,
+              11,
+              17,
+              39
+            ],
+            [
+              2,
+              10,
+              7,
+              1,
+              8,
+              8,
+              9,
+              19,
+              36
+            ],
+            [
+              4,
+              17,
+              1,
+              5,
+              1,
+              7,
+              4,
+              19,
+              42
+            ]
+          ]
+        },
+        "all_fourteen": {
+          "balanced_accuracy": 0.32746031746031745,
+          "command_balanced_accuracy": 0.26125000000000004,
+          "per_class_recall": [
+            0.8571428571428571,
+            0.16,
+            0.26,
+            0.39,
+            0.37,
+            0.34,
+            0.11,
+            0.23,
+            0.23
+          ],
+          "confusion_matrix": [
+            [
+              690,
+              23,
+              2,
+              37,
+              11,
+              4,
+              14,
+              10,
+              14
+            ],
+            [
+              7,
+              16,
+              18,
+              36,
+              3,
+              8,
+              0,
+              5,
+              7
+            ],
+            [
+              0,
+              2,
+              26,
+              7,
+              26,
+              25,
+              5,
+              5,
+              4
+            ],
+            [
+              2,
+              10,
+              4,
+              39,
+              11,
+              8,
+              17,
+              4,
+              5
+            ],
+            [
+              1,
+              5,
+              7,
+              0,
+              37,
+              39,
+              3,
+              6,
+              2
+            ],
+            [
+              0,
+              0,
+              8,
+              1,
+              2,
+              34,
+              6,
+              29,
+              20
+            ],
+            [
+              0,
+              3,
+              32,
+              5,
+              4,
+              22,
+              11,
+              9,
+              14
+            ],
+            [
+              0,
+              4,
+              17,
+              9,
+              6,
+              23,
+              5,
+              23,
+              13
+            ],
+            [
+              1,
+              4,
+              28,
+              23,
+              0,
+              1,
+              2,
+              18,
+              23
+            ]
+          ]
+        }
+      },
+      "input_manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6",
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "90d20ac02f40784dbd5c86e724871a34d521a742f2a16e84a13cb546865becfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "5c8ad332a59749359ea5fdbe1a72c2959e31a10b7b24496c8074bab8c02106f0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "a1385ea7035f1463f1bd42dcc9b4d6a33546d0b1179c92f5263ddf751b55a62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "e932285439f0a081bce0e6ee4ecdf032e6f994300ac669721009027a24f7c2c3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "fb0f24eba44822c127139e037e5a81525bbeecca6b8358b52bf3d8230cae6159",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "8ac1dd314dd68c9795b4e739066f83e0fdd20d9230f6ae69218d4cff849d7ef5",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "937f3b377d4da2e6d4fe6a8e1ab52d1b9ed31404ea36482fe34232ee6c5bef1a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "19c7cd840d0f6d8e61be34536976deafcc5444261ab2863a093655c552beb0ca",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "2628310ebe8f378ea9544b53de19642026f1978965bb57280fd42b381ac89b69",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "6c10ee96cbc100e35c7c306b8addd27e2a8dc182095e948fea0371da33f3f4c0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "2092983b51fb7ae009eb60e75f007a145698508d290454319fadb77bf14950db",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "d4d4af55db536119eaa18f4e324f642e6687da2cefccc1c25c3e176c0aea0cfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "65e1d61f83143ce9192c9286b40aeef6e352a4b9a6f152d98448eef420f68bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0ec37f8760916a2bb3dcc79e15e9c47a08b7e8fa051ec9b7a75506c709ba7e7b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ]
+    },
+    "S02": {
+      "scores": {
+        "fixed_six": {
+          "balanced_accuracy": 0.2587508626639062,
+          "command_balanced_accuracy": 0.24125000000000002,
+          "per_class_recall": [
+            0.3987577639751553,
+            0.46,
+            0.23,
+            0.05,
+            0.06,
+            0.17,
+            0.04,
+            0.26,
+            0.66
+          ],
+          "confusion_matrix": [
+            [
+              321,
+              203,
+              180,
+              5,
+              11,
+              20,
+              49,
+              11,
+              5
+            ],
+            [
+              10,
+              46,
+              12,
+              2,
+              3,
+              4,
+              0,
+              3,
+              20
+            ],
+            [
+              14,
+              27,
+              23,
+              3,
+              7,
+              5,
+              1,
+              10,
+              10
+            ],
+            [
+              7,
+              27,
+              10,
+              5,
+              2,
+              7,
+              5,
+              9,
+              28
+            ],
+            [
+              12,
+              27,
+              20,
+              3,
+              6,
+              5,
+              6,
+              7,
+              14
+            ],
+            [
+              3,
+              9,
+              10,
+              1,
+              4,
+              17,
+              3,
+              30,
+              23
+            ],
+            [
+              1,
+              11,
+              5,
+              7,
+              2,
+              10,
+              4,
+              16,
+              44
+            ],
+            [
+              4,
+              8,
+              6,
+              3,
+              4,
+              10,
+              2,
+              26,
+              37
+            ],
+            [
+              1,
+              11,
+              5,
+              2,
+              0,
+              3,
+              0,
+              12,
+              66
+            ]
+          ]
+        },
+        "all_fourteen": {
+          "balanced_accuracy": 0.3086335403726708,
+          "command_balanced_accuracy": 0.27625,
+          "per_class_recall": [
+            0.5677018633540373,
+            0.51,
+            0.36,
+            0.04,
+            0.05,
+            0.11,
+            0.2,
+            0.38,
+            0.56
+          ],
+          "confusion_matrix": [
+            [
+              457,
+              132,
+              84,
+              12,
+              35,
+              16,
+              63,
+              4,
+              2
+            ],
+            [
+              8,
+              51,
+              8,
+              4,
+              4,
+              3,
+              2,
+              4,
+              16
+            ],
+            [
+              3,
+              30,
+              36,
+              2,
+              2,
+              7,
+              2,
+              8,
+              10
+            ],
+            [
+              5,
+              38,
+              12,
+              4,
+              1,
+              6,
+              5,
+              3,
+              26
+            ],
+            [
+              8,
+              30,
+              21,
+              2,
+              5,
+              10,
+              9,
+              5,
+              10
+            ],
+            [
+              2,
+              11,
+              8,
+              1,
+              7,
+              11,
+              15,
+              22,
+              23
+            ],
+            [
+              2,
+              11,
+              10,
+              4,
+              0,
+              4,
+              20,
+              14,
+              35
+            ],
+            [
+              6,
+              7,
+              7,
+              2,
+              4,
+              7,
+              4,
+              38,
+              25
+            ],
+            [
+              3,
+              17,
+              4,
+              2,
+              0,
+              0,
+              6,
+              12,
+              56
+            ]
+          ]
+        }
+      },
+      "input_manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "4a76cddfe56cc2fc08aadff70039fee450151e72f085f09a08e22bc379e0209b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "2144520ac3b66c121aeef8b77ce3ff11fe8930592b500aef032c3f210c0432da",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "6c54f617c658615b0bacc763a0fd1b4122f7d11567b5c3f2ef76f589e091f297",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "b9646761debd45c29af0dd430a671bde0ecc02ab8a6c17f9fd739ae701358a2a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "93ab3608ffdb56fd716c7913e2c087a415b217d97dbb2e87a95b8716f389bc47",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "80b43e5aa9d763b2214ac0816dcb9c4593a85d657cd513ac14dc4569b6126833",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "137bd682558357f0b0ff9c69e169c61fa6deb886d51ebcdc7d2432219c89fbe8",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "6e3352bb62ddb2312730972b47a0970e24e4a55e23472aaa7482b06c72605dc9",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "edb7380f4d92d2e8f64ea785b4814ca3387cefc24b2d0f5c88834491678e842e",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "9a166f6b06956fb23999beccbd6fce583387ad0b576515452885382725460bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "094a75b9aee41d565317a41a86bff5f07e63887e174a6aeccc244ceb330bc468",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "7a4b90c3b372aa5d5afbbfe68d5bc722bc962250d3a9b33832ef2b260faa73de",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "91e0b1efb4b48cb0ad89897cd3264492b31ce446c2165073cf1052eb5c02a8a1",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "fbaea364b35f38ceacb5670ba2b8e37fcb0bc6da094e3b23b771985c6b23f6b0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0c098e1abbbb46741d41ddc9aff898a8a20cc90e9f7cd3ada16a269b22e8cb70",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ]
+    },
+    "S03": {
+      "scores": {
+        "fixed_six": {
+          "balanced_accuracy": 0.27829537612146305,
+          "command_balanced_accuracy": 0.20625,
+          "per_class_recall": [
+            0.8546583850931677,
+            0.26,
+            0.06,
+            0.24,
+            0.12,
+            0.32,
+            0.29,
+            0.29,
+            0.07
+          ],
+          "confusion_matrix": [
+            [
+              688,
+              27,
+              9,
+              4,
+              33,
+              10,
+              10,
+              16,
+              8
+            ],
+            [
+              15,
+              26,
+              4,
+              19,
+              17,
+              1,
+              9,
+              5,
+              4
+            ],
+            [
+              7,
+              9,
+              6,
+              28,
+              19,
+              2,
+              10,
+              10,
+              9
+            ],
+            [
+              8,
+              9,
+              8,
+              24,
+              14,
+              4,
+              22,
+              10,
+              1
+            ],
+            [
+              28,
+              10,
+              13,
+              2,
+              12,
+              5,
+              1,
+              24,
+              5
+            ],
+            [
+              2,
+              5,
+              3,
+              8,
+              6,
+              32,
+              20,
+              17,
+              7
+            ],
+            [
+              1,
+              7,
+              3,
+              21,
+              14,
+              12,
+              29,
+              7,
+              6
+            ],
+            [
+              10,
+              13,
+              7,
+              5,
+              8,
+              4,
+              6,
+              29,
+              18
+            ],
+            [
+              0,
+              5,
+              15,
+              33,
+              13,
+              3,
+              15,
+              9,
+              7
+            ]
+          ]
+        },
+        "all_fourteen": {
+          "balanced_accuracy": 0.3357832988267771,
+          "command_balanced_accuracy": 0.26875000000000004,
+          "per_class_recall": [
+            0.8720496894409938,
+            0.45,
+            0.08,
+            0.38,
+            0.16,
+            0.25,
+            0.25,
+            0.44,
+            0.14
+          ],
+          "confusion_matrix": [
+            [
+              702,
+              14,
+              10,
+              11,
+              24,
+              4,
+              4,
+              28,
+              8
+            ],
+            [
+              3,
+              45,
+              2,
+              15,
+              16,
+              1,
+              5,
+              10,
+              3
+            ],
+            [
+              10,
+              11,
+              8,
+              32,
+              10,
+              2,
+              5,
+              10,
+              12
+            ],
+            [
+              7,
+              5,
+              6,
+              38,
+              15,
+              2,
+              16,
+              6,
+              5
+            ],
+            [
+              18,
+              12,
+              16,
+              5,
+              16,
+              2,
+              2,
+              10,
+              19
+            ],
+            [
+              1,
+              3,
+              3,
+              18,
+              12,
+              25,
+              19,
+              13,
+              6
+            ],
+            [
+              0,
+              11,
+              6,
+              15,
+              10,
+              16,
+              25,
+              15,
+              2
+            ],
+            [
+              6,
+              11,
+              6,
+              8,
+              4,
+              1,
+              6,
+              44,
+              14
+            ],
+            [
+              0,
+              13,
+              18,
+              31,
+              6,
+              3,
+              10,
+              5,
+              14
+            ]
+          ]
+        }
+      },
+      "input_manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547",
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "d9ada20da0f1ab0525fe2b994e350a758c39b8bf70276a0a7087c67675971a4f",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "712c673ad5d4f759bc45f8adcd4c3dc19d9556d11d3240c6348bc7772634e62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "042a63aa91031c0ee5702895eedf188baf97888c63e955bd578c1c62d2249427",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "10f30d458d6e21793d9bbd44e84aebe7282f4ddd1d50e5aad0cfd01f81f2450c",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "99db8397a214a4e6f117ad296ce6237ad849abbda6d688143a79323d3aacd145",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "b95a318541677eb2dcc0015e7fffb459a6b7af15651676366a8742c1936a2811",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "f5745317e3438a62c1323ceb93e0d347cefeedc595c7030cae6d64ca0c583114",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "75ea3c29d87e838e1c00cc233a12b72233af20060e0b255cac3490e3f5fea83b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "c7e661b92db5778e6e08ee196d48090313722ddec94e77054a1ee96acab2994a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "b06105fa1e3660903e56797cb93bdb15a615cad38d95af6a4a49cf13fa113fee",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "2b02aa99342c59354a1a14127d2e8f389358f4f695f4702298c1231f0e7bf201",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "9bedf70cffa8863ac0540e8dc111c7bfd5bdfb219324a88b5f168b98b0d68d0d",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "8c5ea3b622fb7c6b25638b56853ae2f0477e98bac9e5f46e89d683aaf9fb2ddf",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "05742c3e3eac9a852d70f0fffa7871af32740991495ed540f32addca38169836",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "eb4f48555ce28598339648567f3428e3285cd3f3783707498b5fc28ce7bb8618",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ]
+    }
+  }
+}
