@@ -1,0 +1,402 @@
+{
+  "schema": "openalterego.hyser-contact-shift-search.v1",
+  "scope": "Retrospective dense-array forearm replay, one-cell topological displacement from day one to day two",
+  "shifts": [
+    [
+      0,
+      0
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "candidate_seed": 42,
+  "candidate_count": 5000,
+  "selection": "nominal = half day1 CV, half nominal support transfer; robust = maximum worst shifted half-CV-half-transfer",
+  "query": "day1 nominal plus one labeled day2 support per class at shifted sites, weight 4; remaining shifted day2 trials query",
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 33,
+      "query_trials": 164,
+      "programs": {
+        "nominal_selected": [
+          20,
+          116,
+          180,
+          246,
+          337,
+          390,
+          499,
+          610
+        ],
+        "worst_shift_selected": [
+          52,
+          53,
+          109,
+          165,
+          218,
+          403,
+          515,
+          660
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "selected_nominal_objective": 0.7954545454545454,
+      "selected_worst_shift_objective": 0.6996434937611409,
+      "query_balanced_accuracy_by_shift": {
+        "(0, 0)": {
+          "nominal_selected": 0.843939393939394,
+          "worst_shift_selected": 0.7893939393939394,
+          "fixed_eight_site": 0.6984848484848486
+        },
+        "(-1, 0)": {
+          "nominal_selected": 0.8015151515151516,
+          "worst_shift_selected": 0.8393939393939395,
+          "fixed_eight_site": 0.734848484848485
+        },
+        "(1, 0)": {
+          "nominal_selected": 0.753030303030303,
+          "worst_shift_selected": 0.753030303030303,
+          "fixed_eight_site": 0.7287878787878788
+        },
+        "(0, -1)": {
+          "nominal_selected": 0.7696969696969698,
+          "worst_shift_selected": 0.753030303030303,
+          "fixed_eight_site": 0.6439393939393938
+        },
+        "(0, 1)": {
+          "nominal_selected": 0.740909090909091,
+          "worst_shift_selected": 0.7348484848484849,
+          "fixed_eight_site": 0.6803030303030303
+        }
+      },
+      "elapsed_seconds": 8.798279199982062
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "query_trials": 168,
+      "programs": {
+        "nominal_selected": [
+          25,
+          33,
+          84,
+          158,
+          242,
+          435,
+          543,
+          617
+        ],
+        "worst_shift_selected": [
+          37,
+          38,
+          77,
+          78,
+          157,
+          230,
+          542,
+          625
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "selected_nominal_objective": 0.6642156862745098,
+      "selected_worst_shift_objective": 0.5759803921568627,
+      "query_balanced_accuracy_by_shift": {
+        "(0, 0)": {
+          "nominal_selected": 0.7,
+          "worst_shift_selected": 0.7176470588235295,
+          "fixed_eight_site": 0.7058823529411764
+        },
+        "(-1, 0)": {
+          "nominal_selected": 0.6529411764705881,
+          "worst_shift_selected": 0.6941176470588236,
+          "fixed_eight_site": 0.7294117647058824
+        },
+        "(1, 0)": {
+          "nominal_selected": 0.788235294117647,
+          "worst_shift_selected": 0.6941176470588236,
+          "fixed_eight_site": 0.6941176470588235
+        },
+        "(0, -1)": {
+          "nominal_selected": 0.6529411764705882,
+          "worst_shift_selected": 0.6000000000000001,
+          "fixed_eight_site": 0.6705882352941177
+        },
+        "(0, 1)": {
+          "nominal_selected": 0.7058823529411764,
+          "worst_shift_selected": 0.7294117647058824,
+          "fixed_eight_site": 0.711764705882353
+        }
+      },
+      "elapsed_seconds": 7.337377000018023
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 33,
+      "query_trials": 164,
+      "programs": {
+        "nominal_selected": [
+          45,
+          90,
+          98,
+          148,
+          222,
+          290,
+          561,
+          640
+        ],
+        "worst_shift_selected": [
+          54,
+          108,
+          154,
+          246,
+          274,
+          405,
+          550,
+          609
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "selected_nominal_objective": 0.75,
+      "selected_worst_shift_objective": 0.6338383838383838,
+      "query_balanced_accuracy_by_shift": {
+        "(0, 0)": {
+          "nominal_selected": 0.737878787878788,
+          "worst_shift_selected": 0.8151515151515152,
+          "fixed_eight_site": 0.6439393939393939
+        },
+        "(-1, 0)": {
+          "nominal_selected": 0.7560606060606061,
+          "worst_shift_selected": 0.7954545454545455,
+          "fixed_eight_site": 0.6696969696969698
+        },
+        "(1, 0)": {
+          "nominal_selected": 0.7257575757575758,
+          "worst_shift_selected": 0.7878787878787878,
+          "fixed_eight_site": 0.6681818181818183
+        },
+        "(0, -1)": {
+          "nominal_selected": 0.743939393939394,
+          "worst_shift_selected": 0.7848484848484848,
+          "fixed_eight_site": 0.7045454545454547
+        },
+        "(0, 1)": {
+          "nominal_selected": 0.7257575757575758,
+          "worst_shift_selected": 0.7848484848484849,
+          "fixed_eight_site": 0.6393939393939393
+        }
+      },
+      "elapsed_seconds": 8.77475310000591
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "query_trials": 170,
+      "programs": {
+        "nominal_selected": [
+          41,
+          90,
+          178,
+          179,
+          209,
+          284,
+          436,
+          680
+        ],
+        "worst_shift_selected": [
+          43,
+          81,
+          173,
+          241,
+          292,
+          453,
+          500,
+          617
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "selected_nominal_objective": 0.8063725490196079,
+      "selected_worst_shift_objective": 0.696078431372549,
+      "query_balanced_accuracy_by_shift": {
+        "(0, 0)": {
+          "nominal_selected": 0.8,
+          "worst_shift_selected": 0.776470588235294,
+          "fixed_eight_site": 0.7941176470588235
+        },
+        "(-1, 0)": {
+          "nominal_selected": 0.7411764705882352,
+          "worst_shift_selected": 0.7705882352941177,
+          "fixed_eight_site": 0.7999999999999999
+        },
+        "(1, 0)": {
+          "nominal_selected": 0.8176470588235294,
+          "worst_shift_selected": 0.7764705882352941,
+          "fixed_eight_site": 0.7529411764705882
+        },
+        "(0, -1)": {
+          "nominal_selected": 0.7823529411764705,
+          "worst_shift_selected": 0.7470588235294118,
+          "fixed_eight_site": 0.776470588235294
+        },
+        "(0, 1)": {
+          "nominal_selected": 0.7411764705882353,
+          "worst_shift_selected": 0.8058823529411765,
+          "fixed_eight_site": 0.8470588235294118
+        }
+      },
+      "elapsed_seconds": 9.48381290002726
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "query_trials": 170,
+      "programs": {
+        "nominal_selected": [
+          17,
+          82,
+          162,
+          219,
+          344,
+          451,
+          533,
+          646
+        ],
+        "worst_shift_selected": [
+          33,
+          93,
+          145,
+          226,
+          314,
+          430,
+          568,
+          648
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "selected_nominal_objective": 0.7032085561497327,
+      "selected_worst_shift_objective": 0.6195781342840166,
+      "query_balanced_accuracy_by_shift": {
+        "(0, 0)": {
+          "nominal_selected": 0.7411764705882353,
+          "worst_shift_selected": 0.7823529411764707,
+          "fixed_eight_site": 0.676470588235294
+        },
+        "(-1, 0)": {
+          "nominal_selected": 0.7823529411764706,
+          "worst_shift_selected": 0.7411764705882353,
+          "fixed_eight_site": 0.7352941176470589
+        },
+        "(1, 0)": {
+          "nominal_selected": 0.6294117647058822,
+          "worst_shift_selected": 0.7529411764705883,
+          "fixed_eight_site": 0.588235294117647
+        },
+        "(0, -1)": {
+          "nominal_selected": 0.7,
+          "worst_shift_selected": 0.7823529411764705,
+          "fixed_eight_site": 0.7000000000000001
+        },
+        "(0, 1)": {
+          "nominal_selected": 0.7882352941176469,
+          "worst_shift_selected": 0.7941176470588237,
+          "fixed_eight_site": 0.6705882352941176
+        }
+      },
+      "elapsed_seconds": 8.779116200050339
+    }
+  }
+}

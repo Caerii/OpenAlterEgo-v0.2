@@ -1,0 +1,81 @@
+{
+  "schema": "openalterego.electrode-circuit-sensitivity.v1",
+  "scope": "Synthetic narrowband Gaussian information proxy, no fitted facial impedance, anatomy, or measured design effect",
+  "seeds": {
+    "lead_dev": 42,
+    "lead_eval": 420,
+    "circuit_dev": 43,
+    "circuit_eval": 421
+  },
+  "contact_count": 40,
+  "recorded_channel_count": 38,
+  "max_afe_channels": 6,
+  "max_contacts": 8,
+  "development_scenarios": 12,
+  "held_scenarios": 24,
+  "model": {
+    "frequency_hz": 100.0,
+    "input_resistance_ohm": 1000000.0,
+    "input_capacitance_f": 0.0,
+    "common_mode_variance_arbitrary_units": 100.0,
+    "cmrr_db": 100.0,
+    "series_ohm_lognormal_median": 2000,
+    "parallel_ohm_lognormal_median": 200000,
+    "parallel_ohm_clipped_range": [
+      20000,
+      2000000.0
+    ],
+    "capacitance_f_lognormal_median": 2e-08,
+    "all_ranges_are_unmeasured_stress_inputs": true
+  },
+  "ideal_search_evaluations": 1210,
+  "circuit_search_evaluations": 1212,
+  "ideal_search_seconds": 0.018133900011889637,
+  "circuit_search_seconds": 0.023869499913416803,
+  "scores": {
+    "ideal_selected": {
+      "channels": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "active_contacts": 7,
+      "held_circuit_mean_proxy": 3.518964960005872,
+      "held_circuit_risk_proxy": 3.1919596906730314,
+      "held_circuit_minimum_proxy": 2.929914752405506
+    },
+    "circuit_selected": {
+      "channels": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "active_contacts": 7,
+      "held_circuit_mean_proxy": 3.518964960005872,
+      "held_circuit_risk_proxy": 3.1919596906730314,
+      "held_circuit_minimum_proxy": 2.929914752405506
+    },
+    "fixed": {
+      "channels": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "active_contacts": 7,
+      "held_circuit_mean_proxy": 0.9722036221284162,
+      "held_circuit_risk_proxy": 0.7701183201794051,
+      "held_circuit_minimum_proxy": 0.5508517005020536
+    }
+  },
+  "machine": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.3"
+}

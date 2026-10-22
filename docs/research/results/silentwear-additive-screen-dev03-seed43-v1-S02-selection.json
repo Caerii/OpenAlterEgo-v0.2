@@ -1,0 +1,37 @@
+{
+  "finalists_exact": 150,
+  "manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
+  "schema": "openalterego.silentwear-additive-selection.v1",
+  "scope": "Local prequery record; retrospective exposed sessions, not independent preregistration",
+  "seed": 43,
+  "seed_exact": 150,
+  "selection": {
+    "additive_screened": {
+      "candidate_index": 5089,
+      "channels": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "normalization": "recording_robust",
+      "selection_score": 0.28344375431331953
+    },
+    "uniform_exact": {
+      "candidate_index": 4538,
+      "channels": [
+        1,
+        2,
+        5,
+        8,
+        11,
+        13
+      ],
+      "normalization": "recording_robust",
+      "selection_score": 0.26484472049689445
+    }
+  },
+  "subject": "S02"
+}

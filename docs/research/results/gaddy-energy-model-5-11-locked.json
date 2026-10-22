@@ -1,0 +1,120 @@
+{
+  "schema": "openalterego.gaddy-energy-model-compare.v1",
+  "train_sessions": [
+    "parallel-5-5-first100",
+    "parallel-5-6-first100",
+    "parallel-5-8-first100",
+    "parallel-5-9-first100",
+    "parallel-5-10-first100"
+  ],
+  "dev_session": "parallel-5-11-first100",
+  "preprocessing": "per-trial forward 60-Hz harmonic notches and 2-Hz highpass",
+  "frame_step_ms": 50,
+  "emg_window_ms": 100,
+  "audio_window_ms": 40,
+  "past_lags_frames": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "oracle_mask_note": "Voiced interior mask is derived from evaluation audio pitch only; never model input.",
+  "metrics": {
+    "mean_prior": {
+      "all_frame_mae": 0.8478947677926373,
+      "voiced_interior_mae": 0.9137389699609068,
+      "voiced_delta_mae": 0.19463410911351176,
+      "voiced_delta_zero_mae": 0.19463410911351176,
+      "frames": 14923,
+      "interior_frames": 2969,
+      "interior_deltas": 2265
+    },
+    "current_ridge": {
+      "all_frame_mae": 0.6095106681575111,
+      "voiced_interior_mae": 0.6637144921532271,
+      "voiced_delta_mae": 0.2774115396751685,
+      "voiced_delta_zero_mae": 0.19463410911351176,
+      "frames": 14923,
+      "interior_frames": 2969,
+      "interior_deltas": 2265
+    },
+    "past_window_ridge": {
+      "all_frame_mae": 0.5777881764671144,
+      "voiced_interior_mae": 0.6569141147866076,
+      "voiced_delta_mae": 0.22721988654073697,
+      "voiced_delta_zero_mae": 0.19463410911351176,
+      "frames": 14923,
+      "interior_frames": 2969,
+      "interior_deltas": 2265
+    },
+    "past_window_hgb": {
+      "all_frame_mae": 0.38040295331695245,
+      "voiced_interior_mae": 0.44569863075673327,
+      "voiced_delta_mae": 0.21919136268807504,
+      "voiced_delta_zero_mae": 0.19463410911351176,
+      "frames": 14923,
+      "interior_frames": 2969,
+      "interior_deltas": 2265
+    },
+    "past_window_hgb_shift_1s": {
+      "all_frame_mae": 0.9563162787572078,
+      "voiced_interior_mae": 1.0397767092747388,
+      "voiced_delta_mae": 0.2684673016444748,
+      "voiced_delta_zero_mae": 0.19463410911351176,
+      "frames": 14923,
+      "interior_frames": 2969,
+      "interior_deltas": 2265
+    },
+    "global_activity_hgb": {
+      "all_frame_mae": 0.431543517664729,
+      "voiced_interior_mae": 0.44660546058564016,
+      "voiced_delta_mae": 0.21937004871645427,
+      "voiced_delta_zero_mae": 0.19463410911351176,
+      "frames": 14923,
+      "interior_frames": 2969,
+      "interior_deltas": 2265
+    }
+  },
+  "hgb_all_frame_paired_advantage": {
+    "mean_prior": {
+      "utterances": 71,
+      "mean": 0.4820075082772913,
+      "ci95": [
+        0.4468405826176104,
+        0.5179699861359635
+      ]
+    },
+    "current_ridge": {
+      "utterances": 71,
+      "mean": 0.24828370592565377,
+      "ci95": [
+        0.22872913066367812,
+        0.2711866163036097
+      ]
+    },
+    "past_window_ridge": {
+      "utterances": 71,
+      "mean": 0.23043054518655962,
+      "ci95": [
+        0.20486841213731413,
+        0.2626762962795234
+      ]
+    },
+    "past_window_hgb_shift_1s": {
+      "utterances": 71,
+      "mean": 0.5795121344137865,
+      "ci95": [
+        0.5537001740590859,
+        0.6058567366960182
+      ]
+    },
+    "global_activity_hgb": {
+      "utterances": 71,
+      "mean": 0.04294367395585702,
+      "ci95": [
+        0.03237992830254988,
+        0.05300504252569971
+      ]
+    }
+  }
+}

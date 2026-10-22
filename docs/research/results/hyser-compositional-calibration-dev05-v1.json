@@ -1,0 +1,158 @@
+{
+  "schema": "openalterego.hyser-compositional-calibration.v1",
+  "scope": "Retrospective forearm gesture replay; support/query disjoint but class-block order is not globally chronological",
+  "shots_per_class": 1,
+  "support_weights": [
+    0.0,
+    1.0,
+    4.0
+  ],
+  "alpha": 10.0,
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "support_trials": 33,
+      "query_trials": 164,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "beam": 0.42424242424242425,
+          "random": 0.3151515151515151,
+          "fixed_mixed": 0.49696969696969706,
+          "fixed_monopolar": 0.5878787878787879,
+          "beam_same_contacts_monopolar": 0.3212121212121212
+        },
+        "1.0": {
+          "beam": 0.7212121212121211,
+          "random": 0.6424242424242425,
+          "fixed_mixed": 0.7363636363636363,
+          "fixed_monopolar": 0.7651515151515152,
+          "beam_same_contacts_monopolar": 0.6121212121212122
+        },
+        "4.0": {
+          "beam": 0.7424242424242423,
+          "random": 0.6787878787878787,
+          "fixed_mixed": 0.7606060606060605,
+          "fixed_monopolar": 0.6984848484848486,
+          "beam_same_contacts_monopolar": 0.6196969696969696
+        }
+      }
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "support_trials": 34,
+      "query_trials": 168,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "beam": 0.1647058823529412,
+          "random": 0.1823529411764706,
+          "fixed_mixed": 0.13970588235294118,
+          "fixed_monopolar": 0.23088235294117646,
+          "beam_same_contacts_monopolar": 0.1647058823529412
+        },
+        "1.0": {
+          "beam": 0.7058823529411765,
+          "random": 0.723529411764706,
+          "fixed_mixed": 0.6647058823529411,
+          "fixed_monopolar": 0.6705882352941176,
+          "beam_same_contacts_monopolar": 0.5588235294117647
+        },
+        "4.0": {
+          "beam": 0.7294117647058824,
+          "random": 0.7352941176470589,
+          "fixed_mixed": 0.723529411764706,
+          "fixed_monopolar": 0.7058823529411764,
+          "beam_same_contacts_monopolar": 0.6058823529411764
+        }
+      }
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "support_trials": 33,
+      "query_trials": 164,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "beam": 0.08484848484848484,
+          "random": 0.2787878787878788,
+          "fixed_mixed": 0.41969696969696973,
+          "fixed_monopolar": 0.45151515151515154,
+          "beam_same_contacts_monopolar": 0.030303030303030304
+        },
+        "1.0": {
+          "beam": 0.5606060606060606,
+          "random": 0.7333333333333334,
+          "fixed_mixed": 0.7803030303030304,
+          "fixed_monopolar": 0.6333333333333335,
+          "beam_same_contacts_monopolar": 0.4378787878787878
+        },
+        "4.0": {
+          "beam": 0.6954545454545454,
+          "random": 0.7090909090909092,
+          "fixed_mixed": 0.7742424242424243,
+          "fixed_monopolar": 0.6439393939393939,
+          "beam_same_contacts_monopolar": 0.4863636363636365
+        }
+      }
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "support_trials": 34,
+      "query_trials": 170,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "beam": 0.4647058823529412,
+          "random": 0.5647058823529412,
+          "fixed_mixed": 0.5058823529411764,
+          "fixed_monopolar": 0.5823529411764706,
+          "beam_same_contacts_monopolar": 0.5235294117647059
+        },
+        "1.0": {
+          "beam": 0.7647058823529412,
+          "random": 0.7352941176470589,
+          "fixed_mixed": 0.7294117647058824,
+          "fixed_monopolar": 0.7470588235294118,
+          "beam_same_contacts_monopolar": 0.6058823529411765
+        },
+        "4.0": {
+          "beam": 0.8,
+          "random": 0.8058823529411764,
+          "fixed_mixed": 0.7999999999999999,
+          "fixed_monopolar": 0.7941176470588235,
+          "beam_same_contacts_monopolar": 0.5941176470588236
+        }
+      }
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "support_trials": 34,
+      "query_trials": 170,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "beam": 0.029411764705882353,
+          "random": 0.388235294117647,
+          "fixed_mixed": 0.3823529411764706,
+          "fixed_monopolar": 0.5176470588235293,
+          "beam_same_contacts_monopolar": 0.12352941176470589
+        },
+        "1.0": {
+          "beam": 0.576470588235294,
+          "random": 0.711764705882353,
+          "fixed_mixed": 0.6588235294117646,
+          "fixed_monopolar": 0.6470588235294118,
+          "beam_same_contacts_monopolar": 0.4999999999999999
+        },
+        "4.0": {
+          "beam": 0.7058823529411766,
+          "random": 0.7411764705882354,
+          "fixed_mixed": 0.7294117647058823,
+          "fixed_monopolar": 0.676470588235294,
+          "beam_same_contacts_monopolar": 0.5588235294117646
+        }
+      }
+    }
+  }
+}

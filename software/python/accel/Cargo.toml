@@ -2,15 +2,17 @@
 name = "openalterego_accel"
 version = "0.1.0"
 edition = "2021"
-description = "Rust-accelerated spike scatter for OpenAlterEgo biophysical EMG synthesis"
+description = "Rust acceleration for OpenAlterEgo EMG synthesis and program scoring"
 
 [lib]
 name = "openalterego_accel"
 crate-type = ["cdylib"]
 
 [dependencies]
-pyo3 = { version = "0.22", features = ["extension-module"] }
-numpy = "0.22"
+pyo3 = { version = "0.26", features = ["extension-module"] }
+numpy = "0.26"
+claxon = "0.4.3"
+rayon = "1.10"
 
 [profile.release]
 lto = true

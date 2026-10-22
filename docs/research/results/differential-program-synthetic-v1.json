@@ -1,0 +1,246 @@
+{
+  "schema": "openalterego.differential-program-synthetic.v1",
+  "scope": "Illustrative two-chain forward/noise model; not a calibrated CSL montage or measured design improvement",
+  "seeds": {
+    "development": 42,
+    "evaluation": 420,
+    "random_search": 42,
+    "score_benchmark": 991
+  },
+  "topology": {
+    "contact_count": 40,
+    "candidate_channels": 38,
+    "max_afe_channels": 8,
+    "max_active_contacts": 14,
+    "pair_map": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        17,
+        18
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        19,
+        20
+      ],
+      [
+        20,
+        21
+      ],
+      [
+        21,
+        22
+      ],
+      [
+        22,
+        23
+      ],
+      [
+        23,
+        24
+      ],
+      [
+        24,
+        25
+      ],
+      [
+        25,
+        26
+      ],
+      [
+        26,
+        27
+      ],
+      [
+        27,
+        28
+      ],
+      [
+        28,
+        29
+      ],
+      [
+        29,
+        30
+      ],
+      [
+        30,
+        31
+      ],
+      [
+        32,
+        33
+      ],
+      [
+        33,
+        34
+      ],
+      [
+        34,
+        35
+      ],
+      [
+        35,
+        36
+      ],
+      [
+        36,
+        37
+      ],
+      [
+        37,
+        38
+      ],
+      [
+        38,
+        39
+      ]
+    ],
+    "fixed_channels": [
+      1,
+      2,
+      3,
+      15,
+      16,
+      17,
+      31,
+      32
+    ]
+  },
+  "scenario_model": "smooth region-local lead fields, lognormal source/AFE/contact variance, two noisy contacts per scenario",
+  "development_scenarios": 16,
+  "evaluation_scenarios": 64,
+  "beam_size": 32,
+  "beam_evaluations": 5449,
+  "beam_seconds": 0.22458839998580515,
+  "random_matched_seconds": 0.727629299974069,
+  "choices": {
+    "beam": {
+      "channels": [
+        17,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "active_contacts": 10,
+      "evaluation_objective_bits_per_sample": 3.8496233453808726,
+      "evaluation_mean_bits_per_sample": 4.144053336394972,
+      "evaluation_minimum_bits_per_sample": 3.4767052065931794
+    },
+    "random_matched": {
+      "channels": [
+        5,
+        6,
+        16,
+        17,
+        32,
+        33,
+        34,
+        35
+      ],
+      "active_contacts": 11,
+      "evaluation_objective_bits_per_sample": 2.899699305717869,
+      "evaluation_mean_bits_per_sample": 3.1838917447910253,
+      "evaluation_minimum_bits_per_sample": 2.5754646385724826
+    },
+    "fixed": {
+      "channels": [
+        1,
+        2,
+        3,
+        15,
+        16,
+        17,
+        31,
+        32
+      ],
+      "active_contacts": 11,
+      "evaluation_objective_bits_per_sample": 1.3971093838282733,
+      "evaluation_mean_bits_per_sample": 1.6880810856069102,
+      "evaluation_minimum_bits_per_sample": 0.8796146082844394
+    }
+  },
+  "score_benchmark": {
+    "designs": 64,
+    "batched_seconds": 0.005122700007632375,
+    "direct_seconds": 0.5078107999870554,
+    "speedup": 99.12952139115343,
+    "max_abs_mean_bits_error": 8.881784197001252e-16
+  },
+  "machine": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.3"
+}

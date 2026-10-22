@@ -1,0 +1,193 @@
+{
+  "schema": "openalterego.faceemg11-multifidelity-search.v1",
+  "scope": "Post hoc later-block analysis; subjects 07-12 query outcomes previously exposed",
+  "source": "https://doi.org/10.5281/zenodo.22137268",
+  "low_feature_count_per_channel": 2,
+  "high_feature_count_per_channel": 8,
+  "candidate_count": 38760,
+  "finalist_count": 128,
+  "selection": "low three-fold training CV top-K; high three-fold training CV reranks K",
+  "query": "blocks 21-30; high-feature model fitted blocks 1-20",
+  "subjects": {
+    "07": {
+      "source_member_sha256": "514fb56d1a720140167c8be5eafea36abab470d1d5af629378787d9fa20ba1e7",
+      "programs": {
+        "low_feature_selected": [
+          6,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "temporal_reranked": [
+          0,
+          3,
+          6,
+          12,
+          13,
+          16
+        ]
+      },
+      "low_selection_cv": 0.9151515151515152,
+      "high_rerank_cv": 0.9393939393939394,
+      "same_program": false,
+      "query_balanced_accuracy": {
+        "low_feature_selected": 0.8999999999999999,
+        "temporal_reranked": 0.8636363636363636
+      },
+      "low_screen_seconds": 9.229016700061038,
+      "high_rerank_seconds": 0.06401279999408871
+    },
+    "08": {
+      "source_member_sha256": "11a2d7ece890dc4bc6b0a0c8db8a7ccf539040f79ec670ba69c952df482c6ee4",
+      "programs": {
+        "low_feature_selected": [
+          0,
+          2,
+          6,
+          10,
+          13,
+          16
+        ],
+        "temporal_reranked": [
+          0,
+          6,
+          10,
+          12,
+          13,
+          16
+        ]
+      },
+      "low_selection_cv": 0.8484848484848486,
+      "high_rerank_cv": 0.8666666666666667,
+      "same_program": false,
+      "query_balanced_accuracy": {
+        "low_feature_selected": 0.8818181818181817,
+        "temporal_reranked": 0.9181818181818181
+      },
+      "low_screen_seconds": 7.202092900057323,
+      "high_rerank_seconds": 0.0867947000078857
+    },
+    "09": {
+      "source_member_sha256": "35b0cfc7b81626db564d7d88d89eabfe0f7747f4f8cdb81ab95addc5814a2d73",
+      "programs": {
+        "low_feature_selected": [
+          2,
+          4,
+          6,
+          7,
+          14,
+          17
+        ],
+        "temporal_reranked": [
+          5,
+          6,
+          7,
+          12,
+          14,
+          17
+        ]
+      },
+      "low_selection_cv": 0.9636363636363636,
+      "high_rerank_cv": 0.9454545454545453,
+      "same_program": false,
+      "query_balanced_accuracy": {
+        "low_feature_selected": 0.9636363636363636,
+        "temporal_reranked": 0.9727272727272727
+      },
+      "low_screen_seconds": 7.6076509999111295,
+      "high_rerank_seconds": 0.14747209998313338
+    },
+    "10": {
+      "source_member_sha256": "5686c4bf15bef0bd785ac796fb08cffedecd57b04535acf0d975842e8da05cbb",
+      "programs": {
+        "low_feature_selected": [
+          5,
+          6,
+          7,
+          10,
+          15,
+          16
+        ],
+        "temporal_reranked": [
+          0,
+          4,
+          7,
+          8,
+          9,
+          11
+        ]
+      },
+      "low_selection_cv": 0.9818181818181819,
+      "high_rerank_cv": 0.987878787878788,
+      "same_program": false,
+      "query_balanced_accuracy": {
+        "low_feature_selected": 0.9727272727272727,
+        "temporal_reranked": 0.9818181818181819
+      },
+      "low_screen_seconds": 6.975718299974687,
+      "high_rerank_seconds": 0.061173300025984645
+    },
+    "11": {
+      "source_member_sha256": "6edf5aeb05f4d5dc7e5ccab5e99908bf872413f5715d52d0ad0bd5516df35bfb",
+      "programs": {
+        "low_feature_selected": [
+          1,
+          4,
+          6,
+          7,
+          11,
+          17
+        ],
+        "temporal_reranked": [
+          0,
+          3,
+          4,
+          12,
+          15,
+          17
+        ]
+      },
+      "low_selection_cv": 0.8727272727272728,
+      "high_rerank_cv": 0.9212121212121213,
+      "same_program": false,
+      "query_balanced_accuracy": {
+        "low_feature_selected": 0.9,
+        "temporal_reranked": 0.9272727272727272
+      },
+      "low_screen_seconds": 8.100732399965636,
+      "high_rerank_seconds": 0.09151010005734861
+    },
+    "12": {
+      "source_member_sha256": "1b519292e1de49b0dd6960201dcbc182cac3411fd6f56214dbab5e471fe12c7d",
+      "programs": {
+        "low_feature_selected": [
+          0,
+          3,
+          8,
+          9,
+          11,
+          15
+        ],
+        "temporal_reranked": [
+          0,
+          1,
+          8,
+          12,
+          16,
+          18
+        ]
+      },
+      "low_selection_cv": 0.9636363636363636,
+      "high_rerank_cv": 0.9333333333333333,
+      "same_program": false,
+      "query_balanced_accuracy": {
+        "low_feature_selected": 0.9272727272727274,
+        "temporal_reranked": 0.9181818181818181
+      },
+      "low_screen_seconds": 8.02178430010099,
+      "high_rerank_seconds": 0.085038400022313
+    }
+  }
+}

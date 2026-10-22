@@ -1,0 +1,217 @@
+{
+  "schema": "openalterego.faceemg11-forward-search.v1",
+  "scope": "Retrospective within-recording facial-command diagnostic; no fresh holdout, silent speech, or reseating",
+  "selection": {
+    "shuffled_cv": "blocks 1-15, three stratified folds",
+    "forward_blocks": "fit blocks 1-10 / validate 11-15; fit 1-15 / validate 16-20",
+    "beam_size": 4,
+    "ridge_alpha": 10.0
+  },
+  "evaluation": "fit blocks 1-20, inspect exposed blocks 21-30",
+  "subjects": {
+    "01": {
+      "source_member_sha256": "8b0647c2c03d9f96dbe4d5e45da9b6ebeca03fde7a20474dc3d9bff2a9929bac",
+      "selections": {
+        "shuffled_cv": {
+          "channels": [
+            0,
+            2,
+            5,
+            6,
+            10,
+            17
+          ],
+          "selection_score": 0.9151515151515153,
+          "evaluations": 338,
+          "search_seconds": 0.1032685999525711,
+          "later_block_balanced_accuracy": 0.9727272727272727
+        },
+        "forward_blocks": {
+          "channels": [
+            0,
+            4,
+            13,
+            15,
+            16,
+            17
+          ],
+          "selection_score": 0.9727272727272727,
+          "evaluations": 340,
+          "search_seconds": 0.0521067000227049,
+          "later_block_balanced_accuracy": 0.9545454545454546
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.990909090909091
+    },
+    "02": {
+      "source_member_sha256": "77039e8b75cc5975ee69d178a4af64d9fefd415ab934abe344ce3c00b670335c",
+      "selections": {
+        "shuffled_cv": {
+          "channels": [
+            1,
+            2,
+            4,
+            8,
+            9,
+            18
+          ],
+          "selection_score": 0.9696969696969697,
+          "evaluations": 343,
+          "search_seconds": 0.06300239998381585,
+          "later_block_balanced_accuracy": 0.9181818181818183
+        },
+        "forward_blocks": {
+          "channels": [
+            0,
+            2,
+            3,
+            8,
+            11,
+            12
+          ],
+          "selection_score": 0.9272727272727272,
+          "evaluations": 341,
+          "search_seconds": 0.04727650003042072,
+          "later_block_balanced_accuracy": 0.9272727272727272
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.9818181818181819
+    },
+    "03": {
+      "source_member_sha256": "69834130808cd703ab0a31fb9cedb8318d1468d61e1d7f08bf90a54ff837c41b",
+      "selections": {
+        "shuffled_cv": {
+          "channels": [
+            0,
+            2,
+            3,
+            4,
+            14,
+            15
+          ],
+          "selection_score": 0.896969696969697,
+          "evaluations": 342,
+          "search_seconds": 0.06997880002018064,
+          "later_block_balanced_accuracy": 0.9090909090909091
+        },
+        "forward_blocks": {
+          "channels": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            16
+          ],
+          "selection_score": 0.9090909090909091,
+          "evaluations": 341,
+          "search_seconds": 0.049008999951183796,
+          "later_block_balanced_accuracy": 0.8636363636363636
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.9636363636363636
+    },
+    "04": {
+      "source_member_sha256": "81ab75f23d20145388f2c4a4c57e06a417574d7fabd6ad56f2aa96baef8fa5ab",
+      "selections": {
+        "shuffled_cv": {
+          "channels": [
+            0,
+            1,
+            4,
+            6,
+            12,
+            16
+          ],
+          "selection_score": 0.8363636363636364,
+          "evaluations": 344,
+          "search_seconds": 0.10232550010550767,
+          "later_block_balanced_accuracy": 0.8636363636363636
+        },
+        "forward_blocks": {
+          "channels": [
+            0,
+            3,
+            4,
+            6,
+            12,
+            16
+          ],
+          "selection_score": 0.8636363636363636,
+          "evaluations": 338,
+          "search_seconds": 0.06730110000353307,
+          "later_block_balanced_accuracy": 0.8545454545454546
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.8818181818181817
+    },
+    "05": {
+      "source_member_sha256": "d2fce1b84b8e8bfaf4e351962f5f94c4e61ed6aaece6d2a2c3ba2ce3e5366e70",
+      "selections": {
+        "shuffled_cv": {
+          "channels": [
+            0,
+            2,
+            3,
+            10,
+            12,
+            15
+          ],
+          "selection_score": 0.9575757575757575,
+          "evaluations": 345,
+          "search_seconds": 0.109690299956128,
+          "later_block_balanced_accuracy": 0.9545454545454546
+        },
+        "forward_blocks": {
+          "channels": [
+            4,
+            5,
+            9,
+            11,
+            12,
+            13
+          ],
+          "selection_score": 1.0,
+          "evaluations": 342,
+          "search_seconds": 0.07774390000849962,
+          "later_block_balanced_accuracy": 0.9272727272727274
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.9818181818181819
+    },
+    "06": {
+      "source_member_sha256": "223c45855bddb64e6fe87ece562d062b33f7088a5985f8cc1035671a0f42c7e0",
+      "selections": {
+        "shuffled_cv": {
+          "channels": [
+            0,
+            2,
+            7,
+            11,
+            14,
+            16
+          ],
+          "selection_score": 0.896969696969697,
+          "evaluations": 338,
+          "search_seconds": 0.11263570003211498,
+          "later_block_balanced_accuracy": 0.8090909090909093
+        },
+        "forward_blocks": {
+          "channels": [
+            0,
+            2,
+            4,
+            7,
+            15,
+            16
+          ],
+          "selection_score": 0.8454545454545455,
+          "evaluations": 342,
+          "search_seconds": 0.07716469990555197,
+          "later_block_balanced_accuracy": 0.7636363636363637
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.8909090909090908
+    }
+  }
+}

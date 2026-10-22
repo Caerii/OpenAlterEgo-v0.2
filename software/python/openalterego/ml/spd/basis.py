@@ -220,6 +220,7 @@ def ensure_gowda_spd_basis(
     session_dir: Union[str, Path],
     *,
     basis_session_dir: Optional[Union[str, Path]] = None,
+    basis_cache_dir: Optional[Union[str, Path]] = None,
     fs_hz: int,
     emg_mode: str = "gowda",
     window_ms: int = GOWDA_SPD_WINDOW_MS,
@@ -237,7 +238,8 @@ def ensure_gowda_spd_basis(
     from that directory while ``session_dir`` may point at sim data for training.
     """
     session_dir = Path(session_dir)
-    cache_dir = Path(basis_session_dir) if basis_session_dir is not None else session_dir
+    source_dir = Path(basis_session_dir) if basis_session_dir is not None else session_dir
+    cache_dir = Path(basis_cache_dir) if basis_cache_dir is not None else source_dir
     mode = "upper_tri" if use_upper_tri and str(feature_mode) == "full" else str(feature_mode)
     stem = basis_cache_stem(
         emg_mode=str(emg_mode),
@@ -254,12 +256,12 @@ def ensure_gowda_spd_basis(
         from ..data_split import resolve_gowda_train_val_test_indices
         from ..datasets.events import load_gowda_events, read_split_mode
 
-        signals = np.load(cache_dir / "signals.npy", mmap_mode="r")
-        events = load_gowda_events(cache_dir)
+        signals = np.load(source_dir / "signals.npy", mmap_mode="r")
+        events = load_gowda_events(source_dir)
         if "trial_id" in events.columns:
             tr_idx, _, _ = resolve_gowda_train_val_test_indices(
                 events["trial_id"].astype(int).values,
-                split_mode=read_split_mode(cache_dir),
+                split_mode=read_split_mode(source_dir),
             )
             tr_events = events.iloc[tr_idx].reset_index(drop=True)
         else:

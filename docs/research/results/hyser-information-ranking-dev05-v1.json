@@ -1,0 +1,244 @@
+{
+  "schema": "openalterego.hyser-information-ranking.v1",
+  "scope": "Post-hoc forearm development audit; day-two labels are used only for evaluation",
+  "candidate_count": 1000,
+  "candidate_seed": 42,
+  "ridge": 0.25,
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "fixed_day2_balanced_accuracy": 0.5707070707070707,
+      "candidate_median_day2": 0.5252525252525252,
+      "candidate_oracle_day2": 0.7171717171717172,
+      "predictors": {
+        "information": {
+          "spearman_with_day2": 0.16945907344666092,
+          "top10_percent_recall": 0.08,
+          "best_day2_in_top10_percent": 0.6575757575757576,
+          "selected_channels": [
+            12,
+            52,
+            78,
+            106,
+            177,
+            179,
+            205,
+            220
+          ],
+          "selected_proxy": 5.774402817804602,
+          "selected_day2_balanced_accuracy": 0.5050505050505051,
+          "selection_regret_vs_pool_oracle": 0.21212121212121215,
+          "selected_minus_fixed": -0.06565656565656564
+        },
+        "day1_cv": {
+          "spearman_with_day2": 0.1426398731115242,
+          "top10_percent_recall": 0.21,
+          "best_day2_in_top10_percent": 0.7171717171717172,
+          "selected_channels": [
+            27,
+            42,
+            98,
+            118,
+            164,
+            169,
+            201,
+            227
+          ],
+          "selected_proxy": 0.803921568627451,
+          "selected_day2_balanced_accuracy": 0.5252525252525252,
+          "selection_regret_vs_pool_oracle": 0.19191919191919204,
+          "selected_minus_fixed": -0.045454545454545525
+        }
+      }
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "fixed_day2_balanced_accuracy": 0.24215686274509807,
+      "candidate_median_day2": 0.20049019607843135,
+      "candidate_oracle_day2": 0.37156862745098035,
+      "predictors": {
+        "information": {
+          "spearman_with_day2": 0.14216437889718556,
+          "top10_percent_recall": 0.13,
+          "best_day2_in_top10_percent": 0.3323529411764705,
+          "selected_channels": [
+            30,
+            52,
+            75,
+            106,
+            169,
+            181,
+            213,
+            238
+          ],
+          "selected_proxy": 6.658304630632572,
+          "selected_day2_balanced_accuracy": 0.24019607843137253,
+          "selection_regret_vs_pool_oracle": 0.13137254901960782,
+          "selected_minus_fixed": -0.0019607843137255387
+        },
+        "day1_cv": {
+          "spearman_with_day2": 0.14997259822411216,
+          "top10_percent_recall": 0.11,
+          "best_day2_in_top10_percent": 0.32941176470588246,
+          "selected_channels": [
+            17,
+            22,
+            100,
+            106,
+            155,
+            158,
+            221,
+            227
+          ],
+          "selected_proxy": 0.8676470588235294,
+          "selected_day2_balanced_accuracy": 0.2647058823529412,
+          "selection_regret_vs_pool_oracle": 0.10686274509803917,
+          "selected_minus_fixed": 0.022549019607843113
+        }
+      }
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "fixed_day2_balanced_accuracy": 0.4414141414141414,
+      "candidate_median_day2": 0.3853535353535353,
+      "candidate_oracle_day2": 0.6313131313131313,
+      "predictors": {
+        "information": {
+          "spearman_with_day2": -0.4288046006494036,
+          "top10_percent_recall": 0.0,
+          "best_day2_in_top10_percent": 0.4747474747474747,
+          "selected_channels": [
+            49,
+            52,
+            81,
+            114,
+            158,
+            174,
+            227,
+            242
+          ],
+          "selected_proxy": 6.7486459243272785,
+          "selected_day2_balanced_accuracy": 0.21212121212121213,
+          "selection_regret_vs_pool_oracle": 0.4191919191919191,
+          "selected_minus_fixed": -0.2292929292929293
+        },
+        "day1_cv": {
+          "spearman_with_day2": -0.2663696807347635,
+          "top10_percent_recall": 0.01,
+          "best_day2_in_top10_percent": 0.5858585858585859,
+          "selected_channels": [
+            10,
+            12,
+            83,
+            85,
+            141,
+            174,
+            234,
+            246
+          ],
+          "selected_proxy": 0.8838383838383839,
+          "selected_day2_balanced_accuracy": 0.33838383838383845,
+          "selection_regret_vs_pool_oracle": 0.2929292929292928,
+          "selected_minus_fixed": -0.10303030303030297
+        }
+      }
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "fixed_day2_balanced_accuracy": 0.5980392156862746,
+      "candidate_median_day2": 0.4901960784313726,
+      "candidate_oracle_day2": 0.6960784313725491,
+      "predictors": {
+        "information": {
+          "spearman_with_day2": -0.2430961407306951,
+          "top10_percent_recall": 0.1,
+          "best_day2_in_top10_percent": 0.696078431372549,
+          "selected_channels": [
+            25,
+            51,
+            84,
+            107,
+            169,
+            182,
+            201,
+            227
+          ],
+          "selected_proxy": 5.911585217102125,
+          "selected_day2_balanced_accuracy": 0.05392156862745098,
+          "selection_regret_vs_pool_oracle": 0.6421568627450981,
+          "selected_minus_fixed": -0.5441176470588236
+        },
+        "day1_cv": {
+          "spearman_with_day2": 0.06353187975651936,
+          "top10_percent_recall": 0.16,
+          "best_day2_in_top10_percent": 0.6960784313725491,
+          "selected_channels": [
+            25,
+            52,
+            86,
+            89,
+            179,
+            182,
+            201,
+            234
+          ],
+          "selected_proxy": 0.8480392156862744,
+          "selected_day2_balanced_accuracy": 0.5980392156862746,
+          "selection_regret_vs_pool_oracle": 0.0980392156862745,
+          "selected_minus_fixed": 0.0
+        }
+      }
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "fixed_day2_balanced_accuracy": 0.5147058823529411,
+      "candidate_median_day2": 0.2549019607843137,
+      "candidate_oracle_day2": 0.5147058823529411,
+      "predictors": {
+        "information": {
+          "spearman_with_day2": -0.2959447555171302,
+          "top10_percent_recall": 0.0,
+          "best_day2_in_top10_percent": 0.39215686274509803,
+          "selected_channels": [
+            12,
+            28,
+            81,
+            101,
+            140,
+            170,
+            213,
+            226
+          ],
+          "selected_proxy": 6.651398488557501,
+          "selected_day2_balanced_accuracy": 0.06372549019607843,
+          "selection_regret_vs_pool_oracle": 0.4509803921568627,
+          "selected_minus_fixed": -0.4509803921568627
+        },
+        "day1_cv": {
+          "spearman_with_day2": -0.1586851345055582,
+          "top10_percent_recall": 0.02,
+          "best_day2_in_top10_percent": 0.5147058823529411,
+          "selected_channels": [
+            26,
+            43,
+            73,
+            90,
+            138,
+            140,
+            204,
+            244
+          ],
+          "selected_proxy": 0.7272727272727273,
+          "selected_day2_balanced_accuracy": 0.029411764705882353,
+          "selection_regret_vs_pool_oracle": 0.48529411764705876,
+          "selected_minus_fixed": -0.48529411764705876
+        }
+      }
+    }
+  }
+}

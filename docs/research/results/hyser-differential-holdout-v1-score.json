@@ -1,0 +1,66 @@
+{
+  "schema": "openalterego.hyser-differential-holdout-score.v1",
+  "selection_sha256": "5c4d058155bb3c9420bc8f6f4b456563ae8db1ea5f017d6ed03c1b5dadedd2c6",
+  "protocol": {
+    "candidate_count": 5000,
+    "candidate_seed": 42,
+    "day1_cv_seed": 42,
+    "day1_cv_folds": 3,
+    "ridge_alpha": 10.0,
+    "afe_channels": 8,
+    "active_contacts": 12,
+    "primary": "chosen minus fixed differential day-two balanced accuracy",
+    "success_rule": "mean paired gain >=0.05, at least 5/7 improve, no individual loss worse than -0.05, and chosen mean >= fixed eight-site monopolar mean"
+  },
+  "subjects": {
+    "06": {
+      "day2_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "selected_differential_day2": 0.2107843137254902,
+      "fixed_differential_day2": 0.46078431372549017,
+      "fixed_monopolar_day2": 0.5833333333333333,
+      "selected_minus_fixed_differential": -0.24999999999999997
+    },
+    "07": {
+      "day2_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "selected_differential_day2": 0.49509803921568624,
+      "fixed_differential_day2": 0.4509803921568628,
+      "fixed_monopolar_day2": 0.5392156862745099,
+      "selected_minus_fixed_differential": 0.04411764705882343
+    },
+    "08": {
+      "day2_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "selected_differential_day2": 0.24509803921568624,
+      "fixed_differential_day2": 0.18627450980392157,
+      "fixed_monopolar_day2": 0.48235294117647065,
+      "selected_minus_fixed_differential": 0.05882352941176466
+    },
+    "17": {
+      "day2_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "selected_differential_day2": 0.27941176470588236,
+      "fixed_differential_day2": 0.19117647058823528,
+      "fixed_monopolar_day2": 0.3186274509803922,
+      "selected_minus_fixed_differential": 0.08823529411764708
+    },
+    "18": {
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "selected_differential_day2": 0.4529411764705882,
+      "fixed_differential_day2": 0.35784313725490197,
+      "fixed_monopolar_day2": 0.4607843137254902,
+      "selected_minus_fixed_differential": 0.09509803921568621
+    },
+    "19": {
+      "day2_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "selected_differential_day2": 0.6818181818181819,
+      "fixed_differential_day2": 0.6212121212121214,
+      "fixed_monopolar_day2": 0.696969696969697,
+      "selected_minus_fixed_differential": 0.06060606060606044
+    },
+    "20": {
+      "day2_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "selected_differential_day2": 0.16666666666666669,
+      "fixed_differential_day2": 0.12745098039215685,
+      "fixed_monopolar_day2": 0.1764705882352941,
+      "selected_minus_fixed_differential": 0.03921568627450983
+    }
+  }
+}

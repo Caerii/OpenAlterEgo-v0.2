@@ -1,0 +1,30 @@
+{
+  "schema": "openalterego.gaddy-contour-stage-profile.v1",
+  "feature_backend": "rust",
+  "cache_enabled": true,
+  "train_sessions": [
+    "parallel-5-5-first100",
+    "parallel-5-6-first100",
+    "parallel-5-8-first100",
+    "parallel-5-9-first100",
+    "parallel-5-10-first100",
+    "parallel-5-11-first100"
+  ],
+  "dev_session": "parallel-5-4-first100",
+  "timings": {
+    "train_feature_load_s": 9.056381299975328,
+    "dev_feature_load_s": 1.1678722000215203,
+    "design_matrices_s": 0.18456730002071708,
+    "dictionary_fit_s": 1.5007480999920517,
+    "dictionary_transform_and_design_s": 3.2575566000305116,
+    "activity_fit_and_predict_s": 6.941216700011864,
+    "model_full_all_frames_fit_and_predict_s": 2.7035219999961555,
+    "model_global_all_frames_fit_and_predict_s": 4.9847840999718755,
+    "model_full_speech_trained_fit_and_predict_s": 3.2707819000352174,
+    "model_global_speech_trained_fit_and_predict_s": 1.2519365000771359,
+    "model_latent_dense_speech_trained_fit_and_predict_s": 5.884435500018299,
+    "model_sparse_speech_trained_fit_and_predict_s": 4.756316800019704,
+    "metrics_and_result_write_s": 0.2541385000804439,
+    "total_s": 45.21985669992864
+  }
+}

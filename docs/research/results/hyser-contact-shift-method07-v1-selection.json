@@ -1,0 +1,366 @@
+{
+  "schema": "openalterego.hyser-contact-shift-selection.v1",
+  "scope": "Method-specific forearm HD array replay, prior participant/day-two exposure",
+  "code_sha256": "b78aebcc4d7deca2819999bb9239f0798864791cce0cf1548d2bcbaee2ff8b44",
+  "subjects": [
+    "06",
+    "07",
+    "08",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "shifts": [
+    [
+      0,
+      0
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "candidate_count": 5000,
+  "candidate_seed": 42,
+  "support_shots_per_class": 1,
+  "support_weight": 4.0,
+  "primary": "worst-shift selected minus nominal selected, mean over five shift scenarios per person",
+  "success_rule": "robust-nominal mean >=0.02, robust-fixed mean >=0.05, robust beats fixed for >=5/7, no robust-fixed loss below -0.05",
+  "choices": {
+    "06": {
+      "day1_source_record_sha256": "9f2533a4c3b647ab21cb80e96bc4f794a185b69a6e8b1a1da6d901de20c2ec62",
+      "day2_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "programs": {
+        "worst_shift_selected": [
+          34,
+          42,
+          109,
+          110,
+          146,
+          222,
+          566,
+          654
+        ],
+        "nominal_selected": [
+          34,
+          101,
+          170,
+          218,
+          312,
+          417,
+          520,
+          648
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.8161764705882353,
+      "robust_worst_selection_score": 0.7254901960784315
+    },
+    "07": {
+      "day1_source_record_sha256": "105ebc02d879cd8a9fb116f3468eff0b8472ca2ddbdd12f8da1610cf2a09ff7d",
+      "day2_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "programs": {
+        "worst_shift_selected": [
+          28,
+          92,
+          179,
+          210,
+          323,
+          432,
+          504,
+          677
+        ],
+        "nominal_selected": [
+          34,
+          116,
+          166,
+          226,
+          312,
+          387,
+          528,
+          648
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.7524509803921569,
+      "robust_worst_selection_score": 0.6887254901960784
+    },
+    "08": {
+      "day1_source_record_sha256": "473301671965c6dd855cf8de9e01e0e44aef04ffb5affbe63cba6be2831de6fb",
+      "day2_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "programs": {
+        "worst_shift_selected": [
+          33,
+          83,
+          150,
+          217,
+          314,
+          437,
+          543,
+          662
+        ],
+        "nominal_selected": [
+          33,
+          83,
+          150,
+          217,
+          314,
+          437,
+          543,
+          662
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.7058823529411764,
+      "robust_worst_selection_score": 0.6323529411764706
+    },
+    "17": {
+      "day1_source_record_sha256": "86b378aaf7f105bb586e5d124bb023016f4d9786ece9bfc22cfb63878f197bdc",
+      "day2_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "programs": {
+        "worst_shift_selected": [
+          30,
+          105,
+          181,
+          182,
+          218,
+          304,
+          411,
+          663
+        ],
+        "nominal_selected": [
+          45,
+          98,
+          170,
+          171,
+          219,
+          227,
+          291,
+          423
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.7034313725490196,
+      "robust_worst_selection_score": 0.6078431372549019
+    },
+    "18": {
+      "day1_source_record_sha256": "d7a0f3295262d514af3781aa08f24c1e53cbf00743d4a3bb855588732f98b590",
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "programs": {
+        "worst_shift_selected": [
+          13,
+          85,
+          86,
+          147,
+          229,
+          336,
+          564,
+          627
+        ],
+        "nominal_selected": [
+          13,
+          76,
+          154,
+          236,
+          336,
+          464,
+          551,
+          614
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.7598039215686274,
+      "robust_worst_selection_score": 0.6593137254901961
+    },
+    "19": {
+      "day1_source_record_sha256": "e1762d38e9a110f6c209672799f94c224c4f035f7f53f9276af9e9e3c0499573",
+      "day2_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 33,
+      "programs": {
+        "worst_shift_selected": [
+          44,
+          45,
+          78,
+          154,
+          236,
+          460,
+          536,
+          626
+        ],
+        "nominal_selected": [
+          53,
+          117,
+          179,
+          234,
+          273,
+          387,
+          501,
+          618
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.8625222816399287,
+      "robust_worst_selection_score": 0.731951871657754
+    },
+    "20": {
+      "day1_source_record_sha256": "d0959078e3e66ce4e5f824861358d93172cc0bc3bd7e718ca280b98f43c682c8",
+      "day2_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "grammar_options_per_grid": [
+        180,
+        180,
+        180,
+        180
+      ],
+      "support_trials": 34,
+      "programs": {
+        "worst_shift_selected": [
+          42,
+          101,
+          145,
+          213,
+          296,
+          403,
+          568,
+          671
+        ],
+        "nominal_selected": [
+          17,
+          81,
+          82,
+          153,
+          238,
+          344,
+          538,
+          624
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ]
+      },
+      "nominal_selection_score": 0.642156862745098,
+      "robust_worst_selection_score": 0.5833333333333334
+    }
+  }
+}

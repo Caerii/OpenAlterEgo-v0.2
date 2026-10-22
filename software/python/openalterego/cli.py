@@ -1059,6 +1059,7 @@ def _cmd_analyze(argv: List[str]) -> int:
     p_st.add_argument("--real", type=str, required=True)
     p_st.add_argument("--device", type=str, default="auto", choices=["auto", "cuda", "cpu"])
     p_st.add_argument("--out", type=str, default="")
+    p_st.add_argument("--work-dir", type=str, default="", help="Directory for checkpoints and merged data")
     p_st.add_argument("--seed", type=int, default=1337)
     p_st.add_argument("--pretrain-epochs", type=int, default=30)
     p_st.add_argument("--finetune-epochs", type=int, default=15)
@@ -1142,6 +1143,7 @@ def _cmd_analyze(argv: List[str]) -> int:
             device_preferred=str(args.device),
             feature_mode=str(args.feature_mode),
             decode_mode=str(args.decode_mode),
+            work_dir=Path(args.work_dir) if args.work_dir else None,
         )
         out = Path(args.out) if args.out else Path(args.real) / "ablations" / "sim_transfer_report.json"
         out.parent.mkdir(parents=True, exist_ok=True)

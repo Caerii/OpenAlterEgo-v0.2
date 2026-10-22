@@ -1,0 +1,41 @@
+{
+  "schema": "openalterego.hyser-differential-program-pilot.v1",
+  "scope": "Retrospective digital differences of preprocessed forearm recordings, not analog-front-end or facial wearable evidence",
+  "program": "two adjacent differential pairs sharing a contact per grid; eight AFE channels, 12 distinct physical contacts",
+  "candidate_count": 1000,
+  "seed": 42,
+  "alpha": 10.0,
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "fixed_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ],
+      "chosen_channels": [
+        2,
+        3,
+        191,
+        192,
+        275,
+        276,
+        411,
+        412
+      ],
+      "chosen_day1_cv": 0.8872549019607843,
+      "fixed_day2_balanced_accuracy": 0.505050505050505,
+      "chosen_day2_balanced_accuracy": 0.4141414141414142,
+      "chosen_minus_fixed": -0.09090909090909077,
+      "candidate_day2_median": 0.2878787878787879,
+      "candidate_day2_oracle": 0.6474747474747475,
+      "day1_cv_day2_spearman": 0.25344752962954803
+    }
+  }
+}

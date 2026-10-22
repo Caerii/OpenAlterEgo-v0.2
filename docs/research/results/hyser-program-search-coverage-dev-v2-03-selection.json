@@ -1,0 +1,63 @@
+{
+  "schema": "openalterego.hyser-program-selection.v2",
+  "subject": "03",
+  "code_sha256": "4ed66a8df568adf233cec8065b68d550d6bd61d2cb80d2b4bf66e148d7b22f2d",
+  "input_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+  "seed": 42,
+  "objective_evaluations_each": 1336,
+  "choices": {
+    "greedy": {
+      "channels": [
+        145,
+        36,
+        151,
+        57,
+        246,
+        81,
+        94,
+        242
+      ],
+      "cv_balanced_accuracy": 0.893939393939394
+    },
+    "random_budget": {
+      "channels": [
+        12,
+        43,
+        64,
+        77,
+        174,
+        177,
+        231,
+        234
+      ],
+      "cv_balanced_accuracy": 0.909090909090909
+    },
+    "fixed_grid": {
+      "channels": [
+        54,
+        18,
+        118,
+        82,
+        182,
+        146,
+        246,
+        210
+      ],
+      "cv_balanced_accuracy": 0.8232323232323233
+    },
+    "random_one": {
+      "channels": [
+        206,
+        141,
+        137,
+        77,
+        35,
+        225,
+        90,
+        2
+      ],
+      "cv_balanced_accuracy": 0.5909090909090909
+    }
+  },
+  "scope": "Local exclusive record before loading session 2; not an independent external timestamp."
+}

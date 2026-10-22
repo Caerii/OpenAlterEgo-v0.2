@@ -1,0 +1,241 @@
+{
+  "schema": "openalterego.emg-uka-session-program.v1",
+  "phase": "selection",
+  "scope": "Speaker 008, audible, ten repeated test prompts per session; virtual recorded-channel subsets, no silent speech or physical intervention",
+  "source_download": "https://www.kaggle.com/datasets/xabierdezuazo/emguka-trial-corpus",
+  "archive_sha256": "d281d1af6316ca0cdc888d1a8e2812a871c3b4c49390deebeac9b9671c392db8",
+  "subset_sha256": "bb54555819eef58789b4a58a67ef681c0c13e6f3249dd171b2c89d5c767c701f",
+  "development_sessions": [
+    "001",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007"
+  ],
+  "holdout_session": "008",
+  "source_content_digests": {
+    "001": "ca388024c725b496f0197ffc0503cb7590d17fafe45ee213233b78cbe2428184",
+    "002": "0c46c9faa981ac0b0efe2dd942b0ecc79fa5dce54dca6b046c40543a6fa0b5a4",
+    "003": "c00cec1ef3de5922a7cbd91a5054fa3305018afe81fdd5141bfc975d80e9c24d",
+    "004": "3847835c477fc6552beac09a23622825493241bc7a62fbecea357e14bde0bb30",
+    "005": "dc8a68c9ebf60e022a1f5e525e3ed74aa9f9d4220e788ab627e2161eaeec9da0",
+    "006": "48a55bb58c6c3984dec6b1c1fe27f0138391a68ac22d1576a53f330fb628148c",
+    "007": "e29f2f6a1a0a08e0d5c241f12b6fb7cafaa83ae259cf0028c60c9657d384dda2"
+  },
+  "prompt_texts": [
+    "AGENCY MANAGERS SAY TEMPORARY WORKERS ARE VALUABLE",
+    "HE SUCCEEDED IN DOING THAT WITH A VENGEANCE",
+    "MANY STATES DEVISE SOLUTIONS TO PROBLEMS OF WELFARE AND HEALTH CARE",
+    "THE CONVICTED MURDERER HAS AVOIDED EXECUTION BY LODGING REPEATED APPEALS",
+    "THE OUTAGES WERE APPARENTLY CAUSED BY SYSTEM FAILURE NOT SABOTAGE",
+    "THE PENTAGON ADMITS INTERNET ATTACKERS ARE AN INCREASING THREAT TO COMPUTERS",
+    "THE STATE OF FLORIDA HAS A TOUGH POLICY AGAINST AMBULANCE CHASING",
+    "THEY EVEN KNEW THAT THEY WERE RUNNING INTO THE MOUNTAIN",
+    "WHAT FOLLOWS IS AN OLD STORY MORE THAN FORTY YEARS OLD",
+    "YOU MUST REMEMBER THAT CONSTRUCTIVE CRITICISM WILL MAKE US STRONGER"
+  ],
+  "feature": "per-utterance centered ADC; five relative-time bins; log1p RMS and mean absolute adjacent difference per channel; no future-session normalization",
+  "classifier": "train-fold standardized ridge one-hot, alpha 10",
+  "selection": "mean leave-one-session-out prompt accuracy; minimum fold then lexicographic tie break",
+  "program_size": 3,
+  "candidate_count": 20,
+  "selection_fold_accuracy": {
+    "0-1-2": [
+      0.5,
+      0.6,
+      0.7,
+      0.6,
+      1.0,
+      0.9,
+      0.7
+    ],
+    "0-1-3": [
+      0.5,
+      0.6,
+      0.8,
+      0.7,
+      0.9,
+      0.9,
+      0.7
+    ],
+    "0-1-4": [
+      0.5,
+      0.6,
+      0.9,
+      0.7,
+      0.8,
+      0.8,
+      0.8
+    ],
+    "0-1-5": [
+      0.5,
+      0.7,
+      0.9,
+      0.9,
+      0.9,
+      0.9,
+      0.8
+    ],
+    "0-2-3": [
+      0.5,
+      0.6,
+      0.9,
+      0.7,
+      0.9,
+      0.8,
+      0.7
+    ],
+    "0-2-4": [
+      0.6,
+      0.6,
+      0.8,
+      0.7,
+      0.7,
+      0.7,
+      0.8
+    ],
+    "0-2-5": [
+      0.4,
+      0.8,
+      1.0,
+      0.8,
+      1.0,
+      0.8,
+      0.7
+    ],
+    "0-3-4": [
+      0.7,
+      0.6,
+      0.8,
+      0.7,
+      0.7,
+      0.8,
+      0.7
+    ],
+    "0-3-5": [
+      0.6,
+      0.7,
+      0.9,
+      0.7,
+      0.9,
+      0.9,
+      0.7
+    ],
+    "0-4-5": [
+      0.6,
+      0.7,
+      0.9,
+      0.7,
+      0.8,
+      0.8,
+      0.9
+    ],
+    "1-2-3": [
+      0.6,
+      0.5,
+      0.8,
+      0.5,
+      0.5,
+      0.9,
+      0.8
+    ],
+    "1-2-4": [
+      0.7,
+      0.5,
+      0.5,
+      0.5,
+      0.7,
+      0.8,
+      0.7
+    ],
+    "1-2-5": [
+      0.7,
+      0.6,
+      0.8,
+      0.9,
+      0.8,
+      0.8,
+      0.9
+    ],
+    "1-3-4": [
+      0.6,
+      0.5,
+      0.7,
+      0.5,
+      0.7,
+      0.8,
+      0.7
+    ],
+    "1-3-5": [
+      0.6,
+      0.8,
+      0.9,
+      0.9,
+      0.9,
+      0.9,
+      0.8
+    ],
+    "1-4-5": [
+      0.7,
+      0.6,
+      0.8,
+      1.0,
+      0.8,
+      0.7,
+      1.0
+    ],
+    "2-3-4": [
+      0.8,
+      0.6,
+      0.7,
+      0.8,
+      0.5,
+      0.7,
+      0.6
+    ],
+    "2-3-5": [
+      0.5,
+      0.8,
+      1.0,
+      0.7,
+      0.9,
+      0.6,
+      0.9
+    ],
+    "2-4-5": [
+      0.6,
+      0.7,
+      1.0,
+      0.7,
+      0.8,
+      0.8,
+      0.8
+    ],
+    "3-4-5": [
+      0.5,
+      0.8,
+      0.8,
+      0.7,
+      0.9,
+      0.7,
+      0.9
+    ]
+  },
+  "selected": [
+    1,
+    3,
+    5
+  ],
+  "fixed": [
+    0,
+    1,
+    2
+  ],
+  "random_seed42": [
+    0,
+    1,
+    3
+  ]
+}

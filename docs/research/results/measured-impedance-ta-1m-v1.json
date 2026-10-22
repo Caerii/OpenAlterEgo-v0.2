@@ -1,0 +1,132 @@
+{
+  "schema": "openalterego.measured-impedance-sensitivity.v1",
+  "scope": "Publisher-hash-checked forearm dry-electrode impedances at 100 Hz; synthetic anatomy, common-mode input and independent contact assignments; no facial design validation",
+  "source_record": "https://zenodo.org/records/17691766",
+  "source_license": "CC BY 4.0",
+  "material_group": "ta_spandex",
+  "source_files": [
+    "TA -MX W-MX ECO sapndex black-0.1mm - 1.txt",
+    "TA -MX W-MX ECO sapndex black-1.txt",
+    "TA -MX W-MX ECO sapndex black-back- 1.txt"
+  ],
+  "source_md5": {
+    "TA -MX W-MX ECO sapndex black-0.1mm - 1.txt": "md5:4cb84798fbb724ccb16106e9367dc5b3",
+    "TA -MX W-MX ECO sapndex black-1.txt": "md5:b3275054fe31bf4e0337ab8d5d05587c",
+    "TA -MX W-MX ECO sapndex black-back- 1.txt": "md5:203cae0977e703aa566192e82f7749a8"
+  },
+  "measured_100hz_impedance_magnitude_ohm": [
+    14533685.757387605,
+    20221488.2060516,
+    5871651.222146206
+  ],
+  "measured_100hz_impedance_real_ohm": [
+    1949528.22489311,
+    750879.568777066,
+    975899.995773685
+  ],
+  "measured_100hz_impedance_imag_ohm": [
+    -14402338.7473992,
+    -20207542.2835306,
+    -5789983.35686554
+  ],
+  "input_resistance_ohm": 1000000.0,
+  "input_capacitance_f": 0.0,
+  "frequency_hz": 100.0,
+  "assumed_cmrr_db": 100.0,
+  "arbitrary_common_mode_variance": 100.0,
+  "development_scenarios": 12,
+  "evaluation_scenarios": 24,
+  "seeds": {
+    "lead_dev": 42,
+    "lead_eval": 420,
+    "contact_assignment_dev": 43,
+    "contact_assignment_eval": 421
+  },
+  "ideal_evaluations": 1210,
+  "measured_circuit_evaluations": 923,
+  "swap_refinement_evaluations": 39,
+  "scores": {
+    "ideal_selected": {
+      "channels": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "active_contacts": 7,
+      "held_proxy_mean": 0.3362900916235862,
+      "held_proxy_risk": 0.18947322471717384,
+      "held_proxy_minimum": 0.09563761910905362
+    },
+    "measured_circuit_selected": {
+      "channels": [
+        22,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "active_contacts": 8,
+      "held_proxy_mean": 0.3495371086968568,
+      "held_proxy_risk": 0.2028127055179199,
+      "held_proxy_minimum": 0.08911333017299125
+    },
+    "measured_circuit_refined": {
+      "channels": [
+        22,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "active_contacts": 8,
+      "held_proxy_mean": 0.3495371086968568,
+      "held_proxy_risk": 0.2028127055179199,
+      "held_proxy_minimum": 0.08911333017299125
+    },
+    "fixed": {
+      "channels": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "active_contacts": 7,
+      "held_proxy_mean": 0.06317699768796624,
+      "held_proxy_risk": 0.02179175843650375,
+      "held_proxy_minimum": 0.007311965316835504
+    }
+  },
+  "paired_measured_minus_ideal": {
+    "mean_difference": 0.013247017073270494,
+    "paired_bootstrap_ci95": [
+      -0.01673210462531382,
+      0.043384629459017
+    ],
+    "candidate_wins": 11,
+    "baseline_wins": 13,
+    "ties": 0,
+    "unit": "synthetic evaluation scenario",
+    "draws": 5000,
+    "seed": 991
+  },
+  "paired_refined_minus_measured": {
+    "mean_difference": 0.0,
+    "paired_bootstrap_ci95": [
+      0.0,
+      0.0
+    ],
+    "candidate_wins": 0,
+    "baseline_wins": 0,
+    "ties": 24,
+    "unit": "synthetic evaluation scenario",
+    "draws": 5000,
+    "seed": 992
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "openalterego.hyser-dense-rust-parity.v1",
+  "scope": "All five prepared-fold accuracy scores per candidate, same source data and candidate pool; local single-run timing",
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "extension_binary_sha256": "418e18349fc7af924c5a387ef717cecc29f0687ad014f64cbd69cd43d943e33d",
+      "candidate_count": 5000,
+      "fold_count": 5,
+      "max_absolute_score_difference": 0.0,
+      "scores_differing_more_than_1e-12": 0,
+      "selection_index": {
+        "numpy": 761,
+        "rust": 761
+      },
+      "score_seconds": {
+        "numpy": 6.015249400050379,
+        "rust": 0.41162389994133264
+      }
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "extension_binary_sha256": "418e18349fc7af924c5a387ef717cecc29f0687ad014f64cbd69cd43d943e33d",
+      "candidate_count": 5000,
+      "fold_count": 5,
+      "max_absolute_score_difference": 0.0,
+      "scores_differing_more_than_1e-12": 0,
+      "selection_index": {
+        "numpy": 2150,
+        "rust": 2150
+      },
+      "score_seconds": {
+        "numpy": 5.768070499994792,
+        "rust": 0.7673342999769375
+      }
+    },
+    "18": {
+      "day1_source_record_sha256": "d7a0f3295262d514af3781aa08f24c1e53cbf00743d4a3bb855588732f98b590",
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "extension_binary_sha256": "418e18349fc7af924c5a387ef717cecc29f0687ad014f64cbd69cd43d943e33d",
+      "candidate_count": 5000,
+      "fold_count": 5,
+      "max_absolute_score_difference": 0.0,
+      "scores_differing_more_than_1e-12": 0,
+      "selection_index": {
+        "numpy": 1141,
+        "rust": 1141
+      },
+      "score_seconds": {
+        "numpy": 4.250525300041772,
+        "rust": 0.28148260002490133
+      }
+    }
+  }
+}

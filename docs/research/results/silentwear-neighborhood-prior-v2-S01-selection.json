@@ -1,0 +1,33 @@
+{
+  "schema": "openalterego.one-swap-selection.v1",
+  "subject": "S01",
+  "manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6",
+  "code_sha256": "91ea143768f2f083cd06e10148813345ccaff59728234c0ff7c39906a9d9c3f0",
+  "choices": {
+    "raw_bidirectional": {
+      "normalization": "recording_robust",
+      "channels": [
+        3,
+        5,
+        8,
+        9,
+        10,
+        12
+      ],
+      "selection_proxy_score": 0.32418909592822637
+    },
+    "one_swap_smoothed": {
+      "normalization": "recording_robust",
+      "channels": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "selection_proxy_score": 0.29579203109815355
+    }
+  },
+  "scope": "Local exclusive record before loading session 3; not external preregistration."
+}

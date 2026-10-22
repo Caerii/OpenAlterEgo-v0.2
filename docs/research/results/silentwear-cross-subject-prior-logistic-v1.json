@@ -1,0 +1,554 @@
+{
+  "schema": "openalterego.cross-subject-prior-logistic.v1",
+  "choice_sha256": "d3bc263fc067fab5f41f418cbb76664e366137b4a6be2a55185b09c5830eafad",
+  "split": "choose from cross-subject proxy study; fit sessions 1 and 2; evaluate session 3",
+  "scope": "Retrospective development evaluation; same subjects and sessions were explored before.",
+  "subjects": {
+    "S01": {
+      "outcomes": {
+        "personal": {
+          "program": [
+            "recording_robust",
+            [
+              3,
+              5,
+              8,
+              9,
+              10,
+              12
+            ]
+          ],
+          "test_balanced_accuracy": 0.2659213250517598
+        },
+        "donor_raw": {
+          "program": [
+            "recording_robust",
+            [
+              2,
+              5,
+              7,
+              8,
+              12,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.2935472739820566
+        },
+        "donor_additive": {
+          "program": [
+            "recording_robust",
+            [
+              2,
+              3,
+              6,
+              7,
+              8,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.369095928226363
+        },
+        "blend_half": {
+          "program": [
+            "recording_robust",
+            [
+              1,
+              6,
+              7,
+              8,
+              9,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.30592132505175984
+        },
+        "fixed_spread_robust": {
+          "program": [
+            "recording_robust",
+            [
+              0,
+              2,
+              5,
+              8,
+              11,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.3557763975155279
+        }
+      },
+      "input_manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6",
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "90d20ac02f40784dbd5c86e724871a34d521a742f2a16e84a13cb546865becfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "5c8ad332a59749359ea5fdbe1a72c2959e31a10b7b24496c8074bab8c02106f0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "a1385ea7035f1463f1bd42dcc9b4d6a33546d0b1179c92f5263ddf751b55a62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "e932285439f0a081bce0e6ee4ecdf032e6f994300ac669721009027a24f7c2c3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "fb0f24eba44822c127139e037e5a81525bbeecca6b8358b52bf3d8230cae6159",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "8ac1dd314dd68c9795b4e739066f83e0fdd20d9230f6ae69218d4cff849d7ef5",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "937f3b377d4da2e6d4fe6a8e1ab52d1b9ed31404ea36482fe34232ee6c5bef1a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "19c7cd840d0f6d8e61be34536976deafcc5444261ab2863a093655c552beb0ca",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "2628310ebe8f378ea9544b53de19642026f1978965bb57280fd42b381ac89b69",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "6c10ee96cbc100e35c7c306b8addd27e2a8dc182095e948fea0371da33f3f4c0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "2092983b51fb7ae009eb60e75f007a145698508d290454319fadb77bf14950db",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "d4d4af55db536119eaa18f4e324f642e6687da2cefccc1c25c3e176c0aea0cfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "65e1d61f83143ce9192c9286b40aeef6e352a4b9a6f152d98448eef420f68bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0ec37f8760916a2bb3dcc79e15e9c47a08b7e8fa051ec9b7a75506c709ba7e7b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ]
+    },
+    "S02": {
+      "outcomes": {
+        "personal": {
+          "program": [
+            "recording_robust",
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7
+            ]
+          ],
+          "test_balanced_accuracy": 0.28665976535541754
+        },
+        "donor_raw": {
+          "program": [
+            "recording_robust",
+            [
+              1,
+              4,
+              5,
+              6,
+              8,
+              10
+            ]
+          ],
+          "test_balanced_accuracy": 0.2366183574879227
+        },
+        "donor_additive": {
+          "program": [
+            "recording_robust",
+            [
+              4,
+              5,
+              6,
+              7,
+              8,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.26037957211870255
+        },
+        "blend_half": {
+          "program": [
+            "recording_robust",
+            [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          ],
+          "test_balanced_accuracy": 0.2834575569358178
+        },
+        "fixed_spread_robust": {
+          "program": [
+            "recording_robust",
+            [
+              0,
+              2,
+              5,
+              8,
+              11,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.2587508626639062
+        }
+      },
+      "input_manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "4a76cddfe56cc2fc08aadff70039fee450151e72f085f09a08e22bc379e0209b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "2144520ac3b66c121aeef8b77ce3ff11fe8930592b500aef032c3f210c0432da",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "6c54f617c658615b0bacc763a0fd1b4122f7d11567b5c3f2ef76f589e091f297",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "b9646761debd45c29af0dd430a671bde0ecc02ab8a6c17f9fd739ae701358a2a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "93ab3608ffdb56fd716c7913e2c087a415b217d97dbb2e87a95b8716f389bc47",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "80b43e5aa9d763b2214ac0816dcb9c4593a85d657cd513ac14dc4569b6126833",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "137bd682558357f0b0ff9c69e169c61fa6deb886d51ebcdc7d2432219c89fbe8",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "6e3352bb62ddb2312730972b47a0970e24e4a55e23472aaa7482b06c72605dc9",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "edb7380f4d92d2e8f64ea785b4814ca3387cefc24b2d0f5c88834491678e842e",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "9a166f6b06956fb23999beccbd6fce583387ad0b576515452885382725460bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "094a75b9aee41d565317a41a86bff5f07e63887e174a6aeccc244ceb330bc468",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "7a4b90c3b372aa5d5afbbfe68d5bc722bc962250d3a9b33832ef2b260faa73de",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "91e0b1efb4b48cb0ad89897cd3264492b31ce446c2165073cf1052eb5c02a8a1",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "fbaea364b35f38ceacb5670ba2b8e37fcb0bc6da094e3b23b771985c6b23f6b0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0c098e1abbbb46741d41ddc9aff898a8a20cc90e9f7cd3ada16a269b22e8cb70",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ]
+    },
+    "S03": {
+      "outcomes": {
+        "personal": {
+          "program": [
+            "recording_robust",
+            [
+              0,
+              1,
+              5,
+              6,
+              8,
+              11
+            ]
+          ],
+          "test_balanced_accuracy": 0.3170255348516218
+        },
+        "donor_raw": {
+          "program": [
+            "recording_robust",
+            [
+              2,
+              3,
+              4,
+              5,
+              7,
+              8
+            ]
+          ],
+          "test_balanced_accuracy": 0.31687370600414083
+        },
+        "donor_additive": {
+          "program": [
+            "recording_robust",
+            [
+              2,
+              3,
+              4,
+              6,
+              7,
+              8
+            ]
+          ],
+          "test_balanced_accuracy": 0.30701173222912354
+        },
+        "blend_half": {
+          "program": [
+            "recording_robust",
+            [
+              2,
+              5,
+              6,
+              7,
+              8,
+              11
+            ]
+          ],
+          "test_balanced_accuracy": 0.31757763975155284
+        },
+        "fixed_spread_robust": {
+          "program": [
+            "recording_robust",
+            [
+              0,
+              2,
+              5,
+              8,
+              11,
+              13
+            ]
+          ],
+          "test_balanced_accuracy": 0.27829537612146305
+        }
+      },
+      "input_manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547",
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "d9ada20da0f1ab0525fe2b994e350a758c39b8bf70276a0a7087c67675971a4f",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "712c673ad5d4f759bc45f8adcd4c3dc19d9556d11d3240c6348bc7772634e62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "042a63aa91031c0ee5702895eedf188baf97888c63e955bd578c1c62d2249427",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "10f30d458d6e21793d9bbd44e84aebe7282f4ddd1d50e5aad0cfd01f81f2450c",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "99db8397a214a4e6f117ad296ce6237ad849abbda6d688143a79323d3aacd145",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "b95a318541677eb2dcc0015e7fffb459a6b7af15651676366a8742c1936a2811",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "f5745317e3438a62c1323ceb93e0d347cefeedc595c7030cae6d64ca0c583114",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "75ea3c29d87e838e1c00cc233a12b72233af20060e0b255cac3490e3f5fea83b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "c7e661b92db5778e6e08ee196d48090313722ddec94e77054a1ee96acab2994a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "b06105fa1e3660903e56797cb93bdb15a615cad38d95af6a4a49cf13fa113fee",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "2b02aa99342c59354a1a14127d2e8f389358f4f695f4702298c1231f0e7bf201",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "9bedf70cffa8863ac0540e8dc111c7bfd5bdfb219324a88b5f168b98b0d68d0d",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "8c5ea3b622fb7c6b25638b56853ae2f0477e98bac9e5f46e89d683aaf9fb2ddf",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "05742c3e3eac9a852d70f0fffa7871af32740991495ed540f32addca38169836",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "eb4f48555ce28598339648567f3428e3285cd3f3783707498b5fc28ce7bb8618",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ]
+    }
+  }
+}

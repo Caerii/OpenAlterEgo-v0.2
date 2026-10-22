@@ -1,0 +1,330 @@
+{
+  "schema": "openalterego.faceemg11-stepwise-search.v1",
+  "scope": "Exposed facial-command later-block replay; partial-program CV heuristic",
+  "feature_count_per_channel": 8,
+  "full_program_space": 38760,
+  "beam_sizes": [
+    1,
+    4
+  ],
+  "subjects": {
+    "07": {
+      "source_member_sha256": "514fb56d1a720140167c8be5eafea36abab470d1d5af629378787d9fa20ba1e7",
+      "programs": {
+        "beam_1": [
+          0,
+          7,
+          9,
+          11,
+          13,
+          16
+        ],
+        "beam_4": [
+          0,
+          3,
+          6,
+          12,
+          13,
+          16
+        ]
+      },
+      "search": {
+        "beam_1": {
+          "train_cv": 0.9030303030303031,
+          "evaluations": 105,
+          "stage_evaluations": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15
+          ],
+          "search_seconds": 0.05540780001319945
+        },
+        "beam_4": {
+          "train_cv": 0.9393939393939394,
+          "evaluations": 338,
+          "stage_evaluations": [
+            20,
+            70,
+            68,
+            64,
+            58,
+            58
+          ],
+          "search_seconds": 0.20956240000668913
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_1": 0.8545454545454544,
+        "beam_4": 0.8636363636363636
+      }
+    },
+    "08": {
+      "source_member_sha256": "11a2d7ece890dc4bc6b0a0c8db8a7ccf539040f79ec670ba69c952df482c6ee4",
+      "programs": {
+        "beam_1": [
+          0,
+          1,
+          6,
+          7,
+          10,
+          12
+        ],
+        "beam_4": [
+          0,
+          1,
+          6,
+          7,
+          10,
+          12
+        ]
+      },
+      "search": {
+        "beam_1": {
+          "train_cv": 0.8727272727272727,
+          "evaluations": 105,
+          "stage_evaluations": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15
+          ],
+          "search_seconds": 0.0627111999783665
+        },
+        "beam_4": {
+          "train_cv": 0.8727272727272727,
+          "evaluations": 344,
+          "stage_evaluations": [
+            20,
+            70,
+            68,
+            66,
+            61,
+            59
+          ],
+          "search_seconds": 0.15415169997140765
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_1": 0.9272727272727272,
+        "beam_4": 0.9272727272727272
+      }
+    },
+    "09": {
+      "source_member_sha256": "35b0cfc7b81626db564d7d88d89eabfe0f7747f4f8cdb81ab95addc5814a2d73",
+      "programs": {
+        "beam_1": [
+          5,
+          6,
+          7,
+          11,
+          12,
+          14
+        ],
+        "beam_4": [
+          1,
+          5,
+          6,
+          7,
+          12,
+          17
+        ]
+      },
+      "search": {
+        "beam_1": {
+          "train_cv": 0.9333333333333333,
+          "evaluations": 105,
+          "stage_evaluations": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15
+          ],
+          "search_seconds": 0.033848400111310184
+        },
+        "beam_4": {
+          "train_cv": 0.9393939393939394,
+          "evaluations": 340,
+          "stage_evaluations": [
+            20,
+            70,
+            68,
+            65,
+            63,
+            54
+          ],
+          "search_seconds": 0.14241580001544207
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_1": 0.9272727272727272,
+        "beam_4": 0.9636363636363636
+      }
+    },
+    "10": {
+      "source_member_sha256": "5686c4bf15bef0bd785ac796fb08cffedecd57b04535acf0d975842e8da05cbb",
+      "programs": {
+        "beam_1": [
+          0,
+          2,
+          6,
+          7,
+          12,
+          14
+        ],
+        "beam_4": [
+          0,
+          3,
+          4,
+          6,
+          7,
+          10
+        ]
+      },
+      "search": {
+        "beam_1": {
+          "train_cv": 0.9757575757575758,
+          "evaluations": 105,
+          "stage_evaluations": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15
+          ],
+          "search_seconds": 0.061669399961829185
+        },
+        "beam_4": {
+          "train_cv": 0.9757575757575758,
+          "evaluations": 339,
+          "stage_evaluations": [
+            20,
+            70,
+            69,
+            62,
+            61,
+            57
+          ],
+          "search_seconds": 0.16671529994346201
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_1": 0.9545454545454546,
+        "beam_4": 0.9545454545454546
+      }
+    },
+    "11": {
+      "source_member_sha256": "6edf5aeb05f4d5dc7e5ccab5e99908bf872413f5715d52d0ad0bd5516df35bfb",
+      "programs": {
+        "beam_1": [
+          0,
+          1,
+          3,
+          4,
+          16,
+          18
+        ],
+        "beam_4": [
+          3,
+          6,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "search": {
+        "beam_1": {
+          "train_cv": 0.884848484848485,
+          "evaluations": 105,
+          "stage_evaluations": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15
+          ],
+          "search_seconds": 0.0714412999805063
+        },
+        "beam_4": {
+          "train_cv": 0.909090909090909,
+          "evaluations": 343,
+          "stage_evaluations": [
+            20,
+            70,
+            70,
+            65,
+            61,
+            57
+          ],
+          "search_seconds": 0.14200049999635667
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_1": 0.9,
+        "beam_4": 0.890909090909091
+      }
+    },
+    "12": {
+      "source_member_sha256": "1b519292e1de49b0dd6960201dcbc182cac3411fd6f56214dbab5e471fe12c7d",
+      "programs": {
+        "beam_1": [
+          0,
+          1,
+          8,
+          13,
+          15,
+          17
+        ],
+        "beam_4": [
+          0,
+          8,
+          11,
+          13,
+          17,
+          18
+        ]
+      },
+      "search": {
+        "beam_1": {
+          "train_cv": 0.9272727272727274,
+          "evaluations": 105,
+          "stage_evaluations": [
+            20,
+            19,
+            18,
+            17,
+            16,
+            15
+          ],
+          "search_seconds": 0.04045609990134835
+        },
+        "beam_4": {
+          "train_cv": 0.9333333333333333,
+          "evaluations": 340,
+          "stage_evaluations": [
+            20,
+            70,
+            69,
+            65,
+            58,
+            58
+          ],
+          "search_seconds": 0.12104590004310012
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_1": 0.9272727272727272,
+        "beam_4": 0.9181818181818181
+      }
+    }
+  }
+}

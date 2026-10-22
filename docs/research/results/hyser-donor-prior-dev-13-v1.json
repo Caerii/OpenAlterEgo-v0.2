@@ -1,0 +1,298 @@
+{
+  "schema": "openalterego.hyser-donor-prior-development.v1",
+  "scope": "Post-hoc leave-one-person-out audit on subjects with seen outcomes",
+  "subjects": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+  ],
+  "candidate_count": 1000,
+  "seed": 42,
+  "source_record_sha256": {
+    "01": [
+      "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea"
+    ],
+    "02": [
+      "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df"
+    ],
+    "03": [
+      "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd"
+    ],
+    "04": [
+      "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad"
+    ],
+    "05": [
+      "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e"
+    ],
+    "09": [
+      "d991fc14494e9b703aa7d62d62ab675f92e837b579afa5930b8fa922f0a58635",
+      "7cb622e7b501b8efe3a11444b6a51c71931cdd04501017c7e809987767326cc5"
+    ],
+    "10": [
+      "096591743e63cb50fde7bc1efb8e6141e398e7c8274d296ab961caa2b7a8e370",
+      "b4cbf85a0238355a835de8b2b29466578e999bf5e31dadeafab5de2f7c9b7fae"
+    ],
+    "11": [
+      "1cfba909efefff11630f594c9f724ecb00774f01b63f352582d724006d0d147c",
+      "d9636d8facf8640a6c3b3b6a415dcfa3dade39c955c1fd10bb4723875cde1ce9"
+    ],
+    "12": [
+      "55553a72305e842fa992dc9feb6487784ba088eaaa496152881b8a86d67aa0ee",
+      "676689a948905c54fb1ef7f707362791cda1a0f1c055d18602675a055cbdc069"
+    ],
+    "13": [
+      "88f715c502ad072271dade9fd12df26bcb0919bb3de1f125982b820a573d49cb",
+      "fa6e8f5f943ba808df5c98d213a2ab654a70d8e1771c7f3163fbb045f2fe6d4a"
+    ],
+    "14": [
+      "adcf92a64675025fc725e07418ac348850021051c66c34e50945483572a5c6eb",
+      "8ea4b23535ef48579901f35414f96b352af9d63492b3477fda3b9ffe029f5449"
+    ],
+    "15": [
+      "767c11cb70d2484603e33907d81b30163047eed97b9b78e1cf62a6c6fdff3feb",
+      "3f0278a92fafbfebfa94dd312f6c60a963c93a09cadd77de394f146731c76020"
+    ],
+    "16": [
+      "ec7ec3dad4db8841f78d0efebe4d174aab4aec693145bd9526eba108e810e7ef",
+      "f9a1ae22a2c0ed8d1b7bedcd88bae3e45a7302ba0b56c0ce060e06ba703f9406"
+    ]
+  },
+  "results": {
+    "01": {
+      "donor_mean_spearman_with_next_day": -0.027182375403872642,
+      "donor_chosen_channels": [
+        37,
+        50,
+        82,
+        107,
+        149,
+        164,
+        210,
+        246
+      ],
+      "donor_chosen_next_day": 0.3434343434343434,
+      "fixed_grid_next_day": 0.5707070707070707,
+      "candidate_median_next_day": 0.5252525252525252,
+      "candidate_oracle_best_next_day": 0.7171717171717172
+    },
+    "02": {
+      "donor_mean_spearman_with_next_day": 0.3933054311223577,
+      "donor_chosen_channels": [
+        26,
+        38,
+        81,
+        93,
+        148,
+        171,
+        210,
+        229
+      ],
+      "donor_chosen_next_day": 0.18725490196078431,
+      "fixed_grid_next_day": 0.24215686274509807,
+      "candidate_median_next_day": 0.20049019607843135,
+      "candidate_oracle_best_next_day": 0.37156862745098035
+    },
+    "03": {
+      "donor_mean_spearman_with_next_day": -0.047931790018072226,
+      "donor_chosen_channels": [
+        17,
+        44,
+        82,
+        99,
+        154,
+        165,
+        211,
+        237
+      ],
+      "donor_chosen_next_day": 0.43030303030303024,
+      "fixed_grid_next_day": 0.4414141414141414,
+      "candidate_median_next_day": 0.3853535353535353,
+      "candidate_oracle_best_next_day": 0.6313131313131313
+    },
+    "04": {
+      "donor_mean_spearman_with_next_day": 0.27374861412529966,
+      "donor_chosen_channels": [
+        26,
+        38,
+        81,
+        93,
+        148,
+        171,
+        210,
+        229
+      ],
+      "donor_chosen_next_day": 0.4754901960784313,
+      "fixed_grid_next_day": 0.5980392156862746,
+      "candidate_median_next_day": 0.4901960784313726,
+      "candidate_oracle_best_next_day": 0.6960784313725491
+    },
+    "05": {
+      "donor_mean_spearman_with_next_day": 0.40599472179725,
+      "donor_chosen_channels": [
+        26,
+        38,
+        81,
+        93,
+        148,
+        171,
+        210,
+        229
+      ],
+      "donor_chosen_next_day": 0.4313725490196078,
+      "fixed_grid_next_day": 0.5147058823529411,
+      "candidate_median_next_day": 0.2549019607843137,
+      "candidate_oracle_best_next_day": 0.5147058823529411
+    },
+    "09": {
+      "donor_mean_spearman_with_next_day": 0.032887793433174106,
+      "donor_chosen_channels": [
+        17,
+        44,
+        82,
+        99,
+        154,
+        165,
+        211,
+        237
+      ],
+      "donor_chosen_next_day": 0.5735294117647057,
+      "fixed_grid_next_day": 0.6029411764705881,
+      "candidate_median_next_day": 0.5392156862745099,
+      "candidate_oracle_best_next_day": 0.696078431372549
+    },
+    "10": {
+      "donor_mean_spearman_with_next_day": 0.23744726697606247,
+      "donor_chosen_channels": [
+        17,
+        44,
+        82,
+        99,
+        154,
+        165,
+        211,
+        237
+      ],
+      "donor_chosen_next_day": 0.42647058823529416,
+      "fixed_grid_next_day": 0.37058823529411766,
+      "candidate_median_next_day": 0.41274509803921566,
+      "candidate_oracle_best_next_day": 0.5882352941176472
+    },
+    "11": {
+      "donor_mean_spearman_with_next_day": 0.1285737428978489,
+      "donor_chosen_channels": [
+        44,
+        46,
+        83,
+        110,
+        155,
+        179,
+        209,
+        238
+      ],
+      "donor_chosen_next_day": 0.2156862745098039,
+      "fixed_grid_next_day": 0.16176470588235295,
+      "candidate_median_next_day": 0.20392156862745098,
+      "candidate_oracle_best_next_day": 0.4068627450980392
+    },
+    "12": {
+      "donor_mean_spearman_with_next_day": 0.30003110686203005,
+      "donor_chosen_channels": [
+        26,
+        38,
+        81,
+        93,
+        148,
+        171,
+        210,
+        229
+      ],
+      "donor_chosen_next_day": 0.27941176470588236,
+      "fixed_grid_next_day": 0.3019607843137255,
+      "candidate_median_next_day": 0.2450980392156863,
+      "candidate_oracle_best_next_day": 0.5049019607843137
+    },
+    "13": {
+      "donor_mean_spearman_with_next_day": 0.07207273914778191,
+      "donor_chosen_channels": [
+        17,
+        44,
+        82,
+        99,
+        154,
+        165,
+        211,
+        237
+      ],
+      "donor_chosen_next_day": 0.4362745098039215,
+      "fixed_grid_next_day": 0.4558823529411764,
+      "candidate_median_next_day": 0.4509803921568627,
+      "candidate_oracle_best_next_day": 0.6127450980392157
+    },
+    "14": {
+      "donor_mean_spearman_with_next_day": 0.10204076771719728,
+      "donor_chosen_channels": [
+        17,
+        44,
+        82,
+        99,
+        154,
+        165,
+        211,
+        237
+      ],
+      "donor_chosen_next_day": 0.41568627450980383,
+      "fixed_grid_next_day": 0.396078431372549,
+      "candidate_median_next_day": 0.3700980392156863,
+      "candidate_oracle_best_next_day": 0.5127450980392156
+    },
+    "15": {
+      "donor_mean_spearman_with_next_day": 0.22565637371095795,
+      "donor_chosen_channels": [
+        44,
+        46,
+        83,
+        110,
+        155,
+        179,
+        209,
+        238
+      ],
+      "donor_chosen_next_day": 0.4166666666666666,
+      "fixed_grid_next_day": 0.5,
+      "candidate_median_next_day": 0.38725490196078427,
+      "candidate_oracle_best_next_day": 0.5588235294117647
+    },
+    "16": {
+      "donor_mean_spearman_with_next_day": 0.3548180906478423,
+      "donor_chosen_channels": [
+        17,
+        44,
+        82,
+        99,
+        154,
+        165,
+        211,
+        237
+      ],
+      "donor_chosen_next_day": 0.22549019607843138,
+      "fixed_grid_next_day": 0.29901960784313725,
+      "candidate_median_next_day": 0.22549019607843138,
+      "candidate_oracle_best_next_day": 0.39215686274509803
+    }
+  }
+}

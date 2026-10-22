@@ -1,0 +1,460 @@
+{
+  "schema": "openalterego.silentwear-additive-screen.v1",
+  "scope": "Retrospective exposed silent-command sessions; virtual subsets of 14 recorded channels only; day 3 loaded after local choice records",
+  "seed": 43,
+  "seed_exact": 150,
+  "finalists_exact": 150,
+  "uniform_exact": 300,
+  "program_count": 6006,
+  "selection": "minimum of session1-to-2 and session2-to-1 balanced ridge accuracy, alpha=10",
+  "final_decoder": "balanced C=1 logistic fit on sessions 1+2, evaluated on session 3",
+  "subjects": {
+    "S01": {
+      "manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6",
+      "selection_receipt_sha256": "2b803640676c01529bea4a4595a07c30741fcfa21059be7184376ab3454f2492",
+      "selection_record": "docs\\research\\results\\silentwear-additive-screen-dev03-seed43-v1-S01-selection.json",
+      "source_batches": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "90d20ac02f40784dbd5c86e724871a34d521a742f2a16e84a13cb546865becfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "5c8ad332a59749359ea5fdbe1a72c2959e31a10b7b24496c8074bab8c02106f0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "a1385ea7035f1463f1bd42dcc9b4d6a33546d0b1179c92f5263ddf751b55a62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "e932285439f0a081bce0e6ee4ecdf032e6f994300ac669721009027a24f7c2c3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "fb0f24eba44822c127139e037e5a81525bbeecca6b8358b52bf3d8230cae6159",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "8ac1dd314dd68c9795b4e739066f83e0fdd20d9230f6ae69218d4cff849d7ef5",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "937f3b377d4da2e6d4fe6a8e1ab52d1b9ed31404ea36482fe34232ee6c5bef1a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "19c7cd840d0f6d8e61be34536976deafcc5444261ab2863a093655c552beb0ca",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "2628310ebe8f378ea9544b53de19642026f1978965bb57280fd42b381ac89b69",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "6c10ee96cbc100e35c7c306b8addd27e2a8dc182095e948fea0371da33f3f4c0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "2092983b51fb7ae009eb60e75f007a145698508d290454319fadb77bf14950db",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "d4d4af55db536119eaa18f4e324f642e6687da2cefccc1c25c3e176c0aea0cfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "65e1d61f83143ce9192c9286b40aeef6e352a4b9a6f152d98448eef420f68bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0ec37f8760916a2bb3dcc79e15e9c47a08b7e8fa051ec9b7a75506c709ba7e7b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "heldout_seed_spearman": 0.525250278086763,
+      "heldout_seed_mae": 0.014763809248019854,
+      "times_seconds": {
+        "initial_exact_both_policies": 0.12395799998193979,
+        "screen_remaining": 0.0023369999835267663,
+        "finalist_exact": 0.05345820006914437
+      },
+      "selection": {
+        "uniform_exact": {
+          "candidate_index": 5062,
+          "channels": [
+            1,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "normalization": "recording_robust",
+          "selection_score": 0.3044720496894409,
+          "query_balanced_accuracy": 0.25801242236024846
+        },
+        "additive_screened": {
+          "candidate_index": 5726,
+          "channels": [
+            3,
+            5,
+            8,
+            9,
+            10,
+            12
+          ],
+          "normalization": "recording_robust",
+          "selection_score": 0.32418909592822637,
+          "query_balanced_accuracy": 0.2659213250517598
+        }
+      }
+    },
+    "S02": {
+      "manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
+      "selection_receipt_sha256": "90c285f8b89ca112eaff0665f5985a4136451d36428f97d02cbe801c165e9e3b",
+      "selection_record": "docs\\research\\results\\silentwear-additive-screen-dev03-seed43-v1-S02-selection.json",
+      "source_batches": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "4a76cddfe56cc2fc08aadff70039fee450151e72f085f09a08e22bc379e0209b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "2144520ac3b66c121aeef8b77ce3ff11fe8930592b500aef032c3f210c0432da",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "6c54f617c658615b0bacc763a0fd1b4122f7d11567b5c3f2ef76f589e091f297",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "b9646761debd45c29af0dd430a671bde0ecc02ab8a6c17f9fd739ae701358a2a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "93ab3608ffdb56fd716c7913e2c087a415b217d97dbb2e87a95b8716f389bc47",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "80b43e5aa9d763b2214ac0816dcb9c4593a85d657cd513ac14dc4569b6126833",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "137bd682558357f0b0ff9c69e169c61fa6deb886d51ebcdc7d2432219c89fbe8",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "6e3352bb62ddb2312730972b47a0970e24e4a55e23472aaa7482b06c72605dc9",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "edb7380f4d92d2e8f64ea785b4814ca3387cefc24b2d0f5c88834491678e842e",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "9a166f6b06956fb23999beccbd6fce583387ad0b576515452885382725460bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "094a75b9aee41d565317a41a86bff5f07e63887e174a6aeccc244ceb330bc468",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "7a4b90c3b372aa5d5afbbfe68d5bc722bc962250d3a9b33832ef2b260faa73de",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "91e0b1efb4b48cb0ad89897cd3264492b31ce446c2165073cf1052eb5c02a8a1",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "fbaea364b35f38ceacb5670ba2b8e37fcb0bc6da094e3b23b771985c6b23f6b0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0c098e1abbbb46741d41ddc9aff898a8a20cc90e9f7cd3ada16a269b22e8cb70",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "heldout_seed_spearman": 0.7686318131256953,
+      "heldout_seed_mae": 0.019791705959599927,
+      "times_seconds": {
+        "initial_exact_both_policies": 0.14667889999691397,
+        "screen_remaining": 0.001850700005888939,
+        "finalist_exact": 0.016701300046406686
+      },
+      "selection": {
+        "uniform_exact": {
+          "candidate_index": 4538,
+          "channels": [
+            1,
+            2,
+            5,
+            8,
+            11,
+            13
+          ],
+          "normalization": "recording_robust",
+          "selection_score": 0.26484472049689445,
+          "query_balanced_accuracy": 0.2668184955141477
+        },
+        "additive_screened": {
+          "candidate_index": 5089,
+          "channels": [
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          "normalization": "recording_robust",
+          "selection_score": 0.28344375431331953,
+          "query_balanced_accuracy": 0.3040234644582471
+        }
+      }
+    },
+    "S03": {
+      "manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547",
+      "selection_receipt_sha256": "fa525c1ed077457bd6a38f26e4b9215cebcda9287e763e56e5efc489e1b9c5a5",
+      "selection_record": "docs\\research\\results\\silentwear-additive-screen-dev03-seed43-v1-S03-selection.json",
+      "source_batches": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "d9ada20da0f1ab0525fe2b994e350a758c39b8bf70276a0a7087c67675971a4f",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "712c673ad5d4f759bc45f8adcd4c3dc19d9556d11d3240c6348bc7772634e62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "042a63aa91031c0ee5702895eedf188baf97888c63e955bd578c1c62d2249427",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "10f30d458d6e21793d9bbd44e84aebe7282f4ddd1d50e5aad0cfd01f81f2450c",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "99db8397a214a4e6f117ad296ce6237ad849abbda6d688143a79323d3aacd145",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "b95a318541677eb2dcc0015e7fffb459a6b7af15651676366a8742c1936a2811",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "f5745317e3438a62c1323ceb93e0d347cefeedc595c7030cae6d64ca0c583114",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "75ea3c29d87e838e1c00cc233a12b72233af20060e0b255cac3490e3f5fea83b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "c7e661b92db5778e6e08ee196d48090313722ddec94e77054a1ee96acab2994a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "b06105fa1e3660903e56797cb93bdb15a615cad38d95af6a4a49cf13fa113fee",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "2b02aa99342c59354a1a14127d2e8f389358f4f695f4702298c1231f0e7bf201",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "9bedf70cffa8863ac0540e8dc111c7bfd5bdfb219324a88b5f168b98b0d68d0d",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "8c5ea3b622fb7c6b25638b56853ae2f0477e98bac9e5f46e89d683aaf9fb2ddf",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "05742c3e3eac9a852d70f0fffa7871af32740991495ed540f32addca38169836",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "eb4f48555ce28598339648567f3428e3285cd3f3783707498b5fc28ce7bb8618",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "heldout_seed_spearman": 0.760622914349277,
+      "heldout_seed_mae": 0.021469502140127394,
+      "times_seconds": {
+        "initial_exact_both_policies": 0.1251276999246329,
+        "screen_remaining": 0.0019980999641120434,
+        "finalist_exact": 0.03732409991789609
+      },
+      "selection": {
+        "uniform_exact": {
+          "candidate_index": 4197,
+          "channels": [
+            0,
+            5,
+            6,
+            10,
+            12,
+            13
+          ],
+          "normalization": "recording_robust",
+          "selection_score": 0.3315873015873016,
+          "query_balanced_accuracy": 0.3203588681849552
+        },
+        "additive_screened": {
+          "candidate_index": 4168,
+          "channels": [
+            0,
+            5,
+            6,
+            7,
+            8,
+            13
+          ],
+          "normalization": "recording_robust",
+          "selection_score": 0.3418633540372671,
+          "query_balanced_accuracy": 0.3003450655624568
+        }
+      }
+    }
+  }
+}

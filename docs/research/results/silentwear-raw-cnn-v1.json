@@ -1,0 +1,134 @@
+{
+  "schema": "openalterego.raw-window-cnn.v1",
+  "config": {
+    "subjects": [
+      "S01",
+      "S02",
+      "S03"
+    ],
+    "epochs": 6,
+    "seed": 42,
+    "batch_size": 128,
+    "threads": 8,
+    "channels": [
+      0,
+      2,
+      5,
+      8,
+      11,
+      13
+    ],
+    "normalization": "unlabeled recording median absolute amplitude"
+  },
+  "subjects": {
+    "S01": {
+      "test_balanced_accuracy": 0.2210351966873706,
+      "fit_wall_seconds": 91.01975639990997,
+      "parameters": 15345,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.140745618855842
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.9774043066479334
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.8761161521959155
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.8240585786902646
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.7782694076451928
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.7156646894145977
+        }
+      ],
+      "event_counts": {
+        "train": 3210,
+        "test": 1605
+      },
+      "input_manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6"
+    },
+    "S02": {
+      "test_balanced_accuracy": 0.19856452726017945,
+      "fit_wall_seconds": 60.70157319994178,
+      "parameters": 15345,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.157530602116451
+        },
+        {
+          "epoch": 2,
+          "train_loss": 2.033177647932296
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.951027092458303
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.8828935625025789
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.8229873038526636
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.7781069302484624
+        }
+      ],
+      "event_counts": {
+        "train": 3210,
+        "test": 1605
+      },
+      "input_manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299"
+    },
+    "S03": {
+      "test_balanced_accuracy": 0.2762042788129745,
+      "fit_wall_seconds": 53.18892590003088,
+      "parameters": 15345,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.174785397877203
+        },
+        {
+          "epoch": 2,
+          "train_loss": 2.0367038326100024
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.9204793436133603
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.8498284893243855
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.779797176185798
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.7230645889805114
+        }
+      ],
+      "event_counts": {
+        "train": 3210,
+        "test": 1605
+      },
+      "input_manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547"
+    }
+  },
+  "scope": "Retrospective, offline, fixed layout and event window; not streaming or fresh holdout."
+}

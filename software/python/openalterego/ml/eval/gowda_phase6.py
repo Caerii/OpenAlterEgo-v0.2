@@ -89,13 +89,16 @@ def analyze_errors(
     }
 
 
-def _build_dataset(data_dir: Path, events: pd.DataFrame, ckpt: Dict[str, Any]) -> PhonemeCTCDataset:
+def _build_dataset(
+    data_dir: Path, events: pd.DataFrame, ckpt: Dict[str, Any], *, cache_dir: Optional[Path] = None
+) -> PhonemeCTCDataset:
     signals = np.load(data_dir / "signals.npy", mmap_mode="r")
     ft = str(ckpt.get("feature_type", "raw"))
     spd_basis = None
     if ft == "spd":
         spd_basis = ensure_gowda_spd_basis(
             data_dir,
+            basis_cache_dir=cache_dir / "basis" if cache_dir is not None else None,
             fs_hz=int(ckpt.get("fs", 5000)),
             emg_mode=str(ckpt.get("emg_mode", "gowda")),
             seed=int(ckpt.get("seed", 1337)),
@@ -112,7 +115,7 @@ def _build_dataset(data_dir: Path, events: pd.DataFrame, ckpt: Dict[str, Any]) -
         per_event_preprocess=True,
         feature_type=ft,  # type: ignore[arg-type]
         spd_basis=spd_basis,
-        session_dir=str(data_dir),
+        session_dir=str(cache_dir / "sequences" if cache_dir is not None else data_dir),
         use_upper_tri=bool(ckpt.get("use_upper_tri", False)),
         feature_mode=str(ckpt.get("feature_mode", "full")),
     )

@@ -1,0 +1,26 @@
+{
+  "schema": "openalterego.hyser-batch-benchmark.v1",
+  "scope": "Single-host warm-cache scoring only; excludes acquisition, feature extraction and training-data preparation",
+  "subject": "09",
+  "designs": 256,
+  "repeats": 3,
+  "train_source_record_sha256": "d991fc14494e9b703aa7d62d62ab675f92e837b579afa5930b8fa922f0a58635",
+  "test_source_record_sha256": "7cb622e7b501b8efe3a11444b6a51c71931cdd04501017c7e809987767326cc5",
+  "machine": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.0",
+  "numpy": "2.5.4",
+  "batched_seconds": [
+    0.07761069992557168,
+    0.076212799991481,
+    0.07394260005094111
+  ],
+  "scalar_seconds": [
+    0.6565455000381917,
+    0.6130015999078751,
+    0.5875504999421537
+  ],
+  "batched_median_seconds": 0.076212799991481,
+  "scalar_median_seconds": 0.6130015999078751,
+  "median_speedup": 8.04328931592063,
+  "max_abs_score_error": 2.220446049250313e-16
+}

@@ -28,7 +28,7 @@
 
 ## License practice
 
-1. **Check OSF project “License” field** at download time — terms may update independently of this doc.
+1. **Check OSF project “License” field** at download time — terms may update independently of this doc. On 2026-10-21 the public OSF API reported CC BY 4.0 for both project `ym5jd` and component `bgh7t`; record the API response or a dated license snapshot in each run's provenance.
 2. **Do not commit** raw `.npy` files to git (size + license). Store under `sessions/gowda_download/` (gitignored).
 3. **Derived artifacts** (session folders, checkpoints, preprocess cache) are project outputs — document provenance in validation notes.
 4. **Redistribution** of raw OSF files must comply with OSF/license terms; prefer linking to OSF DOI.

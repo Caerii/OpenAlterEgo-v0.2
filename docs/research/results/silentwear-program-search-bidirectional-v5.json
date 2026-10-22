@@ -1,0 +1,4252 @@
+{
+  "schema": "openalterego.virtual-program-search-cohort.v5",
+  "config": {
+    "root": "F:\\Datasets\\OpenAlterEgo\\SilentWear",
+    "subjects": [
+      "S01",
+      "S02",
+      "S03"
+    ],
+    "seed": 42,
+    "proxy": "ridge",
+    "selection_mode": "bidirectional",
+    "stage_one_per_strategy": 16,
+    "finalists_per_strategy": 4
+  },
+  "subjects": {
+    "S01": {
+      "schema": "openalterego.virtual-program-search.v5",
+      "program_count": 18018,
+      "unique_proxy_structures": 6006,
+      "proxy_kind": "ridge",
+      "split": "cross-fit sessions 1 and 2 in both directions; refit on both; reveal chosen designs on session 3",
+      "scope": "Recorded channel subsets only; no unobserved electrode or device physics prediction.",
+      "seed": 42,
+      "selection_mode": "bidirectional",
+      "proxy_seconds": 9.49010590009857,
+      "proxy_cpu_seconds": 8.71875,
+      "total_seconds": 19.73742660006974,
+      "total_cpu_seconds": 18.265625,
+      "stage_one_per_strategy": 16,
+      "finalists_per_strategy": 4,
+      "selection": {
+        "schema": "openalterego.virtual-program-selection.v1",
+        "proxy_kind": "ridge",
+        "selection_mode": "bidirectional",
+        "seed": 42,
+        "stage_one_per_strategy": 16,
+        "finalists_per_strategy": 4,
+        "choices": {
+          "proxy": {
+            "program": {
+              "channels": [
+                0,
+                5,
+                8,
+                9,
+                10,
+                12
+              ],
+              "normalization": "recording_robust",
+              "c": 10.0
+            },
+            "validation_balanced_accuracy": 0.35118012422360245
+          },
+          "random": {
+            "program": {
+              "channels": [
+                2,
+                3,
+                9,
+                10,
+                11,
+                12
+              ],
+              "normalization": "recording_robust",
+              "c": 10.0
+            },
+            "validation_balanced_accuracy": 0.3180952380952381
+          }
+        }
+      },
+      "strategies": {
+        "proxy": {
+          "stage_one": [
+            {
+              "program": {
+                "channels": [
+                  3,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3268806073153899,
+              "directional_balanced_accuracy": [
+                0.3268806073153899,
+                0.36380262249827466
+              ],
+              "fit_and_score_wall_s": 0.16677970008458942,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.33228433402346447,
+              "directional_balanced_accuracy": [
+                0.33228433402346447,
+                0.348391994478951
+              ],
+              "fit_and_score_wall_s": 0.15885160001926124,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34409937888198755,
+              "directional_balanced_accuracy": [
+                0.34409937888198755,
+                0.36046238785369217
+              ],
+              "fit_and_score_wall_s": 0.15091790002770722,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  6,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3208902691511387,
+              "directional_balanced_accuracy": [
+                0.3447826086956522,
+                0.3208902691511387
+              ],
+              "fit_and_score_wall_s": 0.15739439998287708,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3414630779848171,
+              "directional_balanced_accuracy": [
+                0.3414630779848171,
+                0.3510351966873706
+              ],
+              "fit_and_score_wall_s": 0.14540449995547533,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  7,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3238026224982747,
+              "directional_balanced_accuracy": [
+                0.3238026224982747,
+                0.36324361628709456
+              ],
+              "fit_and_score_wall_s": 0.19340750004630536,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34298136645962735,
+              "directional_balanced_accuracy": [
+                0.352263630089717,
+                0.34298136645962735
+              ],
+              "fit_and_score_wall_s": 0.1721772999735549,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  6,
+                  8,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3308902691511387,
+              "directional_balanced_accuracy": [
+                0.3308902691511387,
+                0.337135955831608
+              ],
+              "fit_and_score_wall_s": 0.17642699996940792,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  8,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3307522429261559,
+              "directional_balanced_accuracy": [
+                0.3426984126984127,
+                0.3307522429261559
+              ],
+              "fit_and_score_wall_s": 0.16262050007935613,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  3,
+                  8,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3307453416149068,
+              "directional_balanced_accuracy": [
+                0.33674258109040717,
+                0.3307453416149068
+              ],
+              "fit_and_score_wall_s": 0.15982890001032501,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  8,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3281090407177364,
+              "directional_balanced_accuracy": [
+                0.3281090407177364,
+                0.3354865424430642
+              ],
+              "fit_and_score_wall_s": 0.16415950004011393,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3354865424430642,
+              "directional_balanced_accuracy": [
+                0.3396342305037957,
+                0.3354865424430642
+              ],
+              "fit_and_score_wall_s": 0.1723569999448955,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  3,
+                  4,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3318840579710145,
+              "directional_balanced_accuracy": [
+                0.3318840579710145,
+                0.35587991718426504
+              ],
+              "fit_and_score_wall_s": 0.17135020007845014,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  7,
+                  8,
+                  10,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.28971704623878536,
+              "directional_balanced_accuracy": [
+                0.3182194616977225,
+                0.28971704623878536
+              ],
+              "fit_and_score_wall_s": 0.16479149996303022,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  3,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3430986887508627,
+              "directional_balanced_accuracy": [
+                0.34953761214630785,
+                0.3430986887508627
+              ],
+              "fit_and_score_wall_s": 0.14684229996055365,
+              "fit_and_score_cpu_s": 0.125
+            },
+            {
+              "program": {
+                "channels": [
+                  4,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.338391994478951,
+              "directional_balanced_accuracy": [
+                0.338391994478951,
+                0.3565769496204279
+              ],
+              "fit_and_score_wall_s": 0.1523466999642551,
+              "fit_and_score_cpu_s": 0.15625
+            }
+          ],
+          "stage_two": [
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3214285714285714,
+              "directional_balanced_accuracy": [
+                0.32550034506556247,
+                0.3214285714285714
+              ],
+              "fit_and_score_wall_s": 0.06915959995239973,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34409937888198755,
+              "directional_balanced_accuracy": [
+                0.34409937888198755,
+                0.36046238785369217
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.35118012422360245,
+              "directional_balanced_accuracy": [
+                0.35118012422360245,
+                0.37852311939268457
+              ],
+              "fit_and_score_wall_s": 0.32618400000501424,
+              "fit_and_score_cpu_s": 0.28125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  3,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3050310559006212,
+              "directional_balanced_accuracy": [
+                0.33812974465148377,
+                0.3050310559006212
+              ],
+              "fit_and_score_wall_s": 0.17160419991705567,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  3,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3430986887508627,
+              "directional_balanced_accuracy": [
+                0.34953761214630785,
+                0.3430986887508627
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  3,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.3280469289164942,
+              "directional_balanced_accuracy": [
+                0.3280469289164942,
+                0.351304347826087
+              ],
+              "fit_and_score_wall_s": 0.5259675000561401,
+              "fit_and_score_cpu_s": 0.4375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3174189095928226,
+              "directional_balanced_accuracy": [
+                0.3271497584541063,
+                0.3174189095928226
+              ],
+              "fit_and_score_wall_s": 0.13066480006091297,
+              "fit_and_score_cpu_s": 0.09375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34298136645962735,
+              "directional_balanced_accuracy": [
+                0.352263630089717,
+                0.34298136645962735
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  8,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.3440648723257419,
+              "directional_balanced_accuracy": [
+                0.3440648723257419,
+                0.35590062111801246
+              ],
+              "fit_and_score_wall_s": 0.4653866000007838,
+              "fit_and_score_cpu_s": 0.375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3193581780538302,
+              "directional_balanced_accuracy": [
+                0.33979296066252584,
+                0.3193581780538302
+              ],
+              "fit_and_score_wall_s": 0.08283600013237447,
+              "fit_and_score_cpu_s": 0.09375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3414630779848171,
+              "directional_balanced_accuracy": [
+                0.3414630779848171,
+                0.3510351966873706
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  9,
+                  10,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.34022774327122157,
+              "directional_balanced_accuracy": [
+                0.34022774327122157,
+                0.3488129744651484
+              ],
+              "fit_and_score_wall_s": 0.48244659998454154,
+              "fit_and_score_cpu_s": 0.390625,
+              "reused_stage_one": false
+            }
+          ],
+          "choice": {
+            "channels": [
+              0,
+              5,
+              8,
+              9,
+              10,
+              12
+            ],
+            "normalization": "recording_robust",
+            "c": 10.0
+          },
+          "validation_balanced_accuracy": 0.35118012422360245,
+          "full_fits_for_selection": 48,
+          "directional_fits_per_program": 2,
+          "test_balanced_accuracy": 0.268543823326432
+        },
+        "random": {
+          "stage_one": [
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  9,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.22464458247066943,
+              "directional_balanced_accuracy": [
+                0.2672532781228434,
+                0.22464458247066943
+              ],
+              "fit_and_score_wall_s": 0.22901760006789118,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  8,
+                  9,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.24149068322981368,
+              "directional_balanced_accuracy": [
+                0.2846100759144237,
+                0.24149068322981368
+              ],
+              "fit_and_score_wall_s": 0.22384880005847663,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2645479641131815,
+              "directional_balanced_accuracy": [
+                0.2645479641131815,
+                0.2986680469289165
+              ],
+              "fit_and_score_wall_s": 0.15558550006244332,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  5,
+                  8,
+                  12,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.24544513457556935,
+              "directional_balanced_accuracy": [
+                0.24544513457556935,
+                0.2900828157349896
+              ],
+              "fit_and_score_wall_s": 0.25424509996082634,
+              "fit_and_score_cpu_s": 0.25
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.22544513457556936,
+              "directional_balanced_accuracy": [
+                0.22544513457556936,
+                0.23326432022084198
+              ],
+              "fit_and_score_wall_s": 0.25275139999575913,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2610766045548654,
+              "directional_balanced_accuracy": [
+                0.2917046238785369,
+                0.2610766045548654
+              ],
+              "fit_and_score_wall_s": 0.2400027000112459,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.30882677708764666,
+              "directional_balanced_accuracy": [
+                0.3355003450655625,
+                0.30882677708764666
+              ],
+              "fit_and_score_wall_s": 0.2023427999811247,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.316432022084196,
+              "directional_balanced_accuracy": [
+                0.3577225672877846,
+                0.316432022084196
+              ],
+              "fit_and_score_wall_s": 0.17054119997192174,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2756245686680469,
+              "directional_balanced_accuracy": [
+                0.34104899930986887,
+                0.2756245686680469
+              ],
+              "fit_and_score_wall_s": 0.20654970000032336,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2546652864044169,
+              "directional_balanced_accuracy": [
+                0.27086266390614216,
+                0.2546652864044169
+              ],
+              "fit_and_score_wall_s": 0.2161006999667734,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  9
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2836853002070393,
+              "directional_balanced_accuracy": [
+                0.3220358868184955,
+                0.2836853002070393
+              ],
+              "fit_and_score_wall_s": 0.1786367999156937,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  7,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2734230503795721,
+              "directional_balanced_accuracy": [
+                0.2734230503795721,
+                0.33867494824016564
+              ],
+              "fit_and_score_wall_s": 0.21118170011322945,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  3,
+                  4,
+                  5,
+                  7,
+                  11,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.24420289855072463,
+              "directional_balanced_accuracy": [
+                0.24420289855072463,
+                0.25525189786059355
+              ],
+              "fit_and_score_wall_s": 0.17239409999456257,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2935265700483092,
+              "directional_balanced_accuracy": [
+                0.2935265700483092,
+                0.326432022084196
+              ],
+              "fit_and_score_wall_s": 0.18001310003455728,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2861766735679779,
+              "directional_balanced_accuracy": [
+                0.2861766735679779,
+                0.3192270531400966
+              ],
+              "fit_and_score_wall_s": 0.19602390006184578,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  3,
+                  8,
+                  12,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.25933747412008284,
+              "directional_balanced_accuracy": [
+                0.25933747412008284,
+                0.29328502415458935
+              ],
+              "fit_and_score_wall_s": 0.1696970999473706,
+              "fit_and_score_cpu_s": 0.171875
+            }
+          ],
+          "stage_two": [
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2800414078674949,
+              "directional_balanced_accuracy": [
+                0.3424361628709455,
+                0.2800414078674949
+              ],
+              "fit_and_score_wall_s": 0.07827970013022423,
+              "fit_and_score_cpu_s": 0.109375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.316432022084196,
+              "directional_balanced_accuracy": [
+                0.3577225672877846,
+                0.316432022084196
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.3180952380952381,
+              "directional_balanced_accuracy": [
+                0.36887508626639065,
+                0.3180952380952381
+              ],
+              "fit_and_score_wall_s": 0.2811150000197813,
+              "fit_and_score_cpu_s": 0.265625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.29340924775707383,
+              "directional_balanced_accuracy": [
+                0.33826777087646653,
+                0.29340924775707383
+              ],
+              "fit_and_score_wall_s": 0.07272490009199828,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.30882677708764666,
+              "directional_balanced_accuracy": [
+                0.3355003450655625,
+                0.30882677708764666
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.30980676328502416,
+              "directional_balanced_accuracy": [
+                0.3303795721187026,
+                0.30980676328502416
+              ],
+              "fit_and_score_wall_s": 0.2873840000247583,
+              "fit_and_score_cpu_s": 0.28125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2935334713595583,
+              "directional_balanced_accuracy": [
+                0.2935334713595583,
+                0.3254589371980677
+              ],
+              "fit_and_score_wall_s": 0.07654579996597022,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2935265700483092,
+              "directional_balanced_accuracy": [
+                0.2935265700483092,
+                0.326432022084196
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.291456176673568,
+              "directional_balanced_accuracy": [
+                0.291456176673568,
+                0.3247619047619048
+              ],
+              "fit_and_score_wall_s": 0.3877840999048203,
+              "fit_and_score_cpu_s": 0.375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.27313319530710833,
+              "directional_balanced_accuracy": [
+                0.27313319530710833,
+                0.3136576949620428
+              ],
+              "fit_and_score_wall_s": 0.09164969995617867,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2861766735679779,
+              "directional_balanced_accuracy": [
+                0.2861766735679779,
+                0.3192270531400966
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.2820220841959973,
+              "directional_balanced_accuracy": [
+                0.2820220841959973,
+                0.30645272601794343
+              ],
+              "fit_and_score_wall_s": 0.35168379999231547,
+              "fit_and_score_cpu_s": 0.328125,
+              "reused_stage_one": false
+            }
+          ],
+          "choice": {
+            "channels": [
+              2,
+              3,
+              9,
+              10,
+              11,
+              12
+            ],
+            "normalization": "recording_robust",
+            "c": 10.0
+          },
+          "validation_balanced_accuracy": 0.3180952380952381,
+          "full_fits_for_selection": 48,
+          "directional_fits_per_program": 2,
+          "test_balanced_accuracy": 0.2440165631469979
+        }
+      },
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "90d20ac02f40784dbd5c86e724871a34d521a742f2a16e84a13cb546865becfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "5c8ad332a59749359ea5fdbe1a72c2959e31a10b7b24496c8074bab8c02106f0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "a1385ea7035f1463f1bd42dcc9b4d6a33546d0b1179c92f5263ddf751b55a62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "e932285439f0a081bce0e6ee4ecdf032e6f994300ac669721009027a24f7c2c3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "fb0f24eba44822c127139e037e5a81525bbeecca6b8358b52bf3d8230cae6159",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "8ac1dd314dd68c9795b4e739066f83e0fdd20d9230f6ae69218d4cff849d7ef5",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "937f3b377d4da2e6d4fe6a8e1ab52d1b9ed31404ea36482fe34232ee6c5bef1a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "19c7cd840d0f6d8e61be34536976deafcc5444261ab2863a093655c552beb0ca",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "2628310ebe8f378ea9544b53de19642026f1978965bb57280fd42b381ac89b69",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "6c10ee96cbc100e35c7c306b8addd27e2a8dc182095e948fea0371da33f3f4c0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "2092983b51fb7ae009eb60e75f007a145698508d290454319fadb77bf14950db",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "d4d4af55db536119eaa18f4e324f642e6687da2cefccc1c25c3e176c0aea0cfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "65e1d61f83143ce9192c9286b40aeef6e352a4b9a6f152d98448eef420f68bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0ec37f8760916a2bb3dcc79e15e9c47a08b7e8fa051ec9b7a75506c709ba7e7b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "selection_record": "docs\\research\\results\\silentwear-program-search-bidirectional-v5-S01-selection.json",
+      "selection_sha256": "030fa883504547941cd612cdf7b66e9ccef9c8ba2c70614445a2cd1d6e1896cb"
+    },
+    "S02": {
+      "schema": "openalterego.virtual-program-search.v5",
+      "program_count": 18018,
+      "unique_proxy_structures": 6006,
+      "proxy_kind": "ridge",
+      "split": "cross-fit sessions 1 and 2 in both directions; refit on both; reveal chosen designs on session 3",
+      "scope": "Recorded channel subsets only; no unobserved electrode or device physics prediction.",
+      "seed": 42,
+      "selection_mode": "bidirectional",
+      "proxy_seconds": 9.929228599998169,
+      "proxy_cpu_seconds": 9.046875,
+      "total_seconds": 19.332742400001734,
+      "total_cpu_seconds": 17.359375,
+      "stage_one_per_strategy": 16,
+      "finalists_per_strategy": 4,
+      "selection": {
+        "schema": "openalterego.virtual-program-selection.v1",
+        "proxy_kind": "ridge",
+        "selection_mode": "bidirectional",
+        "seed": 42,
+        "stage_one_per_strategy": 16,
+        "finalists_per_strategy": 4,
+        "choices": {
+          "proxy": {
+            "program": {
+              "channels": [
+                2,
+                3,
+                4,
+                5,
+                7,
+                8
+              ],
+              "normalization": "recording_robust",
+              "c": 1.0
+            },
+            "validation_balanced_accuracy": 0.30882677708764666
+          },
+          "random": {
+            "program": {
+              "channels": [
+                2,
+                4,
+                5,
+                7,
+                9,
+                13
+              ],
+              "normalization": "recording_robust",
+              "c": 0.1
+            },
+            "validation_balanced_accuracy": 0.2803381642512077
+          }
+        }
+      },
+      "strategies": {
+        "proxy": {
+          "stage_one": [
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2668115942028985,
+              "directional_balanced_accuracy": [
+                0.2668115942028985,
+                0.29720496894409937
+              ],
+              "fit_and_score_wall_s": 0.14819300000090152,
+              "fit_and_score_cpu_s": 0.109375
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2641752933057281,
+              "directional_balanced_accuracy": [
+                0.2641752933057281,
+                0.3163630089717046
+              ],
+              "fit_and_score_wall_s": 0.1262188000837341,
+              "fit_and_score_cpu_s": 0.125
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.30882677708764666,
+              "directional_balanced_accuracy": [
+                0.31599033816425126,
+                0.30882677708764666
+              ],
+              "fit_and_score_wall_s": 0.20994209998752922,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2763975155279503,
+              "directional_balanced_accuracy": [
+                0.34718426501035193,
+                0.2763975155279503
+              ],
+              "fit_and_score_wall_s": 0.21310109994374216,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  5,
+                  8,
+                  10,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2611525189786059,
+              "directional_balanced_accuracy": [
+                0.28767425810904074,
+                0.2611525189786059
+              ],
+              "fit_and_score_wall_s": 0.1511746000032872,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2840027605244997,
+              "directional_balanced_accuracy": [
+                0.3043340234644582,
+                0.2840027605244997
+              ],
+              "fit_and_score_wall_s": 0.211847799946554,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2826570048309179,
+              "directional_balanced_accuracy": [
+                0.36257418909592826,
+                0.2826570048309179
+              ],
+              "fit_and_score_wall_s": 0.26263819984160364,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2866597653554176,
+              "directional_balanced_accuracy": [
+                0.35773636991028296,
+                0.2866597653554176
+              ],
+              "fit_and_score_wall_s": 0.23656849993858486,
+              "fit_and_score_cpu_s": 0.234375
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  5,
+                  6,
+                  7
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2719254658385093,
+              "directional_balanced_accuracy": [
+                0.2719254658385093,
+                0.2928226363008972
+              ],
+              "fit_and_score_wall_s": 0.1969525000313297,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.28682539682539687,
+              "directional_balanced_accuracy": [
+                0.3795307108350587,
+                0.28682539682539687
+              ],
+              "fit_and_score_wall_s": 0.2320964999962598,
+              "fit_and_score_cpu_s": 0.234375
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  3,
+                  4,
+                  5,
+                  7
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2717253278122843,
+              "directional_balanced_accuracy": [
+                0.2717253278122843,
+                0.2990131124913733
+              ],
+              "fit_and_score_wall_s": 0.15271529997698963,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3012491373360938,
+              "directional_balanced_accuracy": [
+                0.34914423740510697,
+                0.3012491373360938
+              ],
+              "fit_and_score_wall_s": 0.1415015000384301,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.29125603864734306,
+              "directional_balanced_accuracy": [
+                0.31387163561076603,
+                0.29125603864734306
+              ],
+              "fit_and_score_wall_s": 0.23868459998629987,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2773498964803312,
+              "directional_balanced_accuracy": [
+                0.2773498964803312,
+                0.2913802622498275
+              ],
+              "fit_and_score_wall_s": 0.14712379989214242,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  5,
+                  6,
+                  7,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2835817805383023,
+              "directional_balanced_accuracy": [
+                0.2835817805383023,
+                0.30103519668737055
+              ],
+              "fit_and_score_wall_s": 0.12564830004703254,
+              "fit_and_score_cpu_s": 0.125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  5,
+                  6,
+                  7,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2744858523119392,
+              "directional_balanced_accuracy": [
+                0.3231677018633541,
+                0.2744858523119392
+              ],
+              "fit_and_score_wall_s": 0.1497138999402523,
+              "fit_and_score_cpu_s": 0.171875
+            }
+          ],
+          "stage_two": [
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2927053140096618,
+              "directional_balanced_accuracy": [
+                0.3358937198067633,
+                0.2927053140096618
+              ],
+              "fit_and_score_wall_s": 0.0793159999884665,
+              "fit_and_score_cpu_s": 0.0625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.30882677708764666,
+              "directional_balanced_accuracy": [
+                0.31599033816425126,
+                0.30882677708764666
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.2966045548654244,
+              "directional_balanced_accuracy": [
+                0.30036576949620425,
+                0.2966045548654244
+              ],
+              "fit_and_score_wall_s": 0.19966399995610118,
+              "fit_and_score_cpu_s": 0.21875,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2883574879227053,
+              "directional_balanced_accuracy": [
+                0.35646652864044165,
+                0.2883574879227053
+              ],
+              "fit_and_score_wall_s": 0.07206079980824143,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3012491373360938,
+              "directional_balanced_accuracy": [
+                0.34914423740510697,
+                0.3012491373360938
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.28568668046928924,
+              "directional_balanced_accuracy": [
+                0.33543133195307107,
+                0.28568668046928924
+              ],
+              "fit_and_score_wall_s": 0.19044389994814992,
+              "fit_and_score_cpu_s": 0.171875,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2830227743271221,
+              "directional_balanced_accuracy": [
+                0.3298688750862664,
+                0.2830227743271221
+              ],
+              "fit_and_score_wall_s": 0.06401770003139973,
+              "fit_and_score_cpu_s": 0.0625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.29125603864734306,
+              "directional_balanced_accuracy": [
+                0.31387163561076603,
+                0.29125603864734306
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.2808557625948931,
+              "directional_balanced_accuracy": [
+                0.3072394755003451,
+                0.2808557625948931
+              ],
+              "fit_and_score_wall_s": 0.1850005000596866,
+              "fit_and_score_cpu_s": 0.21875,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2740648723257419,
+              "directional_balanced_accuracy": [
+                0.3767080745341615,
+                0.2740648723257419
+              ],
+              "fit_and_score_wall_s": 0.06520780001301318,
+              "fit_and_score_cpu_s": 0.0625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.28682539682539687,
+              "directional_balanced_accuracy": [
+                0.3795307108350587,
+                0.28682539682539687
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.27931677018633544,
+              "directional_balanced_accuracy": [
+                0.36374051069703245,
+                0.27931677018633544
+              ],
+              "fit_and_score_wall_s": 0.19424580002669245,
+              "fit_and_score_cpu_s": 0.1875,
+              "reused_stage_one": false
+            }
+          ],
+          "choice": {
+            "channels": [
+              2,
+              3,
+              4,
+              5,
+              7,
+              8
+            ],
+            "normalization": "recording_robust",
+            "c": 1.0
+          },
+          "validation_balanced_accuracy": 0.30882677708764666,
+          "full_fits_for_selection": 48,
+          "directional_fits_per_program": 2,
+          "test_balanced_accuracy": 0.3040234644582471
+        },
+        "random": {
+          "stage_one": [
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  9,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.11333333333333334,
+              "directional_balanced_accuracy": [
+                0.18824016563146997,
+                0.11333333333333334
+              ],
+              "fit_and_score_wall_s": 0.12567960005253553,
+              "fit_and_score_cpu_s": 0.125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  8,
+                  9,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.19345755693581781,
+              "directional_balanced_accuracy": [
+                0.19345755693581781,
+                0.20444444444444443
+              ],
+              "fit_and_score_wall_s": 0.12449449999257922,
+              "fit_and_score_cpu_s": 0.109375
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.1617184265010352,
+              "directional_balanced_accuracy": [
+                0.20953071083505867,
+                0.1617184265010352
+              ],
+              "fit_and_score_wall_s": 0.09640949999447912,
+              "fit_and_score_cpu_s": 0.09375
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  5,
+                  8,
+                  12,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.11637681159420289,
+              "directional_balanced_accuracy": [
+                0.18783988957901998,
+                0.11637681159420289
+              ],
+              "fit_and_score_wall_s": 0.1417167999316007,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.1846031746031746,
+              "directional_balanced_accuracy": [
+                0.1851345755693582,
+                0.1846031746031746
+              ],
+              "fit_and_score_wall_s": 0.31574929994530976,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.1356176673567978,
+              "directional_balanced_accuracy": [
+                0.2058040027605245,
+                0.1356176673567978
+              ],
+              "fit_and_score_wall_s": 0.3426055000163615,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.1858592132505176,
+              "directional_balanced_accuracy": [
+                0.2522567287784679,
+                0.1858592132505176
+              ],
+              "fit_and_score_wall_s": 0.15669540001545101,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.18769496204278815,
+              "directional_balanced_accuracy": [
+                0.2420151828847481,
+                0.18769496204278815
+              ],
+              "fit_and_score_wall_s": 0.1442557000555098,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2285369220151829,
+              "directional_balanced_accuracy": [
+                0.2502277432712215,
+                0.2285369220151829
+              ],
+              "fit_and_score_wall_s": 0.13459390006028116,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.11236024844720498,
+              "directional_balanced_accuracy": [
+                0.18120772946859903,
+                0.11236024844720498
+              ],
+              "fit_and_score_wall_s": 0.3065796998562291,
+              "fit_and_score_cpu_s": 0.265625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  9
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.20857142857142857,
+              "directional_balanced_accuracy": [
+                0.23095928226363005,
+                0.20857142857142857
+              ],
+              "fit_and_score_wall_s": 0.2616629000985995,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  7,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.21570048309178744,
+              "directional_balanced_accuracy": [
+                0.21570048309178744,
+                0.24130434782608695
+              ],
+              "fit_and_score_wall_s": 0.16231420007534325,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  3,
+                  4,
+                  5,
+                  7,
+                  11,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.16374741200828158,
+              "directional_balanced_accuracy": [
+                0.16374741200828158,
+                0.1754865424430642
+              ],
+              "fit_and_score_wall_s": 0.18348560004960746,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.24601104209799862,
+              "directional_balanced_accuracy": [
+                0.3192339544513458,
+                0.24601104209799862
+              ],
+              "fit_and_score_wall_s": 0.2655971000203863,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.26436853002070393,
+              "directional_balanced_accuracy": [
+                0.3276535541752933,
+                0.26436853002070393
+              ],
+              "fit_and_score_wall_s": 0.3199311000062153,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  3,
+                  8,
+                  12,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.11304347826086955,
+              "directional_balanced_accuracy": [
+                0.12388543823326434,
+                0.11304347826086955
+              ],
+              "fit_and_score_wall_s": 0.28772809996735305,
+              "fit_and_score_cpu_s": 0.1875
+            }
+          ],
+          "stage_two": [
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2803381642512077,
+              "directional_balanced_accuracy": [
+                0.3283367839889578,
+                0.2803381642512077
+              ],
+              "fit_and_score_wall_s": 0.1145022000418976,
+              "fit_and_score_cpu_s": 0.09375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.26436853002070393,
+              "directional_balanced_accuracy": [
+                0.3276535541752933,
+                0.26436853002070393
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.2489648033126294,
+              "directional_balanced_accuracy": [
+                0.32377501725327806,
+                0.2489648033126294
+              ],
+              "fit_and_score_wall_s": 0.48224720009602606,
+              "fit_and_score_cpu_s": 0.390625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.23119392684610077,
+              "directional_balanced_accuracy": [
+                0.3330779848171152,
+                0.23119392684610077
+              ],
+              "fit_and_score_wall_s": 0.11236240004654974,
+              "fit_and_score_cpu_s": 0.046875,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.24601104209799862,
+              "directional_balanced_accuracy": [
+                0.3192339544513458,
+                0.24601104209799862
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.24209799861973774,
+              "directional_balanced_accuracy": [
+                0.3085921325051759,
+                0.24209799861973774
+              ],
+              "fit_and_score_wall_s": 0.24558439990505576,
+              "fit_and_score_cpu_s": 0.25,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.24319530710835055,
+              "directional_balanced_accuracy": [
+                0.25390614216701174,
+                0.24319530710835055
+              ],
+              "fit_and_score_wall_s": 0.08063779992517084,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2285369220151829,
+              "directional_balanced_accuracy": [
+                0.2502277432712215,
+                0.2285369220151829
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.2256314699792961,
+              "directional_balanced_accuracy": [
+                0.2553692201518289,
+                0.2256314699792961
+              ],
+              "fit_and_score_wall_s": 0.30040769989136606,
+              "fit_and_score_cpu_s": 0.203125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  7,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.22153899240855762,
+              "directional_balanced_accuracy": [
+                0.22175293305728086,
+                0.22153899240855762
+              ],
+              "fit_and_score_wall_s": 0.08577500004321337,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  7,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.21570048309178744,
+              "directional_balanced_accuracy": [
+                0.21570048309178744,
+                0.24130434782608695
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  7,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.2175224292615597,
+              "directional_balanced_accuracy": [
+                0.2175224292615597,
+                0.24218081435472744
+              ],
+              "fit_and_score_wall_s": 0.20839549996890128,
+              "fit_and_score_cpu_s": 0.21875,
+              "reused_stage_one": false
+            }
+          ],
+          "choice": {
+            "channels": [
+              2,
+              4,
+              5,
+              7,
+              9,
+              13
+            ],
+            "normalization": "recording_robust",
+            "c": 0.1
+          },
+          "validation_balanced_accuracy": 0.2803381642512077,
+          "full_fits_for_selection": 48,
+          "directional_fits_per_program": 2,
+          "test_balanced_accuracy": 0.28385093167701864
+        }
+      },
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "4a76cddfe56cc2fc08aadff70039fee450151e72f085f09a08e22bc379e0209b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "2144520ac3b66c121aeef8b77ce3ff11fe8930592b500aef032c3f210c0432da",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "6c54f617c658615b0bacc763a0fd1b4122f7d11567b5c3f2ef76f589e091f297",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "b9646761debd45c29af0dd430a671bde0ecc02ab8a6c17f9fd739ae701358a2a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "93ab3608ffdb56fd716c7913e2c087a415b217d97dbb2e87a95b8716f389bc47",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "80b43e5aa9d763b2214ac0816dcb9c4593a85d657cd513ac14dc4569b6126833",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "137bd682558357f0b0ff9c69e169c61fa6deb886d51ebcdc7d2432219c89fbe8",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "6e3352bb62ddb2312730972b47a0970e24e4a55e23472aaa7482b06c72605dc9",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "edb7380f4d92d2e8f64ea785b4814ca3387cefc24b2d0f5c88834491678e842e",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "9a166f6b06956fb23999beccbd6fce583387ad0b576515452885382725460bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "094a75b9aee41d565317a41a86bff5f07e63887e174a6aeccc244ceb330bc468",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "7a4b90c3b372aa5d5afbbfe68d5bc722bc962250d3a9b33832ef2b260faa73de",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "91e0b1efb4b48cb0ad89897cd3264492b31ce446c2165073cf1052eb5c02a8a1",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "fbaea364b35f38ceacb5670ba2b8e37fcb0bc6da094e3b23b771985c6b23f6b0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0c098e1abbbb46741d41ddc9aff898a8a20cc90e9f7cd3ada16a269b22e8cb70",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "selection_record": "docs\\research\\results\\silentwear-program-search-bidirectional-v5-S02-selection.json",
+      "selection_sha256": "75abbda7a61a093c187c095cb1e5a7d59f8ae1cb94fceb584da6be4f2ba544c8"
+    },
+    "S03": {
+      "schema": "openalterego.virtual-program-search.v5",
+      "program_count": 18018,
+      "unique_proxy_structures": 6006,
+      "proxy_kind": "ridge",
+      "split": "cross-fit sessions 1 and 2 in both directions; refit on both; reveal chosen designs on session 3",
+      "scope": "Recorded channel subsets only; no unobserved electrode or device physics prediction.",
+      "seed": 42,
+      "selection_mode": "bidirectional",
+      "proxy_seconds": 11.025691199931316,
+      "proxy_cpu_seconds": 9.40625,
+      "total_seconds": 22.635047500021756,
+      "total_cpu_seconds": 19.59375,
+      "stage_one_per_strategy": 16,
+      "finalists_per_strategy": 4,
+      "selection": {
+        "schema": "openalterego.virtual-program-selection.v1",
+        "proxy_kind": "ridge",
+        "selection_mode": "bidirectional",
+        "seed": 42,
+        "stage_one_per_strategy": 16,
+        "finalists_per_strategy": 4,
+        "choices": {
+          "proxy": {
+            "program": {
+              "channels": [
+                0,
+                1,
+                5,
+                6,
+                8,
+                11
+              ],
+              "normalization": "recording_robust",
+              "c": 1.0
+            },
+            "validation_balanced_accuracy": 0.358992408557626
+          },
+          "random": {
+            "program": {
+              "channels": [
+                5,
+                6,
+                7,
+                8,
+                11,
+                13
+              ],
+              "normalization": "recording_robust",
+              "c": 1.0
+            },
+            "validation_balanced_accuracy": 0.341207729468599
+          }
+        }
+      },
+      "strategies": {
+        "proxy": {
+          "stage_one": [
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  5,
+                  6,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.358992408557626,
+              "directional_balanced_accuracy": [
+                0.3637129054520359,
+                0.358992408557626
+              ],
+              "fit_and_score_wall_s": 0.30060459999367595,
+              "fit_and_score_cpu_s": 0.234375
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  7,
+                  8,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3420358868184955,
+              "directional_balanced_accuracy": [
+                0.3420358868184955,
+                0.3769841269841269
+              ],
+              "fit_and_score_wall_s": 0.21359010005835444,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  7,
+                  8,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34592822636300896,
+              "directional_balanced_accuracy": [
+                0.34592822636300896,
+                0.39464458247066947
+              ],
+              "fit_and_score_wall_s": 0.23802980000618845,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.35800552104899935,
+              "directional_balanced_accuracy": [
+                0.35800552104899935,
+                0.37851621808143543
+              ],
+              "fit_and_score_wall_s": 0.40085439989343286,
+              "fit_and_score_cpu_s": 0.25
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  8,
+                  10,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3587094547964113,
+              "directional_balanced_accuracy": [
+                0.3587094547964113,
+                0.3638440303657695
+              ],
+              "fit_and_score_wall_s": 0.24586169992107898,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  5,
+                  6,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.35412698412698407,
+              "directional_balanced_accuracy": [
+                0.35412698412698407,
+                0.363264320220842
+              ],
+              "fit_and_score_wall_s": 0.2717549999943003,
+              "fit_and_score_cpu_s": 0.28125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  11,
+                  12,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.32746031746031745,
+              "directional_balanced_accuracy": [
+                0.32746031746031745,
+                0.3322705314009662
+              ],
+              "fit_and_score_wall_s": 0.23933150002267212,
+              "fit_and_score_cpu_s": 0.234375
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3530020703933747,
+              "directional_balanced_accuracy": [
+                0.3530020703933747,
+                0.38796411318150453
+              ],
+              "fit_and_score_wall_s": 0.18769849988166243,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3409316770186335,
+              "directional_balanced_accuracy": [
+                0.3409316770186335,
+                0.36992408557625944
+              ],
+              "fit_and_score_wall_s": 0.3277657999424264,
+              "fit_and_score_cpu_s": 0.25
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3514768806073154,
+              "directional_balanced_accuracy": [
+                0.3514768806073154,
+                0.3865976535541753
+              ],
+              "fit_and_score_wall_s": 0.30648939998354763,
+              "fit_and_score_cpu_s": 0.265625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  8,
+                  10,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.348992408557626,
+              "directional_balanced_accuracy": [
+                0.348992408557626,
+                0.38132505175983433
+              ],
+              "fit_and_score_wall_s": 0.159781499998644,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  8,
+                  10,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34009661835748795,
+              "directional_balanced_accuracy": [
+                0.34009661835748795,
+                0.3771497584541062
+              ],
+              "fit_and_score_wall_s": 0.17396600008942187,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  7,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3471704623878537,
+              "directional_balanced_accuracy": [
+                0.3471704623878537,
+                0.3735127674258109
+              ],
+              "fit_and_score_wall_s": 0.2800732001196593,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.35591442374051074,
+              "directional_balanced_accuracy": [
+                0.35591442374051074,
+                0.3674189095928226
+              ],
+              "fit_and_score_wall_s": 0.22033380006905645,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  8,
+                  10,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34884748102139407,
+              "directional_balanced_accuracy": [
+                0.34884748102139407,
+                0.377287784679089
+              ],
+              "fit_and_score_wall_s": 0.22358160000294447,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  5,
+                  6,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.34620427881297444,
+              "directional_balanced_accuracy": [
+                0.3476052449965493,
+                0.34620427881297444
+              ],
+              "fit_and_score_wall_s": 0.29283270006999373,
+              "fit_and_score_cpu_s": 0.203125
+            }
+          ],
+          "stage_two": [
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  5,
+                  6,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.34717046238785365,
+              "directional_balanced_accuracy": [
+                0.34717046238785365,
+                0.35950310559006216
+              ],
+              "fit_and_score_wall_s": 0.12926439987495542,
+              "fit_and_score_cpu_s": 0.109375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  5,
+                  6,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.358992408557626,
+              "directional_balanced_accuracy": [
+                0.3637129054520359,
+                0.358992408557626
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  5,
+                  6,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.34999309868875084,
+              "directional_balanced_accuracy": [
+                0.36386473429951693,
+                0.34999309868875084
+              ],
+              "fit_and_score_wall_s": 0.4537750999443233,
+              "fit_and_score_cpu_s": 0.359375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  8,
+                  10,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.35244996549344376,
+              "directional_balanced_accuracy": [
+                0.35244996549344376,
+                0.37285024154589375
+              ],
+              "fit_and_score_wall_s": 0.10053399985190481,
+              "fit_and_score_cpu_s": 0.109375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  8,
+                  10,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3587094547964113,
+              "directional_balanced_accuracy": [
+                0.3587094547964113,
+                0.3638440303657695
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  8,
+                  10,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.34901311249137335,
+              "directional_balanced_accuracy": [
+                0.34901311249137335,
+                0.3581573498964803
+              ],
+              "fit_and_score_wall_s": 0.2896556999767199,
+              "fit_and_score_cpu_s": 0.265625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3360593512767426,
+              "directional_balanced_accuracy": [
+                0.3360593512767426,
+                0.38878536922015183
+              ],
+              "fit_and_score_wall_s": 0.10137229994870722,
+              "fit_and_score_cpu_s": 0.109375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.35800552104899935,
+              "directional_balanced_accuracy": [
+                0.35800552104899935,
+                0.37851621808143543
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  5,
+                  6,
+                  7,
+                  8,
+                  11
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.34939958592132503,
+              "directional_balanced_accuracy": [
+                0.34939958592132503,
+                0.3846376811594203
+              ],
+              "fit_and_score_wall_s": 0.3898946000263095,
+              "fit_and_score_cpu_s": 0.359375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.35202898550724643,
+              "directional_balanced_accuracy": [
+                0.35202898550724643,
+                0.37601794340924777
+              ],
+              "fit_and_score_wall_s": 0.10091479995753616,
+              "fit_and_score_cpu_s": 0.078125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.35591442374051074,
+              "directional_balanced_accuracy": [
+                0.35591442374051074,
+                0.3674189095928226
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  5,
+                  6,
+                  7,
+                  8,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.35452035886818495,
+              "directional_balanced_accuracy": [
+                0.35452035886818495,
+                0.363264320220842
+              ],
+              "fit_and_score_wall_s": 0.3053528000600636,
+              "fit_and_score_cpu_s": 0.328125,
+              "reused_stage_one": false
+            }
+          ],
+          "choice": {
+            "channels": [
+              0,
+              1,
+              5,
+              6,
+              8,
+              11
+            ],
+            "normalization": "recording_robust",
+            "c": 1.0
+          },
+          "validation_balanced_accuracy": 0.358992408557626,
+          "full_fits_for_selection": 48,
+          "directional_fits_per_program": 2,
+          "test_balanced_accuracy": 0.3170255348516218
+        },
+        "random": {
+          "stage_one": [
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  9,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2202760524499655,
+              "directional_balanced_accuracy": [
+                0.2359972394755003,
+                0.2202760524499655
+              ],
+              "fit_and_score_wall_s": 0.1409296999918297,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  8,
+                  9,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.22893719806763282,
+              "directional_balanced_accuracy": [
+                0.22893719806763282,
+                0.25713595583160803
+              ],
+              "fit_and_score_wall_s": 0.13842720014508814,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2889993098688751,
+              "directional_balanced_accuracy": [
+                0.2889993098688751,
+                0.3668184955141477
+              ],
+              "fit_and_score_wall_s": 0.14478839992079884,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  5,
+                  8,
+                  12,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2048033126293996,
+              "directional_balanced_accuracy": [
+                0.2048033126293996,
+                0.20729468599033818
+              ],
+              "fit_and_score_wall_s": 0.17240949999541044,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  5,
+                  7,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2244858523119393,
+              "directional_balanced_accuracy": [
+                0.2244858523119393,
+                0.2871221532091098
+              ],
+              "fit_and_score_wall_s": 0.15927709999959916,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  5,
+                  6,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.23881987577639752,
+              "directional_balanced_accuracy": [
+                0.23881987577639752,
+                0.2967080745341615
+              ],
+              "fit_and_score_wall_s": 0.16152289998717606,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3137129054520359,
+              "directional_balanced_accuracy": [
+                0.3137129054520359,
+                0.350503795721187
+              ],
+              "fit_and_score_wall_s": 0.13254140003118664,
+              "fit_and_score_cpu_s": 0.140625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.23944099378881992,
+              "directional_balanced_accuracy": [
+                0.23944099378881992,
+                0.33108350586611457
+              ],
+              "fit_and_score_wall_s": 0.14893330004997551,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  9,
+                  10
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2866528640441684,
+              "directional_balanced_accuracy": [
+                0.2866528640441684,
+                0.35283643892339545
+              ],
+              "fit_and_score_wall_s": 0.1435133001068607,
+              "fit_and_score_cpu_s": 0.15625
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  3,
+                  4,
+                  9,
+                  10,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.22888198757763975,
+              "directional_balanced_accuracy": [
+                0.22888198757763975,
+                0.29148378191856456
+              ],
+              "fit_and_score_wall_s": 0.1934289000928402,
+              "fit_and_score_cpu_s": 0.171875
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  9
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.23844030365769495,
+              "directional_balanced_accuracy": [
+                0.23844030365769495,
+                0.28897170462387856
+              ],
+              "fit_and_score_wall_s": 0.2385214000241831,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  7,
+                  9,
+                  12
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2578674948240166,
+              "directional_balanced_accuracy": [
+                0.2578674948240166,
+                0.2935610766045548
+              ],
+              "fit_and_score_wall_s": 0.18978870008140802,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  3,
+                  4,
+                  5,
+                  7,
+                  11,
+                  12
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2523533471359558,
+              "directional_balanced_accuracy": [
+                0.2523533471359558,
+                0.2592201518288475
+              ],
+              "fit_and_score_wall_s": 0.22315390000585467,
+              "fit_and_score_cpu_s": 0.21875
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.341207729468599,
+              "directional_balanced_accuracy": [
+                0.341207729468599,
+                0.3858730158730159
+              ],
+              "fit_and_score_wall_s": 0.18657899997197092,
+              "fit_and_score_cpu_s": 0.1875
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.29164251207729464,
+              "directional_balanced_accuracy": [
+                0.29164251207729464,
+                0.3403174603174603
+              ],
+              "fit_and_score_wall_s": 0.22481789987068623,
+              "fit_and_score_cpu_s": 0.203125
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  2,
+                  3,
+                  8,
+                  12,
+                  13
+                ],
+                "normalization": "none",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.20612836438923396,
+              "directional_balanced_accuracy": [
+                0.20612836438923396,
+                0.2543616287094548
+              ],
+              "fit_and_score_wall_s": 0.19689210003707558,
+              "fit_and_score_cpu_s": 0.203125
+            }
+          ],
+          "stage_two": [
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3380055210489993,
+              "directional_balanced_accuracy": [
+                0.3380055210489993,
+                0.3789233954451346
+              ],
+              "fit_and_score_wall_s": 0.1049382999772206,
+              "fit_and_score_cpu_s": 0.09375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.341207729468599,
+              "directional_balanced_accuracy": [
+                0.341207729468599,
+                0.3858730158730159
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.3357971014492754,
+              "directional_balanced_accuracy": [
+                0.3357971014492754,
+                0.3893512767425811
+              ],
+              "fit_and_score_wall_s": 0.3417489001294598,
+              "fit_and_score_cpu_s": 0.359375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3195376121463078,
+              "directional_balanced_accuracy": [
+                0.3195376121463078,
+                0.3360455486542443
+              ],
+              "fit_and_score_wall_s": 0.08137610019184649,
+              "fit_and_score_cpu_s": 0.09375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.3137129054520359,
+              "directional_balanced_accuracy": [
+                0.3137129054520359,
+                0.350503795721187
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  1,
+                  2,
+                  6,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.3089993098688751,
+              "directional_balanced_accuracy": [
+                0.3089993098688751,
+                0.34772256728778467
+              ],
+              "fit_and_score_wall_s": 0.2707304999930784,
+              "fit_and_score_cpu_s": 0.25,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.2855072463768116,
+              "directional_balanced_accuracy": [
+                0.2855072463768116,
+                0.3342028985507246
+              ],
+              "fit_and_score_wall_s": 0.09928850003052503,
+              "fit_and_score_cpu_s": 0.09375,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.29164251207729464,
+              "directional_balanced_accuracy": [
+                0.29164251207729464,
+                0.3403174603174603
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  2,
+                  4,
+                  5,
+                  7,
+                  9,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.29777087646652867,
+              "directional_balanced_accuracy": [
+                0.29777087646652867,
+                0.334071773636991
+              ],
+              "fit_and_score_wall_s": 0.47939440002664924,
+              "fit_and_score_cpu_s": 0.328125,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 0.1
+              },
+              "validation_balanced_accuracy": 0.3016218081435473,
+              "directional_balanced_accuracy": [
+                0.3016218081435473,
+                0.35707384403036574
+              ],
+              "fit_and_score_wall_s": 0.19143030000850558,
+              "fit_and_score_cpu_s": 0.140625,
+              "reused_stage_one": false
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 1.0
+              },
+              "validation_balanced_accuracy": 0.2889993098688751,
+              "directional_balanced_accuracy": [
+                0.2889993098688751,
+                0.3668184955141477
+              ],
+              "fit_and_score_wall_s": 0.0,
+              "fit_and_score_cpu_s": 0.0,
+              "reused_stage_one": true
+            },
+            {
+              "program": {
+                "channels": [
+                  0,
+                  1,
+                  3,
+                  10,
+                  11,
+                  13
+                ],
+                "normalization": "recording_robust",
+                "c": 10.0
+              },
+              "validation_balanced_accuracy": 0.27858523119392686,
+              "directional_balanced_accuracy": [
+                0.27858523119392686,
+                0.3510006901311249
+              ],
+              "fit_and_score_wall_s": 0.4721105999778956,
+              "fit_and_score_cpu_s": 0.328125,
+              "reused_stage_one": false
+            }
+          ],
+          "choice": {
+            "channels": [
+              5,
+              6,
+              7,
+              8,
+              11,
+              13
+            ],
+            "normalization": "recording_robust",
+            "c": 1.0
+          },
+          "validation_balanced_accuracy": 0.341207729468599,
+          "full_fits_for_selection": 48,
+          "directional_fits_per_program": 2,
+          "test_balanced_accuracy": 0.3152104899930987
+        }
+      },
+      "inputs": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "d9ada20da0f1ab0525fe2b994e350a758c39b8bf70276a0a7087c67675971a4f",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "712c673ad5d4f759bc45f8adcd4c3dc19d9556d11d3240c6348bc7772634e62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "042a63aa91031c0ee5702895eedf188baf97888c63e955bd578c1c62d2249427",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "10f30d458d6e21793d9bbd44e84aebe7282f4ddd1d50e5aad0cfd01f81f2450c",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "99db8397a214a4e6f117ad296ce6237ad849abbda6d688143a79323d3aacd145",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "b95a318541677eb2dcc0015e7fffb459a6b7af15651676366a8742c1936a2811",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "f5745317e3438a62c1323ceb93e0d347cefeedc595c7030cae6d64ca0c583114",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "75ea3c29d87e838e1c00cc233a12b72233af20060e0b255cac3490e3f5fea83b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "c7e661b92db5778e6e08ee196d48090313722ddec94e77054a1ee96acab2994a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "b06105fa1e3660903e56797cb93bdb15a615cad38d95af6a4a49cf13fa113fee",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "2b02aa99342c59354a1a14127d2e8f389358f4f695f4702298c1231f0e7bf201",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "9bedf70cffa8863ac0540e8dc111c7bfd5bdfb219324a88b5f168b98b0d68d0d",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "8c5ea3b622fb7c6b25638b56853ae2f0477e98bac9e5f46e89d683aaf9fb2ddf",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "05742c3e3eac9a852d70f0fffa7871af32740991495ed540f32addca38169836",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "eb4f48555ce28598339648567f3428e3285cd3f3783707498b5fc28ce7bb8618",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "selection_record": "docs\\research\\results\\silentwear-program-search-bidirectional-v5-S03-selection.json",
+      "selection_sha256": "0f198767f17942a17c588d4853be132f7bcaf244a14f001739cfcaf5ce75d31b"
+    }
+  },
+  "scope": "Virtual subsets of existing recorded channels, not new electrode positions."
+}

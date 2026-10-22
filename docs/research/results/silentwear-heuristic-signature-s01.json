@@ -1,0 +1,49 @@
+{
+  "input": {
+    "file": "sess_1_batch_1.h5",
+    "sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7"
+  },
+  "real": {
+    "band_power_fractions": {
+      "100_200_hz_fraction": 0.1655678083807127,
+      "20_50_hz_fraction": 0.3839769597147142,
+      "50_100_hz_fraction": 0.41059796334824894
+    },
+    "command_to_rest_rms_ratio": 4.283005719672466,
+    "command_windows": 160,
+    "median_absolute_channel_correlation": 0.21275899548656674,
+    "median_centered_rms": 25.550915275535093,
+    "median_waveform_length": 17.574952578064718,
+    "rest_windows": 161,
+    "windows": 321
+  },
+  "schema": "openalterego.signal-signature.v1",
+  "scope": "Exploratory signal-shape diagnostic on one training recording; no anatomical or device-physics validation.",
+  "simulator": {
+    "channels": 14,
+    "engine": "heuristic",
+    "sample_rate_hz": 500,
+    "seconds": 40,
+    "seed": 1337
+  },
+  "synthetic": {
+    "band_power_fractions": {
+      "100_200_hz_fraction": 0.48550645453689273,
+      "20_50_hz_fraction": 0.2492101785813639,
+      "50_100_hz_fraction": 0.26561187334913383
+    },
+    "command_to_rest_rms_ratio": 1.1741720560614426,
+    "command_windows": 19,
+    "median_absolute_channel_correlation": 0.1655476671421482,
+    "median_centered_rms": 35.856263845688204,
+    "median_waveform_length": 22.421458256986448,
+    "rest_windows": 20,
+    "windows": 39
+  },
+  "synthetic_to_real_ratios": {
+    "command_to_rest_rms_ratio": 0.27414674014286283,
+    "median_absolute_channel_correlation": 0.778099495927544,
+    "median_centered_rms": 1.403326004529491,
+    "median_waveform_length": 1.2757620913851369
+  }
+}

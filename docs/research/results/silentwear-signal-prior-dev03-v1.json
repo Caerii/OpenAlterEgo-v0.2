@@ -1,0 +1,614 @@
+{
+  "schema": "openalterego.silentwear-signal-prior.v1",
+  "scope": "Post hoc method development on exposed silent-command sessions; virtual recorded-channel subsets only",
+  "selection": "top six channels by mean day1/day2 class-contrast energy divided by early within-class variance; choose raw versus recording-robust with two-direction minimum ridge score",
+  "final_decoder": "balanced C=1 logistic fit on sessions 1+2, evaluated on session 3",
+  "subjects": {
+    "S01": {
+      "manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6",
+      "source_batches": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "c18a7bd4d3b2517be7a3e97e973179d1696d316f8ab9b68fa12e60f4255b98f7",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "90d20ac02f40784dbd5c86e724871a34d521a742f2a16e84a13cb546865becfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "5c8ad332a59749359ea5fdbe1a72c2959e31a10b7b24496c8074bab8c02106f0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "a1385ea7035f1463f1bd42dcc9b4d6a33546d0b1179c92f5263ddf751b55a62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "e932285439f0a081bce0e6ee4ecdf032e6f994300ac669721009027a24f7c2c3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "fb0f24eba44822c127139e037e5a81525bbeecca6b8358b52bf3d8230cae6159",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "8ac1dd314dd68c9795b4e739066f83e0fdd20d9230f6ae69218d4cff849d7ef5",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "937f3b377d4da2e6d4fe6a8e1ab52d1b9ed31404ea36482fe34232ee6c5bef1a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "19c7cd840d0f6d8e61be34536976deafcc5444261ab2863a093655c552beb0ca",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "2628310ebe8f378ea9544b53de19642026f1978965bb57280fd42b381ac89b69",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "6c10ee96cbc100e35c7c306b8addd27e2a8dc182095e948fea0371da33f3f4c0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "2092983b51fb7ae009eb60e75f007a145698508d290454319fadb77bf14950db",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "d4d4af55db536119eaa18f4e324f642e6687da2cefccc1c25c3e176c0aea0cfb",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "65e1d61f83143ce9192c9286b40aeef6e352a4b9a6f152d98448eef420f68bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0ec37f8760916a2bb3dcc79e15e9c47a08b7e8fa051ec9b7a75506c709ba7e7b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "selection_record": "docs\\research\\results\\silentwear-signal-prior-dev03-v1-S01-selection.json",
+      "selection_receipt_sha256": "6962d82080da9bd0031c3cab3255c75980a145d67e59df3a987d88beb506f1c3",
+      "candidate_modes": [
+        {
+          "channels": [
+            3,
+            4,
+            7,
+            8,
+            9,
+            13
+          ],
+          "normalization": "none",
+          "early_signal_by_channel": [
+            0.13353226847450433,
+            0.29991212267375494,
+            0.6057000048607402,
+            1.0765156958973097,
+            0.7509677176061785,
+            0.37109784046706407,
+            0.6721641908391512,
+            1.1200402296253265,
+            1.3593733429904389,
+            0.7859732823580802,
+            0.17802854163755535,
+            0.07876571508124558,
+            0.6100001034943969,
+            1.050546928026692
+          ],
+          "directional_ridge_accuracy": [
+            0.2177846790890269,
+            0.26256038647342994
+          ],
+          "selection_score": 0.2177846790890269
+        },
+        {
+          "channels": [
+            3,
+            6,
+            7,
+            8,
+            9,
+            13
+          ],
+          "normalization": "recording_robust",
+          "early_signal_by_channel": [
+            0.14381429160886255,
+            0.33629643548669497,
+            0.5919082372531039,
+            0.9741620679780287,
+            0.6598706435065274,
+            0.35726030861520225,
+            0.7562237631343806,
+            1.1226715068460313,
+            1.337190869955264,
+            0.8041649851056937,
+            0.17580968824510357,
+            0.09690542775542005,
+            0.6751359866029233,
+            1.1047098347282995
+          ],
+          "directional_ridge_accuracy": [
+            0.2704485852311939,
+            0.261407867494824
+          ],
+          "selection_score": 0.261407867494824
+        }
+      ],
+      "choice": {
+        "channels": [
+          3,
+          6,
+          7,
+          8,
+          9,
+          13
+        ],
+        "normalization": "recording_robust",
+        "query_balanced_accuracy": 0.30631469979296067
+      },
+      "fixed_spread_robust": {
+        "channels": [
+          0,
+          2,
+          5,
+          8,
+          11,
+          13
+        ],
+        "normalization": "recording_robust",
+        "query_balanced_accuracy": 0.3557763975155279
+      }
+    },
+    "S02": {
+      "manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
+      "source_batches": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "4a76cddfe56cc2fc08aadff70039fee450151e72f085f09a08e22bc379e0209b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "2144520ac3b66c121aeef8b77ce3ff11fe8930592b500aef032c3f210c0432da",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "6c54f617c658615b0bacc763a0fd1b4122f7d11567b5c3f2ef76f589e091f297",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "b9646761debd45c29af0dd430a671bde0ecc02ab8a6c17f9fd739ae701358a2a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "93ab3608ffdb56fd716c7913e2c087a415b217d97dbb2e87a95b8716f389bc47",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "80b43e5aa9d763b2214ac0816dcb9c4593a85d657cd513ac14dc4569b6126833",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "137bd682558357f0b0ff9c69e169c61fa6deb886d51ebcdc7d2432219c89fbe8",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "6e3352bb62ddb2312730972b47a0970e24e4a55e23472aaa7482b06c72605dc9",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "edb7380f4d92d2e8f64ea785b4814ca3387cefc24b2d0f5c88834491678e842e",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "9a166f6b06956fb23999beccbd6fce583387ad0b576515452885382725460bb3",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "094a75b9aee41d565317a41a86bff5f07e63887e174a6aeccc244ceb330bc468",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "7a4b90c3b372aa5d5afbbfe68d5bc722bc962250d3a9b33832ef2b260faa73de",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "91e0b1efb4b48cb0ad89897cd3264492b31ce446c2165073cf1052eb5c02a8a1",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "fbaea364b35f38ceacb5670ba2b8e37fcb0bc6da094e3b23b771985c6b23f6b0",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "0c098e1abbbb46741d41ddc9aff898a8a20cc90e9f7cd3ada16a269b22e8cb70",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "selection_record": "docs\\research\\results\\silentwear-signal-prior-dev03-v1-S02-selection.json",
+      "selection_receipt_sha256": "4705dd9ebf05b5e170a14d3411065705d6d6294608f7f21e73e0c0543e2546da",
+      "candidate_modes": [
+        {
+          "channels": [
+            2,
+            3,
+            7,
+            8,
+            9,
+            13
+          ],
+          "normalization": "none",
+          "early_signal_by_channel": [
+            0.009664795988477436,
+            0.02430692269552856,
+            0.37385927642140854,
+            0.31026168562038897,
+            0.14015793973579185,
+            0.15632609088684493,
+            0.10623394554515912,
+            0.44266265727160364,
+            0.5709651628695688,
+            0.4140967331923949,
+            0.06433383892876793,
+            0.017032930461970523,
+            0.12220641557116602,
+            0.2800127350609871
+          ],
+          "directional_ridge_accuracy": [
+            0.1424775707384403,
+            0.12468599033816424
+          ],
+          "selection_score": 0.12468599033816424
+        },
+        {
+          "channels": [
+            2,
+            3,
+            7,
+            8,
+            9,
+            13
+          ],
+          "normalization": "recording_robust",
+          "early_signal_by_channel": [
+            0.016809629955824006,
+            0.04072682047269445,
+            0.3859035060542919,
+            0.3333128952588638,
+            0.166677129470722,
+            0.16749484682415805,
+            0.08144446217233942,
+            0.4987829964683254,
+            0.594907845606214,
+            0.4533489926527803,
+            0.08666598734651929,
+            0.028885012221014163,
+            0.15828318770327232,
+            0.3312284694949777
+          ],
+          "directional_ridge_accuracy": [
+            0.2724292615596963,
+            0.17579710144927538
+          ],
+          "selection_score": 0.17579710144927538
+        }
+      ],
+      "choice": {
+        "channels": [
+          2,
+          3,
+          7,
+          8,
+          9,
+          13
+        ],
+        "normalization": "recording_robust",
+        "query_balanced_accuracy": 0.288743961352657
+      },
+      "fixed_spread_robust": {
+        "channels": [
+          0,
+          2,
+          5,
+          8,
+          11,
+          13
+        ],
+        "normalization": "recording_robust",
+        "query_balanced_accuracy": 0.2588888888888889
+      }
+    },
+    "S03": {
+      "manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547",
+      "source_batches": [
+        {
+          "session": 1,
+          "file": "sess_1_batch_1.h5",
+          "source_sha256": "d9ada20da0f1ab0525fe2b994e350a758c39b8bf70276a0a7087c67675971a4f",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_2.h5",
+          "source_sha256": "712c673ad5d4f759bc45f8adcd4c3dc19d9556d11d3240c6348bc7772634e62b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_3.h5",
+          "source_sha256": "042a63aa91031c0ee5702895eedf188baf97888c63e955bd578c1c62d2249427",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_4.h5",
+          "source_sha256": "10f30d458d6e21793d9bbd44e84aebe7282f4ddd1d50e5aad0cfd01f81f2450c",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 1,
+          "file": "sess_1_batch_5.h5",
+          "source_sha256": "99db8397a214a4e6f117ad296ce6237ad849abbda6d688143a79323d3aacd145",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_1.h5",
+          "source_sha256": "b95a318541677eb2dcc0015e7fffb459a6b7af15651676366a8742c1936a2811",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_2.h5",
+          "source_sha256": "f5745317e3438a62c1323ceb93e0d347cefeedc595c7030cae6d64ca0c583114",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_3.h5",
+          "source_sha256": "75ea3c29d87e838e1c00cc233a12b72233af20060e0b255cac3490e3f5fea83b",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_4.h5",
+          "source_sha256": "c7e661b92db5778e6e08ee196d48090313722ddec94e77054a1ee96acab2994a",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 2,
+          "file": "sess_2_batch_5.h5",
+          "source_sha256": "b06105fa1e3660903e56797cb93bdb15a615cad38d95af6a4a49cf13fa113fee",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_1.h5",
+          "source_sha256": "2b02aa99342c59354a1a14127d2e8f389358f4f695f4702298c1231f0e7bf201",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_2.h5",
+          "source_sha256": "9bedf70cffa8863ac0540e8dc111c7bfd5bdfb219324a88b5f168b98b0d68d0d",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_3.h5",
+          "source_sha256": "8c5ea3b622fb7c6b25638b56853ae2f0477e98bac9e5f46e89d683aaf9fb2ddf",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_4.h5",
+          "source_sha256": "05742c3e3eac9a852d70f0fffa7871af32740991495ed540f32addca38169836",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        },
+        {
+          "session": 3,
+          "file": "sess_3_batch_5.h5",
+          "source_sha256": "eb4f48555ce28598339648567f3428e3285cd3f3783707498b5fc28ce7bb8618",
+          "verified_on_cache_miss": false,
+          "event_cache_hit": true
+        }
+      ],
+      "selection_record": "docs\\research\\results\\silentwear-signal-prior-dev03-v1-S03-selection.json",
+      "selection_receipt_sha256": "90fe8de9ae87e285f4c1b692b18bad80152f1fbd6b1fe9db44db7e0d7c1eb924",
+      "candidate_modes": [
+        {
+          "channels": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "normalization": "none",
+          "early_signal_by_channel": [
+            0.03927581072583769,
+            0.393673447386114,
+            0.31743926679737744,
+            0.9007875512900624,
+            0.8925086544792316,
+            0.9436609494449214,
+            1.1855789905661456,
+            1.3814954323375845,
+            0.5787081696078563,
+            0.5019588425388923,
+            0.5648839578684814,
+            0.3678526191135301,
+            0.5108471904196717,
+            0.461710801822315
+          ],
+          "directional_ridge_accuracy": [
+            0.24804692891649407,
+            0.29960662525879916
+          ],
+          "selection_score": 0.24804692891649407
+        },
+        {
+          "channels": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            10
+          ],
+          "normalization": "recording_robust",
+          "early_signal_by_channel": [
+            0.13091289760033353,
+            0.3915249341767695,
+            0.4732684629043696,
+            0.7914618075705486,
+            0.7968884906252057,
+            0.874685167656338,
+            1.1281776508435009,
+            1.307981067899493,
+            0.5286454160562462,
+            0.4932423498662659,
+            0.6124941380014275,
+            0.42184902575605254,
+            0.5062271450468553,
+            0.3757912668540348
+          ],
+          "directional_ridge_accuracy": [
+            0.293112491373361,
+            0.29932367149758454
+          ],
+          "selection_score": 0.293112491373361
+        }
+      ],
+      "choice": {
+        "channels": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          10
+        ],
+        "normalization": "recording_robust",
+        "query_balanced_accuracy": 0.3348033126293996
+      },
+      "fixed_spread_robust": {
+        "channels": [
+          0,
+          2,
+          5,
+          8,
+          11,
+          13
+        ],
+        "normalization": "recording_robust",
+        "query_balanced_accuracy": 0.27829537612146305
+      }
+    }
+  }
+}

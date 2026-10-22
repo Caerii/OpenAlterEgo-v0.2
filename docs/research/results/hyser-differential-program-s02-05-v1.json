@@ -1,0 +1,134 @@
+{
+  "schema": "openalterego.hyser-differential-program-pilot.v1",
+  "scope": "Retrospective digital differences of preprocessed forearm recordings, not analog-front-end or facial wearable evidence",
+  "program": "two adjacent differential pairs sharing a contact per grid; eight AFE channels, 12 distinct physical contacts",
+  "candidate_count": 1000,
+  "seed": 42,
+  "alpha": 10.0,
+  "subjects": {
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "fixed_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ],
+      "chosen_channels": [
+        0,
+        2,
+        112,
+        114,
+        240,
+        254,
+        341,
+        355
+      ],
+      "chosen_day1_cv": 0.8970588235294117,
+      "fixed_day2_balanced_accuracy": 0.0892156862745098,
+      "chosen_day2_balanced_accuracy": 0.18627450980392155,
+      "chosen_minus_fixed": 0.09705882352941174,
+      "candidate_day2_median": 0.1323529411764706,
+      "candidate_day2_oracle": 0.34117647058823525,
+      "day1_cv_day2_spearman": 0.023905488231664683
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "fixed_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ],
+      "chosen_channels": [
+        7,
+        19,
+        141,
+        156,
+        297,
+        311,
+        367,
+        382
+      ],
+      "chosen_day1_cv": 0.9393939393939394,
+      "fixed_day2_balanced_accuracy": 0.40303030303030307,
+      "chosen_day2_balanced_accuracy": 0.3878787878787878,
+      "chosen_minus_fixed": -0.015151515151515249,
+      "candidate_day2_median": 0.22676767676767673,
+      "candidate_day2_oracle": 0.5898989898989899,
+      "day1_cv_day2_spearman": 0.21349578736594949
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "fixed_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ],
+      "chosen_channels": [
+        26,
+        38,
+        180,
+        181,
+        317,
+        330,
+        364,
+        378
+      ],
+      "chosen_day1_cv": 0.946078431372549,
+      "fixed_day2_balanced_accuracy": 0.12745098039215688,
+      "chosen_day2_balanced_accuracy": 0.5196078431372549,
+      "chosen_minus_fixed": 0.3921568627450981,
+      "candidate_day2_median": 0.27941176470588236,
+      "candidate_day2_oracle": 0.5686274509803921,
+      "day1_cv_day2_spearman": 0.06727279827943129
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "fixed_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ],
+      "chosen_channels": [
+        81,
+        84,
+        116,
+        118,
+        242,
+        257,
+        387,
+        389
+      ],
+      "chosen_day1_cv": 0.8787878787878787,
+      "fixed_day2_balanced_accuracy": 0.12254901960784315,
+      "chosen_day2_balanced_accuracy": 0.10784313725490197,
+      "chosen_minus_fixed": -0.01470588235294118,
+      "candidate_day2_median": 0.14705882352941177,
+      "candidate_day2_oracle": 0.4607843137254902,
+      "day1_cv_day2_spearman": 0.04560958862135026
+    }
+  }
+}

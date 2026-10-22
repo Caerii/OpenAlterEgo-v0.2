@@ -1,0 +1,388 @@
+{
+  "schema": "openalterego.gaddy-channel-rank-diagnostic.v1",
+  "scope": "Post hoc ranking of all 28 six-channel subsets; query session exposed in previous research",
+  "selected_channels": [
+    0,
+    1,
+    3,
+    4,
+    6,
+    7
+  ],
+  "selected_validation_mae": 0.46305403573592796,
+  "selected_query_mae": 0.48381818807152494,
+  "selected_query_rank_of_28": 1,
+  "query_oracle_channels": [
+    0,
+    1,
+    3,
+    4,
+    6,
+    7
+  ],
+  "query_oracle_mae": 0.48381818807152494,
+  "selected_minus_query_oracle_mae": 0.0,
+  "selection_query_rank_spearman": 0.6540777230432404,
+  "fixed_channels": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    7
+  ],
+  "paired_utterance_advantage": {
+    "fixed_six": {
+      "control_minus_selected_mean_utterance_mae": 0.051204149093748,
+      "bootstrap_ci95": [
+        0.03628161470082899,
+        0.0672895596660974
+      ]
+    },
+    "all_eight": {
+      "control_minus_selected_mean_utterance_mae": -0.006955346912638363,
+      "bootstrap_ci95": [
+        -0.014074071633459627,
+        -0.00039491910712642755
+      ]
+    }
+  },
+  "programs": [
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "selection_mae": 0.5747986257943504,
+      "query_mae": 0.5645892110912812
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "selection_mae": 0.4657732584310709,
+      "query_mae": 0.4842011493136385
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "selection_mae": 0.4632303817258907,
+      "query_mae": 0.49665055379365386
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "selection_mae": 0.49812827966977796,
+      "query_mae": 0.49039921681268567
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "selection_mae": 0.47228581688303684,
+      "query_mae": 0.5095506754080529
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      "selection_mae": 0.5067856742498743,
+      "query_mae": 0.4905736097220145
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "selection_mae": 0.4989845025656853,
+      "query_mae": 0.5215104051673659
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7
+      ],
+      "selection_mae": 0.4866727186077443,
+      "query_mae": 0.5249144162548056
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7
+      ],
+      "selection_mae": 0.4914534448938491,
+      "query_mae": 0.5151932988885891
+    },
+    {
+      "channels": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.5230185062783557,
+      "query_mae": 0.5254872825070637
+    },
+    {
+      "channels": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "selection_mae": 0.4748750033753131,
+      "query_mae": 0.5017675190211954
+    },
+    {
+      "channels": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        7
+      ],
+      "selection_mae": 0.47835501653001605,
+      "query_mae": 0.5242843900802272
+    },
+    {
+      "channels": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7
+      ],
+      "selection_mae": 0.46305403573592796,
+      "query_mae": 0.48381818807152494
+    },
+    {
+      "channels": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.47988962900671117,
+      "query_mae": 0.5001789299477365
+    },
+    {
+      "channels": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.47810585902463426,
+      "query_mae": 0.5294845641578408
+    },
+    {
+      "channels": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "selection_mae": 0.49198739418692283,
+      "query_mae": 0.5022673670388217
+    },
+    {
+      "channels": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "selection_mae": 0.47175020984158506,
+      "query_mae": 0.4947686140819127
+    },
+    {
+      "channels": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "selection_mae": 0.5128092398941392,
+      "query_mae": 0.5038890999819322
+    },
+    {
+      "channels": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.5659778192570818,
+      "query_mae": 0.5382033117722762
+    },
+    {
+      "channels": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.5382670700905002,
+      "query_mae": 0.552260332813904
+    },
+    {
+      "channels": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.4919672265838362,
+      "query_mae": 0.4961172189269611
+    },
+    {
+      "channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "selection_mae": 0.4699255644420911,
+      "query_mae": 0.5020107608042305
+    },
+    {
+      "channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "selection_mae": 0.472210250413437,
+      "query_mae": 0.50436390487485
+    },
+    {
+      "channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "selection_mae": 0.5258750143988915,
+      "query_mae": 0.5200429085664436
+    },
+    {
+      "channels": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.5498403449985868,
+      "query_mae": 0.5178001377335897
+    },
+    {
+      "channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.5392485292991044,
+      "query_mae": 0.5520370946805908
+    },
+    {
+      "channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.4938562547164084,
+      "query_mae": 0.5030586297911667
+    },
+    {
+      "channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selection_mae": 0.5635264957422105,
+      "query_mae": 0.5385111935662374
+    }
+  ]
+}

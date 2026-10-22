@@ -1,0 +1,254 @@
+{
+  "schema": "openalterego.hyser-spatial-development.v1",
+  "scope": "Post-hoc development on subjects with seen next-day outcomes",
+  "selection_rule": "best minimum of nominal and four one-grid-cell shifted CV scores",
+  "candidate_count": 1000,
+  "seed": 42,
+  "subjects": {
+    "01": {
+      "train_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "test_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "strategies": {
+        "robust_min": {
+          "channels": [
+            13,
+            42,
+            110,
+            114,
+            177,
+            180,
+            214,
+            246
+          ],
+          "nominal_cv": 0.7401960784313726,
+          "minimum_shifted_cv": 0.7303921568627452,
+          "day_two_balanced_accuracy": 0.4292929292929293
+        },
+        "nominal_cv": {
+          "channels": [
+            27,
+            42,
+            98,
+            118,
+            164,
+            169,
+            201,
+            227
+          ],
+          "nominal_cv": 0.803921568627451,
+          "minimum_shifted_cv": 0.607843137254902,
+          "day_two_balanced_accuracy": 0.5252525252525252
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day_two_balanced_accuracy": 0.5707070707070707
+        }
+      }
+    },
+    "02": {
+      "train_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "test_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "strategies": {
+        "robust_min": {
+          "channels": [
+            14,
+            28,
+            76,
+            99,
+            156,
+            166,
+            205,
+            243
+          ],
+          "nominal_cv": 0.8333333333333333,
+          "minimum_shifted_cv": 0.8137254901960784,
+          "day_two_balanced_accuracy": 0.11274509803921567
+        },
+        "nominal_cv": {
+          "channels": [
+            17,
+            22,
+            100,
+            106,
+            155,
+            158,
+            221,
+            227
+          ],
+          "nominal_cv": 0.8676470588235294,
+          "minimum_shifted_cv": 0.7745098039215685,
+          "day_two_balanced_accuracy": 0.2647058823529412
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day_two_balanced_accuracy": 0.24215686274509807
+        }
+      }
+    },
+    "03": {
+      "train_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "test_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "strategies": {
+        "robust_min": {
+          "channels": [
+            30,
+            53,
+            86,
+            108,
+            165,
+            182,
+            219,
+            246
+          ],
+          "nominal_cv": 0.8383838383838385,
+          "minimum_shifted_cv": 0.797979797979798,
+          "day_two_balanced_accuracy": 0.3888888888888889
+        },
+        "nominal_cv": {
+          "channels": [
+            10,
+            12,
+            83,
+            85,
+            141,
+            174,
+            234,
+            246
+          ],
+          "nominal_cv": 0.8838383838383839,
+          "minimum_shifted_cv": 0.7171717171717172,
+          "day_two_balanced_accuracy": 0.3383838383838384
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day_two_balanced_accuracy": 0.4414141414141414
+        }
+      }
+    },
+    "04": {
+      "train_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "test_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "strategies": {
+        "robust_min": {
+          "channels": [
+            26,
+            49,
+            92,
+            102,
+            140,
+            163,
+            209,
+            237
+          ],
+          "nominal_cv": 0.8235294117647058,
+          "minimum_shifted_cv": 0.7941176470588236,
+          "day_two_balanced_accuracy": 0.04411764705882353
+        },
+        "nominal_cv": {
+          "channels": [
+            25,
+            52,
+            86,
+            89,
+            179,
+            182,
+            201,
+            234
+          ],
+          "nominal_cv": 0.8480392156862744,
+          "minimum_shifted_cv": 0.7450980392156863,
+          "day_two_balanced_accuracy": 0.5980392156862746
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day_two_balanced_accuracy": 0.5980392156862746
+        }
+      }
+    },
+    "05": {
+      "train_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "test_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "strategies": {
+        "robust_min": {
+          "channels": [
+            34,
+            45,
+            113,
+            118,
+            139,
+            177,
+            201,
+            233
+          ],
+          "nominal_cv": 0.6616161616161615,
+          "minimum_shifted_cv": 0.6515151515151515,
+          "day_two_balanced_accuracy": 0.39215686274509803
+        },
+        "nominal_cv": {
+          "channels": [
+            26,
+            43,
+            73,
+            90,
+            138,
+            140,
+            204,
+            244
+          ],
+          "nominal_cv": 0.7272727272727273,
+          "minimum_shifted_cv": 0.5808080808080809,
+          "day_two_balanced_accuracy": 0.029411764705882353
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day_two_balanced_accuracy": 0.5147058823529411
+        }
+      }
+    }
+  }
+}

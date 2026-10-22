@@ -1,0 +1,236 @@
+{
+  "schema": "openalterego.hyser-program-search.v2",
+  "config": {
+    "subjects": [
+      "01",
+      "02",
+      "03"
+    ],
+    "seed": 42,
+    "width": 8,
+    "min_grid_distance_cells": 2,
+    "cv_folds": 3,
+    "ridge_alpha": 10.0,
+    "features": "whole-trial log RMS and waveform length",
+    "max_per_grid": 2
+  },
+  "scope": "256 recorded forearm electrodes; next-day gesture transfer tests the search method, not facial silent speech or unrecorded positions.",
+  "subjects": {
+    "01": {
+      "choices": {
+        "greedy": {
+          "channels": [
+            79,
+            32,
+            164,
+            177,
+            120,
+            60,
+            219,
+            195
+          ],
+          "cv_balanced_accuracy": 0.8382352941176471
+        },
+        "random_budget": {
+          "channels": [
+            6,
+            32,
+            66,
+            103,
+            159,
+            182,
+            194,
+            220
+          ],
+          "cv_balanced_accuracy": 0.7990196078431373
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "cv_balanced_accuracy": 0.7205882352941178
+        },
+        "random_one": {
+          "channels": [
+            206,
+            141,
+            137,
+            77,
+            35,
+            225,
+            90,
+            2
+          ],
+          "cv_balanced_accuracy": 0.6911764705882353
+        }
+      },
+      "next_day_balanced_accuracy": {
+        "greedy": 0.3696969696969697,
+        "random_budget": 0.3282828282828283,
+        "fixed_grid": 0.5707070707070707,
+        "random_one": 0.585858585858586,
+        "all_256_reference": 0.14343434343434344
+      },
+      "greedy_selection_seconds": 0.28870359994471073,
+      "random_selection_seconds": 2.906449400004931,
+      "objective_evaluations_each": 1406,
+      "train_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "test_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "train_trials": 202,
+      "test_trials": 197,
+      "selection_record": "docs\\research\\results\\hyser-program-search-coverage-dev-v2-01-selection.json",
+      "selection_sha256": "ae565d72930785355a6d9133971273ba326e38297d08a20975d60405090a4184"
+    },
+    "02": {
+      "choices": {
+        "greedy": {
+          "channels": [
+            248,
+            65,
+            172,
+            150,
+            8,
+            110,
+            23,
+            250
+          ],
+          "cv_balanced_accuracy": 0.9166666666666667
+        },
+        "random_budget": {
+          "channels": [
+            48,
+            54,
+            66,
+            113,
+            163,
+            167,
+            213,
+            217
+          ],
+          "cv_balanced_accuracy": 0.8970588235294119
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "cv_balanced_accuracy": 0.7450980392156863
+        },
+        "random_one": {
+          "channels": [
+            206,
+            141,
+            137,
+            77,
+            35,
+            225,
+            90,
+            2
+          ],
+          "cv_balanced_accuracy": 0.7303921568627452
+        }
+      },
+      "next_day_balanced_accuracy": {
+        "greedy": 0.28137254901960784,
+        "random_budget": 0.2607843137254902,
+        "fixed_grid": 0.24215686274509807,
+        "random_one": 0.17058823529411765,
+        "all_256_reference": 0.03431372549019608
+      },
+      "greedy_selection_seconds": 0.35969690000638366,
+      "random_selection_seconds": 2.734117000014521,
+      "objective_evaluations_each": 1527,
+      "train_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "test_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "train_trials": 203,
+      "test_trials": 202,
+      "selection_record": "docs\\research\\results\\hyser-program-search-coverage-dev-v2-02-selection.json",
+      "selection_sha256": "84a1386a30cafe1f661fd9646b585edb219fecf80c759fe29c4b73fa073d7b6b"
+    },
+    "03": {
+      "choices": {
+        "greedy": {
+          "channels": [
+            145,
+            36,
+            151,
+            57,
+            246,
+            81,
+            94,
+            242
+          ],
+          "cv_balanced_accuracy": 0.893939393939394
+        },
+        "random_budget": {
+          "channels": [
+            12,
+            43,
+            64,
+            77,
+            174,
+            177,
+            231,
+            234
+          ],
+          "cv_balanced_accuracy": 0.909090909090909
+        },
+        "fixed_grid": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "cv_balanced_accuracy": 0.8232323232323233
+        },
+        "random_one": {
+          "channels": [
+            206,
+            141,
+            137,
+            77,
+            35,
+            225,
+            90,
+            2
+          ],
+          "cv_balanced_accuracy": 0.5909090909090909
+        }
+      },
+      "next_day_balanced_accuracy": {
+        "greedy": 0.030303030303030304,
+        "random_budget": 0.14141414141414144,
+        "fixed_grid": 0.4414141414141414,
+        "random_one": 0.12525252525252525,
+        "all_256_reference": 0.045454545454545456
+      },
+      "greedy_selection_seconds": 0.2452216000529006,
+      "random_selection_seconds": 1.8460936999181286,
+      "objective_evaluations_each": 1336,
+      "train_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "test_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "train_trials": 196,
+      "test_trials": 197,
+      "selection_record": "docs\\research\\results\\hyser-program-search-coverage-dev-v2-03-selection.json",
+      "selection_sha256": "c1646eb393b9b2d56c4a26e6df44be9a8f6f63f4c06d079bb9171a5873e3c79b"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "openalterego.external-impedance-source.v1",
+  "record": "https://zenodo.org/records/17691766",
+  "license": "CC BY 4.0",
+  "measurement": "three-electrode forearm skin EIS",
+  "files": {
+    "MX 7,5% 15mm -01.txt": "md5:cacd1e13f1b4ae1576cb2a2ee9e7a4d3",
+    "MX W-MX ECO sapndex black-back- 1.txt": "md5:dea016c40dcc2c61cd97f2b57b5187f9",
+    "mxene ecoflex 5% -01 (2).txt": "md5:073766ee2febeaeb580a0030cc809327",
+    "mxene ecoflex 5% -01.txt": "md5:a11a2c19e2eccabcf9838dd02a9441ed",
+    "mxene ecoflex 5% (2) -01.txt": "md5:14b3c414f638d25bfbf5bb3e9b682141",
+    "mxene ecoflex 5% (3) -01.txt": "md5:9ed45f4928e92b6cf89b4c18e8724ff1",
+    "mxene ecoflex 7% -01 (2).txt": "md5:60440fdb80f01a96908c9adc52c96ea4",
+    "mxene ecoflex 7% -01.txt": "md5:c2b50095929cc018affefa188f790e50",
+    "mxene ecoflex 7% (2) -01.txt": "md5:c931bc8f37ca5cc641241c3cd1bd244a",
+    "TA -MX W-MX ECO sapndex black-0.1mm - 1.txt": "md5:4cb84798fbb724ccb16106e9367dc5b3",
+    "TA -MX W-MX ECO sapndex black-1.txt": "md5:b3275054fe31bf4e0337ab8d5d05587c",
+    "TA -MX W-MX ECO sapndex black-back- 1.txt": "md5:203cae0977e703aa566192e82f7749a8"
+  }
+}

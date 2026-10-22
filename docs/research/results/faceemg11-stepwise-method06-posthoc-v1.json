@@ -1,0 +1,197 @@
+{
+  "schema": "openalterego.faceemg11-stepwise-search.v1",
+  "scope": "Exposed facial-command later-block replay; partial-program CV heuristic",
+  "feature_count_per_channel": 8,
+  "full_program_space": 38760,
+  "beam_sizes": [
+    16
+  ],
+  "subjects": {
+    "07": {
+      "source_member_sha256": "514fb56d1a720140167c8be5eafea36abab470d1d5af629378787d9fa20ba1e7",
+      "programs": {
+        "beam_16": [
+          0,
+          3,
+          6,
+          12,
+          13,
+          16
+        ]
+      },
+      "search": {
+        "beam_16": {
+          "train_cv": 0.9393939393939394,
+          "evaluations": 1114,
+          "stage_evaluations": [
+            20,
+            184,
+            252,
+            241,
+            210,
+            207
+          ],
+          "search_seconds": 0.6885037000756711
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_16": 0.8636363636363636
+      }
+    },
+    "08": {
+      "source_member_sha256": "11a2d7ece890dc4bc6b0a0c8db8a7ccf539040f79ec670ba69c952df482c6ee4",
+      "programs": {
+        "beam_16": [
+          0,
+          2,
+          3,
+          4,
+          6,
+          17
+        ]
+      },
+      "search": {
+        "beam_16": {
+          "train_cv": 0.8848484848484848,
+          "evaluations": 1143,
+          "stage_evaluations": [
+            20,
+            184,
+            246,
+            244,
+            230,
+            219
+          ],
+          "search_seconds": 0.6561727999942377
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_16": 0.890909090909091
+      }
+    },
+    "09": {
+      "source_member_sha256": "35b0cfc7b81626db564d7d88d89eabfe0f7747f4f8cdb81ab95addc5814a2d73",
+      "programs": {
+        "beam_16": [
+          5,
+          6,
+          7,
+          12,
+          14,
+          17
+        ]
+      },
+      "search": {
+        "beam_16": {
+          "train_cv": 0.9454545454545453,
+          "evaluations": 1138,
+          "stage_evaluations": [
+            20,
+            184,
+            239,
+            250,
+            230,
+            215
+          ],
+          "search_seconds": 0.5295815999852493
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_16": 0.9727272727272727
+      }
+    },
+    "10": {
+      "source_member_sha256": "5686c4bf15bef0bd785ac796fb08cffedecd57b04535acf0d975842e8da05cbb",
+      "programs": {
+        "beam_16": [
+          0,
+          2,
+          6,
+          7,
+          8,
+          14
+        ]
+      },
+      "search": {
+        "beam_16": {
+          "train_cv": 0.9818181818181819,
+          "evaluations": 1109,
+          "stage_evaluations": [
+            20,
+            184,
+            246,
+            232,
+            221,
+            206
+          ],
+          "search_seconds": 0.45170749991666526
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_16": 0.9818181818181819
+      }
+    },
+    "11": {
+      "source_member_sha256": "6edf5aeb05f4d5dc7e5ccab5e99908bf872413f5715d52d0ad0bd5516df35bfb",
+      "programs": {
+        "beam_16": [
+          0,
+          2,
+          3,
+          4,
+          6,
+          14
+        ]
+      },
+      "search": {
+        "beam_16": {
+          "train_cv": 0.9212121212121211,
+          "evaluations": 1153,
+          "stage_evaluations": [
+            20,
+            184,
+            248,
+            247,
+            236,
+            218
+          ],
+          "search_seconds": 0.4618690999923274
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_16": 0.881818181818182
+      }
+    },
+    "12": {
+      "source_member_sha256": "1b519292e1de49b0dd6960201dcbc182cac3411fd6f56214dbab5e471fe12c7d",
+      "programs": {
+        "beam_16": [
+          0,
+          8,
+          12,
+          13,
+          14,
+          16
+        ]
+      },
+      "search": {
+        "beam_16": {
+          "train_cv": 0.9393939393939394,
+          "evaluations": 1150,
+          "stage_evaluations": [
+            20,
+            184,
+            261,
+            236,
+            226,
+            223
+          ],
+          "search_seconds": 0.6120583000592887
+        }
+      },
+      "query_balanced_accuracy": {
+        "beam_16": 0.890909090909091
+      }
+    }
+  }
+}

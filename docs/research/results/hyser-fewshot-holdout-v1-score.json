@@ -1,0 +1,174 @@
+{
+  "schema": "openalterego.hyser-fewshot-holdout-score.v1",
+  "selection_sha256": "5dc8909099af2584d1c3f038f62ae3447f351f3eebc957be0a90a67188cf0425",
+  "protocol": {
+    "primary": "one labeled support trial per day-two gesture, whole-trial fixed eight-site ridge, support weight 1 versus zero support on identical query trials",
+    "secondary": "two labeled support trials per gesture, weight 4",
+    "alpha_selection": "day-one 3-fold stratified balanced accuracy; choices 1,10,100,1000",
+    "support_split": "first recorded repetition per class as support; later repetitions of that class as query",
+    "scope": "episodic within-class replay, not globally chronological online calibration"
+  },
+  "subjects": {
+    "06": {
+      "test_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "shots": {
+        "1": {
+          "support_trials": 34,
+          "query_trials": 167,
+          "query_balanced_accuracy": {
+            "0.0": 0.5764705882352942,
+            "1.0": 0.7823529411764706
+          },
+          "paired_gain": 0.2058823529411764
+        },
+        "2": {
+          "support_trials": 68,
+          "query_trials": 133,
+          "query_balanced_accuracy": {
+            "0.0": 0.5588235294117647,
+            "4.0": 0.8602941176470589
+          },
+          "paired_gain": 0.30147058823529416
+        }
+      }
+    },
+    "07": {
+      "test_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "shots": {
+        "1": {
+          "support_trials": 34,
+          "query_trials": 170,
+          "query_balanced_accuracy": {
+            "0.0": 0.5529411764705883,
+            "1.0": 0.7588235294117647
+          },
+          "paired_gain": 0.2058823529411764
+        },
+        "2": {
+          "support_trials": 68,
+          "query_trials": 136,
+          "query_balanced_accuracy": {
+            "0.0": 0.5588235294117647,
+            "4.0": 0.8088235294117647
+          },
+          "paired_gain": 0.25
+        }
+      }
+    },
+    "08": {
+      "test_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "shots": {
+        "1": {
+          "support_trials": 34,
+          "query_trials": 169,
+          "query_balanced_accuracy": {
+            "0.0": 0.5514705882352942,
+            "1.0": 0.6647058823529413
+          },
+          "paired_gain": 0.1132352941176471
+        },
+        "2": {
+          "support_trials": 68,
+          "query_trials": 135,
+          "query_balanced_accuracy": {
+            "0.0": 0.5416666666666666,
+            "4.0": 0.75
+          },
+          "paired_gain": 0.20833333333333337
+        }
+      }
+    },
+    "17": {
+      "test_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "shots": {
+        "1": {
+          "support_trials": 34,
+          "query_trials": 168,
+          "query_balanced_accuracy": {
+            "0.0": 0.2941176470588236,
+            "1.0": 0.6901960784313727
+          },
+          "paired_gain": 0.39607843137254906
+        },
+        "2": {
+          "support_trials": 68,
+          "query_trials": 134,
+          "query_balanced_accuracy": {
+            "0.0": 0.27941176470588236,
+            "4.0": 0.7867647058823529
+          },
+          "paired_gain": 0.5073529411764706
+        }
+      }
+    },
+    "18": {
+      "test_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "shots": {
+        "1": {
+          "support_trials": 34,
+          "query_trials": 169,
+          "query_balanced_accuracy": {
+            "0.0": 0.40294117647058825,
+            "1.0": 0.6970588235294117
+          },
+          "paired_gain": 0.2941176470588235
+        },
+        "2": {
+          "support_trials": 68,
+          "query_trials": 135,
+          "query_balanced_accuracy": {
+            "0.0": 0.35539215686274506,
+            "4.0": 0.7941176470588235
+          },
+          "paired_gain": 0.4387254901960784
+        }
+      }
+    },
+    "19": {
+      "test_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "shots": {
+        "1": {
+          "support_trials": 33,
+          "query_trials": 164,
+          "query_balanced_accuracy": {
+            "0.0": 0.7393939393939394,
+            "1.0": 0.8606060606060606
+          },
+          "paired_gain": 0.12121212121212122
+        },
+        "2": {
+          "support_trials": 66,
+          "query_trials": 131,
+          "query_balanced_accuracy": {
+            "0.0": 0.7348484848484849,
+            "4.0": 0.8257575757575758
+          },
+          "paired_gain": 0.09090909090909094
+        }
+      }
+    },
+    "20": {
+      "test_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "shots": {
+        "1": {
+          "support_trials": 34,
+          "query_trials": 170,
+          "query_balanced_accuracy": {
+            "0.0": 0.16470588235294117,
+            "1.0": 0.5647058823529413
+          },
+          "paired_gain": 0.40000000000000013
+        },
+        "2": {
+          "support_trials": 68,
+          "query_trials": 136,
+          "query_balanced_accuracy": {
+            "0.0": 0.14705882352941177,
+            "4.0": 0.6691176470588235
+          },
+          "paired_gain": 0.5220588235294117
+        }
+      }
+    }
+  }
+}

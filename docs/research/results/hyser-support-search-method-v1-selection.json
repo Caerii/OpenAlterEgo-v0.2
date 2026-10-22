@@ -1,0 +1,512 @@
+{
+  "schema": "openalterego.hyser-support-search-selection.v1",
+  "scope": "Method-specific forearm digital replay; these subjects and day-two recordings exposed in earlier work",
+  "code_sha256": "c90060e99eadedfa530a87a0d6ee9fe32c76beb3f0d760c101b53ee559540ea6",
+  "subjects": [
+    "06",
+    "07",
+    "08",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "candidate_count": 5000,
+  "candidate_seed": 42,
+  "support_shots_per_class": 1,
+  "query_support_weight": 4.0,
+  "primary": "half day-one CV plus half day-one-to-session-support score versus established fixed eight-site, same query",
+  "success_rule": "mean paired gain >=0.05, >=5/7 people improve, no loss worse than -0.05",
+  "choices": {
+    "06": {
+      "day1_source_record_sha256": "9f2533a4c3b647ab21cb80e96bc4f794a185b69a6e8b1a1da6d901de20c2ec62",
+      "day2_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 34,
+      "programs": {
+        "half_cv_half_support": [
+          30,
+          124,
+          147,
+          222,
+          319,
+          372,
+          549,
+          652
+        ],
+        "day1_cv": [
+          23,
+          115,
+          142,
+          248,
+          332,
+          389,
+          573,
+          606
+        ],
+        "day1_to_support": [
+          30,
+          124,
+          147,
+          222,
+          319,
+          372,
+          549,
+          652
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          22,
+          30,
+          124,
+          125,
+          147,
+          155,
+          222,
+          223
+        ]
+      },
+      "selected_day1_cv": 0.8823529411764706,
+      "selected_day1_to_support": 0.8235294117647058
+    },
+    "07": {
+      "day1_source_record_sha256": "105ebc02d879cd8a9fb116f3468eff0b8472ca2ddbdd12f8da1610cf2a09ff7d",
+      "day2_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 34,
+      "programs": {
+        "half_cv_half_support": [
+          17,
+          18,
+          125,
+          186,
+          234,
+          372,
+          490,
+          632
+        ],
+        "day1_cv": [
+          17,
+          25,
+          66,
+          67,
+          150,
+          194,
+          558,
+          701
+        ],
+        "day1_to_support": [
+          17,
+          18,
+          125,
+          186,
+          234,
+          372,
+          490,
+          632
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          17,
+          18,
+          124,
+          125,
+          185,
+          186,
+          233,
+          234
+        ]
+      },
+      "selected_day1_cv": 0.8627450980392157,
+      "selected_day1_to_support": 0.6470588235294118
+    },
+    "08": {
+      "day1_source_record_sha256": "473301671965c6dd855cf8de9e01e0e44aef04ffb5affbe63cba6be2831de6fb",
+      "day2_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 34,
+      "programs": {
+        "half_cv_half_support": [
+          24,
+          89,
+          90,
+          133,
+          210,
+          328,
+          575,
+          677
+        ],
+        "day1_cv": [
+          13,
+          125,
+          190,
+          215,
+          350,
+          373,
+          480,
+          668
+        ],
+        "day1_to_support": [
+          1,
+          124,
+          125,
+          173,
+          227,
+          359,
+          515,
+          645
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          24,
+          25,
+          89,
+          90,
+          133,
+          141,
+          209,
+          210
+        ]
+      },
+      "selected_day1_cv": 0.8284313725490198,
+      "selected_day1_to_support": 0.6470588235294118
+    },
+    "17": {
+      "day1_source_record_sha256": "86b378aaf7f105bb586e5d124bb023016f4d9786ece9bfc22cfb63878f197bdc",
+      "day2_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 34,
+      "programs": {
+        "half_cv_half_support": [
+          32,
+          33,
+          89,
+          153,
+          229,
+          230,
+          438,
+          550
+        ],
+        "day1_cv": [
+          30,
+          98,
+          175,
+          200,
+          304,
+          423,
+          496,
+          694
+        ],
+        "day1_to_support": [
+          9,
+          10,
+          98,
+          159,
+          240,
+          248,
+          423,
+          526
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          32,
+          33,
+          89,
+          90,
+          153,
+          154,
+          229,
+          230
+        ]
+      },
+      "selected_day1_cv": 0.8480392156862744,
+      "selected_day1_to_support": 0.47058823529411764
+    },
+    "18": {
+      "day1_source_record_sha256": "d7a0f3295262d514af3781aa08f24c1e53cbf00743d4a3bb855588732f98b590",
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 34,
+      "programs": {
+        "half_cv_half_support": [
+          11,
+          103,
+          170,
+          235,
+          354,
+          413,
+          518,
+          630
+        ],
+        "day1_cv": [
+          59,
+          117,
+          156,
+          204,
+          265,
+          373,
+          532,
+          688
+        ],
+        "day1_to_support": [
+          5,
+          13,
+          77,
+          188,
+          236,
+          448,
+          487,
+          628
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          10,
+          11,
+          102,
+          103,
+          170,
+          171,
+          234,
+          235
+        ]
+      },
+      "selected_day1_cv": 0.8333333333333333,
+      "selected_day1_to_support": 0.6764705882352942
+    },
+    "19": {
+      "day1_source_record_sha256": "e1762d38e9a110f6c209672799f94c224c4f035f7f53f9276af9e9e3c0499573",
+      "day2_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 33,
+      "programs": {
+        "half_cv_half_support": [
+          43,
+          51,
+          117,
+          188,
+          229,
+          385,
+          484,
+          641
+        ],
+        "day1_cv": [
+          11,
+          75,
+          189,
+          206,
+          352,
+          467,
+          485,
+          670
+        ],
+        "day1_to_support": [
+          43,
+          51,
+          117,
+          188,
+          229,
+          385,
+          484,
+          641
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          43,
+          51,
+          117,
+          118,
+          188,
+          189,
+          228,
+          229
+        ]
+      },
+      "selected_day1_cv": 0.8284313725490196,
+      "selected_day1_to_support": 0.8787878787878788
+    },
+    "20": {
+      "day1_source_record_sha256": "d0959078e3e66ce4e5f824861358d93172cc0bc3bd7e718ca280b98f43c682c8",
+      "day2_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "support_trials": 34,
+      "programs": {
+        "half_cv_half_support": [
+          49,
+          84,
+          162,
+          210,
+          284,
+          447,
+          521,
+          675
+        ],
+        "day1_cv": [
+          21,
+          113,
+          114,
+          186,
+          200,
+          336,
+          488,
+          681
+        ],
+        "day1_to_support": [
+          49,
+          84,
+          162,
+          210,
+          284,
+          447,
+          521,
+          675
+        ],
+        "fixed_eight_site": [
+          54,
+          18,
+          118,
+          82,
+          182,
+          146,
+          246,
+          210
+        ],
+        "fixed_mixed": [
+          36,
+          100,
+          164,
+          228,
+          307,
+          419,
+          531,
+          643
+        ],
+        "half_cv_half_support_same_contacts": [
+          41,
+          49,
+          84,
+          85,
+          162,
+          170,
+          210,
+          211
+        ]
+      },
+      "selected_day1_cv": 0.8676470588235293,
+      "selected_day1_to_support": 0.5
+    }
+  }
+}

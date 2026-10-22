@@ -1,0 +1,43 @@
+{
+  "schema": "openalterego.hyser-temporal-fixed-pilot.v1",
+  "scope": "Development subjects with already seen day-two outcomes; no electrode search",
+  "fixed_layout": "grid positions (2,2) and (6,6) in each of four grids",
+  "alpha_candidates": [
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "subjects": {
+    "05": {
+      "source_record_sha256": [
+        "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+        "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e"
+      ],
+      "features": {
+        "whole_trial": {
+          "day_one_cv_by_alpha": {
+            "1.0": 0.7272727272727272,
+            "10.0": 0.6515151515151516,
+            "100.0": 0.4898989898989899,
+            "1000.0": 0.30303030303030304
+          },
+          "chosen_alpha": 1.0,
+          "day_two_balanced_accuracy": 0.5735294117647058,
+          "day_two_at_alpha10": 0.5147058823529411
+        },
+        "four_bins_plus_whole": {
+          "day_one_cv_by_alpha": {
+            "1.0": 0.7878787878787878,
+            "10.0": 0.8030303030303031,
+            "100.0": 0.6565656565656566,
+            "1000.0": 0.45959595959595967
+          },
+          "chosen_alpha": 10.0,
+          "day_two_balanced_accuracy": 0.5588235294117647,
+          "day_two_at_alpha10": 0.5588235294117647
+        }
+      }
+    }
+  }
+}

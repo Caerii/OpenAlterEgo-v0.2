@@ -1,0 +1,337 @@
+{
+  "schema": "openalterego.faceemg11-method-selection.v1",
+  "source": "https://doi.org/10.5281/zenodo.22137268",
+  "code_sha256": "c14d090302c0acbad588ee5fa5b41880d5052a3fb29187a89a29e3ff08680500",
+  "development_subjects": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06"
+  ],
+  "method_check_subjects": [
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+  ],
+  "candidate_count": 38760,
+  "split": "blocks 1-15 fit/CV, 16-20 forward validation; score on blocks 21-30 only after selection is pushed",
+  "primary": "personal train-CV selected minus global forward-validation selected, both six channels",
+  "success_rule": "mean gain >=0.05, >=5/6 people improve, no loss below -0.05",
+  "development_sources": {
+    "01": "8b0647c2c03d9f96dbe4d5e45da9b6ebeca03fde7a20474dc3d9bff2a9929bac",
+    "02": "77039e8b75cc5975ee69d178a4af64d9fefd415ab934abe344ce3c00b670335c",
+    "03": "69834130808cd703ab0a31fb9cedb8318d1468d61e1d7f08bf90a54ff837c41b",
+    "04": "81ab75f23d20145388f2c4a4c57e06a417574d7fabd6ad56f2aa96baef8fa5ab",
+    "05": "d2fce1b84b8e8bfaf4e351962f5f94c4e61ed6aaece6d2a2c3ba2ce3e5366e70",
+    "06": "223c45855bddb64e6fe87ece562d062b33f7088a5985f8cc1035671a0f42c7e0"
+  },
+  "global_choices": {
+    "global_train_cv": [
+      0,
+      2,
+      5,
+      11,
+      15,
+      16
+    ],
+    "global_forward": [
+      2,
+      5,
+      6,
+      10,
+      12,
+      15
+    ],
+    "selected_development_cv": 0.8515151515151514,
+    "selected_development_forward": 0.8515151515151516
+  },
+  "method_choices": {
+    "07": {
+      "source_member_sha256": "514fb56d1a720140167c8be5eafea36abab470d1d5af629378787d9fa20ba1e7",
+      "programs": {
+        "personal_train_cv": [
+          6,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "personal_forward": [
+          0,
+          1,
+          3,
+          7,
+          13,
+          19
+        ],
+        "global_train_cv": [
+          0,
+          2,
+          5,
+          11,
+          15,
+          16
+        ],
+        "global_forward": [
+          2,
+          5,
+          6,
+          10,
+          12,
+          15
+        ],
+        "fixed_index_spread": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          19
+        ]
+      },
+      "selected_train_cv": 0.9151515151515152,
+      "selected_forward": 0.9454545454545454
+    },
+    "08": {
+      "source_member_sha256": "11a2d7ece890dc4bc6b0a0c8db8a7ccf539040f79ec670ba69c952df482c6ee4",
+      "programs": {
+        "personal_train_cv": [
+          0,
+          2,
+          6,
+          10,
+          13,
+          16
+        ],
+        "personal_forward": [
+          0,
+          1,
+          2,
+          6,
+          13,
+          17
+        ],
+        "global_train_cv": [
+          0,
+          2,
+          5,
+          11,
+          15,
+          16
+        ],
+        "global_forward": [
+          2,
+          5,
+          6,
+          10,
+          12,
+          15
+        ],
+        "fixed_index_spread": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          19
+        ]
+      },
+      "selected_train_cv": 0.8484848484848486,
+      "selected_forward": 0.9272727272727272
+    },
+    "09": {
+      "source_member_sha256": "35b0cfc7b81626db564d7d88d89eabfe0f7747f4f8cdb81ab95addc5814a2d73",
+      "programs": {
+        "personal_train_cv": [
+          2,
+          4,
+          6,
+          7,
+          14,
+          17
+        ],
+        "personal_forward": [
+          0,
+          2,
+          4,
+          6,
+          17,
+          19
+        ],
+        "global_train_cv": [
+          0,
+          2,
+          5,
+          11,
+          15,
+          16
+        ],
+        "global_forward": [
+          2,
+          5,
+          6,
+          10,
+          12,
+          15
+        ],
+        "fixed_index_spread": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          19
+        ]
+      },
+      "selected_train_cv": 0.9636363636363636,
+      "selected_forward": 0.9454545454545454
+    },
+    "10": {
+      "source_member_sha256": "5686c4bf15bef0bd785ac796fb08cffedecd57b04535acf0d975842e8da05cbb",
+      "programs": {
+        "personal_train_cv": [
+          5,
+          6,
+          7,
+          10,
+          15,
+          16
+        ],
+        "personal_forward": [
+          0,
+          1,
+          3,
+          6,
+          7,
+          8
+        ],
+        "global_train_cv": [
+          0,
+          2,
+          5,
+          11,
+          15,
+          16
+        ],
+        "global_forward": [
+          2,
+          5,
+          6,
+          10,
+          12,
+          15
+        ],
+        "fixed_index_spread": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          19
+        ]
+      },
+      "selected_train_cv": 0.9818181818181819,
+      "selected_forward": 1.0
+    },
+    "11": {
+      "source_member_sha256": "6edf5aeb05f4d5dc7e5ccab5e99908bf872413f5715d52d0ad0bd5516df35bfb",
+      "programs": {
+        "personal_train_cv": [
+          1,
+          4,
+          6,
+          7,
+          11,
+          17
+        ],
+        "personal_forward": [
+          0,
+          1,
+          3,
+          6,
+          11,
+          17
+        ],
+        "global_train_cv": [
+          0,
+          2,
+          5,
+          11,
+          15,
+          16
+        ],
+        "global_forward": [
+          2,
+          5,
+          6,
+          10,
+          12,
+          15
+        ],
+        "fixed_index_spread": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          19
+        ]
+      },
+      "selected_train_cv": 0.8727272727272728,
+      "selected_forward": 0.9636363636363636
+    },
+    "12": {
+      "source_member_sha256": "1b519292e1de49b0dd6960201dcbc182cac3411fd6f56214dbab5e471fe12c7d",
+      "programs": {
+        "personal_train_cv": [
+          0,
+          3,
+          8,
+          9,
+          11,
+          15
+        ],
+        "personal_forward": [
+          0,
+          1,
+          4,
+          8,
+          14,
+          17
+        ],
+        "global_train_cv": [
+          0,
+          2,
+          5,
+          11,
+          15,
+          16
+        ],
+        "global_forward": [
+          2,
+          5,
+          6,
+          10,
+          12,
+          15
+        ],
+        "fixed_index_spread": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          19
+        ]
+      },
+      "selected_train_cv": 0.9636363636363636,
+      "selected_forward": 0.9636363636363636
+    }
+  }
+}

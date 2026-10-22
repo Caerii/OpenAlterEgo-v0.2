@@ -1,0 +1,51 @@
+{
+  "schema": "openalterego.dense-search-compute-scaling.v1",
+  "scope": "Gaussian synthetic matrices; compute scaling only; scores have no physiological meaning",
+  "beam_size": 4,
+  "trials": 165,
+  "classes": 11,
+  "features_per_site": 8,
+  "repeats": 3,
+  "csl_contact_budget": 8,
+  "machine": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.3",
+  "rows": [
+    {
+      "channels": 38,
+      "full_six_channel_space": 2760681,
+      "program_evaluations": 282,
+      "stage_evaluations": [
+        38,
+        142,
+        46,
+        29,
+        20,
+        7
+      ],
+      "search_seconds_repetitions": [
+        0.10084349999669939,
+        0.1427398999221623,
+        0.10370410000905395
+      ],
+      "search_seconds_median": 0.10370410000905395,
+      "selected_channels": [
+        27,
+        28,
+        29,
+        30,
+        32,
+        33
+      ],
+      "selected_contacts": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35
+      ]
+    }
+  ]
+}

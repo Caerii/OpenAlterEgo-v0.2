@@ -406,7 +406,7 @@ hardware-open-alter-ego-v0-2/
 │   │   └── uv.lock
 │   └── unity/                # WebSocket client example
 ├── LICENSE-HARDWARE          # CERN-OHL-P
-├── LICENSE-SOFTWARE          # MIT
+├── LICENSE-SOFTWARE          # Apache-2.0
 └── CONTRIBUTING.md
 ```
 
@@ -594,10 +594,11 @@ uv run openalterego train-benchmark --help
 
 | Component | License |
 |-----------|---------|
-| Software (`software/`) | [MIT — LICENSE-SOFTWARE](LICENSE-SOFTWARE) |
-| Hardware docs & designs (`hardware/`) | [CERN-OHL-P — LICENSE-HARDWARE](LICENSE-HARDWARE) |
+| Software (`software/`) and original project documentation outside `hardware/` | [Apache-2.0 — LICENSE-SOFTWARE](LICENSE-SOFTWARE) |
+| Hardware design sources (`hardware/`) | [CERN-OHL-P-2.0 — LICENSE-HARDWARE](LICENSE-HARDWARE) |
 
 **Third-party data** (Gowda OSF, Gaddy Zenodo) carries separate terms — [`docs/gowda/legal/`](docs/gowda/legal/00-README.md).
+See [LICENSE-SCOPE.md](LICENSE-SCOPE.md) for the patent-grant boundaries and third-party material.
 
 ### Citation
 

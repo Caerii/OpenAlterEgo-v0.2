@@ -1,0 +1,431 @@
+{
+  "schema": "openalterego.hyser-compositional-search.v1",
+  "scope": "Retrospective forearm digital replay; no analog wearable or facial-speech claim",
+  "grammar": "one adjacent contact edge per grid; choose two of its three signals (two shared-reference potentials, one digital difference)",
+  "physical_cost": "eight array contacts plus one shared reference, eight AFE channels",
+  "beam_size": 16,
+  "random_seed": 42,
+  "alpha": 10.0,
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "beam_evaluations": 16464,
+      "beam_stage_evaluations": [
+        336,
+        5376,
+        5376,
+        5376
+      ],
+      "beam_wall_seconds": 3.6368740000762045,
+      "random_wall_seconds": 5.614274799940176,
+      "selected_day1_cv": {
+        "beam": 0.911764705882353,
+        "random": 0.8970588235294119
+      },
+      "choices": {
+        "beam": {
+          "channels": [
+            33,
+            94,
+            180,
+            217,
+            313,
+            430,
+            487,
+            662
+          ],
+          "day2_balanced_accuracy": 0.42424242424242425
+        },
+        "random": {
+          "channels": [
+            61,
+            108,
+            183,
+            252,
+            261,
+            402,
+            496,
+            598
+          ],
+          "day2_balanced_accuracy": 0.31313131313131315
+        },
+        "fixed_mixed": {
+          "channels": [
+            36,
+            100,
+            164,
+            228,
+            307,
+            419,
+            531,
+            643
+          ],
+          "day2_balanced_accuracy": 0.5101010101010102
+        },
+        "fixed_monopolar": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day2_balanced_accuracy": 0.5707070707070709
+        },
+        "beam_same_contacts_monopolar": {
+          "channels": [
+            32,
+            33,
+            93,
+            94,
+            180,
+            188,
+            217,
+            218
+          ],
+          "day2_balanced_accuracy": 0.3232323232323232
+        }
+      }
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "beam_evaluations": 16464,
+      "beam_stage_evaluations": [
+        336,
+        5376,
+        5376,
+        5376
+      ],
+      "beam_wall_seconds": 4.231168000027537,
+      "random_wall_seconds": 5.810412999941036,
+      "selected_day1_cv": {
+        "beam": 0.9558823529411764,
+        "random": 0.9215686274509804
+      },
+      "choices": {
+        "beam": {
+          "channels": [
+            49,
+            84,
+            179,
+            180,
+            246,
+            284,
+            435,
+            595
+          ],
+          "day2_balanced_accuracy": 0.16666666666666669
+        },
+        "random": {
+          "channels": [
+            30,
+            100,
+            155,
+            231,
+            304,
+            405,
+            534,
+            637
+          ],
+          "day2_balanced_accuracy": 0.19215686274509802
+        },
+        "fixed_mixed": {
+          "channels": [
+            36,
+            100,
+            164,
+            228,
+            307,
+            419,
+            531,
+            643
+          ],
+          "day2_balanced_accuracy": 0.1411764705882353
+        },
+        "fixed_monopolar": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day2_balanced_accuracy": 0.24215686274509807
+        },
+        "beam_same_contacts_monopolar": {
+          "channels": [
+            41,
+            49,
+            84,
+            92,
+            179,
+            180,
+            246,
+            254
+          ],
+          "day2_balanced_accuracy": 0.1568627450980392
+        }
+      }
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "beam_evaluations": 16464,
+      "beam_stage_evaluations": [
+        336,
+        5376,
+        5376,
+        5376
+      ],
+      "beam_wall_seconds": 4.3461412999313325,
+      "random_wall_seconds": 5.436493000015616,
+      "selected_day1_cv": {
+        "beam": 0.9545454545454546,
+        "random": 0.9191919191919191
+      },
+      "choices": {
+        "beam": {
+          "channels": [
+            20,
+            74,
+            150,
+            229,
+            338,
+            469,
+            543,
+            627
+          ],
+          "day2_balanced_accuracy": 0.08585858585858586
+        },
+        "random": {
+          "channels": [
+            42,
+            43,
+            100,
+            182,
+            190,
+            227,
+            405,
+            645
+          ],
+          "day2_balanced_accuracy": 0.2727272727272727
+        },
+        "fixed_mixed": {
+          "channels": [
+            36,
+            100,
+            164,
+            228,
+            307,
+            419,
+            531,
+            643
+          ],
+          "day2_balanced_accuracy": 0.4212121212121212
+        },
+        "fixed_monopolar": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day2_balanced_accuracy": 0.4414141414141415
+        },
+        "beam_same_contacts_monopolar": {
+          "channels": [
+            12,
+            20,
+            66,
+            74,
+            150,
+            158,
+            229,
+            237
+          ],
+          "day2_balanced_accuracy": 0.030303030303030304
+        }
+      }
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "beam_evaluations": 16464,
+      "beam_stage_evaluations": [
+        336,
+        5376,
+        5376,
+        5376
+      ],
+      "beam_wall_seconds": 3.8409609999507666,
+      "random_wall_seconds": 5.7919716000324115,
+      "selected_day1_cv": {
+        "beam": 0.9215686274509804,
+        "random": 0.9215686274509804
+      },
+      "choices": {
+        "beam": {
+          "channels": [
+            49,
+            87,
+            143,
+            224,
+            281,
+            444,
+            556,
+            636
+          ],
+          "day2_balanced_accuracy": 0.47058823529411764
+        },
+        "random": {
+          "channels": [
+            21,
+            91,
+            191,
+            246,
+            333,
+            422,
+            480,
+            595
+          ],
+          "day2_balanced_accuracy": 0.5686274509803921
+        },
+        "fixed_mixed": {
+          "channels": [
+            36,
+            100,
+            164,
+            228,
+            307,
+            419,
+            531,
+            643
+          ],
+          "day2_balanced_accuracy": 0.5098039215686275
+        },
+        "fixed_monopolar": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day2_balanced_accuracy": 0.5980392156862745
+        },
+        "beam_same_contacts_monopolar": {
+          "channels": [
+            49,
+            50,
+            79,
+            87,
+            143,
+            151,
+            224,
+            232
+          ],
+          "day2_balanced_accuracy": 0.5
+        }
+      }
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "beam_evaluations": 16464,
+      "beam_stage_evaluations": [
+        336,
+        5376,
+        5376,
+        5376
+      ],
+      "beam_wall_seconds": 3.847536899964325,
+      "random_wall_seconds": 6.4337441000388935,
+      "selected_day1_cv": {
+        "beam": 0.8686868686868687,
+        "random": 0.8484848484848485
+      },
+      "choices": {
+        "beam": {
+          "channels": [
+            42,
+            107,
+            139,
+            140,
+            235,
+            294,
+            392,
+            628
+          ],
+          "day2_balanced_accuracy": 0.029411764705882353
+        },
+        "random": {
+          "channels": [
+            19,
+            125,
+            148,
+            235,
+            340,
+            370,
+            559,
+            616
+          ],
+          "day2_balanced_accuracy": 0.38725490196078427
+        },
+        "fixed_mixed": {
+          "channels": [
+            36,
+            100,
+            164,
+            228,
+            307,
+            419,
+            531,
+            643
+          ],
+          "day2_balanced_accuracy": 0.37745098039215685
+        },
+        "fixed_monopolar": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "day2_balanced_accuracy": 0.5147058823529411
+        },
+        "beam_same_contacts_monopolar": {
+          "channels": [
+            42,
+            43,
+            107,
+            115,
+            139,
+            140,
+            235,
+            236
+          ],
+          "day2_balanced_accuracy": 0.12254901960784315
+        }
+      }
+    }
+  }
+}

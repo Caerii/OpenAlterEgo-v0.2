@@ -1,0 +1,177 @@
+{
+  "schema": "openalterego.gaddy-activity-tournament.v1",
+  "sklearn_version": "1.8.0",
+  "feature_backend": "rust",
+  "feature_cache_enabled": true,
+  "model_cache_enabled": false,
+  "folds": [
+    {
+      "holdout": "parallel-5-10-first100",
+      "train_sessions": [
+        "parallel-5-5-first100",
+        "parallel-5-6-first100",
+        "parallel-5-8-first100",
+        "parallel-5-9-first100",
+        "parallel-5-11-first100"
+      ],
+      "energy_cost": {
+        "wall_s": 7.4154133999254555,
+        "cpu_s": 12.515625
+      },
+      "records": [
+        {
+          "candidate": "logistic",
+          "fit_wall_s": 0.7134203999303281,
+          "fit_cpu_s": 3.703125,
+          "predict_wall_s": 0.029083299916237593,
+          "predict_cpu_s": 0.03125,
+          "average_precision": 0.9544833754101167,
+          "roc_auc": 0.9428510512254276,
+          "f1_at_half": 0.9110591379886401,
+          "all_frame_mae": 0.34514896817357116,
+          "slow_contour": {
+            "delta_200ms_mae": 0.31065339907523215,
+            "zero_change_mae": 0.35334978772749726,
+            "frames": 5295,
+            "direction_accuracy": 0.637204910292729
+          }
+        },
+        {
+          "candidate": "sgd_logistic",
+          "fit_wall_s": 0.7366471000714228,
+          "fit_cpu_s": 0.734375,
+          "predict_wall_s": 0.026062399963848293,
+          "predict_cpu_s": 0.03125,
+          "average_precision": 0.9519543480346141,
+          "roc_auc": 0.9398932791370831,
+          "f1_at_half": 0.9057844584619514,
+          "all_frame_mae": 0.35264221098927956,
+          "slow_contour": {
+            "delta_200ms_mae": 0.3156415856151983,
+            "zero_change_mae": 0.35334978772749726,
+            "frames": 5295,
+            "direction_accuracy": 0.6349386213408876
+          }
+        },
+        {
+          "candidate": "hgb_64",
+          "fit_wall_s": 1.448149299947545,
+          "fit_cpu_s": 8.1875,
+          "predict_wall_s": 0.7007715000072494,
+          "predict_cpu_s": 3.0625,
+          "average_precision": 0.970280599283721,
+          "roc_auc": 0.964410659768962,
+          "f1_at_half": 0.9336629033335561,
+          "all_frame_mae": 0.30516029952074314,
+          "slow_contour": {
+            "delta_200ms_mae": 0.27284018796343995,
+            "zero_change_mae": 0.35334978772749726,
+            "frames": 5295,
+            "direction_accuracy": 0.6687440982058546
+          }
+        },
+        {
+          "candidate": "hgb_255",
+          "fit_wall_s": 2.4424541000043973,
+          "fit_cpu_s": 13.265625,
+          "predict_wall_s": 0.2688123999396339,
+          "predict_cpu_s": 1.890625,
+          "average_precision": 0.9701768578451364,
+          "roc_auc": 0.96438766742037,
+          "f1_at_half": 0.9335470513591131,
+          "all_frame_mae": 0.30522692548884284,
+          "slow_contour": {
+            "delta_200ms_mae": 0.2731949581189955,
+            "zero_change_mae": 0.35334978772749726,
+            "frames": 5295,
+            "direction_accuracy": 0.6710103871576959
+          }
+        }
+      ]
+    },
+    {
+      "holdout": "parallel-5-11-first100",
+      "train_sessions": [
+        "parallel-5-5-first100",
+        "parallel-5-6-first100",
+        "parallel-5-8-first100",
+        "parallel-5-9-first100",
+        "parallel-5-10-first100"
+      ],
+      "energy_cost": {
+        "wall_s": 5.502365699969232,
+        "cpu_s": 21.0625
+      },
+      "records": [
+        {
+          "candidate": "logistic",
+          "fit_wall_s": 1.0273031999822706,
+          "fit_cpu_s": 3.703125,
+          "predict_wall_s": 0.027285499963909388,
+          "predict_cpu_s": 0.03125,
+          "average_precision": 0.9476201444977721,
+          "roc_auc": 0.9300061863945336,
+          "f1_at_half": 0.8990901571546733,
+          "all_frame_mae": 0.383513348940584,
+          "slow_contour": {
+            "delta_200ms_mae": 0.3293513726208854,
+            "zero_change_mae": 0.36146792750578155,
+            "frames": 6948,
+            "direction_accuracy": 0.6600460564191134
+          }
+        },
+        {
+          "candidate": "sgd_logistic",
+          "fit_wall_s": 1.0637296000495553,
+          "fit_cpu_s": 0.828125,
+          "predict_wall_s": 0.029153099982067943,
+          "predict_cpu_s": 0.015625,
+          "average_precision": 0.9450464727511017,
+          "roc_auc": 0.9289887351999265,
+          "f1_at_half": 0.9008247422680412,
+          "all_frame_mae": 0.3815968090347681,
+          "slow_contour": {
+            "delta_200ms_mae": 0.3261965455005732,
+            "zero_change_mae": 0.36146792750578155,
+            "frames": 6948,
+            "direction_accuracy": 0.662636729994243
+          }
+        },
+        {
+          "candidate": "hgb_64",
+          "fit_wall_s": 2.1592476000078022,
+          "fit_cpu_s": 11.71875,
+          "predict_wall_s": 0.29957769997417927,
+          "predict_cpu_s": 1.875,
+          "average_precision": 0.9694023918748872,
+          "roc_auc": 0.9533438291334253,
+          "f1_at_half": 0.9154444856250331,
+          "all_frame_mae": 0.36553296932592205,
+          "slow_contour": {
+            "delta_200ms_mae": 0.31140873856431983,
+            "zero_change_mae": 0.36146792750578155,
+            "frames": 6948,
+            "direction_accuracy": 0.6781807714450202
+          }
+        },
+        {
+          "candidate": "hgb_255",
+          "fit_wall_s": 2.112472500069998,
+          "fit_cpu_s": 12.59375,
+          "predict_wall_s": 0.24884040001779795,
+          "predict_cpu_s": 1.6875,
+          "average_precision": 0.9697281393586652,
+          "roc_auc": 0.9536697555258656,
+          "f1_at_half": 0.9157086092715232,
+          "all_frame_mae": 0.3654300180233859,
+          "slow_contour": {
+            "delta_200ms_mae": 0.3116696805748383,
+            "zero_change_mae": 0.36146792750578155,
+            "frames": 6948,
+            "direction_accuracy": 0.6747265400115141
+          }
+        }
+      ]
+    }
+  ]
+}

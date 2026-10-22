@@ -47,6 +47,8 @@ def train_gowda_ctc(
     device_preferred: str = "auto",
     save_path: Optional[Path] = None,
     basis_session_dir: Optional[Path] = None,
+    basis_cache_dir: Optional[Path] = None,
+    cache_dir: Optional[Path] = None,
     init_checkpoint: Optional[Path] = None,
     val_decode_mode: DecodeMode = "greedy",
     beam_width: int = 50,
@@ -87,6 +89,7 @@ def train_gowda_ctc(
         spd_basis = ensure_gowda_spd_basis(
             data_dir,
             basis_session_dir=basis_session_dir,
+            basis_cache_dir=basis_cache_dir,
             fs_hz=int(fs_hz),
             emg_mode=str(emg_mode),
             seed=int(seed),
@@ -101,7 +104,7 @@ def train_gowda_ctc(
         per_event_preprocess=True,
         feature_type=str(feature_type),  # type: ignore[arg-type]
         spd_basis=spd_basis,
-        session_dir=str(data_dir),
+        session_dir=str(cache_dir if cache_dir is not None else data_dir),
         use_upper_tri=bool(use_upper_tri),
         feature_mode=str(feature_mode),
     )

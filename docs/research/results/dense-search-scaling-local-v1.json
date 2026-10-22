@@ -1,0 +1,70 @@
+{
+  "schema": "openalterego.dense-search-compute-scaling.v1",
+  "scope": "Gaussian synthetic matrices; compute scaling only; scores have no physiological meaning",
+  "beam_size": 4,
+  "trials": 165,
+  "classes": 11,
+  "features_per_site": 8,
+  "repeats": 3,
+  "machine": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.3",
+  "rows": [
+    {
+      "channels": 20,
+      "full_six_channel_space": 38760,
+      "program_evaluations": 343,
+      "stage_evaluations": [
+        20,
+        70,
+        69,
+        65,
+        61,
+        58
+      ],
+      "search_seconds_repetitions": [
+        0.12823889998253435,
+        0.1109129999531433,
+        0.12434430001303554
+      ],
+      "search_seconds_median": 0.12434430001303554
+    },
+    {
+      "channels": 40,
+      "full_six_channel_space": 3838380,
+      "program_evaluations": 761,
+      "stage_evaluations": [
+        40,
+        150,
+        149,
+        145,
+        140,
+        137
+      ],
+      "search_seconds_repetitions": [
+        0.36563010001555085,
+        0.29566139995586127,
+        0.4384252999443561
+      ],
+      "search_seconds_median": 0.36563010001555085
+    },
+    {
+      "channels": 80,
+      "full_six_channel_space": 300500200,
+      "program_evaluations": 1604,
+      "stage_evaluations": [
+        80,
+        310,
+        310,
+        306,
+        300,
+        298
+      ],
+      "search_seconds_repetitions": [
+        0.6283541999291629,
+        0.6315004000207409,
+        0.6615517999744043
+      ],
+      "search_seconds_median": 0.6315004000207409
+    }
+  ]
+}

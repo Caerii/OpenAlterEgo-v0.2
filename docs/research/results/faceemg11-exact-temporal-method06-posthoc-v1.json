@@ -1,0 +1,163 @@
+{
+  "schema": "openalterego.faceemg11-exact-temporal-benchmark.v1",
+  "scope": "Development-only timing and selection-regret check; no new held-out claim",
+  "candidate_count": 38760,
+  "subjects": {
+    "07": {
+      "source_member_sha256": "514fb56d1a720140167c8be5eafea36abab470d1d5af629378787d9fa20ba1e7",
+      "exact_program": [
+        0,
+        3,
+        6,
+        12,
+        13,
+        16
+      ],
+      "two_stage_program": [
+        0,
+        3,
+        6,
+        12,
+        13,
+        16
+      ],
+      "exact_cv": 0.9393939393939394,
+      "two_stage_cv": 0.9393939393939394,
+      "cv_regret": 0.0,
+      "exact_query_balanced_accuracy": 0.8636363636363636,
+      "two_stage_query_balanced_accuracy": 0.8636363636363636,
+      "exact_cv_seconds": 22.593912399956025,
+      "two_stage_search_seconds": 9.293029500055127
+    },
+    "08": {
+      "source_member_sha256": "11a2d7ece890dc4bc6b0a0c8db8a7ccf539040f79ec670ba69c952df482c6ee4",
+      "exact_program": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        17
+      ],
+      "two_stage_program": [
+        0,
+        6,
+        10,
+        12,
+        13,
+        16
+      ],
+      "exact_cv": 0.8848484848484848,
+      "two_stage_cv": 0.8666666666666667,
+      "cv_regret": 0.018181818181818077,
+      "exact_query_balanced_accuracy": 0.890909090909091,
+      "two_stage_query_balanced_accuracy": 0.9181818181818181,
+      "exact_cv_seconds": 22.711249099927954,
+      "two_stage_search_seconds": 7.288887600065209
+    },
+    "09": {
+      "source_member_sha256": "35b0cfc7b81626db564d7d88d89eabfe0f7747f4f8cdb81ab95addc5814a2d73",
+      "exact_program": [
+        2,
+        5,
+        7,
+        8,
+        12,
+        17
+      ],
+      "two_stage_program": [
+        5,
+        6,
+        7,
+        12,
+        14,
+        17
+      ],
+      "exact_cv": 0.9454545454545455,
+      "two_stage_cv": 0.9454545454545453,
+      "cv_regret": 2.220446049250313e-16,
+      "exact_query_balanced_accuracy": 0.9636363636363637,
+      "two_stage_query_balanced_accuracy": 0.9727272727272727,
+      "exact_cv_seconds": 25.254433599999174,
+      "two_stage_search_seconds": 7.755123099894263
+    },
+    "10": {
+      "source_member_sha256": "5686c4bf15bef0bd785ac796fb08cffedecd57b04535acf0d975842e8da05cbb",
+      "exact_program": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        11
+      ],
+      "two_stage_program": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        11
+      ],
+      "exact_cv": 0.987878787878788,
+      "two_stage_cv": 0.987878787878788,
+      "cv_regret": 0.0,
+      "exact_query_balanced_accuracy": 0.9818181818181819,
+      "two_stage_query_balanced_accuracy": 0.9818181818181819,
+      "exact_cv_seconds": 28.315802400000393,
+      "two_stage_search_seconds": 7.036891600000672
+    },
+    "11": {
+      "source_member_sha256": "6edf5aeb05f4d5dc7e5ccab5e99908bf872413f5715d52d0ad0bd5516df35bfb",
+      "exact_program": [
+        0,
+        3,
+        4,
+        6,
+        12,
+        14
+      ],
+      "two_stage_program": [
+        0,
+        3,
+        4,
+        12,
+        15,
+        17
+      ],
+      "exact_cv": 0.9272727272727272,
+      "two_stage_cv": 0.9212121212121213,
+      "cv_regret": 0.006060606060605989,
+      "exact_query_balanced_accuracy": 0.9,
+      "two_stage_query_balanced_accuracy": 0.9272727272727272,
+      "exact_cv_seconds": 28.85625930002425,
+      "two_stage_search_seconds": 8.192242500022985
+    },
+    "12": {
+      "source_member_sha256": "1b519292e1de49b0dd6960201dcbc182cac3411fd6f56214dbab5e471fe12c7d",
+      "exact_program": [
+        0,
+        8,
+        12,
+        13,
+        14,
+        16
+      ],
+      "two_stage_program": [
+        0,
+        1,
+        8,
+        12,
+        16,
+        18
+      ],
+      "exact_cv": 0.9393939393939394,
+      "two_stage_cv": 0.9333333333333333,
+      "cv_regret": 0.0060606060606061,
+      "exact_query_balanced_accuracy": 0.890909090909091,
+      "two_stage_query_balanced_accuracy": 0.9181818181818181,
+      "exact_cv_seconds": 33.36672859999817,
+      "two_stage_search_seconds": 8.106822700123303
+    }
+  }
+}

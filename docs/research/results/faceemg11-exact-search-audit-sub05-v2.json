@@ -1,0 +1,53 @@
+{
+  "schema": "openalterego.faceemg11-exact-search-audit.v1",
+  "scope": "Retrospective within-recording selection-score audit; 20 facial channels, command labels, no silent speech or physical intervention",
+  "source_member_sha256": "d2fce1b84b8e8bfaf4e351962f5f94c4e61ed6aaece6d2a2c3ba2ce3e5366e70",
+  "subject": "05",
+  "selection": "forward folds fit blocks 1-10 / validate 11-15; fit 1-15 / validate 16-20",
+  "channels": 20,
+  "program_size": 6,
+  "programs_exhaustively_scored": 38760,
+  "features_per_channel": 8,
+  "ridge_alpha": 10.0,
+  "beam_width": 4,
+  "beam_program_evaluations": 342,
+  "beam_channels": [
+    4,
+    5,
+    9,
+    11,
+    12,
+    13
+  ],
+  "beam_selection_score": 1.0,
+  "beam_exact_rank": 1,
+  "exact_best_channels": [
+    0,
+    2,
+    4,
+    10,
+    11,
+    15
+  ],
+  "exact_best_selection_score": 1.0,
+  "exact_top_score_tie_count": 13,
+  "later_block_accuracy_top_tie_min": 0.8272727272727273,
+  "later_block_accuracy_top_tie_max": 0.9272727272727274,
+  "selection_score_regret": 0.0,
+  "later_block_accuracy_beam": 0.9272727272727274,
+  "later_block_accuracy_exact_selection": 0.8818181818181817,
+  "later_block_accuracy_all_twenty": 0.9818181818181819,
+  "score_quantiles": [
+    0.6545454545454545,
+    0.8909090909090909,
+    0.9181818181818182,
+    0.9363636363636363,
+    0.9636363636363636,
+    0.9818181818181818,
+    1.0
+  ],
+  "beam_seconds": 0.05650700000114739,
+  "exhaustive_seconds": 10.167712000082247,
+  "machine": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.4"
+}
