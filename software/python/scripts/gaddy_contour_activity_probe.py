@@ -97,11 +97,13 @@ def main() -> None:
     parser.add_argument("--train", type=Path, nargs="+", required=True)
     parser.add_argument("--dev", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--feature-backend", choices=("python", "rust"), default="python")
     args = parser.parse_args()
     if args.dev.resolve() in {path.resolve() for path in args.train}:
         parser.error("development session must differ from training sessions")
-    train = [row for path in args.train for row in session_rows(path)]
-    dev = session_rows(args.dev)
+    train = [row for path in args.train for row in session_rows(
+        path, feature_backend=args.feature_backend, estimate_pitch=False)]
+    dev = session_rows(args.dev, feature_backend=args.feature_backend, estimate_pitch=False)
     if not train or not dev:
         parser.error("empty train or development session")
     threshold = -2.0
@@ -164,6 +166,7 @@ def main() -> None:
     result = {
         "schema": "openalterego.gaddy-contour-activity-dev.v1",
         "train_sessions": [path.name for path in args.train], "dev_session": args.dev.name,
+        "feature_backend": args.feature_backend,
         "acoustic_activity_threshold_log10_rms": threshold,
         "target_smoothing": "causal 5-frame mean of log10 RMS, 50 ms frame step",
         "sparse_dictionary": {"components": 8, "alpha_w": 0.01, "alpha_h": 0.01,

@@ -69,7 +69,8 @@ def causal_filter_emg(raw: np.ndarray) -> np.ndarray:
 
 
 def trial_frames(emg: np.ndarray, audio: np.ndarray,
-                 emg_sample_rate: float = 1000) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+                 emg_sample_rate: float = 1000,
+                 estimate_pitch: bool = True) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     duration = min(len(emg) / emg_sample_rate, len(audio) / 16000)
     features, energy, f0 = [], [], []
     window = round(0.1 * emg_sample_rate)
@@ -82,7 +83,7 @@ def trial_frames(emg: np.ndarray, audio: np.ndarray,
         features.append(np.r_[np.log1p(np.sqrt(np.mean(e * e, axis=0))),
                                 np.log1p(np.mean(np.abs(np.diff(e, axis=0)), axis=0))])
         energy.append(float(np.log10(max(np.sqrt(np.mean(a * a)), 1e-6))))
-        pitch, _ = estimate_f0(a)
+        pitch = estimate_f0(a)[0] if estimate_pitch else 0.0
         f0.append(pitch)
     return np.asarray(features), np.asarray(energy), np.asarray(f0)
 

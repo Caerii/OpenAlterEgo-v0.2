@@ -26,6 +26,17 @@ def test_trial_frames_and_split_score_are_finite():
     assert np.isfinite(result["emg_mae"])
 
 
+def test_energy_only_framing_preserves_features_and_target():
+    rng = np.random.default_rng(5)
+    emg = rng.normal(size=(1000, 8))
+    audio = rng.normal(size=16000)
+    full_x, full_y, _ = trial_frames(emg, audio)
+    energy_x, energy_y, pitch = trial_frames(emg, audio, estimate_pitch=False)
+    assert np.array_equal(full_x, energy_x)
+    assert np.array_equal(full_y, energy_y)
+    assert np.count_nonzero(pitch) == 0
+
+
 def test_session_normalization_removes_unlabeled_shift():
     base = np.arange(40, dtype=float).reshape(20, 2)
     assert np.allclose(robust_session_normalize(base),

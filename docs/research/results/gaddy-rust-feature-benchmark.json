@@ -1,0 +1,48 @@
+{
+  "schema": "openalterego.gaddy-rust-feature-benchmark.v1",
+  "trials": 20,
+  "frames": 3420,
+  "repetitions": 5,
+  "python_seconds": [
+    1.4798421999439597,
+    1.4818589999340475,
+    1.4605707000009716,
+    1.0690876999869943,
+    0.9100951000582427
+  ],
+  "rust_seconds": [
+    0.010307100019417703,
+    0.02993299998342991,
+    0.017284899950027466,
+    0.016827100072987378,
+    0.012925099930725992
+  ],
+  "python_decode_seconds": [
+    6.588743299944326,
+    4.438398699974641,
+    8.839540699962527,
+    9.733097599935718,
+    5.84229270007927
+  ],
+  "rust_decode_seconds": [
+    0.09014520002529025,
+    0.07976450002752244,
+    0.07571330002974719,
+    0.06265989993698895,
+    0.06635580002330244
+  ],
+  "median_decode_speedup": 87.02227082105335,
+  "python_energy_only_seconds": [
+    0.19183370005339384,
+    0.16242049995344132,
+    0.44986130006145686,
+    0.44536219991277903,
+    0.3958345000864938
+  ],
+  "median_speedup": 86.79871716848184,
+  "median_energy_only_speedup": 23.52363142606662,
+  "max_feature_abs_error": 0.0,
+  "max_energy_abs_error": 0.0,
+  "max_audio_abs_error": 0.0,
+  "scope": "separate FLAC decode and in-memory frame extraction timings; filtering and model fitting excluded"
+}

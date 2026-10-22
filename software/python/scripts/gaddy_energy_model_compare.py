@@ -38,7 +38,8 @@ def shift_past(features: np.ndarray, frames: int = 20) -> np.ndarray:
     return features[np.maximum(np.arange(len(features)) - frames, 0)]
 
 
-def session_rows(path: Path) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
+def session_rows(path: Path, feature_backend: str = "python",
+                 estimate_pitch: bool = True) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
     manifest = json.loads((path / "manifest.json").read_text(encoding="utf-8"))
     if manifest["schema"] != "openalterego.gaddy-voiced-subset.v1":
         raise ValueError(f"Unexpected manifest: {path}")
@@ -51,9 +52,21 @@ def session_rows(path: Path) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
         emg = np.load(path / f"{trial_id}_emg.npy", allow_pickle=False).astype(np.float64)
         if emg.ndim != 2 or emg.shape[1] != 8 or not np.isfinite(emg).all():
             raise ValueError(f"Invalid EMG: {path}, {trial_id}")
-        features, target, pitch = trial_frames(
-            causal_filter_emg(emg), decode_flac(path / f"{trial_id}_audio_clean.flac")
-        )
+        emg = causal_filter_emg(emg)
+        if feature_backend == "rust":
+            if estimate_pitch:
+                raise ValueError("Rust energy-only backend cannot estimate pitch")
+            import openalterego_accel
+            audio = openalterego_accel.decode_gaddy_flac(str(path / f"{trial_id}_audio_clean.flac"))
+            duration = min(len(emg) / 1000, len(audio) / 16000)
+            centers = np.arange(0.15, duration - 0.15, 0.05)
+            features, target = openalterego_accel.extract_energy_features(emg, audio, 1000.0, centers)
+            pitch = np.zeros(len(target))
+        elif feature_backend == "python":
+            audio = decode_flac(path / f"{trial_id}_audio_clean.flac")
+            features, target, pitch = trial_frames(emg, audio, estimate_pitch=estimate_pitch)
+        else:
+            raise ValueError(f"unknown feature backend: {feature_backend}")
         if len(target):
             rows.append((features, target, pitch))
     return rows
