@@ -5,7 +5,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
 import os
+import time
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
 
@@ -33,18 +35,23 @@ def acquire(root: Path, name: str, expected: str) -> tuple[str, int, bool]:
             raise ValueError(f"existing file hash mismatch: {path}")
         return name, path.stat().st_size, True
     temporary = path.with_name(f"{path.name}.{os.getpid()}.part")
-    try:
-        digest = hashlib.sha256()
-        with urlopen(BASE + name, timeout=90) as response, temporary.open("wb") as output:
-            for chunk in iter(lambda: response.read(1024 * 1024), b""):
-                digest.update(chunk)
-                output.write(chunk)
-        if digest.hexdigest() != expected:
-            raise ValueError(f"download SHA-256 mismatch: {name}")
-        os.replace(temporary, path)
-        return name, path.stat().st_size, False
-    finally:
-        temporary.unlink(missing_ok=True)
+    for attempt in range(5):
+        try:
+            digest = hashlib.sha256()
+            with urlopen(BASE + name, timeout=90) as response, temporary.open("wb") as output:
+                for chunk in iter(lambda: response.read(1024 * 1024), b""):
+                    digest.update(chunk)
+                    output.write(chunk)
+            if digest.hexdigest() != expected:
+                raise ValueError(f"download SHA-256 mismatch: {name}")
+            os.replace(temporary, path)
+            return name, path.stat().st_size, False
+        except (HTTPError, URLError, TimeoutError, ConnectionError) as error:
+            if (isinstance(error, HTTPError) and error.code not in (429, 500, 502, 503, 504)) or attempt == 4:
+                raise
+            time.sleep(min(2 ** attempt, 16))
+        finally:
+            temporary.unlink(missing_ok=True)
 
 
 def main():

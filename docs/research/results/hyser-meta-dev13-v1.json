@@ -1,0 +1,98 @@
+{
+  "schema": "openalterego.hyser-meta-dataset.v1",
+  "scope": "Development data; all next-day outcomes on these subjects have been seen",
+  "feature_names": [
+    "nominal_cv",
+    "mean_shift_cv",
+    "minimum_shift_cv",
+    "shift_cv_sd",
+    "mean_darkness",
+    "max_darkness",
+    "dark_contact_fraction",
+    "mean_log_rms",
+    "mean_log_rms_sd",
+    "mean_trial_feature_sd",
+    "min_pair_grid_cells",
+    "mean_pair_grid_cells",
+    "day_one_trials",
+    "day_one_classes"
+  ],
+  "subjects": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+  ],
+  "candidate_count": 1000,
+  "last_design": "fixed_grid",
+  "seed": 42,
+  "source_record_sha256": {
+    "01": [
+      "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea"
+    ],
+    "02": [
+      "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df"
+    ],
+    "03": [
+      "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd"
+    ],
+    "04": [
+      "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad"
+    ],
+    "05": [
+      "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e"
+    ],
+    "09": [
+      "d991fc14494e9b703aa7d62d62ab675f92e837b579afa5930b8fa922f0a58635",
+      "7cb622e7b501b8efe3a11444b6a51c71931cdd04501017c7e809987767326cc5"
+    ],
+    "10": [
+      "096591743e63cb50fde7bc1efb8e6141e398e7c8274d296ab961caa2b7a8e370",
+      "b4cbf85a0238355a835de8b2b29466578e999bf5e31dadeafab5de2f7c9b7fae"
+    ],
+    "11": [
+      "1cfba909efefff11630f594c9f724ecb00774f01b63f352582d724006d0d147c",
+      "d9636d8facf8640a6c3b3b6a415dcfa3dade39c955c1fd10bb4723875cde1ce9"
+    ],
+    "12": [
+      "55553a72305e842fa992dc9feb6487784ba088eaaa496152881b8a86d67aa0ee",
+      "676689a948905c54fb1ef7f707362791cda1a0f1c055d18602675a055cbdc069"
+    ],
+    "13": [
+      "88f715c502ad072271dade9fd12df26bcb0919bb3de1f125982b820a573d49cb",
+      "fa6e8f5f943ba808df5c98d213a2ab654a70d8e1771c7f3163fbb045f2fe6d4a"
+    ],
+    "14": [
+      "adcf92a64675025fc725e07418ac348850021051c66c34e50945483572a5c6eb",
+      "8ea4b23535ef48579901f35414f96b352af9d63492b3477fda3b9ffe029f5449"
+    ],
+    "15": [
+      "767c11cb70d2484603e33907d81b30163047eed97b9b78e1cf62a6c6fdff3feb",
+      "3f0278a92fafbfebfa94dd312f6c60a963c93a09cadd77de394f146731c76020"
+    ],
+    "16": [
+      "ec7ec3dad4db8841f78d0efebe4d174aab4aec693145bd9526eba108e810e7ef",
+      "f9a1ae22a2c0ed8d1b7bedcd88bae3e45a7302ba0b56c0ce060e06ba703f9406"
+    ]
+  },
+  "npz_sha256": "ea8d7451a327045b59f74ae3e7141533424eaaa95ab962affbded1faf9ec23f8",
+  "shape": [
+    13,
+    1001,
+    14
+  ]
+}

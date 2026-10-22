@@ -1,0 +1,256 @@
+{
+  "schema": "openalterego.hyser-meta-loo.v1",
+  "scope": "Development-only leave-one-person-out model check; no untouched-cohort result",
+  "dataset_sha256": "ea8d7451a327045b59f74ae3e7141533424eaaa95ab962affbded1faf9ec23f8",
+  "subjects": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+  ],
+  "model_settings": {
+    "ridge_alpha": 1000,
+    "hist_gradient": {
+      "max_iter": 80,
+      "max_leaf_nodes": 8,
+      "min_samples_leaf": 100,
+      "l2_regularization": 10,
+      "learning_rate": 0.05
+    }
+  },
+  "summary": {
+    "ridge_alpha1000": {
+      "mean_advantage": -0.05103752456693638,
+      "worst_advantage": -0.37254901960784315,
+      "subjects_improved": 5,
+      "subjects_harmed": 8,
+      "recommendations_over_0p05_margin": 0
+    },
+    "hist_gradient_80_leaf8": {
+      "mean_advantage": -0.05890351478586778,
+      "worst_advantage": -0.4362745098039216,
+      "subjects_improved": 3,
+      "subjects_harmed": 10,
+      "recommendations_over_0p05_margin": 0
+    }
+  },
+  "results": {
+    "01": {
+      "ridge_alpha1000": {
+        "chosen_index": 799,
+        "predicted_advantage_vs_fixed": 0.016559432012055175,
+        "actual_advantage_vs_fixed": -0.04545454545454575,
+        "spearman_predicted_vs_actual": 0.32757594418230446,
+        "fixed_day_two": 0.5707070707070709
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 588,
+        "predicted_advantage_vs_fixed": 0.012853773821512246,
+        "actual_advantage_vs_fixed": -0.010101010101010388,
+        "spearman_predicted_vs_actual": 0.2831248829989416,
+        "fixed_day_two": 0.5707070707070709
+      }
+    },
+    "02": {
+      "ridge_alpha1000": {
+        "chosen_index": 790,
+        "predicted_advantage_vs_fixed": 0.036339549503833155,
+        "actual_advantage_vs_fixed": -0.09019607843137259,
+        "spearman_predicted_vs_actual": -0.0052947384641367145,
+        "fixed_day_two": 0.24215686274509807
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 278,
+        "predicted_advantage_vs_fixed": 0.03911985470805529,
+        "actual_advantage_vs_fixed": -0.036274509803921634,
+        "spearman_predicted_vs_actual": 0.018159970048719852,
+        "fixed_day_two": 0.24215686274509807
+      }
+    },
+    "03": {
+      "ridge_alpha1000": {
+        "chosen_index": 712,
+        "predicted_advantage_vs_fixed": 0.03555637899544238,
+        "actual_advantage_vs_fixed": -0.013131313131313216,
+        "spearman_predicted_vs_actual": 0.5342699613119033,
+        "fixed_day_two": 0.4414141414141415
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 471,
+        "predicted_advantage_vs_fixed": 0.03592022118655687,
+        "actual_advantage_vs_fixed": -0.02525252525252536,
+        "spearman_predicted_vs_actual": -0.06939389441631665,
+        "fixed_day_two": 0.4414141414141415
+      }
+    },
+    "04": {
+      "ridge_alpha1000": {
+        "chosen_index": 967,
+        "predicted_advantage_vs_fixed": 0.02889052499253203,
+        "actual_advantage_vs_fixed": -0.044117647058823706,
+        "spearman_predicted_vs_actual": 0.7558927697944813,
+        "fixed_day_two": 0.5980392156862745
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 345,
+        "predicted_advantage_vs_fixed": 0.0327532301865496,
+        "actual_advantage_vs_fixed": -0.009803921568627416,
+        "spearman_predicted_vs_actual": 0.7332754916608313,
+        "fixed_day_two": 0.5980392156862745
+      }
+    },
+    "05": {
+      "ridge_alpha1000": {
+        "chosen_index": 598,
+        "predicted_advantage_vs_fixed": 0.009552375741633479,
+        "actual_advantage_vs_fixed": -0.16666666666666657,
+        "spearman_predicted_vs_actual": 0.48332113821547035,
+        "fixed_day_two": 0.5147058823529411
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 92,
+        "predicted_advantage_vs_fixed": 0.022820415781164255,
+        "actual_advantage_vs_fixed": -0.04901960784313719,
+        "spearman_predicted_vs_actual": 0.4728907766702738,
+        "fixed_day_two": 0.5147058823529411
+      }
+    },
+    "09": {
+      "ridge_alpha1000": {
+        "chosen_index": 588,
+        "predicted_advantage_vs_fixed": 0.022197594855120795,
+        "actual_advantage_vs_fixed": 0.02941176470588236,
+        "spearman_predicted_vs_actual": 0.5385553075803804,
+        "fixed_day_two": 0.6029411764705883
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 986,
+        "predicted_advantage_vs_fixed": 0.017859447085912902,
+        "actual_advantage_vs_fixed": -0.12745098039215702,
+        "spearman_predicted_vs_actual": 0.24962733560668462,
+        "fixed_day_two": 0.6029411764705883
+      }
+    },
+    "10": {
+      "ridge_alpha1000": {
+        "chosen_index": 553,
+        "predicted_advantage_vs_fixed": 0.009816067724510179,
+        "actual_advantage_vs_fixed": 0.0901960784313725,
+        "spearman_predicted_vs_actual": 0.004232533165412102,
+        "fixed_day_two": 0.37058823529411766
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 86,
+        "predicted_advantage_vs_fixed": 0.01987048323144868,
+        "actual_advantage_vs_fixed": 0.12647058823529406,
+        "spearman_predicted_vs_actual": -0.015992458087139106,
+        "fixed_day_two": 0.37058823529411766
+      }
+    },
+    "11": {
+      "ridge_alpha1000": {
+        "chosen_index": 102,
+        "predicted_advantage_vs_fixed": 0.01595291413909511,
+        "actual_advantage_vs_fixed": 0.053921568627450955,
+        "spearman_predicted_vs_actual": 0.09289609033319088,
+        "fixed_day_two": 0.16176470588235295
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 7,
+        "predicted_advantage_vs_fixed": 0.007471768841872312,
+        "actual_advantage_vs_fixed": -0.004901960784313708,
+        "spearman_predicted_vs_actual": 0.0956380275055726,
+        "fixed_day_two": 0.16176470588235295
+      }
+    },
+    "12": {
+      "ridge_alpha1000": {
+        "chosen_index": 650,
+        "predicted_advantage_vs_fixed": 0.025100185793063286,
+        "actual_advantage_vs_fixed": -0.11078431372549025,
+        "spearman_predicted_vs_actual": 0.3963639290767182,
+        "fixed_day_two": 0.3019607843137255
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 677,
+        "predicted_advantage_vs_fixed": 0.013650168713779894,
+        "actual_advantage_vs_fixed": 0.006862745098039191,
+        "spearman_predicted_vs_actual": 0.46586328548776157,
+        "fixed_day_two": 0.3019607843137255
+      }
+    },
+    "13": {
+      "ridge_alpha1000": {
+        "chosen_index": 133,
+        "predicted_advantage_vs_fixed": 0.017482019658656547,
+        "actual_advantage_vs_fixed": 0.01470588235294118,
+        "spearman_predicted_vs_actual": 0.38020939553516553,
+        "fixed_day_two": 0.45588235294117646
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 323,
+        "predicted_advantage_vs_fixed": 0.005859002899162684,
+        "actual_advantage_vs_fixed": -0.2598039215686274,
+        "spearman_predicted_vs_actual": 0.18393501618279998,
+        "fixed_day_two": 0.45588235294117646
+      }
+    },
+    "14": {
+      "ridge_alpha1000": {
+        "chosen_index": 770,
+        "predicted_advantage_vs_fixed": 0.01821598348265123,
+        "actual_advantage_vs_fixed": 0.09411764705882353,
+        "spearman_predicted_vs_actual": 0.42173291144148284,
+        "fixed_day_two": 0.39607843137254906
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 770,
+        "predicted_advantage_vs_fixed": 0.00853839880805464,
+        "actual_advantage_vs_fixed": 0.09411764705882353,
+        "spearman_predicted_vs_actual": 0.4008895175788728,
+        "fixed_day_two": 0.39607843137254906
+      }
+    },
+    "15": {
+      "ridge_alpha1000": {
+        "chosen_index": 393,
+        "predicted_advantage_vs_fixed": 0.03855354073103589,
+        "actual_advantage_vs_fixed": -0.37254901960784315,
+        "spearman_predicted_vs_actual": 0.06354202356558232,
+        "fixed_day_two": 0.5
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 304,
+        "predicted_advantage_vs_fixed": 0.0440752960547894,
+        "actual_advantage_vs_fixed": -0.4362745098039216,
+        "spearman_predicted_vs_actual": 0.017416439286984758,
+        "fixed_day_two": 0.5
+      }
+    },
+    "16": {
+      "ridge_alpha1000": {
+        "chosen_index": 198,
+        "predicted_advantage_vs_fixed": 0.03375399842537362,
+        "actual_advantage_vs_fixed": -0.10294117647058826,
+        "spearman_predicted_vs_actual": 0.673594286283091,
+        "fixed_day_two": 0.2990196078431373
+      },
+      "hist_gradient_80_leaf8": {
+        "chosen_index": 572,
+        "predicted_advantage_vs_fixed": 0.019142571660333688,
+        "actual_advantage_vs_fixed": -0.03431372549019612,
+        "spearman_predicted_vs_actual": 0.7059193599137231,
+        "fixed_day_two": 0.2990196078431373
+      }
+    }
+  }
+}
