@@ -1,0 +1,11 @@
+{
+  "schema": "openalterego.external-emg-source.v1",
+  "original_corpus_paper": "https://www.isca-archive.org/interspeech_2014/wand14b_interspeech.pdf",
+  "download": "https://www.kaggle.com/datasets/xabierdezuazo/emguka-trial-corpus",
+  "downloaded_archive_sha256": "d281d1af6316ca0cdc888d1a8e2812a871c3b4c49390deebeac9b9671c392db8",
+  "archive_bytes": 401190009,
+  "subset_test_audible_sha256": "bb54555819eef58789b4a58a67ef681c0c13e6f3249dd171b2c89d5c767c701f",
+  "corpus_documentation_sha256": "e4d72284eb559315c6ee9ca97fe70abe30560354320514a0593621923ce571b0",
+  "license_status": "Kaggle API reports Unknown; do not redistribute raw corpus from this repository",
+  "measurement": "six facial EMG channels plus marker; 600 Hz; 16-bit little-endian interleaved ADC; eight speaker-008 audible sessions"
+}
