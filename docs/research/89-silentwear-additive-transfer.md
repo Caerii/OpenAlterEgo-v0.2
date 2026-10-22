@@ -47,7 +47,9 @@ The three [result records](results/silentwear-additive-screen-dev03-seed42-v1.js
 their adjacent per-subject selection receipts retain source manifest
 hashes, session/batch provenance, selected channels and normalization,
 selection scores, future-session outcomes, and component timings. The
-selection records contain no day-3 outcome. This is an offline event-level
+selection records contain no day-3 outcome. Their receipt hashes use
+canonical JSON content so a checkout's line endings cannot change the
+decision identity. This is an offline event-level
 command benchmark; complete unlabeled batches are used for recording-robust
 normalization, and streaming interaction latency is not measured.
 

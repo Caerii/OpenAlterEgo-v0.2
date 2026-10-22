@@ -11,7 +11,7 @@
   "subjects": {
     "S01": {
       "manifest_sha256": "d7438cc46342e0618b27e55bf772ab7a14f675589c4e8067b264a0080d8d7aa6",
-      "selection_receipt_sha256": "cd851b7d3eb93bd4bfe27a049c2ce685a28606721f25b75a6e41285f1e8153ba",
+      "selection_receipt_sha256": "2b803640676c01529bea4a4595a07c30741fcfa21059be7184376ab3454f2492",
       "selection_record": "docs\\research\\results\\silentwear-additive-screen-dev03-seed43-v1-S01-selection.json",
       "source_batches": [
         {
@@ -160,7 +160,7 @@
     },
     "S02": {
       "manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
-      "selection_receipt_sha256": "7de0ba80b73643ae6afa3e7162e6bd50ece239fb76d8768b1499a6446abc81d8",
+      "selection_receipt_sha256": "90c285f8b89ca112eaff0665f5985a4136451d36428f97d02cbe801c165e9e3b",
       "selection_record": "docs\\research\\results\\silentwear-additive-screen-dev03-seed43-v1-S02-selection.json",
       "source_batches": [
         {
@@ -309,7 +309,7 @@
     },
     "S03": {
       "manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547",
-      "selection_receipt_sha256": "a7a209d951e15dc20c8ae201a288d4567027da88b1a58a24111e94513fff9dc0",
+      "selection_receipt_sha256": "fa525c1ed077457bd6a38f26e4b9215cebcda9287e763e56e5efc489e1b9c5a5",
       "selection_record": "docs\\research\\results\\silentwear-additive-screen-dev03-seed43-v1-S03-selection.json",
       "source_batches": [
         {

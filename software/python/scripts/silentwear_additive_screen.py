@@ -43,10 +43,12 @@ def _scores(indices: np.ndarray, folds: tuple) -> np.ndarray:
 
 
 def _freeze(path: Path, record: dict) -> str:
+    canonical = json.dumps(record, sort_keys=True, separators=(",", ":"),
+                           allow_nan=False).encode()
     encoded = (json.dumps(record, sort_keys=True, indent=2,
                           allow_nan=False) + "\n").encode()
     if path.exists():
-        if path.read_bytes() != encoded:
+        if json.loads(path.read_text(encoding="utf-8")) != record:
             raise ValueError(f"selection record differs: {path}")
     else:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -54,7 +56,7 @@ def _freeze(path: Path, record: dict) -> str:
             stream.write(encoded)
             stream.flush()
             os.fsync(stream.fileno())
-    return hashlib.sha256(encoded).hexdigest()
+    return hashlib.sha256(canonical).hexdigest()
 
 
 def analyze(root: Path, cache: Path, subject: str, seed: int,
