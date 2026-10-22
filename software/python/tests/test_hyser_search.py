@@ -9,6 +9,7 @@ from openalterego.research.hyser_spatial_search import displacement_maps
 from openalterego.research.hyser_transfer import prepare_day_pair, score_day_pair
 from openalterego.research.hyser_temporal_features import temporal_trial_features
 from openalterego.research.dense_programs import prepare_fold, score_programs
+from openalterego.research.hyser_fewshot import ridge_query_score, support_query
 
 
 def test_dense_screen_scores_batched_and_scalar_designs_identically():
@@ -88,6 +89,23 @@ def test_generic_dense_program_scorer_matches_two_feature_reference():
     fold = prepare_fold(train, target, features_per_site=2)
     actual = score_programs([fold], designs, features_per_site=2)
     expected = [ridge_test(train, target, list(row)) for row in designs]
+    np.testing.assert_allclose(actual, expected, atol=1e-12)
+
+
+def test_fewshot_support_is_disjoint_and_zero_weight_matches_reference():
+    rng = np.random.default_rng(23)
+    labels = np.repeat(np.arange(1, 34), 5)
+    target_labels = np.repeat(np.arange(1, 35), 3)
+    train = (rng.normal(size=(len(labels), 512)), labels)
+    target = (rng.normal(size=(len(target_labels), 512)), target_labels)
+    support, query = support_query(target_labels, 1)
+    assert len(support) == 34 and len(query) == 68
+    assert not set(support) & set(query)
+    channels = [0, 1, 64]
+    actual = ridge_query_score(train, target, channels, features_per_site=2,
+                               alpha=10, support=support, query=query,
+                               support_weight=0)
+    expected = ridge_test(train, (target[0][query], target[1][query]), channels)
     np.testing.assert_allclose(actual, expected, atol=1e-12)
 
 
