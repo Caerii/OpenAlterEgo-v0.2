@@ -7,8 +7,19 @@ use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
 use rayon::prelude::*;
 
+#[derive(Default)]
+struct DenseScratch {
+    columns: Vec<usize>,
+    lower: Vec<f64>,
+    coefficients: Vec<f64>,
+    work: Vec<f64>,
+    hits: Vec<usize>,
+    totals: Vec<usize>,
+}
+
 fn dense_program_accuracy(
     program: &[i16],
+    scratch: &mut DenseScratch,
     gram: &[f64],
     cross: &[f64],
     validation: &[f64],
@@ -21,14 +32,23 @@ fn dense_program_accuracy(
     alpha: f64,
 ) -> Result<f64, String> {
     let k = program.len() * features_per_site + 1;
-    let mut columns = Vec::with_capacity(k);
+    let DenseScratch {
+        columns,
+        lower,
+        coefficients,
+        work,
+        hits,
+        totals,
+    } = scratch;
+    columns.clear();
+    columns.reserve(k);
     for &channel in program {
         for feature in 0..features_per_site {
             columns.push(channel as usize * features_per_site + feature);
         }
     }
     columns.push(feature_count - 1);
-    let mut lower = vec![0.0; k * k];
+    lower.resize(k * k, 0.0);
     for i in 0..k {
         for j in 0..=i {
             let mut value = gram[columns[i] * feature_count + columns[j]];
@@ -48,8 +68,8 @@ fn dense_program_accuracy(
             }
         }
     }
-    let mut coefficients = vec![0.0; k * class_count];
-    let mut work = vec![0.0; k];
+    coefficients.resize(k * class_count, 0.0);
+    work.resize(k, 0.0);
     for class in 0..class_count {
         for i in 0..k {
             let mut value = cross[columns[i] * class_count + class];
@@ -66,8 +86,10 @@ fn dense_program_accuracy(
             coefficients[i * class_count + class] = value / lower[i * k + i];
         }
     }
-    let mut hits = vec![0usize; group_count];
-    let mut totals = vec![0usize; group_count];
+    hits.resize(group_count, 0);
+    hits.fill(0);
+    totals.resize(group_count, 0);
+    totals.fill(0);
     for (row, (&group, &target)) in groups.iter().zip(train_ids).enumerate() {
         let mut best_class = 0usize;
         let mut best_value = f64::NEG_INFINITY;
@@ -169,9 +191,10 @@ fn score_dense_programs(
     let scores: Vec<Result<f64, String>> = py.detach(|| {
         designs
             .par_chunks_exact(d_shape[1])
-            .map(|program| {
+            .map_init(DenseScratch::default, |scratch, program| {
                 dense_program_accuracy(
                     program,
+                    scratch,
                     gram,
                     cross,
                     validation,
