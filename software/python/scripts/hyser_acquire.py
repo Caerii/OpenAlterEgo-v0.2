@@ -21,14 +21,17 @@ def sha256_file(path: Path) -> str:
 
 
 def acquire(root: Path, name: str, expected: str) -> tuple[str, int, bool]:
-    path = (root / name).resolve()
-    if not path.is_relative_to(root.resolve()):
+    relative = Path(name)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError("file escapes dataset root")
+    path = root / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.resolve().is_relative_to(root.resolve()):
         raise ValueError("file escapes dataset root")
     if path.exists():
         if sha256_file(path) != expected:
             raise ValueError(f"existing file hash mismatch: {path}")
         return name, path.stat().st_size, True
-    path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f"{path.name}.{os.getpid()}.part")
     try:
         digest = hashlib.sha256()
@@ -64,8 +67,10 @@ def main():
     records = root / "RECORDS"
     if not sums.exists() or not records.exists():
         parser.error("download official SHA256SUMS.txt and RECORDS into --root first")
-    expected = dict(line.strip().split(" ", 1) for line in sums.read_text().splitlines())
-    expected = {name: digest for digest, name in expected.items()}
+    # Several publisher files have identical contents and hashes. Index by
+    # pathname directly so a duplicate digest cannot discard a record.
+    expected = {name: digest for digest, name in
+                (line.strip().split(" ", 1) for line in sums.read_text().splitlines())}
     all_records = records.read_text().splitlines()
     names = []
     counts = {}

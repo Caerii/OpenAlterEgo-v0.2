@@ -1,0 +1,47 @@
+{
+  "schema": "openalterego.hyser-holdout-score.v1",
+  "selection_sha256": "2020fa6e26c2f01655128cfe5e2b3adf1ec0491451dbe697ef12041dff09d223",
+  "protocol": {
+    "train_session": 1,
+    "evaluation_session": 2,
+    "width": 8,
+    "cv_folds": 3,
+    "ridge_alpha": 10.0,
+    "min_grid_distance_cells": 2,
+    "primary_comparison": "coverage_greedy versus fixed_grid next-day balanced accuracy",
+    "secondary_comparisons": [
+      "unconstrained_greedy",
+      "coverage_random_budget",
+      "unconstrained_random_budget",
+      "all_256_reference"
+    ]
+  },
+  "subjects": {
+    "04": {
+      "next_day_balanced_accuracy": {
+        "unconstrained_greedy": 0.6519607843137255,
+        "unconstrained_random_budget": 0.5490196078431373,
+        "coverage_greedy": 0.6911764705882353,
+        "coverage_random_budget": 0.5980392156862746,
+        "fixed_grid": 0.5980392156862746,
+        "all_256_reference": 0.07352941176470588
+      },
+      "train_trials": 202,
+      "test_trials": 204,
+      "test_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad"
+    },
+    "05": {
+      "next_day_balanced_accuracy": {
+        "unconstrained_greedy": 0.08823529411764706,
+        "unconstrained_random_budget": 0.29901960784313725,
+        "coverage_greedy": 0.09313725490196079,
+        "coverage_random_budget": 0.03431372549019608,
+        "fixed_grid": 0.5147058823529411,
+        "all_256_reference": 0.0392156862745098
+      },
+      "train_trials": 195,
+      "test_trials": 204,
+      "test_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e"
+    }
+  }
+}
