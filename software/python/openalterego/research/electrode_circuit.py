@@ -54,8 +54,42 @@ class ElectrodeCircuit:
         return 1 / (1 + electrode * input_admittance)
 
 
+@dataclass(frozen=True)
+class MeasuredElectrodeCircuit:
+    """Measured complex contact impedance at one stated frequency."""
+
+    impedance_ohm: np.ndarray
+    input_resistance_ohm: float
+    input_capacitance_f: float
+    frequency_hz: float
+    common_mode_variance: float = 0.0
+    cmrr_db: float | None = None
+
+    def contact_transfer(self, contact_count: int) -> np.ndarray:
+        impedance = np.asarray(self.impedance_ohm, dtype=np.complex128)
+        if (impedance.shape != (contact_count,) or
+                not np.isfinite(impedance).all() or
+                np.any(impedance.real < 0) or
+                np.any(impedance.imag > 1e-9) or
+                not np.isfinite(self.input_resistance_ohm) or
+                self.input_resistance_ohm <= 0 or
+                not np.isfinite(self.input_capacitance_f) or
+                self.input_capacitance_f < 0 or
+                not np.isfinite(self.frequency_hz) or self.frequency_hz < 0 or
+                not np.isfinite(self.common_mode_variance) or
+                self.common_mode_variance < 0 or
+                (self.cmrr_db is not None and (
+                    not np.isfinite(self.cmrr_db) or self.cmrr_db < 0))):
+            raise ValueError("invalid measured electrode circuit")
+        input_admittance = (1 / self.input_resistance_ohm +
+                            1j * 2 * np.pi * self.frequency_hz *
+                            self.input_capacitance_f)
+        return 1 / (1 + impedance * input_admittance)
+
+
 def circuit_transfer(program: DifferentialProgram,
-                     circuit: ElectrodeCircuit) -> tuple[np.ndarray, np.ndarray]:
+                     circuit: ElectrodeCircuit | MeasuredElectrodeCircuit
+                     ) -> tuple[np.ndarray, np.ndarray]:
     """Return contact-to-channel transfer and common-mode gain."""
     loaded = circuit.contact_transfer(program.contact_count)
     transfer = program.incidence() * loaded[None, :]
@@ -72,7 +106,8 @@ def circuit_transfer(program: DifferentialProgram,
 def circuit_measurement_covariances(
     program: DifferentialProgram, lead_field: np.ndarray,
     source_covariance: np.ndarray, contact_noise_variance: np.ndarray,
-    afe_noise_variance: np.ndarray, circuit: ElectrodeCircuit,
+    afe_noise_variance: np.ndarray,
+    circuit: ElectrodeCircuit | MeasuredElectrodeCircuit,
 ) -> tuple[np.ndarray, np.ndarray]:
     """Narrowband Hermitian signal/noise covariance under stated assumptions.
 

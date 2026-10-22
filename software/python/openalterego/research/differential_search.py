@@ -12,7 +12,8 @@ import numpy as np
 from openalterego.research.differential_hardware import (
     DifferentialProgram, measurement_covariances)
 from openalterego.research.electrode_circuit import (
-    ElectrodeCircuit, circuit_measurement_covariances)
+    ElectrodeCircuit, MeasuredElectrodeCircuit,
+    circuit_measurement_covariances)
 
 
 @dataclass(frozen=True)
@@ -21,7 +22,7 @@ class CovarianceScenario:
     source_covariance: np.ndarray
     contact_noise_variance: np.ndarray
     afe_noise_variance: np.ndarray
-    circuit: ElectrodeCircuit | None = None
+    circuit: ElectrodeCircuit | MeasuredElectrodeCircuit | None = None
 
 
 @dataclass(frozen=True)

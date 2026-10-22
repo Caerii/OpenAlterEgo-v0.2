@@ -1,0 +1,111 @@
+{
+  "schema": "openalterego.measured-impedance-sensitivity.v1",
+  "scope": "Publisher-hash-checked forearm dry-electrode impedances at 100 Hz; synthetic anatomy, common-mode input and independent contact assignments; no facial design validation",
+  "source_record": "https://zenodo.org/records/17691766",
+  "source_license": "CC BY 4.0",
+  "material_group": "mxene_5_7",
+  "source_files": [
+    "mxene ecoflex 5% (2) -01.txt",
+    "mxene ecoflex 5% (3) -01.txt",
+    "mxene ecoflex 5% -01 (2).txt",
+    "mxene ecoflex 5% -01.txt",
+    "mxene ecoflex 7% (2) -01.txt",
+    "mxene ecoflex 7% -01 (2).txt",
+    "mxene ecoflex 7% -01.txt"
+  ],
+  "source_md5": {
+    "mxene ecoflex 5% (2) -01.txt": "md5:14b3c414f638d25bfbf5bb3e9b682141",
+    "mxene ecoflex 5% (3) -01.txt": "md5:9ed45f4928e92b6cf89b4c18e8724ff1",
+    "mxene ecoflex 5% -01 (2).txt": "md5:073766ee2febeaeb580a0030cc809327",
+    "mxene ecoflex 5% -01.txt": "md5:a11a2c19e2eccabcf9838dd02a9441ed",
+    "mxene ecoflex 7% (2) -01.txt": "md5:c931bc8f37ca5cc641241c3cd1bd244a",
+    "mxene ecoflex 7% -01 (2).txt": "md5:60440fdb80f01a96908c9adc52c96ea4",
+    "mxene ecoflex 7% -01.txt": "md5:c2b50095929cc018affefa188f790e50"
+  },
+  "measured_100hz_impedance_magnitude_ohm": [
+    101724.32040548536,
+    120337.045522765,
+    229154.68904247586,
+    127807.93935526337,
+    56424.261232658486,
+    73144.92960793646,
+    65292.92548363859
+  ],
+  "measured_100hz_impedance_real_ohm": [
+    62320.2197641306,
+    102728.062697429,
+    204925.292371429,
+    89472.1417126795,
+    11597.9924785488,
+    17318.0155598537,
+    14428.5999300322
+  ],
+  "measured_100hz_impedance_imag_ohm": [
+    -80399.1764292913,
+    -62673.3568558531,
+    -102554.844140285,
+    -91266.6709132358,
+    -55219.4153004069,
+    -71065.2310516095,
+    -63678.7375995399
+  ],
+  "input_resistance_ohm": 100000000.0,
+  "input_capacitance_f": 0.0,
+  "frequency_hz": 100.0,
+  "assumed_cmrr_db": 100.0,
+  "arbitrary_common_mode_variance": 100.0,
+  "development_scenarios": 12,
+  "evaluation_scenarios": 24,
+  "seeds": {
+    "lead_dev": 42,
+    "lead_eval": 420,
+    "contact_assignment_dev": 43,
+    "contact_assignment_eval": 421
+  },
+  "ideal_evaluations": 1210,
+  "measured_circuit_evaluations": 1210,
+  "scores": {
+    "ideal_selected": {
+      "channels": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "active_contacts": 7,
+      "held_proxy_mean": 3.827124630282409,
+      "held_proxy_risk": 3.549408341100684,
+      "held_proxy_minimum": 3.282745381806795
+    },
+    "measured_circuit_selected": {
+      "channels": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "active_contacts": 7,
+      "held_proxy_mean": 3.827124630282409,
+      "held_proxy_risk": 3.549408341100684,
+      "held_proxy_minimum": 3.282745381806795
+    },
+    "fixed": {
+      "channels": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "active_contacts": 7,
+      "held_proxy_mean": 1.044442852469013,
+      "held_proxy_risk": 0.8293688069212857,
+      "held_proxy_minimum": 0.5870279960624464
+    }
+  }
+}
