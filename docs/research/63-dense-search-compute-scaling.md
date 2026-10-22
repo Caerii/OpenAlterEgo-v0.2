@@ -3,7 +3,7 @@
 The [compositional search](61-facial-search-compute-frontier.md)
 was measured on 20 recorded facial channels. To check whether the
 same scoring machinery is computationally plausible for the
-40-channel [CSL-EMG_Array corpus](https://www.uni-bremen.de/en/csl/research/silent-speech-communication/csl-emg-array-corpus),
+40-contact, approximately 38-recorded-channel [CSL-EMG_Array corpus](https://www.uni-bremen.de/en/csl/research/silent-speech-communication/csl-emg-array-corpus),
 we timed the unchanged beam-4 search and batched ridge scorer with
 20, 40, and 80 candidate channels. Each synthetic matrix had 165
 examples, 11 balanced classes, eight features per channel, and three
@@ -26,9 +26,9 @@ them have no accuracy or hardware-design interpretation.
 This removes one compute concern: enumerating millions of full
 six-channel subsets is unnecessary for a first CSL array search.
 It does **not** show that beam-4 finds the best layout in a
-40-channel space, or that a channel subset is a feasible electrode
+40-candidate-channel space, or that a channel subset is a feasible electrode
 circuit. The next meaningful test must supply real synchronized
-speech EMG, session-separated evaluation, and explicit contact,
-reference, AFE, and placement constraints. A 40-channel array
+speech EMG, time-ordered evaluation, and explicit contact,
+reference, AFE, and placement constraints. A 40-contact array
 measurement can support subset search over its *recorded* channels;
 it cannot validate arbitrary unmeasured electrode locations.

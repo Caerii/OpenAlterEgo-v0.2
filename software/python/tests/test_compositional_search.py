@@ -31,3 +31,14 @@ def test_partial_scores_can_miss_an_interaction():
 
     assert beam_search(options, score, beam_size=1).channels == (0, 2)
     assert random_search(options, score, evaluations=4).channels == (1, 3)
+
+
+def test_contact_budget_filters_partial_and_final_programs():
+    options = tuple(tuple((i,) for i in range(4)) for _ in range(2))
+    feasible = lambda channels: channels not in ((0, 2), (0, 3), (1, 3))
+    score = lambda programs: programs.sum(axis=1).astype(float)
+    beam = beam_search(options, score, beam_size=4, feasible=feasible)
+    random = random_search(options, score, evaluations=3, seed=2,
+                           feasible=feasible)
+    assert beam.channels == random.channels == (2, 3)
+    assert beam.stage_evaluations == (4, 3)

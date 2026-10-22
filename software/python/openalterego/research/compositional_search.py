@@ -30,7 +30,10 @@ def _validate_options(options: Sequence[Sequence[tuple[int, ...]]]):
 
 def beam_search(options: Sequence[Sequence[tuple[int, ...]]],
                 score: Callable[[np.ndarray], np.ndarray], *,
-                beam_size: int = 16) -> ProgramSearchResult:
+                beam_size: int = 16,
+                feasible: Callable[[tuple[int, ...]], bool] | None = None,
+                can_complete: Callable[[tuple[int, ...], int], bool] | None = None
+                ) -> ProgramSearchResult:
     """Keep highest-scoring partial programs after adding each part."""
     _validate_options(options)
     if beam_size < 1:
@@ -38,10 +41,21 @@ def beam_search(options: Sequence[Sequence[tuple[int, ...]]],
     beam = [tuple()]
     stage_counts = []
     final_scores = None
-    for group in options:
-        candidates = sorted({tuple(sorted(prefix + option))
-                             for prefix in beam for option in group
-                             if not set(prefix).intersection(option)})
+    for stage, group in enumerate(options):
+        remaining = len(options) - stage - 1
+        candidates_set = set()
+        for prefix in beam:
+            used = set(prefix)
+            for option in group:
+                if used.intersection(option):
+                    continue
+                candidate = tuple(sorted(prefix + option))
+                if (feasible is not None and not feasible(candidate)) or (
+                        can_complete is not None and not can_complete(
+                            candidate, remaining)):
+                    continue
+                candidates_set.add(candidate)
+        candidates = sorted(candidates_set)
         if not candidates:
             raise ValueError("no compatible full program")
         scores = np.asarray(score(np.asarray(candidates, dtype=np.int16)),
@@ -59,7 +73,9 @@ def beam_search(options: Sequence[Sequence[tuple[int, ...]]],
 
 def random_search(options: Sequence[Sequence[tuple[int, ...]]],
                   score: Callable[[np.ndarray], np.ndarray], *,
-                  evaluations: int, seed: int = 42) -> ProgramSearchResult:
+                  evaluations: int, seed: int = 42,
+                  feasible: Callable[[tuple[int, ...]], bool] | None = None
+                  ) -> ProgramSearchResult:
     """Sample distinct full programs and score in one batch."""
     _validate_options(options)
     if evaluations < 1:
@@ -73,7 +89,8 @@ def random_search(options: Sequence[Sequence[tuple[int, ...]]],
         attempts += 1
         choice = tuple(sorted(channel for group in options
                               for channel in group[rng.integers(len(group))]))
-        if len(set(choice)) == len(choice):
+        if len(set(choice)) == len(choice) and (
+                feasible is None or feasible(choice)):
             programs.add(choice)
     ordered = sorted(programs)
     scores = np.asarray(score(np.asarray(ordered, dtype=np.int16)),
