@@ -1,0 +1,321 @@
+{
+  "schema": "openalterego.hyser-support-conditioned-search.v1",
+  "scope": "Exposed development subjects; forearm digital replay, not facial or analog hardware",
+  "candidate_count": 5000,
+  "candidate_seed": 42,
+  "support_shots_per_class": 1,
+  "query_support_weight": 4.0,
+  "selection_rules": [
+    "day1_cv",
+    "day1_to_support",
+    "half_cv_half_support"
+  ],
+  "physical_cost": "eight array contacts plus common reference; eight AFE channels",
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "support_trials": 33,
+      "query_trials": 164,
+      "selection": {
+        "day1_cv": {
+          "channels": [
+            4,
+            126,
+            139,
+            218,
+            363,
+            371,
+            579,
+            660
+          ],
+          "day1_cv": 0.8627450980392157,
+          "day1_to_support": 0.5151515151515151
+        },
+        "day1_to_support": {
+          "channels": [
+            12,
+            125,
+            144,
+            234,
+            352,
+            370,
+            567,
+            618
+          ],
+          "day1_cv": 0.7352941176470589,
+          "day1_to_support": 0.8181818181818182
+        },
+        "half_cv_half_support": {
+          "channels": [
+            12,
+            125,
+            144,
+            234,
+            352,
+            370,
+            567,
+            618
+          ],
+          "day1_cv": 0.7352941176470589,
+          "day1_to_support": 0.8181818181818182
+        }
+      },
+      "query_balanced_accuracy": {
+        "day1_cv": 0.746969696969697,
+        "day1_to_support": 0.7696969696969698,
+        "half_cv_half_support": 0.7696969696969698,
+        "fixed_eight_site": 0.6984848484848486,
+        "fixed_mixed": 0.7606060606060605,
+        "day1_cv_same_contacts": 0.631818181818182,
+        "day1_to_support_same_contacts": 0.6803030303030304,
+        "half_cv_half_support_same_contacts": 0.6803030303030304
+      },
+      "elapsed_seconds": 5.3737707999534905
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "support_trials": 34,
+      "query_trials": 168,
+      "selection": {
+        "day1_cv": {
+          "channels": [
+            62,
+            98,
+            167,
+            205,
+            259,
+            409,
+            525,
+            687
+          ],
+          "day1_cv": 0.9215686274509804,
+          "day1_to_support": 0.14705882352941177
+        },
+        "day1_to_support": {
+          "channels": [
+            55,
+            63,
+            90,
+            156,
+            231,
+            439,
+            544,
+            623
+          ],
+          "day1_cv": 0.8529411764705882,
+          "day1_to_support": 0.5588235294117647
+        },
+        "half_cv_half_support": {
+          "channels": [
+            55,
+            63,
+            90,
+            156,
+            231,
+            439,
+            544,
+            623
+          ],
+          "day1_cv": 0.8529411764705882,
+          "day1_to_support": 0.5588235294117647
+        }
+      },
+      "query_balanced_accuracy": {
+        "day1_cv": 0.6470588235294118,
+        "day1_to_support": 0.7000000000000001,
+        "half_cv_half_support": 0.7000000000000001,
+        "fixed_eight_site": 0.7058823529411764,
+        "fixed_mixed": 0.723529411764706,
+        "day1_cv_same_contacts": 0.6,
+        "day1_to_support_same_contacts": 0.6411764705882353,
+        "half_cv_half_support_same_contacts": 0.6411764705882353
+      },
+      "elapsed_seconds": 5.8858823999762535
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "support_trials": 33,
+      "query_trials": 164,
+      "selection": {
+        "day1_cv": {
+          "channels": [
+            42,
+            43,
+            100,
+            182,
+            190,
+            227,
+            405,
+            645
+          ],
+          "day1_cv": 0.9191919191919191,
+          "day1_to_support": 0.24242424242424243
+        },
+        "day1_to_support": {
+          "channels": [
+            0,
+            73,
+            81,
+            156,
+            217,
+            225,
+            360,
+            546
+          ],
+          "day1_cv": 0.7777777777777777,
+          "day1_to_support": 0.696969696969697
+        },
+        "half_cv_half_support": {
+          "channels": [
+            16,
+            98,
+            99,
+            133,
+            199,
+            330,
+            587,
+            683
+          ],
+          "day1_cv": 0.8333333333333335,
+          "day1_to_support": 0.696969696969697
+        }
+      },
+      "query_balanced_accuracy": {
+        "day1_cv": 0.7090909090909092,
+        "day1_to_support": 0.6848484848484848,
+        "half_cv_half_support": 0.7803030303030302,
+        "fixed_eight_site": 0.6439393939393939,
+        "fixed_mixed": 0.7742424242424243,
+        "day1_cv_same_contacts": 0.6848484848484849,
+        "day1_to_support_same_contacts": 0.593939393939394,
+        "half_cv_half_support_same_contacts": 0.6696969696969698
+      },
+      "elapsed_seconds": 5.863114099949598
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "support_trials": 34,
+      "query_trials": 170,
+      "selection": {
+        "day1_cv": {
+          "channels": [
+            21,
+            91,
+            191,
+            246,
+            333,
+            422,
+            480,
+            595
+          ],
+          "day1_cv": 0.9215686274509804,
+          "day1_to_support": 0.5882352941176471
+        },
+        "day1_to_support": {
+          "channels": [
+            46,
+            81,
+            89,
+            178,
+            218,
+            288,
+            506,
+            648
+          ],
+          "day1_cv": 0.8186274509803921,
+          "day1_to_support": 0.7647058823529411
+        },
+        "half_cv_half_support": {
+          "channels": [
+            46,
+            81,
+            89,
+            178,
+            218,
+            288,
+            506,
+            648
+          ],
+          "day1_cv": 0.8186274509803921,
+          "day1_to_support": 0.7647058823529411
+        }
+      },
+      "query_balanced_accuracy": {
+        "day1_cv": 0.8058823529411764,
+        "day1_to_support": 0.7999999999999999,
+        "half_cv_half_support": 0.7999999999999999,
+        "fixed_eight_site": 0.7941176470588235,
+        "fixed_mixed": 0.7999999999999999,
+        "day1_cv_same_contacts": 0.6882352941176471,
+        "day1_to_support_same_contacts": 0.6882352941176472,
+        "half_cv_half_support_same_contacts": 0.6882352941176472
+      },
+      "elapsed_seconds": 5.879036699887365
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "support_trials": 34,
+      "query_trials": 170,
+      "selection": {
+        "day1_cv": {
+          "channels": [
+            19,
+            125,
+            148,
+            235,
+            340,
+            370,
+            559,
+            616
+          ],
+          "day1_cv": 0.8484848484848485,
+          "day1_to_support": 0.38235294117647056
+        },
+        "day1_to_support": {
+          "channels": [
+            52,
+            106,
+            168,
+            194,
+            202,
+            278,
+            409,
+            522
+          ],
+          "day1_cv": 0.7272727272727273,
+          "day1_to_support": 0.6470588235294118
+        },
+        "half_cv_half_support": {
+          "channels": [
+            50,
+            93,
+            144,
+            235,
+            267,
+            418,
+            554,
+            631
+          ],
+          "day1_cv": 0.8383838383838385,
+          "day1_to_support": 0.5588235294117647
+        }
+      },
+      "query_balanced_accuracy": {
+        "day1_cv": 0.7411764705882354,
+        "day1_to_support": 0.7823529411764705,
+        "half_cv_half_support": 0.7647058823529413,
+        "fixed_eight_site": 0.676470588235294,
+        "fixed_mixed": 0.7294117647058823,
+        "day1_cv_same_contacts": 0.5235294117647059,
+        "day1_to_support_same_contacts": 0.6117647058823529,
+        "half_cv_half_support_same_contacts": 0.6470588235294119
+      },
+      "elapsed_seconds": 5.561973700067028
+    }
+  }
+}
