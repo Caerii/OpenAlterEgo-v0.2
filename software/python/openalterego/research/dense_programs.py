@@ -51,16 +51,17 @@ def prepare_cv_folds(features: np.ndarray, labels: np.ndarray,
 
 def score_programs(folds: list[DenseFold], designs: np.ndarray,
                    *, features_per_site: int, alpha: float = 10.0,
-                   batch_size: int = 32) -> np.ndarray:
+                   batch_size: int = 32, metric: str = "accuracy") -> np.ndarray:
     """Mean balanced accuracy across validation folds."""
     return score_programs_by_fold(
         folds, designs, features_per_site=features_per_site,
-        alpha=alpha, batch_size=batch_size).mean(axis=0)
+        alpha=alpha, batch_size=batch_size, metric=metric).mean(axis=0)
 
 
 def score_programs_by_fold(folds: list[DenseFold], designs: np.ndarray,
                            *, features_per_site: int, alpha: float = 10.0,
-                           batch_size: int = 32) -> np.ndarray:
+                           batch_size: int = 32,
+                           metric: str = "accuracy") -> np.ndarray:
     """Balanced accuracy per fold and program, retaining temporal variation."""
     designs = np.asarray(designs, dtype=np.int16)
     channel_count = ((folds[0].gram.shape[0] - 1) // features_per_site
@@ -69,7 +70,8 @@ def score_programs_by_fold(folds: list[DenseFold], designs: np.ndarray,
             not 1 <= designs.shape[1] <= channel_count or
             np.any((designs < 0) | (designs >= channel_count)) or
             any(len(set(row)) != len(row) for row in designs) or
-            features_per_site < 1 or alpha <= 0 or batch_size < 1):
+            features_per_site < 1 or alpha <= 0 or batch_size < 1 or
+            metric not in ("accuracy", "brier")):
         raise ValueError("invalid design batch")
     result = np.empty((len(folds), len(designs)), dtype=np.float64)
     bias = channel_count * features_per_site
@@ -84,12 +86,33 @@ def score_programs_by_fold(folds: list[DenseFold], designs: np.ndarray,
             coefficients = np.linalg.solve(
                 fold.gram[columns[:, :, None], columns[:, None, :]] + regularizer,
                 fold.cross[columns])
-            predictions = fold.train_classes[np.einsum(
+            logits = np.einsum(
                 "nbd,bde->nbe", fold.validation_design[:, columns],
-                coefficients).argmax(axis=2)]
-            recalls = [np.mean(predictions[fold.validation_labels == label] == label,
-                               axis=0)
-                       for label in np.unique(fold.validation_labels)]
+                coefficients)
+            if metric == "accuracy":
+                predictions = fold.train_classes[logits.argmax(axis=2)]
+                per_trial = predictions == fold.validation_labels[:, None]
+            else:
+                shifted = logits - logits.max(axis=2, keepdims=True)
+                probabilities = np.exp(shifted)
+                probabilities /= probabilities.sum(axis=2, keepdims=True)
+                label_indices = np.searchsorted(fold.train_classes,
+                                                fold.validation_labels)
+                safe_indices = np.minimum(label_indices,
+                                          len(fold.train_classes) - 1)
+                present = ((label_indices < len(fold.train_classes)) &
+                           (fold.train_classes[safe_indices] ==
+                            fold.validation_labels))
+                true_probability = np.take_along_axis(
+                    probabilities,
+                    np.broadcast_to(safe_indices[:, None, None],
+                                    (*probabilities.shape[:2], 1)), axis=2)[:, :, 0]
+                true_probability *= present[:, None]
+                per_trial = (.5 + true_probability -
+                             .5 * np.square(probabilities).sum(axis=2))
+            class_means = [np.mean(per_trial[fold.validation_labels == label],
+                                   axis=0)
+                           for label in np.unique(fold.validation_labels)]
             result[fold_index, start:start + len(block)] = np.mean(
-                recalls, axis=0)
+                class_means, axis=0)
     return result
