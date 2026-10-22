@@ -59,8 +59,10 @@ profiling identifies a larger compute bottleneck.
 
 For the actual silent-speech target, the University of Bremen's
 [CSL-EMG_Array corpus](https://www.uni-bremen.de/en/csl/research/silent-speech-communication/csl-emg-array-corpus)
-is more relevant: it reports 40 facial EMG array channels, audible and silent
-speech, and 12 sessions across eight speakers under CC BY 4.0. Its official
+is more relevant: it reports 40 facial electrode contacts in a 4×8 cheek
+array and an eight-contact under-chin strip, with chained differential
+channels. It includes audible and silent speech across 12 sessions from
+eight speakers under CC BY 4.0. Its official
 download requires submitting an email to receive a link. The dataset's
 session structure and array geometry need inspection before asserting it can
 support the same paired-day design-ranking experiment. Hyser remains a
