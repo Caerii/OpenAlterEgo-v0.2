@@ -1,0 +1,68 @@
+{
+  "schema": "openalterego.gaddy-locked-trial-range-audit.v1",
+  "scope": "Descriptive paired utterance resampling within two exposed sessions; not a new-person uncertainty interval",
+  "seed": 42,
+  "draws": 10000,
+  "comparisons": {
+    "index_fixed_six": {
+      "5-4": {
+        "selected_minus_baseline_ci95": [
+          -0.03079538453890643,
+          -0.020389796701129358
+        ]
+      },
+      "5-8": {
+        "selected_minus_baseline_ci95": [
+          -0.1579182023801141,
+          -0.12300717850114273
+        ]
+      },
+      "two_session_mean": {
+        "selected_minus_baseline_ci95": [
+          -0.09198929129946581,
+          -0.07363775109893347
+        ]
+      }
+    },
+    "earlier_session_six": {
+      "5-4": {
+        "selected_minus_baseline_ci95": [
+          -0.017262699155170463,
+          -0.008537684779426872
+        ]
+      },
+      "5-8": {
+        "selected_minus_baseline_ci95": [
+          -0.07832408967900945,
+          -0.05904269051349209
+        ]
+      },
+      "two_session_mean": {
+        "selected_minus_baseline_ci95": [
+          -0.04606136705414151,
+          -0.035363109044015635
+        ]
+      }
+    },
+    "all_eight": {
+      "5-4": {
+        "selected_minus_baseline_ci95": [
+          0.007783087492067346,
+          0.013557374803965547
+        ]
+      },
+      "5-8": {
+        "selected_minus_baseline_ci95": [
+          -0.06537112404079796,
+          -0.04721573020739683
+        ]
+      },
+      "two_session_mean": {
+        "selected_minus_baseline_ci95": [
+          -0.027516077822097553,
+          -0.01801690732644011
+        ]
+      }
+    }
+  }
+}
