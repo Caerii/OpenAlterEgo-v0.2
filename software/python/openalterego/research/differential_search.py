@@ -11,6 +11,8 @@ import numpy as np
 
 from openalterego.research.differential_hardware import (
     DifferentialProgram, measurement_covariances)
+from openalterego.research.electrode_circuit import (
+    ElectrodeCircuit, circuit_measurement_covariances)
 
 
 @dataclass(frozen=True)
@@ -19,6 +21,7 @@ class CovarianceScenario:
     source_covariance: np.ndarray
     contact_noise_variance: np.ndarray
     afe_noise_variance: np.ndarray
+    circuit: ElectrodeCircuit | None = None
 
 
 @dataclass(frozen=True)
@@ -52,10 +55,13 @@ class DifferentialSearch:
                                    for left, right in self.pairs)
         signals, noises = [], []
         for scenario in scenarios:
-            signal, noise = measurement_covariances(
-                full, scenario.lead_field, scenario.source_covariance,
-                scenario.contact_noise_variance,
-                scenario.afe_noise_variance)
+            inputs = (full, scenario.lead_field, scenario.source_covariance,
+                      scenario.contact_noise_variance,
+                      scenario.afe_noise_variance)
+            signal, noise = (measurement_covariances(*inputs)
+                             if scenario.circuit is None else
+                             circuit_measurement_covariances(
+                                 *inputs, scenario.circuit))
             signals.append(signal)
             noises.append(noise)
         self.signals = np.asarray(signals)
@@ -88,9 +94,12 @@ class DifferentialSearch:
             noise = self.noises[:, block[:, :, None], block[:, None, :]]
             sign_n, log_n = np.linalg.slogdet(noise)
             sign_t, log_t = np.linalg.slogdet(noise + signal)
-            if np.any(sign_n <= 0) or np.any(sign_t <= 0):
+            if (np.any(np.abs(sign_n - 1) > 1e-8) or
+                    np.any(np.abs(sign_t - 1) > 1e-8)):
                 raise ValueError("candidate covariance is not positive definite")
             bits = (log_t - log_n) / (2 * np.log(2))
+            if not np.isfinite(bits).all():
+                raise ValueError("candidate information score is not finite")
             mean = bits.mean(axis=0)
             means.append(mean)
             minima.append(bits.min(axis=0))
