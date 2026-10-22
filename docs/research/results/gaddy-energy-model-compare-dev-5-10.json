@@ -1,0 +1,77 @@
+{
+  "schema": "openalterego.gaddy-energy-model-compare.v1",
+  "train_sessions": [
+    "parallel-5-5-first100",
+    "parallel-5-6-first100",
+    "parallel-5-8-first100",
+    "parallel-5-9-first100"
+  ],
+  "dev_session": "parallel-5-10-first100",
+  "preprocessing": "per-trial forward 60-Hz harmonic notches and 2-Hz highpass",
+  "frame_step_ms": 50,
+  "emg_window_ms": 100,
+  "audio_window_ms": 40,
+  "past_lags_frames": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "oracle_mask_note": "Voiced interior mask is derived from evaluation audio pitch only; never model input.",
+  "metrics": {
+    "mean_prior": {
+      "all_frame_mae": 0.8212319417203022,
+      "voiced_interior_mae": 0.939240026958515,
+      "voiced_delta_mae": 0.1916851431631826,
+      "voiced_delta_zero_mae": 0.1916851431631826,
+      "frames": 11971,
+      "interior_frames": 1986,
+      "interior_deltas": 1477
+    },
+    "current_ridge": {
+      "all_frame_mae": 0.5565489667457446,
+      "voiced_interior_mae": 0.583682370907286,
+      "voiced_delta_mae": 0.27385996762123593,
+      "voiced_delta_zero_mae": 0.1916851431631826,
+      "frames": 11971,
+      "interior_frames": 1986,
+      "interior_deltas": 1477
+    },
+    "past_window_ridge": {
+      "all_frame_mae": 0.48371899395863693,
+      "voiced_interior_mae": 0.5201929481339135,
+      "voiced_delta_mae": 0.2177177479537476,
+      "voiced_delta_zero_mae": 0.1916851431631826,
+      "frames": 11971,
+      "interior_frames": 1986,
+      "interior_deltas": 1477
+    },
+    "past_window_hgb": {
+      "all_frame_mae": 0.3404090678683563,
+      "voiced_interior_mae": 0.3645103542455864,
+      "voiced_delta_mae": 0.20493267779839439,
+      "voiced_delta_zero_mae": 0.1916851431631826,
+      "frames": 11971,
+      "interior_frames": 1986,
+      "interior_deltas": 1477
+    },
+    "past_window_hgb_shift_1s": {
+      "all_frame_mae": 0.9182464395007708,
+      "voiced_interior_mae": 0.9648124933111221,
+      "voiced_delta_mae": 0.2451506821112944,
+      "voiced_delta_zero_mae": 0.1916851431631826,
+      "frames": 11971,
+      "interior_frames": 1986,
+      "interior_deltas": 1477
+    },
+    "global_activity_hgb": {
+      "all_frame_mae": 0.3998208429964413,
+      "voiced_interior_mae": 0.4029799960074788,
+      "voiced_delta_mae": 0.20993613756147197,
+      "voiced_delta_zero_mae": 0.1916851431631826,
+      "frames": 11971,
+      "interior_frames": 1986,
+      "interior_deltas": 1477
+    }
+  }
+}
