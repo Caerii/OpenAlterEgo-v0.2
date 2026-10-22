@@ -44,6 +44,7 @@
   },
   "ideal_evaluations": 1210,
   "measured_circuit_evaluations": 923,
+  "swap_refinement_evaluations": 39,
   "scores": {
     "ideal_selected": {
       "channels": [
@@ -73,6 +74,20 @@
       "held_proxy_risk": 0.2028127055179199,
       "held_proxy_minimum": 0.08911333017299125
     },
+    "measured_circuit_refined": {
+      "channels": [
+        22,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "active_contacts": 8,
+      "held_proxy_mean": 0.3495371086968568,
+      "held_proxy_risk": 0.2028127055179199,
+      "held_proxy_minimum": 0.08911333017299125
+    },
     "fixed": {
       "channels": [
         5,
@@ -87,5 +102,31 @@
       "held_proxy_risk": 0.02179175843650375,
       "held_proxy_minimum": 0.007311965316835504
     }
+  },
+  "paired_measured_minus_ideal": {
+    "mean_difference": 0.013247017073270494,
+    "paired_bootstrap_ci95": [
+      -0.01673210462531382,
+      0.043384629459017
+    ],
+    "candidate_wins": 11,
+    "baseline_wins": 13,
+    "ties": 0,
+    "unit": "synthetic evaluation scenario",
+    "draws": 5000,
+    "seed": 991
+  },
+  "paired_refined_minus_measured": {
+    "mean_difference": 0.0,
+    "paired_bootstrap_ci95": [
+      0.0,
+      0.0
+    ],
+    "candidate_wins": 0,
+    "baseline_wins": 0,
+    "ties": 24,
+    "unit": "synthetic evaluation scenario",
+    "draws": 5000,
+    "seed": 992
   }
 }

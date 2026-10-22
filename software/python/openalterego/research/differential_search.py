@@ -84,11 +84,29 @@ class DifferentialSearch:
     def score_batch(self, designs: np.ndarray, *,
                     batch_size: int = 2048) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         """Return risk-adjusted, mean, minimum information in bits/sample."""
+        objectives, means, minima = [], [], []
+        for bits in self._score_blocks(designs, batch_size):
+            mean = bits.mean(axis=0)
+            means.append(mean)
+            minima.append(bits.min(axis=0))
+            objectives.append(mean - self.risk_weight * bits.std(axis=0))
+        return np.concatenate(objectives), np.concatenate(means), np.concatenate(minima)
+
+    def score_scenarios(self, designs: np.ndarray, *,
+                        batch_size: int = 2048) -> np.ndarray:
+        """Per-scenario bits, with rows aligned to the supplied scenarios.
+
+        Intended for paired comparisons on held-out model scenarios; this
+        matrix alone does not quantify uncertainty about the physical model.
+        """
+        return np.concatenate(list(self._score_blocks(designs, batch_size)),
+                              axis=1)
+
+    def _score_blocks(self, designs: np.ndarray, batch_size: int):
         designs = np.asarray(designs, dtype=np.int16)
         if (designs.ndim != 2 or not len(designs) or batch_size < 1 or
                 any(not self.feasible(row) for row in designs)):
             raise ValueError("invalid or infeasible design batch")
-        objectives, means, minima = [], [], []
         for start in range(0, len(designs), batch_size):
             block = designs[start:start + batch_size]
             signal = self.signals[:, block[:, :, None], block[:, None, :]]
@@ -101,11 +119,7 @@ class DifferentialSearch:
             bits = (log_t - log_n) / (2 * np.log(2))
             if not np.isfinite(bits).all():
                 raise ValueError("candidate information score is not finite")
-            mean = bits.mean(axis=0)
-            means.append(mean)
-            minima.append(bits.min(axis=0))
-            objectives.append(mean - self.risk_weight * bits.std(axis=0))
-        return np.concatenate(objectives), np.concatenate(means), np.concatenate(minima)
+            yield bits
 
     def beam_search(self, *, width: int, beam_size: int = 32) -> SearchResult:
         if width < 1 or width > min(self.max_afe_channels, len(self.pairs)) or beam_size < 1:
@@ -133,6 +147,48 @@ class DifferentialSearch:
         return SearchResult(chosen, float(objective[0]), float(mean[0]),
                             float(minimum[0]), evaluations,
                             self.contact_mask(chosen).bit_count())
+
+    def refine_swaps(self, start: Sequence[int], *,
+                     max_passes: int = 10) -> SearchResult:
+        """Batched best-improvement one-channel exchanges from a full program.
+
+        Escapes some prefix-beam choices without enumerating all programs.
+        This is a local search, not a global-optimum certificate.
+        """
+        current = tuple(sorted(start))
+        if not self.feasible(current) or max_passes < 1:
+            raise ValueError("invalid local-search start or pass budget")
+        objective, mean, minimum = self.score_batch(np.asarray([current]))
+        incumbent = float(objective[0])
+        evaluations = 1
+        for _ in range(max_passes):
+            candidates = set()
+            for outgoing in current:
+                remaining = tuple(channel for channel in current
+                                  if channel != outgoing)
+                remaining_mask = self.contact_mask(remaining)
+                for incoming in range(len(self.pairs)):
+                    if (incoming not in current and
+                            (remaining_mask |
+                             self.contact_masks[incoming]).bit_count()
+                            <= self.max_contacts):
+                        candidates.add(tuple(sorted(remaining + (incoming,))))
+            neighbors = sorted(candidates)
+            if not neighbors:
+                break
+            objectives, means, minima = self.score_batch(
+                np.asarray(neighbors, dtype=np.int16))
+            evaluations += len(neighbors)
+            best = min(range(len(neighbors)),
+                       key=lambda index: (-objectives[index], neighbors[index]))
+            if objectives[best] <= incumbent + 1e-12:
+                break
+            current = neighbors[best]
+            incumbent = float(objectives[best])
+            mean, minimum = means[[best]], minima[[best]]
+        return SearchResult(current, incumbent, float(mean[0]),
+                            float(minimum[0]), evaluations,
+                            self.contact_mask(current).bit_count())
 
     def random_budget_search(self, *, width: int, evaluations: int,
                              seed: int = 42) -> SearchResult:

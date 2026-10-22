@@ -59,6 +59,26 @@ robust improvement or a better wearable. At 100 MΩ the layout does not
 change. The earlier synthetic impedance cap omitted the textile range;
 that omission mattered to this stress test.
 
+We also compared the two selected programs **within each of the same 24
+evaluation scenarios**. In the 1 MΩ/textile case, the circuit-aware program
+wins 11 scenarios and loses 13. Its mean paired difference is +0.0132 proxy
+units, with a 5,000-draw scenario-bootstrap 95% interval of
+**[−0.0167, +0.0434]**. The interval crosses zero. In the other three
+conditions, the chosen programs are identical and all paired differences
+are zero. This interval describes variation in the particular synthetic
+scenario generator under an independent-scenario resampling assumption;
+it does not cover uncertainty about facial anatomy, materials, amplifier
+behavior, or model misspecification. The observed layout switch is too
+fragile to count as a dependable engineering improvement.
+
+A batched [one-channel exchange search](../../software/python/openalterego/research/differential_search.py)
+then tested each full beam-selected design against every feasible single
+channel swap. It required 39–69 additional candidate evaluations across
+these four cases and left every design unchanged. This checks one local
+neighborhood; it does not certify a global optimum or rescue the weak
+paired result. The result records also retain the refinement's held
+scores and paired comparison.
+
 ## Next discriminating measurements
 
 Before trusting layout recommendations, obtain facial skin-contact spectra

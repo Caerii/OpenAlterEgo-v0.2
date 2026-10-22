@@ -66,6 +66,24 @@ def search(rows):
                               max_contacts=8, risk_weight=1.0)
 
 
+def paired_scenario_comparison(held, baseline, candidate, *,
+                               seed=991, draws=5000):
+    bits = held.score_scenarios(np.asarray([baseline, candidate],
+                                                dtype=np.int16))
+    differences = bits[:, 1] - bits[:, 0]
+    rng = np.random.default_rng(seed)
+    sampled = rng.integers(0, len(differences), size=(draws, len(differences)))
+    interval = np.quantile(differences[sampled].mean(axis=1),
+                           [0.025, 0.975])
+    return {"mean_difference": float(differences.mean()),
+            "paired_bootstrap_ci95": [float(value) for value in interval],
+            "candidate_wins": int(np.sum(differences > 1e-12)),
+            "baseline_wins": int(np.sum(differences < -1e-12)),
+            "ties": int(np.sum(abs(differences) <= 1e-12)),
+            "unit": "synthetic evaluation scenario",
+            "draws": draws, "seed": seed}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
@@ -84,9 +102,11 @@ def main():
     empirical = search(add_measured(development, pool, 43, args.input_ohm))
     ideal_choice = ideal.beam_search(width=6, beam_size=8)
     empirical_choice = empirical.beam_search(width=6, beam_size=8)
+    refined_choice = empirical.refine_swaps(empirical_choice.channels)
     held = search(add_measured(evaluation, pool, 421, args.input_ohm))
     choices = {"ideal_selected": ideal_choice.channels,
                "measured_circuit_selected": empirical_choice.channels,
+               "measured_circuit_refined": refined_choice.channels,
                "fixed": FIXED}
     scores = {}
     for name, channels in choices.items():
@@ -97,6 +117,11 @@ def main():
                         "held_proxy_mean": float(mean[0]),
                         "held_proxy_risk": float(objective[0]),
                         "held_proxy_minimum": float(minimum[0])}
+    paired = paired_scenario_comparison(
+        held, ideal_choice.channels, empirical_choice.channels)
+    paired_refinement = paired_scenario_comparison(
+        held, empirical_choice.channels, refined_choice.channels,
+        seed=992)
     result = {
         "schema": "openalterego.measured-impedance-sensitivity.v1",
         "scope": "Publisher-hash-checked forearm dry-electrode impedances at 100 Hz; synthetic anatomy, common-mode input and independent contact assignments; no facial design validation",
@@ -121,7 +146,10 @@ def main():
                   "contact_assignment_eval": 421},
         "ideal_evaluations": ideal_choice.evaluations,
         "measured_circuit_evaluations": empirical_choice.evaluations,
+        "swap_refinement_evaluations": refined_choice.evaluations,
         "scores": scores,
+        "paired_measured_minus_ideal": paired,
+        "paired_refined_minus_measured": paired_refinement,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
