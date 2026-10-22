@@ -48,6 +48,15 @@ calibration, or a validated device-physics prior. Future-session information
 must have a defined acquisition time and cannot be quietly estimated from
 the eventual evaluation set.
 
+The [scoring benchmark](results/hyser-batch-benchmark-v1.json) measured 256
+layout outcomes on one warm-cached day pair, three repetitions. Batched ridge
+scoring took a median 0.076 seconds versus 0.613 seconds for per-layout
+fits, an 8.0× improvement with maximum score difference below 3×10⁻¹⁶.
+This is a single-host solver microbenchmark; it excludes download, feature
+extraction, and matrix preparation. It supports using batched sufficient
+statistics for the current search scale, while leaving open a Rust port when
+profiling identifies a larger compute bottleneck.
+
 For the actual silent-speech target, the University of Bremen's
 [CSL-EMG_Array corpus](https://www.uni-bremen.de/en/csl/research/silent-speech-communication/csl-emg-array-corpus)
 is more relevant: it reports 40 facial EMG array channels, audible and silent
