@@ -109,6 +109,8 @@ def main() -> None:
     parser.add_argument("--stage-one-per-strategy", type=int, default=16)
     parser.add_argument("--finalists-per-strategy", type=int, default=4)
     parser.add_argument("--proxy", choices=("ridge", "centroid"), default="ridge")
+    parser.add_argument("--selection-mode", choices=("one_way", "bidirectional"),
+                        default="one_way")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--resume", action="store_true",
@@ -119,17 +121,18 @@ def main() -> None:
     config = {"root": str(args.root.resolve()), "subjects": args.subjects,
               "seed": args.seed,
               "proxy": args.proxy,
+              "selection_mode": args.selection_mode,
               "stage_one_per_strategy": args.stage_one_per_strategy,
               "finalists_per_strategy": args.finalists_per_strategy}
     if args.output.exists():
         if not args.resume:
             parser.error("output exists; use --resume only for a matching run")
         result = json.loads(args.output.read_text(encoding="utf-8"))
-        if (result.get("schema") != "openalterego.virtual-program-search-cohort.v4"
+        if (result.get("schema") != "openalterego.virtual-program-search-cohort.v5"
                 or result.get("config") != config):
             parser.error("existing result does not match this search configuration")
     else:
-        result = {"schema": "openalterego.virtual-program-search-cohort.v4",
+        result = {"schema": "openalterego.virtual-program-search-cohort.v5",
                   "config": config, "subjects": {},
                   "scope": "Virtual subsets of existing recorded channels, not new electrode positions."}
     for subject in args.subjects:
@@ -151,6 +154,7 @@ def main() -> None:
                                 stage_one_per_strategy=args.stage_one_per_strategy,
                                 finalists_per_strategy=args.finalists_per_strategy,
                                 proxy_kind=args.proxy,
+                                selection_mode=args.selection_mode,
                                 seed=args.seed, on_selection=freeze)
         subject_result["inputs"] = provenance
         subject_result["selection_record"] = str(selection_path)

@@ -44,6 +44,9 @@ The [cohort result](results/silentwear-program-search-ridge-v4.json) and its
 three adjacent selection records preserve all stage scores, selected programs,
 source hashes, and wall/CPU times. `--resume` skips completed subjects when
 the configuration matches; it cannot change a recorded choice.
+The saved v4 artifact was produced at commit `d40a02f`; later code adds a
+bidirectional mode and writes v5 artifacts. Use that commit to reproduce the
+v4 protocol; timing and registration timestamps will differ.
 
 ## Exploratory result
 

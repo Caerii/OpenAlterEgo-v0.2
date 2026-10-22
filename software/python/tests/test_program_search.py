@@ -43,6 +43,14 @@ def test_batched_ridge_proxy_matches_one_subset_fit():
     assert chosen == pytest.approx(balanced_accuracy_score(val_y, predicted))
 
 
+def test_ridge_proxy_scores_many_sessions_with_one_fit():
+    train = _batch(1)
+    validations = [_batch(2), _batch(3)]
+    multiple = program_search.ridge_proxy_rank_many(train, validations, "none")
+    assert multiple[0] == program_search.ridge_proxy_rank(train, validations[0], "none")
+    assert multiple[1] == program_search.ridge_proxy_rank(train, validations[1], "none")
+
+
 def test_random_budget_baseline_does_not_depend_on_proxy_ranking():
     ranked = program_search.proxy_rank(_batch(1), _batch(2), "none")
     first = program_search._select_pool(ranked, 8, np.random.default_rng(42))
@@ -84,6 +92,29 @@ def test_search_holds_test_loader_until_both_strategies_are_selected(monkeypatch
     assert set(result["strategies"]) == {"proxy", "random"}
     assert all(row["full_fits_for_selection"] == 4 for row in
                result["strategies"].values())
+
+
+def test_bidirectional_selection_uses_both_days_and_refits_on_both(monkeypatch):
+    original = program_search._fit_score
+    calls = []
+
+    def counted(program, train, validation):
+        calls.append((len(train[program.normalization][1]),
+                      len(validation[program.normalization][1])))
+        return original(program, train, validation)
+
+    monkeypatch.setattr(program_search, "_fit_score", counted)
+    result = program_search.search([_batch(1)], [_batch(2)],
+                                   lambda: [_batch(3)],
+                                   stage_one_per_strategy=2,
+                                   finalists_per_strategy=1,
+                                   selection_mode="bidirectional")
+    assert len(calls) == 2 * 2 * 4
+    assert all(row["directional_fits_per_program"] == 2 for row in
+               result["strategies"].values())
+    assert all(row["full_fits_for_selection"] == 8 for row in
+               result["strategies"].values())
+    assert result["selection_mode"] == "bidirectional"
 
 
 def test_selection_record_is_exclusive_and_reconciles_same_choice(tmp_path):

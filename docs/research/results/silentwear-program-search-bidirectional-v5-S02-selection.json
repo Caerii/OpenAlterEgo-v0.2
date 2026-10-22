@@ -1,0 +1,49 @@
+{
+  "schema": "openalterego.virtual-program-selection-record.v1",
+  "registered_utc": "2026-10-22T03:50:01.013377+00:00",
+  "subject": "S02",
+  "input_manifest_sha256": "27eb8a27d9954659fbee04a231528fd2c24c8f49c8775a1d7f3a28f380e48299",
+  "code_sha256": "5191d5e24347354cc20908b62e56ebdbc78827212678c93fb30970841523b1e5",
+  "selection_sha256": "75abbda7a61a093c187c095cb1e5a7d59f8ae1cb94fceb584da6be4f2ba544c8",
+  "selection": {
+    "schema": "openalterego.virtual-program-selection.v1",
+    "proxy_kind": "ridge",
+    "selection_mode": "bidirectional",
+    "seed": 42,
+    "stage_one_per_strategy": 16,
+    "finalists_per_strategy": 4,
+    "choices": {
+      "proxy": {
+        "program": {
+          "channels": [
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          "normalization": "recording_robust",
+          "c": 1.0
+        },
+        "validation_balanced_accuracy": 0.30882677708764666
+      },
+      "random": {
+        "program": {
+          "channels": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            13
+          ],
+          "normalization": "recording_robust",
+          "c": 0.1
+        },
+        "validation_balanced_accuracy": 0.2803381642512077
+      }
+    }
+  },
+  "scope": "Local exclusive record, not an external immutable timestamp."
+}
