@@ -1,6 +1,6 @@
 import numpy as np
 
-from scripts.gaddy_contour_activity_probe import (paired_contour_advantage, past_smooth,
+from scripts.gaddy_contour_activity_probe import (make_model, paired_contour_advantage, past_smooth,
                                                    slow_contour, top_k_codes)
 
 
@@ -33,3 +33,12 @@ def test_paired_contour_advantage_uses_whole_utterances():
     result = paired_contour_advantage(rows, chosen, control)
     assert result["utterances"] == 3
     assert result["ci95"][0] > 0
+
+
+def test_fast_fit_preset_changes_only_histogram_resolution():
+    reference = make_model(True).get_params()
+    fast = make_model(True, max_bins=64).get_params()
+    assert reference["max_bins"] == 255
+    assert fast["max_bins"] == 64
+    assert {k: v for k, v in reference.items() if k != "max_bins"} == {
+        k: v for k, v in fast.items() if k != "max_bins"}

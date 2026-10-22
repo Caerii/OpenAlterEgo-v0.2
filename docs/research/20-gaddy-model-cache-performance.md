@@ -46,3 +46,6 @@ new training performance. The next training-performance experiment should
 benchmark candidate fitting implementations under controlled machine load,
 with equal model settings, unchanged evaluation sessions, output parity and
 fresh-fit timings.
+
+The first [training-session fresh-fit benchmark](21-gaddy-fresh-fit-preset.md)
+now compares a smaller histogram preset with the reference settings.

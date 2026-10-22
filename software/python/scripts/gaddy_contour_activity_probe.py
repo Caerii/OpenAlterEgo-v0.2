@@ -89,9 +89,9 @@ def paired_contour_advantage(rows: list[tuple[np.ndarray, np.ndarray, np.ndarray
             "ci95": paired_bootstrap_interval(values)}
 
 
-def make_model(regression: bool):
+def make_model(regression: bool, max_bins: int = 255):
     common = dict(max_iter=120, max_leaf_nodes=15, learning_rate=0.06,
-                  l2_regularization=10, random_state=42)
+                  l2_regularization=10, random_state=42, max_bins=max_bins)
     return HistGradientBoostingRegressor(**common) if regression else HistGradientBoostingClassifier(**common)
 
 
@@ -101,6 +101,8 @@ def main() -> None:
     parser.add_argument("--dev", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--feature-backend", choices=("python", "rust"), default="python")
+    parser.add_argument("--fit-preset", choices=("reference", "fast-bins64"),
+                        default="reference", help="reference retains the locked model settings")
     parser.add_argument("--feature-cache-dir", type=Path,
                         help="provenance-keyed cache outside Git; raw-derived arrays remain local")
     parser.add_argument("--model-cache-dir", type=Path,
@@ -124,6 +126,7 @@ def main() -> None:
     if not train or not dev:
         parser.error("empty train or development session")
     threshold = -2.0
+    max_bins = 64 if args.fit_preset == "fast-bins64" else 255
     stage = time.perf_counter()
     y = np.concatenate([past_smooth(row[1]) for row in train])
     activity = np.concatenate([row[1] > threshold for row in train])
@@ -156,7 +159,7 @@ def main() -> None:
 
     stage = time.perf_counter()
     dev_probability, activity_cache_hit = fit_predict_cached(
-        "activity", make_model(False), x_full, activity, dev_full,
+        "activity", make_model(False, max_bins), x_full, activity, dev_full,
         method="predict_proba", cache_dir=args.model_cache_dir)
     timings["activity_fit_and_predict_s"] = time.perf_counter() - stage
     models = {
@@ -172,7 +175,7 @@ def main() -> None:
     for name, (training_x, development_x, mask) in models.items():
         stage = time.perf_counter()
         predictions[name], model_cache_hits[name] = fit_predict_cached(
-            name, make_model(True), training_x[mask], y[mask], development_x,
+            name, make_model(True, max_bins), training_x[mask], y[mask], development_x,
             cache_dir=args.model_cache_dir)
         timings[f"model_{name}_fit_and_predict_s"] = time.perf_counter() - stage
     stage = time.perf_counter()
@@ -198,6 +201,7 @@ def main() -> None:
         "schema": "openalterego.gaddy-contour-activity-dev.v1",
         "train_sessions": [path.name for path in args.train], "dev_session": args.dev.name,
         "feature_backend": args.feature_backend,
+        "fit_preset": args.fit_preset,
         "acoustic_activity_threshold_log10_rms": threshold,
         "target_smoothing": "causal 5-frame mean of log10 RMS, 50 ms frame step",
         "sparse_dictionary": {"components": 8, "alpha_w": 0.01, "alpha_h": 0.01,
@@ -238,6 +242,7 @@ def main() -> None:
         args.profile_output.write_text(json.dumps({
             "schema": "openalterego.gaddy-contour-stage-profile.v1",
             "feature_backend": args.feature_backend,
+            "fit_preset": args.fit_preset,
             "cache_enabled": args.feature_cache_dir is not None,
             "model_cache_enabled": args.model_cache_dir is not None,
             "dictionary_cache_hit": dictionary_cache_hit,
