@@ -1,0 +1,48 @@
+{
+  "schema": "openalterego.virtual-program-selection-record.v1",
+  "registered_utc": "2026-10-22T03:40:33.589987+00:00",
+  "subject": "S03",
+  "input_manifest_sha256": "f753eb72cb505b3798b5e0e61fcd69b3944f09504aac4838497fa3338b10e547",
+  "code_sha256": "87d484bad4bf1531ddd3804894abf221e0c028b3e9637c9bb9fcdaad212e7be8",
+  "selection_sha256": "95e8b8a38819ec4253226c05d553f5d624e1a376b4f97bce0bc716374793b4bd",
+  "selection": {
+    "schema": "openalterego.virtual-program-selection.v1",
+    "proxy_kind": "ridge",
+    "seed": 42,
+    "stage_one_per_strategy": 16,
+    "finalists_per_strategy": 4,
+    "choices": {
+      "proxy": {
+        "program": {
+          "channels": [
+            0,
+            1,
+            5,
+            6,
+            8,
+            11
+          ],
+          "normalization": "recording_robust",
+          "c": 10.0
+        },
+        "validation_balanced_accuracy": 0.36386473429951693
+      },
+      "random": {
+        "program": {
+          "channels": [
+            5,
+            6,
+            7,
+            8,
+            11,
+            13
+          ],
+          "normalization": "recording_robust",
+          "c": 1.0
+        },
+        "validation_balanced_accuracy": 0.341207729468599
+      }
+    }
+  },
+  "scope": "Local exclusive record, not an external immutable timestamp."
+}
