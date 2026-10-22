@@ -1,0 +1,797 @@
+{
+  "schema": "openalterego.emg-uka-session-drift.v1",
+  "scope": "Retrospective speaker-008 repeated audible prompts; feature prediction under earlier-session templates and target-session lower-ID support; utterance-ID time order unverified, no online calibration or identified contact impedance or physical electrode intervention",
+  "source_download": "https://www.kaggle.com/datasets/xabierdezuazo/emguka-trial-corpus",
+  "archive_sha256": "d281d1af6316ca0cdc888d1a8e2812a871c3b4c49390deebeac9b9671c392db8",
+  "session_content_digests": {
+    "001": "ca388024c725b496f0197ffc0503cb7590d17fafe45ee213233b78cbe2428184",
+    "002": "0c46c9faa981ac0b0efe2dd942b0ecc79fa5dce54dca6b046c40543a6fa0b5a4",
+    "003": "c00cec1ef3de5922a7cbd91a5054fa3305018afe81fdd5141bfc975d80e9c24d",
+    "004": "3847835c477fc6552beac09a23622825493241bc7a62fbecea357e14bde0bb30",
+    "005": "dc8a68c9ebf60e022a1f5e525e3ed74aa9f9d4220e788ab627e2161eaeec9da0",
+    "006": "48a55bb58c6c3984dec6b1c1fe27f0138391a68ac22d1576a53f330fb628148c",
+    "007": "e29f2f6a1a0a08e0d5c241f12b6fb7cafaa83ae259cf0028c60c9657d384dda2",
+    "008": "64b9bf22c4bc69eb8529b5402670e8ceb941c79814bed790db039142e8b61795"
+  },
+  "feature": "per-utterance centered ADC; five relative-time bins; log1p RMS and mean absolute adjacent difference per channel",
+  "models": [
+    "none",
+    "global",
+    "channel",
+    "channel_feature",
+    "full_feature",
+    "unlabeled_global",
+    "unlabeled_channel"
+  ],
+  "prefixes": [
+    2,
+    4,
+    6
+  ],
+  "results": [
+    {
+      "target_session": "002",
+      "template_sessions": [
+        "001"
+      ],
+      "prefix_utterance_ids": [
+        10,
+        12
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.22012202351712976,
+        "global": 0.21938118502770956,
+        "channel": 0.18350501070419398,
+        "channel_feature": 0.18389503057454828,
+        "full_feature": 0.23165037793886198,
+        "unlabeled_global": 0.23143504039917068,
+        "unlabeled_channel": 0.2008220267690835
+      }
+    },
+    {
+      "target_session": "002",
+      "template_sessions": [
+        "001"
+      ],
+      "prefix_utterance_ids": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.2156522579684762,
+        "global": 0.2243534267691646,
+        "channel": 0.19337663171129427,
+        "channel_feature": 0.19320270430455821,
+        "full_feature": 0.2063444439233937,
+        "unlabeled_global": 0.22398069389380484,
+        "unlabeled_channel": 0.19296523930427092
+      }
+    },
+    {
+      "target_session": "002",
+      "template_sessions": [
+        "001"
+      ],
+      "prefix_utterance_ids": [
+        10,
+        12,
+        14,
+        18,
+        21,
+        25
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.22057028706526266,
+        "global": 0.2237153351470292,
+        "channel": 0.19952494907787502,
+        "channel_feature": 0.1987459373394837,
+        "full_feature": 0.1907972838349411,
+        "unlabeled_global": 0.22913306268826528,
+        "unlabeled_channel": 0.20434553727266003
+      }
+    },
+    {
+      "target_session": "003",
+      "template_sessions": [
+        "001",
+        "002"
+      ],
+      "prefix_utterance_ids": [
+        3,
+        11
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.1614442598347433,
+        "global": 0.19453767661313007,
+        "channel": 0.19552099963039007,
+        "channel_feature": 0.19544140479291508,
+        "full_feature": 0.22329233316751662,
+        "unlabeled_global": 0.22913461917551442,
+        "unlabeled_channel": 0.2290235728151463
+      }
+    },
+    {
+      "target_session": "003",
+      "template_sessions": [
+        "001",
+        "002"
+      ],
+      "prefix_utterance_ids": [
+        3,
+        11,
+        13,
+        29
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.15360519788753604,
+        "global": 0.1842799828292329,
+        "channel": 0.18579325086950146,
+        "channel_feature": 0.1849200545452349,
+        "full_feature": 0.20304837114516439,
+        "unlabeled_global": 0.21228169490202478,
+        "unlabeled_channel": 0.21070408858027478
+      }
+    },
+    {
+      "target_session": "003",
+      "template_sessions": [
+        "001",
+        "002"
+      ],
+      "prefix_utterance_ids": [
+        3,
+        11,
+        13,
+        29,
+        33,
+        34
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.15816662797593128,
+        "global": 0.19719278567919807,
+        "channel": 0.1990465081035136,
+        "channel_feature": 0.197807284320701,
+        "full_feature": 0.19369119626719505,
+        "unlabeled_global": 0.21009216962395108,
+        "unlabeled_channel": 0.21032731669020402
+      }
+    },
+    {
+      "target_session": "004",
+      "template_sessions": [
+        "001",
+        "002",
+        "003"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.3253163340928262,
+        "global": 0.2087100344061665,
+        "channel": 0.20347787781150592,
+        "channel_feature": 0.20583626945324654,
+        "full_feature": 0.1838955403970061,
+        "unlabeled_global": 0.20413787456175098,
+        "unlabeled_channel": 0.2041907231836456
+      }
+    },
+    {
+      "target_session": "004",
+      "template_sessions": [
+        "001",
+        "002",
+        "003"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.31135874043165007,
+        "global": 0.17899318367053374,
+        "channel": 0.17288437043178492,
+        "channel_feature": 0.175612331501741,
+        "full_feature": 0.1648908771243502,
+        "unlabeled_global": 0.17091661866545166,
+        "unlabeled_channel": 0.16572219109327185
+      }
+    },
+    {
+      "target_session": "004",
+      "template_sessions": [
+        "001",
+        "002",
+        "003"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29,
+        30,
+        37
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.2742814728038822,
+        "global": 0.18786645596550652,
+        "channel": 0.1862920546195558,
+        "channel_feature": 0.1870500268377942,
+        "full_feature": 0.14849383974362418,
+        "unlabeled_global": 0.1846226389953581,
+        "unlabeled_channel": 0.18386519613179478
+      }
+    },
+    {
+      "target_session": "005",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004"
+      ],
+      "prefix_utterance_ids": [
+        18,
+        20
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.22362496696052447,
+        "global": 0.1469996658168364,
+        "channel": 0.15648029729268523,
+        "channel_feature": 0.15631274588609292,
+        "full_feature": 0.16929404616620716,
+        "unlabeled_global": 0.14948155768626453,
+        "unlabeled_channel": 0.15085642866970467
+      }
+    },
+    {
+      "target_session": "005",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004"
+      ],
+      "prefix_utterance_ids": [
+        18,
+        20,
+        27,
+        30
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.21877667154015693,
+        "global": 0.14454993397896831,
+        "channel": 0.1559500755044028,
+        "channel_feature": 0.15613463129618627,
+        "full_feature": 0.1491881221100681,
+        "unlabeled_global": 0.14154609975747062,
+        "unlabeled_channel": 0.14305581406874185
+      }
+    },
+    {
+      "target_session": "005",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004"
+      ],
+      "prefix_utterance_ids": [
+        18,
+        20,
+        27,
+        30,
+        31,
+        38
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.20679700614439564,
+        "global": 0.15639889167909946,
+        "channel": 0.15642616368698473,
+        "channel_feature": 0.15634712717731863,
+        "full_feature": 0.14029856061933643,
+        "unlabeled_global": 0.15826206236628984,
+        "unlabeled_channel": 0.1547124746643621
+      }
+    },
+    {
+      "target_session": "006",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.19709005902987306,
+        "global": 0.14762579927416702,
+        "channel": 0.1436960157193349,
+        "channel_feature": 0.14439280872361065,
+        "full_feature": 0.1442361048750346,
+        "unlabeled_global": 0.14616952678819536,
+        "unlabeled_channel": 0.14055282317531878
+      }
+    },
+    {
+      "target_session": "006",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.18774066277847207,
+        "global": 0.13883310446900615,
+        "channel": 0.1343215423495926,
+        "channel_feature": 0.13399981424047702,
+        "full_feature": 0.1288095254990192,
+        "unlabeled_global": 0.1382838481303318,
+        "unlabeled_channel": 0.13155549905089656
+      }
+    },
+    {
+      "target_session": "006",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29,
+        30,
+        37
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.1840367670904392,
+        "global": 0.13815736102079496,
+        "channel": 0.12759598147652945,
+        "channel_feature": 0.12693372336007372,
+        "full_feature": 0.1207357342834264,
+        "unlabeled_global": 0.13876741282532765,
+        "unlabeled_channel": 0.12908301923219132
+      }
+    },
+    {
+      "target_session": "007",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.12824170266630647,
+        "global": 0.12195289783075407,
+        "channel": 0.12020241029267434,
+        "channel_feature": 0.1214550699325224,
+        "full_feature": 0.14038338960620417,
+        "unlabeled_global": 0.12107404883257983,
+        "unlabeled_channel": 0.1211640252632422
+      }
+    },
+    {
+      "target_session": "007",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.12574409722382388,
+        "global": 0.11754997413406072,
+        "channel": 0.1170457814604845,
+        "channel_feature": 0.11714811290701764,
+        "full_feature": 0.1245228877690058,
+        "unlabeled_global": 0.11790634564459342,
+        "unlabeled_channel": 0.11769032657807305
+      }
+    },
+    {
+      "target_session": "007",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29,
+        30,
+        37
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.1231309317481321,
+        "global": 0.11891589188562048,
+        "channel": 0.1213692839764533,
+        "channel_feature": 0.1214505497825951,
+        "full_feature": 0.13087795709052558,
+        "unlabeled_global": 0.1206061285478467,
+        "unlabeled_channel": 0.12364450399037356
+      }
+    },
+    {
+      "target_session": "008",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006",
+        "007"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19
+      ],
+      "calibration_count": 2,
+      "evaluation_count": 8,
+      "mae_log_adc_feature": {
+        "none": 0.2140643592911446,
+        "global": 0.16606734319840505,
+        "channel": 0.16392809290644797,
+        "channel_feature": 0.1639204091778047,
+        "full_feature": 0.16953290158229867,
+        "unlabeled_global": 0.16605370944345552,
+        "unlabeled_channel": 0.16757854946539383
+      }
+    },
+    {
+      "target_session": "008",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006",
+        "007"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29
+      ],
+      "calibration_count": 4,
+      "evaluation_count": 6,
+      "mae_log_adc_feature": {
+        "none": 0.19713745522935508,
+        "global": 0.13514174314144403,
+        "channel": 0.12975475302621312,
+        "channel_feature": 0.12944214043191876,
+        "full_feature": 0.18912197004405912,
+        "unlabeled_global": 0.13685352227388747,
+        "unlabeled_channel": 0.13234002446106605
+      }
+    },
+    {
+      "target_session": "008",
+      "template_sessions": [
+        "001",
+        "002",
+        "003",
+        "004",
+        "005",
+        "006",
+        "007"
+      ],
+      "prefix_utterance_ids": [
+        17,
+        19,
+        26,
+        29,
+        30,
+        37
+      ],
+      "calibration_count": 6,
+      "evaluation_count": 4,
+      "mae_log_adc_feature": {
+        "none": 0.19963865251761437,
+        "global": 0.13262445060243438,
+        "channel": 0.1254163516434784,
+        "channel_feature": 0.12448641158722976,
+        "full_feature": 0.16186865663784336,
+        "unlabeled_global": 0.13059476734429123,
+        "unlabeled_channel": 0.12363818853912649
+      }
+    }
+  ],
+  "summary": {
+    "2": {
+      "none": {
+        "mean_session_mae": 0.20998624362750684,
+        "improved_sessions_vs_none": 0,
+        "paired_none_minus_model_mean": 0.0,
+        "paired_session_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_draws": 10000
+      },
+      "global": {
+        "mean_session_mae": 0.17218208602388121,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.03780415760362559,
+        "paired_session_bootstrap_ci95": [
+          0.004623308617572585,
+          0.07332765729278712
+        ],
+        "bootstrap_draws": 10000
+      },
+      "channel": {
+        "mean_session_mae": 0.16668724347960465,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.04329900014790221,
+        "paired_session_bootstrap_ci95": [
+          0.010647730847738004,
+          0.07688146006645222
+        ],
+        "bootstrap_draws": 10000
+      },
+      "channel_feature": {
+        "mean_session_mae": 0.16732196264867724,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.042664280978829607,
+        "paired_session_bootstrap_ci95": [
+          0.010104315963235704,
+          0.07575629380800973
+        ],
+        "bootstrap_draws": 10000
+      },
+      "full_feature": {
+        "mean_session_mae": 0.18032638481901844,
+        "improved_sessions_vs_none": 4,
+        "paired_none_minus_model_mean": 0.029659858808488364,
+        "paired_session_bootstrap_ci95": [
+          -0.014490198172226104,
+          0.07669813873745364
+        ],
+        "bootstrap_draws": 10000
+      },
+      "unlabeled_global": {
+        "mean_session_mae": 0.1782123395552759,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.03177390407223093,
+        "paired_session_bootstrap_ci95": [
+          -0.011267189672260826,
+          0.07371041090271582
+        ],
+        "bootstrap_draws": 10000
+      },
+      "unlabeled_channel": {
+        "mean_session_mae": 0.17345544990593356,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.03653079372157327,
+        "paired_session_bootstrap_ci95": [
+          -0.004976024471391767,
+          0.07587389678551351
+        ],
+        "bootstrap_draws": 10000
+      }
+    },
+    "4": {
+      "none": {
+        "mean_session_mae": 0.20143072615135288,
+        "improved_sessions_vs_none": 0,
+        "paired_none_minus_model_mean": 0.0,
+        "paired_session_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_draws": 10000
+      },
+      "global": {
+        "mean_session_mae": 0.16052876414177294,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.04090196200957997,
+        "paired_session_bootstrap_ci95": [
+          0.003825318553058981,
+          0.0800624793803973
+        ],
+        "bootstrap_draws": 10000
+      },
+      "channel": {
+        "mean_session_mae": 0.15558948647903909,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.0458412396723138,
+        "paired_session_bootstrap_ci95": [
+          0.009231297330503022,
+          0.08340580875795862
+        ],
+        "bootstrap_draws": 10000
+      },
+      "channel_feature": {
+        "mean_session_mae": 0.15577996988959053,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.045650756261762356,
+        "paired_session_bootstrap_ci95": [
+          0.009634046149862085,
+          0.0824297784390426
+        ],
+        "bootstrap_draws": 10000
+      },
+      "full_feature": {
+        "mean_session_mae": 0.16656088537358005,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.034869840777772824,
+        "paired_session_bootstrap_ci95": [
+          -0.0074442652953336085,
+          0.08096855071279735
+        ],
+        "bootstrap_draws": 10000
+      },
+      "unlabeled_global": {
+        "mean_session_mae": 0.16310983189536638,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.03832089425598652,
+        "paired_session_bootstrap_ci95": [
+          -0.005871970134069648,
+          0.08248499211499238
+        ],
+        "bootstrap_draws": 10000
+      },
+      "unlabeled_channel": {
+        "mean_session_mae": 0.1562904547337993,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.0451402714175536,
+        "paired_session_bootstrap_ci95": [
+          0.0008547694927407026,
+          0.08764795425158355
+        ],
+        "bootstrap_draws": 10000
+      }
+    },
+    "6": {
+      "none": {
+        "mean_session_mae": 0.1952316779065225,
+        "improved_sessions_vs_none": 0,
+        "paired_none_minus_model_mean": 0.0,
+        "paired_session_bootstrap_ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_draws": 10000
+      },
+      "global": {
+        "mean_session_mae": 0.16498159599709758,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.030250081909424912,
+        "paired_session_bootstrap_ci95": [
+          -0.0004449819063187215,
+          0.05964531001918121
+        ],
+        "bootstrap_draws": 10000
+      },
+      "channel": {
+        "mean_session_mae": 0.15938161322634145,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.035850064680181024,
+        "paired_session_bootstrap_ci95": [
+          0.0037518090947641436,
+          0.06469053920380193
+        ],
+        "bootstrap_draws": 10000
+      },
+      "channel_feature": {
+        "mean_session_mae": 0.1589744372007423,
+        "improved_sessions_vs_none": 6,
+        "paired_none_minus_model_mean": 0.036257240705780194,
+        "paired_session_bootstrap_ci95": [
+          0.004606357179293355,
+          0.06487780660230953
+        ],
+        "bootstrap_draws": 10000
+      },
+      "full_feature": {
+        "mean_session_mae": 0.15525188978241317,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.03997978812410934,
+        "paired_session_bootstrap_ci95": [
+          0.004251254156363298,
+          0.07685427633260014
+        ],
+        "bootstrap_draws": 10000
+      },
+      "unlabeled_global": {
+        "mean_session_mae": 0.16743974891304717,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.02779192899347537,
+        "paired_session_bootstrap_ci95": [
+          -0.006785908275477418,
+          0.06026948275251336
+        ],
+        "bootstrap_draws": 10000
+      },
+      "unlabeled_channel": {
+        "mean_session_mae": 0.16137374807438748,
+        "improved_sessions_vs_none": 5,
+        "paired_none_minus_model_mean": 0.03385792983213502,
+        "paired_session_bootstrap_ci95": [
+          -0.001736121967555722,
+          0.06521339475794659
+        ],
+        "bootstrap_draws": 10000
+      }
+    }
+  }
+}
