@@ -20,9 +20,10 @@ def prepare_fold(train: tuple[np.ndarray, np.ndarray],
                  *, features_per_site: int) -> DenseFold:
     x, labels = train
     xt, target = validation
-    width = 256 * features_per_site
+    width = x.shape[1] if x.ndim == 2 else 0
     if (features_per_site < 1 or x.ndim != 2 or xt.ndim != 2 or
-            x.shape[1] != width or xt.shape[1] != width or
+            width < features_per_site or width % features_per_site or
+            xt.shape[1] != width or
             len(labels) != len(x) or len(target) != len(xt) or
             not np.isfinite(x).all() or not np.isfinite(xt).all()):
         raise ValueError("invalid channel-local feature matrices")
@@ -52,13 +53,16 @@ def score_programs(folds: list[DenseFold], designs: np.ndarray,
                    *, features_per_site: int, alpha: float = 10.0,
                    batch_size: int = 32) -> np.ndarray:
     designs = np.asarray(designs, dtype=np.int16)
-    if (not folds or designs.ndim != 2 or not 1 <= designs.shape[1] <= 256 or
-            np.any((designs < 0) | (designs >= 256)) or
+    channel_count = ((folds[0].gram.shape[0] - 1) // features_per_site
+                     if folds and features_per_site >= 1 else 0)
+    if (not folds or channel_count < 1 or designs.ndim != 2 or
+            not 1 <= designs.shape[1] <= channel_count or
+            np.any((designs < 0) | (designs >= channel_count)) or
             any(len(set(row)) != len(row) for row in designs) or
             features_per_site < 1 or alpha <= 0 or batch_size < 1):
         raise ValueError("invalid design batch")
     result = np.zeros(len(designs), dtype=np.float64)
-    bias = 256 * features_per_site
+    bias = channel_count * features_per_site
     for start in range(0, len(designs), batch_size):
         block = designs[start:start + batch_size]
         columns = (block[:, :, None] * features_per_site +
