@@ -1,0 +1,428 @@
+{
+  "schema": "openalterego.hyser-calibrated-program-search.v1",
+  "scope": "Post-hoc forearm development; class-block support/query split is not globally chronological",
+  "candidate_count": 1000,
+  "seed": 42,
+  "alpha": 10.0,
+  "shots_per_class": 1,
+  "support_weight": 1.0,
+  "support_gate_margin": 0.2,
+  "selection": "Day-one CV, day-one-trained accuracy on labeled day-two support, or their half-weighted average; query labels excluded from selection",
+  "subjects": {
+    "01": {
+      "day1_source_record_sha256": "f67c43201d83dd7237254b67d8e85aa1745d741ed2c6730cfe61367d9e778755",
+      "day2_source_record_sha256": "c7df9afe7026615147ad9304dbc050912875aae6c95e47ea4fef17ad339920ea",
+      "support_trials": 33,
+      "query_trials": 164,
+      "choices": {
+        "fixed": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.48484848484848486,
+          "query_no_support": 0.5878787878787879,
+          "query_with_support": 0.7651515151515151
+        },
+        "day1_cv": {
+          "channels": [
+            27,
+            42,
+            98,
+            118,
+            164,
+            169,
+            201,
+            227
+          ],
+          "support_accuracy_before_adaptation": 0.5454545454545454,
+          "query_no_support": 0.5212121212121212,
+          "query_with_support": 0.7409090909090909
+        },
+        "support_accuracy": {
+          "channels": [
+            22,
+            28,
+            93,
+            107,
+            141,
+            172,
+            221,
+            225
+          ],
+          "support_accuracy_before_adaptation": 0.7272727272727273,
+          "query_no_support": 0.6606060606060606,
+          "query_with_support": 0.7757575757575758
+        },
+        "half_cv_half_support": {
+          "channels": [
+            27,
+            37,
+            86,
+            110,
+            158,
+            179,
+            218,
+            222
+          ],
+          "support_accuracy_before_adaptation": 0.7272727272727273,
+          "query_no_support": 0.6424242424242426,
+          "query_with_support": 0.7393939393939394
+        },
+        "support_gate_0_2": {
+          "channels": [
+            22,
+            28,
+            93,
+            107,
+            141,
+            172,
+            221,
+            225
+          ],
+          "support_accuracy_before_adaptation": 0.7272727272727273,
+          "query_no_support": 0.6606060606060606,
+          "query_with_support": 0.7757575757575758
+        }
+      }
+    },
+    "02": {
+      "day1_source_record_sha256": "50ea00abeb5744665cc200716dec2e02a360248b277b718b470927dae53bf63d",
+      "day2_source_record_sha256": "ec0161b1b560aea27949faf9feec68caeb0f233898848296a83b985ce8a2a0df",
+      "support_trials": 34,
+      "query_trials": 168,
+      "choices": {
+        "fixed": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.29411764705882354,
+          "query_no_support": 0.23088235294117648,
+          "query_with_support": 0.6705882352941177
+        },
+        "day1_cv": {
+          "channels": [
+            17,
+            22,
+            100,
+            106,
+            155,
+            158,
+            221,
+            227
+          ],
+          "support_accuracy_before_adaptation": 0.29411764705882354,
+          "query_no_support": 0.25882352941176473,
+          "query_with_support": 0.611764705882353
+        },
+        "support_accuracy": {
+          "channels": [
+            10,
+            34,
+            74,
+            91,
+            156,
+            158,
+            217,
+            235
+          ],
+          "support_accuracy_before_adaptation": 0.4117647058823529,
+          "query_no_support": 0.2852941176470588,
+          "query_with_support": 0.6338235294117647
+        },
+        "half_cv_half_support": {
+          "channels": [
+            10,
+            34,
+            74,
+            91,
+            156,
+            158,
+            217,
+            235
+          ],
+          "support_accuracy_before_adaptation": 0.4117647058823529,
+          "query_no_support": 0.2852941176470588,
+          "query_with_support": 0.6338235294117647
+        },
+        "support_gate_0_2": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.29411764705882354,
+          "query_no_support": 0.23088235294117648,
+          "query_with_support": 0.6705882352941177
+        }
+      }
+    },
+    "03": {
+      "day1_source_record_sha256": "2924780e894a9b082b5a85211c98eb4d170252dd59465f39110d9412cc1f54b1",
+      "day2_source_record_sha256": "1ab4106097869816cda67a6b0f1ebcc538523d7bd832c77dc1f1adfd8b6e4ebd",
+      "support_trials": 33,
+      "query_trials": 164,
+      "choices": {
+        "fixed": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.3939393939393939,
+          "query_no_support": 0.4515151515151515,
+          "query_with_support": 0.6333333333333333
+        },
+        "day1_cv": {
+          "channels": [
+            10,
+            12,
+            83,
+            85,
+            141,
+            174,
+            234,
+            246
+          ],
+          "support_accuracy_before_adaptation": 0.3333333333333333,
+          "query_no_support": 0.33939393939393936,
+          "query_with_support": 0.596969696969697
+        },
+        "support_accuracy": {
+          "channels": [
+            9,
+            53,
+            91,
+            106,
+            149,
+            169,
+            212,
+            230
+          ],
+          "support_accuracy_before_adaptation": 0.6363636363636364,
+          "query_no_support": 0.6303030303030304,
+          "query_with_support": 0.7575757575757576
+        },
+        "half_cv_half_support": {
+          "channels": [
+            20,
+            54,
+            101,
+            106,
+            142,
+            180,
+            204,
+            234
+          ],
+          "support_accuracy_before_adaptation": 0.6363636363636364,
+          "query_no_support": 0.49545454545454537,
+          "query_with_support": 0.746969696969697
+        },
+        "support_gate_0_2": {
+          "channels": [
+            9,
+            53,
+            91,
+            106,
+            149,
+            169,
+            212,
+            230
+          ],
+          "support_accuracy_before_adaptation": 0.6363636363636364,
+          "query_no_support": 0.6303030303030304,
+          "query_with_support": 0.7575757575757576
+        }
+      }
+    },
+    "04": {
+      "day1_source_record_sha256": "eb9da9b19708b3038bbbbaad25995349b2ecbe74264179402c6f81fc0cb1eb3e",
+      "day2_source_record_sha256": "cb70fc8e679c1c627aa8d2ed7dcdf8058e0681706a1731c26f18a8924b963cad",
+      "support_trials": 34,
+      "query_trials": 170,
+      "choices": {
+        "fixed": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.6764705882352942,
+          "query_no_support": 0.5823529411764706,
+          "query_with_support": 0.7470588235294118
+        },
+        "day1_cv": {
+          "channels": [
+            25,
+            52,
+            86,
+            89,
+            179,
+            182,
+            201,
+            234
+          ],
+          "support_accuracy_before_adaptation": 0.5588235294117647,
+          "query_no_support": 0.6058823529411765,
+          "query_with_support": 0.7411764705882353
+        },
+        "support_accuracy": {
+          "channels": [
+            18,
+            54,
+            83,
+            99,
+            153,
+            178,
+            222,
+            242
+          ],
+          "support_accuracy_before_adaptation": 0.7647058823529411,
+          "query_no_support": 0.6823529411764707,
+          "query_with_support": 0.7470588235294118
+        },
+        "half_cv_half_support": {
+          "channels": [
+            41,
+            53,
+            76,
+            105,
+            162,
+            173,
+            206,
+            242
+          ],
+          "support_accuracy_before_adaptation": 0.7647058823529411,
+          "query_no_support": 0.6823529411764707,
+          "query_with_support": 0.723529411764706
+        },
+        "support_gate_0_2": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.6764705882352942,
+          "query_no_support": 0.5823529411764706,
+          "query_with_support": 0.7470588235294118
+        }
+      }
+    },
+    "05": {
+      "day1_source_record_sha256": "d445ec380029f2245579e2029173d9f70d912451e324a27eef587db9a8d6c60c",
+      "day2_source_record_sha256": "348ec9d6494eb8a3fc0109a2ad54bd8eaa8e62c4bfa9a437193addf4ef0cb40e",
+      "support_trials": 34,
+      "query_trials": 170,
+      "choices": {
+        "fixed": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.5,
+          "query_no_support": 0.5176470588235295,
+          "query_with_support": 0.6470588235294118
+        },
+        "day1_cv": {
+          "channels": [
+            26,
+            43,
+            73,
+            90,
+            138,
+            140,
+            204,
+            244
+          ],
+          "support_accuracy_before_adaptation": 0.029411764705882353,
+          "query_no_support": 0.029411764705882353,
+          "query_with_support": 0.49411764705882344
+        },
+        "support_accuracy": {
+          "channels": [
+            10,
+            43,
+            83,
+            108,
+            163,
+            166,
+            217,
+            219
+          ],
+          "support_accuracy_before_adaptation": 0.5588235294117647,
+          "query_no_support": 0.4764705882352941,
+          "query_with_support": 0.5705882352941176
+        },
+        "half_cv_half_support": {
+          "channels": [
+            30,
+            49,
+            85,
+            106,
+            154,
+            177,
+            201,
+            229
+          ],
+          "support_accuracy_before_adaptation": 0.5588235294117647,
+          "query_no_support": 0.4470588235294118,
+          "query_with_support": 0.611764705882353
+        },
+        "support_gate_0_2": {
+          "channels": [
+            54,
+            18,
+            118,
+            82,
+            182,
+            146,
+            246,
+            210
+          ],
+          "support_accuracy_before_adaptation": 0.5,
+          "query_no_support": 0.5176470588235295,
+          "query_with_support": 0.6470588235294118
+        }
+      }
+    }
+  }
+}
