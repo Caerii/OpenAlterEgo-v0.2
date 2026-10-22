@@ -24,15 +24,24 @@ PREFIXES = {"closed-5-19": "emg_data/closed_vocab/voiced/5-19/",
 SUFFIXES = ("emg.npy", "audio_clean.flac", "info.json")
 
 
+def requested_components(start: int, count: int) -> set[str]:
+    if start < 0 or not 1 <= count <= 100:
+        raise ValueError("invalid bounded trial range")
+    return {f"{sample}_{suffix}" for sample in range(start, start + count)
+            for suffix in SUFFIXES}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--archive", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--count", type=int, default=20)
+    parser.add_argument("--start", type=int, default=0,
+                        help="First inclusive trial ID; permits locked later ranges")
     parser.add_argument("--session", choices=tuple(PREFIXES), default="closed-5-19")
     args = parser.parse_args()
-    if args.count < 1 or args.count > 100:
-        parser.error("count must be between 1 and 100")
+    if args.count < 1 or args.count > 100 or args.start < 0:
+        parser.error("count must be 1-100 and start must be nonnegative")
     if args.out.exists() and any(args.out.iterdir()):
         parser.error("output must be a new or empty directory")
     digest = hashlib.md5()
@@ -43,7 +52,7 @@ def main() -> None:
         parser.error("archive differs from publisher MD5")
     prefix = PREFIXES[args.session]
     args.out.mkdir(parents=True, exist_ok=True)
-    wanted = {f"{sample}_{suffix}" for sample in range(args.count) for suffix in SUFFIXES}
+    wanted = requested_components(args.start, args.count)
     manifest = {}
     with tarfile.open(args.archive, "r|gz") as archive:
         for member in archive:
@@ -72,7 +81,8 @@ def main() -> None:
         raise ValueError(f"archive lacks {len(wanted)} requested components")
     with (args.out / "manifest.json").open("x", encoding="utf-8") as output:
         json.dump({"schema": "openalterego.gaddy-voiced-subset.v1", "source_md5": PUBLISHED_MD5,
-                   "source_path": prefix, "files": manifest}, output, indent=2, sort_keys=True)
+                   "source_path": prefix, "start": args.start,
+                   "count": args.count, "files": manifest}, output, indent=2, sort_keys=True)
         output.write("\n")
     print(f"extracted {args.count} matched voiced examples to {args.out}")
 
