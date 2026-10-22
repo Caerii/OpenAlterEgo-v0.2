@@ -1,0 +1,77 @@
+{
+  "schema": "openalterego.faceemg11-search-timing.v1",
+  "scope": "Same-process local timing; data load and fold preparation excluded; not a cross-machine benchmark",
+  "subject": "07",
+  "source_member_sha256": "514fb56d1a720140167c8be5eafea36abab470d1d5af629378787d9fa20ba1e7",
+  "repeats": 3,
+  "records": {
+    "exact": [
+      {
+        "seconds": 39.93504380004015,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 38760
+      },
+      {
+        "seconds": 32.18400210002437,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 38760
+      },
+      {
+        "seconds": 29.776134399930015,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 38760
+      }
+    ],
+    "beam_1": [
+      {
+        "seconds": 0.032557599944993854,
+        "selected_cv": 0.9030303030303031,
+        "evaluations": 105
+      },
+      {
+        "seconds": 0.07672879996243864,
+        "selected_cv": 0.9030303030303031,
+        "evaluations": 105
+      },
+      {
+        "seconds": 0.033993099932558835,
+        "selected_cv": 0.9030303030303031,
+        "evaluations": 105
+      }
+    ],
+    "beam_4": [
+      {
+        "seconds": 0.16396220005117357,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 338
+      },
+      {
+        "seconds": 0.2835777000291273,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 338
+      },
+      {
+        "seconds": 0.19433039997238666,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 338
+      }
+    ],
+    "beam_16": [
+      {
+        "seconds": 0.7659989999374375,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 1114
+      },
+      {
+        "seconds": 0.6993706000503153,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 1114
+      },
+      {
+        "seconds": 0.7600677999434993,
+        "selected_cv": 0.9393939393939394,
+        "evaluations": 1114
+      }
+    ]
+  }
+}
