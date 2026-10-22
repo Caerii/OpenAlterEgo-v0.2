@@ -53,3 +53,25 @@ The day-2 files remain outside Git. The acquisition script was corrected
 after selection to preserve distinct filenames sharing a SHA-256 digest and
 to validate paths after parent creation under concurrent Windows downloads.
 That change did not alter the frozen feature, selection, or scoring code.
+
+## Post-gate drift diagnostic
+
+After seeing the held-out labels and scores, we explored unlabeled session-2
+normalization. This is **post hoc** and transductive: each normalization used
+the entire future session's feature distribution, so these numbers are not
+prospective performance estimates and are unavailable at the start of a live
+session. The same frozen channels and ridge fit were reused.
+
+| Subject / layout | Raw | Target feature mean centering | Target feature mean and SD alignment |
+| --- | ---: | ---: | ---: |
+| 04 / coverage greedy | 0.691 | 0.721 | 0.706 |
+| 04 / fixed grid | 0.598 | 0.711 | 0.721 |
+| 05 / coverage greedy | 0.093 | 0.216 | 0.373 |
+| 05 / fixed grid | 0.515 | 0.529 | 0.505 |
+
+The subject-05 coverage collapse is partly compatible with a feature-scale
+shift: per-feature mean and SD alignment raises it from 0.093 to 0.373. It
+still trails the fixed layout. This diagnostic cannot identify the physical
+cause or establish a deployable adaptation method. A future test should use
+only an explicitly bounded, earlier *unlabeled* calibration segment, then
+score subsequent trials under a frozen rule on new subjects.
