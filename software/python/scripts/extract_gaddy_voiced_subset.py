@@ -14,6 +14,7 @@ from pathlib import Path
 
 PUBLISHED_MD5 = "7f97d2182b896652999b1b2d0c69fd7b"
 PREFIXES = {"closed-5-19": "emg_data/closed_vocab/voiced/5-19/",
+            "parallel-5-4": "emg_data/voiced_parallel_data/5-4/",
             "parallel-5-5": "emg_data/voiced_parallel_data/5-5/",
             "parallel-5-6": "emg_data/voiced_parallel_data/5-6/",
             "parallel-5-8": "emg_data/voiced_parallel_data/5-8/",
