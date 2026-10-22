@@ -50,7 +50,7 @@ contact control by +0.068 mean, suggesting that measurement mode matters
 in this *digital replay*. The support-only rule scored highest here, but
 it was secondary and chosen from this result. It must not replace the
 frozen primary rule without a new, genuinely independent evaluation.
-The three selectors differ by less than one percentage point in mean
+The three selectors differ by about one percentage point in mean
 accuracy, so this result does not isolate why the program choices help.
 
 ## Decision
