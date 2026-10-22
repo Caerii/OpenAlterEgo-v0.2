@@ -24,6 +24,19 @@ class AdditiveProgramModel:
             codes + self.offsets[:-1]].sum(axis=1)
 
 
+@dataclass(frozen=True)
+class BinaryProgramModel:
+    intercept: float
+    coefficients: np.ndarray
+
+    def predict(self, features: np.ndarray) -> np.ndarray:
+        features = np.asarray(features)
+        if (features.ndim != 2 or features.shape[1] != len(self.coefficients) or
+                not np.isfinite(features).all()):
+            raise ValueError("invalid binary program features")
+        return self.intercept + features @ self.coefficients
+
+
 def fit_additive_program_model(codes: np.ndarray, scores: np.ndarray,
                                option_sizes: tuple[int, ...], *,
                                ridge: float = 10.0) -> AdditiveProgramModel:
@@ -54,3 +67,21 @@ def fit_additive_program_model(codes: np.ndarray, scores: np.ndarray,
                         damp=np.sqrt(ridge), atol=1e-8, btol=1e-8,
                         iter_lim=500)[0]
     return AdditiveProgramModel(intercept, offsets, coefficients)
+
+
+def fit_binary_program_model(features: np.ndarray, scores: np.ndarray,
+                             *, ridge: float = 10.0) -> BinaryProgramModel:
+    """Fit channel-inclusion and preprocessing effects to exact scores."""
+    features = np.asarray(features, dtype=np.float64)
+    scores = np.asarray(scores, dtype=np.float64)
+    if (features.ndim != 2 or len(features) < 2 or features.shape[1] < 1 or
+            scores.shape != (len(features),) or
+            not np.isfinite(features).all() or
+            not np.isfinite(scores).all() or
+            not np.isfinite(ridge) or ridge <= 0):
+        raise ValueError("invalid binary program fit")
+    intercept = float(scores.mean())
+    coefficients = lsqr(csr_matrix(features), scores - intercept,
+                        damp=np.sqrt(ridge), atol=1e-8, btol=1e-8,
+                        iter_lim=500)[0]
+    return BinaryProgramModel(intercept, coefficients)
