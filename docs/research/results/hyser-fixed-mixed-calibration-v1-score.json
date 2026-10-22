@@ -1,0 +1,175 @@
+{
+  "schema": "openalterego.hyser-fixed-mixed-calibration-score.v1",
+  "selection_sha256": "76cd606f0a0d904e76620d292733d60f71bd5e541862991591d5ec78b0bbe8d3",
+  "protocol": {
+    "primary": "one support trial per gesture, weight 4; fixed mixed minus established fixed eight-site shared-reference on identical query trials",
+    "success_rule": "mean paired gain >=0.05, at least 5/7 improve, no individual loss worse than -0.05",
+    "secondary": "support weight 1 and same-contact all-shared-reference comparator",
+    "alpha": 10.0,
+    "support_split": "first recorded repetition per class; remaining repetitions query, not globally chronological",
+    "physical_cost": "eight array contacts plus a common reference; eight AFE channels"
+  },
+  "subjects": {
+    "06": {
+      "day2_source_record_sha256": "6ac6bf86a9831077d57ce058d4dbfd0944a5fbfd624f93165f6e35aeec40181c",
+      "support_trials": 34,
+      "query_trials": 167,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.5705882352941176,
+          "fixed_eight_site": 0.5823529411764705,
+          "same_contacts_all_shared_reference": 0.4352941176470588
+        },
+        "1.0": {
+          "fixed_mixed": 0.7470588235294118,
+          "fixed_eight_site": 0.7470588235294118,
+          "same_contacts_all_shared_reference": 0.6411764705882353
+        },
+        "4.0": {
+          "fixed_mixed": 0.7705882352941177,
+          "fixed_eight_site": 0.8294117647058822,
+          "same_contacts_all_shared_reference": 0.6882352941176471
+        }
+      },
+      "primary_paired_gain": -0.0588235294117645
+    },
+    "07": {
+      "day2_source_record_sha256": "69adb0e936be5b0ef8b9b06b91cdac052048cfd337c2e57b4a40432441b100a9",
+      "support_trials": 34,
+      "query_trials": 170,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.5117647058823529,
+          "fixed_eight_site": 0.5647058823529412,
+          "same_contacts_all_shared_reference": 0.5235294117647058
+        },
+        "1.0": {
+          "fixed_mixed": 0.7058823529411765,
+          "fixed_eight_site": 0.7470588235294118,
+          "same_contacts_all_shared_reference": 0.7352941176470589
+        },
+        "4.0": {
+          "fixed_mixed": 0.7294117647058823,
+          "fixed_eight_site": 0.7411764705882353,
+          "same_contacts_all_shared_reference": 0.7411764705882352
+        }
+      },
+      "primary_paired_gain": -0.01176470588235301
+    },
+    "08": {
+      "day2_source_record_sha256": "2db10d9ea458d272e67f363039edd6ea41fee6920df9f88809c957c446b4f731",
+      "support_trials": 34,
+      "query_trials": 169,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.2529411764705882,
+          "fixed_eight_site": 0.47794117647058826,
+          "same_contacts_all_shared_reference": 0.058823529411764705
+        },
+        "1.0": {
+          "fixed_mixed": 0.5705882352941177,
+          "fixed_eight_site": 0.6161764705882353,
+          "same_contacts_all_shared_reference": 0.5558823529411765
+        },
+        "4.0": {
+          "fixed_mixed": 0.6058823529411766,
+          "fixed_eight_site": 0.6705882352941179,
+          "same_contacts_all_shared_reference": 0.5764705882352942
+        }
+      },
+      "primary_paired_gain": -0.06470588235294128
+    },
+    "17": {
+      "day2_source_record_sha256": "3d44be67be700e8928f15d2695d1d8d1657a14edffe33ead9e79c2edc7949ed2",
+      "support_trials": 34,
+      "query_trials": 168,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.23529411764705882,
+          "fixed_eight_site": 0.30588235294117655,
+          "same_contacts_all_shared_reference": 0.20588235294117646
+        },
+        "1.0": {
+          "fixed_mixed": 0.6666666666666669,
+          "fixed_eight_site": 0.7019607843137255,
+          "same_contacts_all_shared_reference": 0.6313725490196078
+        },
+        "4.0": {
+          "fixed_mixed": 0.7019607843137257,
+          "fixed_eight_site": 0.7137254901960784,
+          "same_contacts_all_shared_reference": 0.6784313725490196
+        }
+      },
+      "primary_paired_gain": -0.011764705882352788
+    },
+    "18": {
+      "day2_source_record_sha256": "f302ab9c0792bc655438e8033a01a2069e152417d5d6c30ec0ffdead06059a27",
+      "support_trials": 34,
+      "query_trials": 169,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.4294117647058823,
+          "fixed_eight_site": 0.45882352941176474,
+          "same_contacts_all_shared_reference": 0.49411764705882344
+        },
+        "1.0": {
+          "fixed_mixed": 0.7529411764705882,
+          "fixed_eight_site": 0.6911764705882352,
+          "same_contacts_all_shared_reference": 0.651470588235294
+        },
+        "4.0": {
+          "fixed_mixed": 0.7470588235294118,
+          "fixed_eight_site": 0.7058823529411765,
+          "same_contacts_all_shared_reference": 0.6985294117647057
+        }
+      },
+      "primary_paired_gain": 0.04117647058823526
+    },
+    "19": {
+      "day2_source_record_sha256": "45c9745c51eaed50da3f4a65bd1b2020144cf05e6027ca015c7e428a5da9522e",
+      "support_trials": 33,
+      "query_trials": 164,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.6121212121212122,
+          "fixed_eight_site": 0.6848484848484849,
+          "same_contacts_all_shared_reference": 0.6303030303030304
+        },
+        "1.0": {
+          "fixed_mixed": 0.7757575757575759,
+          "fixed_eight_site": 0.8666666666666668,
+          "same_contacts_all_shared_reference": 0.6666666666666666
+        },
+        "4.0": {
+          "fixed_mixed": 0.7696969696969697,
+          "fixed_eight_site": 0.8303030303030304,
+          "same_contacts_all_shared_reference": 0.6787878787878788
+        }
+      },
+      "primary_paired_gain": -0.060606060606060774
+    },
+    "20": {
+      "day2_source_record_sha256": "fbe39b777c4b2d626fb4962ba296420b7e61b85225b09972812afabcdbb7b077",
+      "support_trials": 34,
+      "query_trials": 170,
+      "query_balanced_accuracy": {
+        "0.0": {
+          "fixed_mixed": 0.22941176470588237,
+          "fixed_eight_site": 0.17058823529411768,
+          "same_contacts_all_shared_reference": 0.17647058823529413
+        },
+        "1.0": {
+          "fixed_mixed": 0.5647058823529412,
+          "fixed_eight_site": 0.5117647058823529,
+          "same_contacts_all_shared_reference": 0.4470588235294118
+        },
+        "4.0": {
+          "fixed_mixed": 0.6764705882352942,
+          "fixed_eight_site": 0.6352941176470589,
+          "same_contacts_all_shared_reference": 0.623529411764706
+        }
+      },
+      "primary_paired_gain": 0.04117647058823526
+    }
+  }
+}
