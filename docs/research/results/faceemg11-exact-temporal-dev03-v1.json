@@ -1,0 +1,85 @@
+{
+  "schema": "openalterego.faceemg11-exact-temporal-benchmark.v1",
+  "scope": "Development-only timing and selection-regret check; no new held-out claim",
+  "candidate_count": 38760,
+  "subjects": {
+    "01": {
+      "source_member_sha256": "8b0647c2c03d9f96dbe4d5e45da9b6ebeca03fde7a20474dc3d9bff2a9929bac",
+      "exact_program": [
+        2,
+        3,
+        10,
+        13,
+        16,
+        17
+      ],
+      "two_stage_program": [
+        0,
+        2,
+        6,
+        13,
+        15,
+        16
+      ],
+      "exact_cv": 0.9272727272727272,
+      "two_stage_cv": 0.9090909090909092,
+      "cv_regret": 0.018181818181818077,
+      "exact_query_balanced_accuracy": 0.9727272727272727,
+      "two_stage_query_balanced_accuracy": 0.9636363636363636,
+      "exact_cv_seconds": 22.13636410003528,
+      "two_stage_search_seconds": 7.2425885000266135
+    },
+    "02": {
+      "source_member_sha256": "77039e8b75cc5975ee69d178a4af64d9fefd415ab934abe344ce3c00b670335c",
+      "exact_program": [
+        1,
+        3,
+        4,
+        8,
+        12,
+        18
+      ],
+      "two_stage_program": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        18
+      ],
+      "exact_cv": 0.9757575757575758,
+      "two_stage_cv": 0.9696969696969697,
+      "cv_regret": 0.0060606060606061,
+      "exact_query_balanced_accuracy": 0.9454545454545454,
+      "two_stage_query_balanced_accuracy": 0.9727272727272727,
+      "exact_cv_seconds": 20.162968200049363,
+      "two_stage_search_seconds": 6.381209900020622
+    },
+    "03": {
+      "source_member_sha256": "69834130808cd703ab0a31fb9cedb8318d1468d61e1d7f08bf90a54ff837c41b",
+      "exact_program": [
+        3,
+        5,
+        7,
+        12,
+        15,
+        17
+      ],
+      "two_stage_program": [
+        2,
+        3,
+        5,
+        7,
+        15,
+        17
+      ],
+      "exact_cv": 0.9212121212121213,
+      "two_stage_cv": 0.9151515151515152,
+      "cv_regret": 0.0060606060606061,
+      "exact_query_balanced_accuracy": 0.9090909090909091,
+      "two_stage_query_balanced_accuracy": 0.9454545454545453,
+      "exact_cv_seconds": 22.040569000062533,
+      "two_stage_search_seconds": 7.17331949993968
+    }
+  }
+}
