@@ -1,0 +1,202 @@
+{
+  "schema": "openalterego.hyser-differential-holdout-selection.v1",
+  "code_sha256": "88262350d0c47b35fdfee1f607ed145c5e5dfae6208ee2ca8d452a2124a59345",
+  "scope": "Method-specific held-out pair outcomes; people/day-two labels were exposed in other Hyser work",
+  "subjects": [
+    "06",
+    "07",
+    "08",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "protocol": {
+    "candidate_count": 5000,
+    "candidate_seed": 42,
+    "day1_cv_seed": 42,
+    "day1_cv_folds": 3,
+    "ridge_alpha": 10.0,
+    "afe_channels": 8,
+    "active_contacts": 12,
+    "primary": "chosen minus fixed differential day-two balanced accuracy",
+    "success_rule": "mean paired gain >=0.05, at least 5/7 improve, no individual loss worse than -0.05, and chosen mean >= fixed eight-site monopolar mean"
+  },
+  "choices": {
+    "06": {
+      "day1_source_record_sha256": "9f2533a4c3b647ab21cb80e96bc4f794a185b69a6e8b1a1da6d901de20c2ec62",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        68,
+        69,
+        211,
+        220,
+        262,
+        264,
+        437,
+        446
+      ],
+      "selected_day1_cv": 0.9607843137254902,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    },
+    "07": {
+      "day1_source_record_sha256": "105ebc02d879cd8a9fb116f3468eff0b8472ca2ddbdd12f8da1610cf2a09ff7d",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        73,
+        85,
+        135,
+        138,
+        257,
+        269,
+        422,
+        437
+      ],
+      "selected_day1_cv": 0.9264705882352942,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    },
+    "08": {
+      "day1_source_record_sha256": "473301671965c6dd855cf8de9e01e0e44aef04ffb5affbe63cba6be2831de6fb",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        84,
+        96,
+        191,
+        194,
+        254,
+        257,
+        413,
+        414
+      ],
+      "selected_day1_cv": 0.9117647058823529,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    },
+    "17": {
+      "day1_source_record_sha256": "86b378aaf7f105bb586e5d124bb023016f4d9786ece9bfc22cfb63878f197bdc",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        32,
+        34,
+        170,
+        182,
+        273,
+        276,
+        353,
+        356
+      ],
+      "selected_day1_cv": 0.9558823529411764,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    },
+    "18": {
+      "day1_source_record_sha256": "d7a0f3295262d514af3781aa08f24c1e53cbf00743d4a3bb855588732f98b590",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        0,
+        3,
+        182,
+        185,
+        261,
+        276,
+        415,
+        417
+      ],
+      "selected_day1_cv": 0.9166666666666667,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    },
+    "19": {
+      "day1_source_record_sha256": "e1762d38e9a110f6c209672799f94c224c4f035f7f53f9276af9e9e3c0499573",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        37,
+        49,
+        132,
+        144,
+        233,
+        245,
+        360,
+        372
+      ],
+      "selected_day1_cv": 0.9656862745098039,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    },
+    "20": {
+      "day1_source_record_sha256": "d0959078e3e66ce4e5f824861358d93172cc0bc3bd7e718ca280b98f43c682c8",
+      "pair_map_sha256": "7a624c99f91ffa245988a18ba5310123b860da3be7586012fe3f13fea5e3190e",
+      "selected_channels": [
+        75,
+        77,
+        192,
+        204,
+        263,
+        275,
+        409,
+        423
+      ],
+      "selected_day1_cv": 0.9411764705882353,
+      "fixed_differential_channels": [
+        51,
+        52,
+        163,
+        164,
+        275,
+        276,
+        387,
+        388
+      ]
+    }
+  }
+}
