@@ -10,7 +10,7 @@ import numpy as np
 from scipy.stats import spearmanr
 
 from openalterego.research.dense_programs import prepare_cv_folds, prepare_fold, score_programs
-from openalterego.research.donor_calibration import predict_left_out_person
+from openalterego.research.donor_calibration import nested_policy_gate, predict_left_out_person
 from openalterego.research.hyser_features import site_coordinates
 from openalterego.research.supported_programs import prepare_supported_fold
 from openalterego.research.uniform_program_pool import uniform_program_prefix
@@ -27,9 +27,10 @@ def main():
     parser.add_argument("--subjects", nargs="+", required=True)
     parser.add_argument("--candidates", type=int, default=5000)
     parser.add_argument("--backend", choices=("numpy", "rust"), default="rust")
+    parser.add_argument("--nested-gate", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    if (args.output.exists() or len(args.subjects) < 3 or
+    if (args.output.exists() or len(args.subjects) < (4 if args.nested_gate else 3) or
             len(set(args.subjects)) != len(args.subjects) or
             args.candidates < 2):
         parser.error("new output, three unique people and at least two candidates required")
@@ -84,6 +85,9 @@ def main():
         chosen = {"two_support": int(np.argmax(baseline)),
                   "donor_only": int(np.argmax(donor_prior)),
                   "donor_calibrated": int(np.argmax(learned))}
+        gate = nested_policy_gate(proxies, outcomes, target) if args.nested_gate else None
+        if gate is not None:
+            chosen["nested_gate"] = chosen[gate["selected_policy"]]
         rows[subject] = {
             "selection": {name: {
                 "candidate_index": index,
@@ -99,11 +103,14 @@ def main():
             "baseline_rank_spearman": float(spearmanr(baseline, outcomes[target]).statistic),
             "model": model,
         }
+        if gate is not None:
+            rows[subject]["nested_gate_evidence"] = gate
         print(subject, {name: round(row["query_balanced_accuracy"], 3)
                         for name, row in rows[subject]["selection"].items()},
               flush=True)
     result = {
-        "schema": "openalterego.hyser-donor-calibrated-program-search.v1",
+        "schema": ("openalterego.hyser-nested-donor-gate.v1" if args.nested_gate
+                   else "openalterego.hyser-donor-calibrated-program-search.v1"),
         "scope": "Retrospective exposed forearm subjects; outer target query labels excluded from donor calibration and candidate selection",
         "subjects": args.subjects, "candidate_count": args.candidates,
         "candidate_seed": 42, "backend": args.backend,

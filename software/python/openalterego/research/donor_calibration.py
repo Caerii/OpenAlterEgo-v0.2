@@ -48,3 +48,55 @@ def predict_left_out_person(proxies: np.ndarray, outcomes: np.ndarray,
         "feature_scale": scale.tolist(),
         "donor_prior": target_prior,
     }
+
+
+def nested_policy_gate(proxies: np.ndarray, outcomes: np.ndarray,
+                       target: int, *, seed: int = 77,
+                       draws: int = 2000) -> dict:
+    """Permit a donor policy only after positive inner person-level evidence.
+
+    The outer target's query outcomes are never read. Inner pseudo-targets
+    each train on the other available donors, with the same program pool.
+    """
+    proxies = np.asarray(proxies, dtype=np.float64)
+    outcomes = np.asarray(outcomes, dtype=np.float64)
+    if (proxies.ndim != 3 or outcomes.shape != proxies.shape[:2] or
+            len(proxies) < 4 or not 0 <= target < len(proxies) or
+            draws < 1):
+        raise ValueError("invalid nested gate inputs")
+    donors = np.asarray([i for i in range(len(proxies)) if i != target])
+    inner_proxies, inner_outcomes = proxies[donors], outcomes[donors]
+    if not np.isfinite(inner_outcomes).all():
+        raise ValueError("nonfinite inner donor outcomes")
+    gains = {"donor_only": [], "donor_calibrated": []}
+    for inner_target in range(len(donors)):
+        learned, model = predict_left_out_person(
+            inner_proxies, inner_outcomes, inner_target)
+        baseline = .5 * inner_proxies[inner_target].sum(axis=1)
+        baseline_score = inner_outcomes[inner_target, int(np.argmax(baseline))]
+        for policy, scores in (("donor_only", model["donor_prior"]),
+                               ("donor_calibrated", learned)):
+            gains[policy].append(float(
+                inner_outcomes[inner_target, int(np.argmax(scores))] -
+                baseline_score))
+    rng = np.random.default_rng(seed)
+    bootstrap_indices = rng.integers(len(donors), size=(draws, len(donors)))
+    evidence = {}
+    eligible = []
+    for policy, values in gains.items():
+        values = np.asarray(values)
+        lower = float(np.quantile(values[bootstrap_indices].mean(axis=1), .05))
+        mean = float(values.mean())
+        evidence[policy] = {"inner_mean_gain": mean,
+                            "inner_wins": int(np.count_nonzero(values > 0)),
+                            "inner_losses": int(np.count_nonzero(values < 0)),
+                            "bootstrap_5th_percentile_gain": lower}
+        if lower > 0:
+            eligible.append(policy)
+    selected = (max(eligible, key=lambda policy: evidence[policy]["inner_mean_gain"])
+                if eligible else "two_support")
+    return {"selected_policy": selected,
+            "outer_target_excluded_from_inner": int(target),
+            "inner_donor_indices": donors.tolist(),
+            "bootstrap_seed": seed, "bootstrap_draws": draws,
+            "evidence": evidence}
