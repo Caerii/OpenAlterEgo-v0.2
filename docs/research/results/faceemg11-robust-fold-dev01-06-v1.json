@@ -1,0 +1,261 @@
+{
+  "schema": "openalterego.faceemg11-robust-fold-search.v1",
+  "scope": "Retrospective facial command method test; no fresh subject holdout, silent speech, or physical layout intervention",
+  "selection": "beam-4 six of 20; mean or minimum balanced accuracy across two forward folds, equal cost",
+  "forward_folds": "fit 1-10 validate 11-15; fit 1-15 validate 16-20",
+  "later_blocks": "fit 1-20, evaluate already exposed 21-30",
+  "subjects": {
+    "01": {
+      "source_member_sha256": "8b0647c2c03d9f96dbe4d5e45da9b6ebeca03fde7a20474dc3d9bff2a9929bac",
+      "choices": {
+        "mean": {
+          "channels": [
+            0,
+            4,
+            13,
+            15,
+            16,
+            17
+          ],
+          "selection_score": 0.9727272727272727,
+          "forward_fold_scores": [
+            0.9454545454545454,
+            1.0
+          ],
+          "program_evaluations": 340,
+          "search_seconds": 0.041949499980546534,
+          "later_block_balanced_accuracy": 0.9545454545454546
+        },
+        "worst": {
+          "channels": [
+            0,
+            4,
+            13,
+            15,
+            16,
+            17
+          ],
+          "selection_score": 0.9454545454545454,
+          "forward_fold_scores": [
+            0.9454545454545454,
+            1.0
+          ],
+          "program_evaluations": 339,
+          "search_seconds": 0.060858999961055815,
+          "later_block_balanced_accuracy": 0.9545454545454546
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.990909090909091
+    },
+    "02": {
+      "source_member_sha256": "77039e8b75cc5975ee69d178a4af64d9fefd415ab934abe344ce3c00b670335c",
+      "choices": {
+        "mean": {
+          "channels": [
+            0,
+            2,
+            3,
+            8,
+            11,
+            12
+          ],
+          "selection_score": 0.9272727272727272,
+          "forward_fold_scores": [
+            0.9636363636363636,
+            0.8909090909090908
+          ],
+          "program_evaluations": 341,
+          "search_seconds": 0.052594600012525916,
+          "later_block_balanced_accuracy": 0.9272727272727272
+        },
+        "worst": {
+          "channels": [
+            0,
+            2,
+            3,
+            6,
+            8,
+            11
+          ],
+          "selection_score": 0.9090909090909091,
+          "forward_fold_scores": [
+            0.9272727272727272,
+            0.9090909090909091
+          ],
+          "program_evaluations": 340,
+          "search_seconds": 0.05196110007818788,
+          "later_block_balanced_accuracy": 0.9727272727272728
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.9818181818181819
+    },
+    "03": {
+      "source_member_sha256": "69834130808cd703ab0a31fb9cedb8318d1468d61e1d7f08bf90a54ff837c41b",
+      "choices": {
+        "mean": {
+          "channels": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            16
+          ],
+          "selection_score": 0.9090909090909091,
+          "forward_fold_scores": [
+            0.9454545454545454,
+            0.8727272727272727
+          ],
+          "program_evaluations": 341,
+          "search_seconds": 0.04234980000182986,
+          "later_block_balanced_accuracy": 0.8636363636363636
+        },
+        "worst": {
+          "channels": [
+            0,
+            2,
+            4,
+            6,
+            7,
+            12
+          ],
+          "selection_score": 0.8727272727272727,
+          "forward_fold_scores": [
+            0.8727272727272727,
+            0.8727272727272727
+          ],
+          "program_evaluations": 345,
+          "search_seconds": 0.04448500007856637,
+          "later_block_balanced_accuracy": 0.9181818181818181
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.9636363636363636
+    },
+    "04": {
+      "source_member_sha256": "81ab75f23d20145388f2c4a4c57e06a417574d7fabd6ad56f2aa96baef8fa5ab",
+      "choices": {
+        "mean": {
+          "channels": [
+            0,
+            3,
+            4,
+            6,
+            12,
+            16
+          ],
+          "selection_score": 0.8636363636363636,
+          "forward_fold_scores": [
+            0.8545454545454546,
+            0.8727272727272727
+          ],
+          "program_evaluations": 338,
+          "search_seconds": 0.06406759994570166,
+          "later_block_balanced_accuracy": 0.8545454545454546
+        },
+        "worst": {
+          "channels": [
+            0,
+            5,
+            6,
+            8,
+            10,
+            12
+          ],
+          "selection_score": 0.8363636363636363,
+          "forward_fold_scores": [
+            0.8363636363636363,
+            0.8363636363636364
+          ],
+          "program_evaluations": 343,
+          "search_seconds": 0.04640560003463179,
+          "later_block_balanced_accuracy": 0.8727272727272727
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.8818181818181817
+    },
+    "05": {
+      "source_member_sha256": "d2fce1b84b8e8bfaf4e351962f5f94c4e61ed6aaece6d2a2c3ba2ce3e5366e70",
+      "choices": {
+        "mean": {
+          "channels": [
+            4,
+            5,
+            9,
+            11,
+            12,
+            13
+          ],
+          "selection_score": 1.0,
+          "forward_fold_scores": [
+            1.0,
+            1.0
+          ],
+          "program_evaluations": 342,
+          "search_seconds": 0.06668779999017715,
+          "later_block_balanced_accuracy": 0.9272727272727274
+        },
+        "worst": {
+          "channels": [
+            4,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "selection_score": 1.0,
+          "forward_fold_scores": [
+            1.0,
+            1.0
+          ],
+          "program_evaluations": 341,
+          "search_seconds": 0.04852419998496771,
+          "later_block_balanced_accuracy": 0.9
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.9818181818181819
+    },
+    "06": {
+      "source_member_sha256": "223c45855bddb64e6fe87ece562d062b33f7088a5985f8cc1035671a0f42c7e0",
+      "choices": {
+        "mean": {
+          "channels": [
+            0,
+            2,
+            4,
+            7,
+            15,
+            16
+          ],
+          "selection_score": 0.8454545454545455,
+          "forward_fold_scores": [
+            0.8000000000000003,
+            0.890909090909091
+          ],
+          "program_evaluations": 342,
+          "search_seconds": 0.05054069997277111,
+          "later_block_balanced_accuracy": 0.7636363636363637
+        },
+        "worst": {
+          "channels": [
+            0,
+            6,
+            12,
+            13,
+            14,
+            16
+          ],
+          "selection_score": 0.8363636363636364,
+          "forward_fold_scores": [
+            0.8363636363636364,
+            0.8363636363636364
+          ],
+          "program_evaluations": 343,
+          "search_seconds": 0.0489774999441579,
+          "later_block_balanced_accuracy": 0.7636363636363637
+        }
+      },
+      "all_twenty_later_block_balanced_accuracy": 0.8909090909090908
+    }
+  }
+}
