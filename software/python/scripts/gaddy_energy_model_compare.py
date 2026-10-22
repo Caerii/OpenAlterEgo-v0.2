@@ -5,7 +5,9 @@ session for a protocol locked before its extraction or evaluation.
 """
 
 import argparse
+import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -38,11 +40,65 @@ def shift_past(features: np.ndarray, frames: int = 20) -> np.ndarray:
     return features[np.maximum(np.arange(len(features)) - frames, 0)]
 
 
+def feature_cache_path(path: Path, cache_dir: Path, manifest: dict,
+                       feature_backend: str, estimate_pitch: bool) -> Path:
+    """Bind a cache entry to source files and feature implementation."""
+    root = Path(__file__).resolve().parents[3]
+    resolved_cache = cache_dir.resolve()
+    if resolved_cache.is_relative_to(root):
+        raise ValueError("raw-data feature cache must stay outside the repository")
+    digest = hashlib.sha256()
+    digest.update(b"openalterego.gaddy-feature-cache.v1\0")
+    digest.update(str(path.resolve()).encode())
+    digest.update(json.dumps(manifest, sort_keys=True).encode())
+    digest.update(f"{feature_backend}:{estimate_pitch}".encode())
+    for code_path in (Path(__file__), Path(__file__).with_name("gaddy_prosody_probe.py")):
+        digest.update(code_path.read_bytes())
+    if feature_backend == "rust":
+        import openalterego_accel
+        digest.update(Path(openalterego_accel.__file__).read_bytes())
+    for name in sorted(manifest["files"]):
+        stat = (path / name).stat()
+        digest.update(f"{name}:{stat.st_size}:{stat.st_mtime_ns}".encode())
+    return resolved_cache / f"{path.name}-{digest.hexdigest()[:24]}.npz"
+
+
+def read_feature_cache(cache_file: Path) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
+    with np.load(cache_file, allow_pickle=False) as cached:
+        x, y, pitch, offsets = (cached[name] for name in ("features", "energy", "pitch", "offsets"))
+    if (x.ndim != 2 or x.shape[1] != 16 or y.ndim != 1 or pitch.ndim != 1 or
+            offsets.ndim != 1 or len(offsets) < 2 or offsets[0] != 0 or
+            offsets[-1] != len(y) or len(x) != len(y) or len(pitch) != len(y) or
+            not np.all(np.diff(offsets) > 0) or not np.isfinite(x).all() or
+            not np.isfinite(y).all() or not np.isfinite(pitch).all()):
+        raise ValueError(f"invalid feature cache: {cache_file}")
+    return [(x[offsets[i]:offsets[i + 1]], y[offsets[i]:offsets[i + 1]],
+             pitch[offsets[i]:offsets[i + 1]]) for i in range(len(offsets) - 1)]
+
+
+def write_feature_cache(cache_file: Path,
+                        rows: list[tuple[np.ndarray, np.ndarray, np.ndarray]]) -> None:
+    if not rows:
+        raise ValueError("cannot cache empty session")
+    cache_file.parent.mkdir(parents=True, exist_ok=True)
+    offsets = np.r_[0, np.cumsum([len(row[1]) for row in rows])]
+    temporary = cache_file.with_name(f"{cache_file.name}.{os.getpid()}.tmp")
+    with temporary.open("wb") as output:
+        np.savez(output, features=np.concatenate([row[0] for row in rows]),
+                 energy=np.concatenate([row[1] for row in rows]),
+                 pitch=np.concatenate([row[2] for row in rows]), offsets=offsets)
+    os.replace(temporary, cache_file)
+
+
 def session_rows(path: Path, feature_backend: str = "python",
-                 estimate_pitch: bool = True) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
+                 estimate_pitch: bool = True, cache_dir: Path | None = None
+                 ) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
     manifest = json.loads((path / "manifest.json").read_text(encoding="utf-8"))
     if manifest["schema"] != "openalterego.gaddy-voiced-subset.v1":
         raise ValueError(f"Unexpected manifest: {path}")
+    cache_file = feature_cache_path(path, cache_dir, manifest, feature_backend, estimate_pitch) if cache_dir else None
+    if cache_file and cache_file.exists():
+        return read_feature_cache(cache_file)
     ids = sorted({int(name.split("_", 1)[0]) for name in manifest["files"]})
     rows = []
     for trial_id in ids:
@@ -69,6 +125,8 @@ def session_rows(path: Path, feature_backend: str = "python",
             raise ValueError(f"unknown feature backend: {feature_backend}")
         if len(target):
             rows.append((features, target, pitch))
+    if cache_file:
+        write_feature_cache(cache_file, rows)
     return rows
 
 

@@ -7,6 +7,7 @@ selecting the model; lock a new session before examining it.
 
 import argparse
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -98,21 +99,35 @@ def main() -> None:
     parser.add_argument("--dev", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--feature-backend", choices=("python", "rust"), default="python")
+    parser.add_argument("--feature-cache-dir", type=Path,
+                        help="provenance-keyed cache outside Git; raw-derived arrays remain local")
+    parser.add_argument("--profile-output", type=Path,
+                        help="write per-stage wall times separately from scientific results")
     args = parser.parse_args()
     if args.dev.resolve() in {path.resolve() for path in args.train}:
         parser.error("development session must differ from training sessions")
+    started = time.perf_counter()
+    timings = {}
+    stage = started
     train = [row for path in args.train for row in session_rows(
-        path, feature_backend=args.feature_backend, estimate_pitch=False)]
-    dev = session_rows(args.dev, feature_backend=args.feature_backend, estimate_pitch=False)
+        path, feature_backend=args.feature_backend, estimate_pitch=False,
+        cache_dir=args.feature_cache_dir)]
+    timings["train_feature_load_s"] = time.perf_counter() - stage
+    stage = time.perf_counter()
+    dev = session_rows(args.dev, feature_backend=args.feature_backend,
+                       estimate_pitch=False, cache_dir=args.feature_cache_dir)
+    timings["dev_feature_load_s"] = time.perf_counter() - stage
     if not train or not dev:
         parser.error("empty train or development session")
     threshold = -2.0
+    stage = time.perf_counter()
     y = np.concatenate([past_smooth(row[1]) for row in train])
     activity = np.concatenate([row[1] > threshold for row in train])
     x_full = np.concatenate([lag_features(row[0]) for row in train])
     x_global = np.concatenate([lag_features(activity_features(row[0])) for row in train])
     dev_full = [lag_features(row[0]) for row in dev]
     dev_global = [lag_features(activity_features(row[0])) for row in dev]
+    timings["design_matrices_s"] = time.perf_counter() - stage
     # Sparse nonnegative channel patterns are learned without audio labels.
     # This is an observational structural prior, not an identified muscle model.
     current = np.concatenate([row[0] for row in train])
@@ -121,7 +136,10 @@ def main() -> None:
     dictionary = MiniBatchNMF(n_components=8, init="nndsvda", batch_size=1024,
                               max_iter=100, transform_max_iter=80, alpha_W=0.01,
                               alpha_H=0.01, l1_ratio=1.0, random_state=42)
+    stage = time.perf_counter()
     dictionary.fit(current[sample])
+    timings["dictionary_fit_s"] = time.perf_counter() - stage
+    stage = time.perf_counter()
     latent_train = [dictionary.transform(row[0]) for row in train]
     latent_dev = [dictionary.transform(row[0]) for row in dev]
     sparse_train = [top_k_codes(code) for code in latent_train]
@@ -130,9 +148,12 @@ def main() -> None:
     dev_latent = [lag_features(code) for code in latent_dev]
     x_sparse = np.concatenate([lag_features(code) for code in sparse_train])
     dev_sparse = [lag_features(code) for code in sparse_dev]
+    timings["dictionary_transform_and_design_s"] = time.perf_counter() - stage
 
+    stage = time.perf_counter()
     activity_model = make_model(False).fit(x_full, activity)
     dev_probability = [activity_model.predict_proba(x)[:, 1] for x in dev_full]
+    timings["activity_fit_and_predict_s"] = time.perf_counter() - stage
     models = {
         "full_all_frames": (x_full, dev_full, np.ones(len(y), dtype=bool)),
         "global_all_frames": (x_global, dev_global, np.ones(len(y), dtype=bool)),
@@ -143,8 +164,11 @@ def main() -> None:
     }
     predictions = {}
     for name, (training_x, development_x, mask) in models.items():
+        stage = time.perf_counter()
         fitted = make_model(True).fit(training_x[mask], y[mask])
         predictions[name] = [fitted.predict(x) for x in development_x]
+        timings[f"model_{name}_fit_and_predict_s"] = time.perf_counter() - stage
+    stage = time.perf_counter()
     inactive_mean = float(y[~activity].mean())
     predictions["two_stage_hard_gate"] = [np.where(probability >= 0.5, speech, inactive_mean)
                                        for probability, speech in zip(dev_probability,
@@ -200,6 +224,18 @@ def main() -> None:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    timings["metrics_and_result_write_s"] = time.perf_counter() - stage
+    timings["total_s"] = time.perf_counter() - started
+    if args.profile_output:
+        args.profile_output.parent.mkdir(parents=True, exist_ok=True)
+        args.profile_output.write_text(json.dumps({
+            "schema": "openalterego.gaddy-contour-stage-profile.v1",
+            "feature_backend": args.feature_backend,
+            "cache_enabled": args.feature_cache_dir is not None,
+            "train_sessions": [path.name for path in args.train],
+            "dev_session": args.dev.name,
+            "timings": timings,
+        }, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"activity": result["activity"], "energy": result["energy"]}, indent=2))
 
 

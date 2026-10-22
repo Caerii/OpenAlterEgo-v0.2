@@ -32,7 +32,8 @@ now accepts `--feature-backend rust` after the extension is built and
 installed; Python remains the default. The locked 5-4 result used the
 committed Python path. Equivalent frame centers are necessary for exact
 parity because floating-point boundary truncation can move an EMG window by
-one sample. A future full-pipeline profile should determine whether further
-Rust work belongs in filtering, matrix factorization or experiment
-scheduling. The current gradient-boosted and NMF fitting stages remain in
-compiled scikit-learn routines and need a separate profile before porting.
+one sample. The [full-pipeline stage profile](19-gaddy-rust-cache-stage-profile.md)
+shows that caching largely removes feature loading, while fit-and-predict
+timings now dominate and vary across runs. The current gradient-boosted and
+NMF fitting stages remain in compiled scikit-learn routines. A Rust port of
+either needs a measured end-to-end and output-parity case.
