@@ -1,0 +1,189 @@
+{
+  "schema": "openalterego.gaddy-channel-rolling.v1",
+  "scope": "Retrospective vocalized speech; all sessions previously exposed; program choice uses only earlier sessions within this replay",
+  "train": {
+    "name": "parallel-5-5-first100",
+    "manifest_sha256": "6fbb4e78310829514ec230af83d68db48a742e263ca1833bcc8798f11e9ec9df",
+    "source_md5": "7f97d2182b896652999b1b2d0c69fd7b",
+    "source_path": "emg_data/voiced_parallel_data/5-5/"
+  },
+  "calibration_utterances": 10,
+  "sessions": [
+    {
+      "source": {
+        "name": "parallel-5-6-first100",
+        "manifest_sha256": "6f74b029ddfd79a27a80cfef3bf2c3632960816d649882ad81f6983c231ab438",
+        "source_md5": "7f97d2182b896652999b1b2d0c69fd7b",
+        "source_path": "emg_data/voiced_parallel_data/5-6/"
+      },
+      "earlier_selection_sessions": [],
+      "evaluation_utterances": 70,
+      "choices": {},
+      "fixed_six_mae": 0.4866727186077443,
+      "all_eight_mae": 0.4823537578601885,
+      "query_oracle_mae": 0.46305403573592796
+    },
+    {
+      "source": {
+        "name": "parallel-5-9-first100",
+        "manifest_sha256": "d7549266950fa8be5eeb89fba3f64a50c16e5b05df13ba4fbf79be5098b28508",
+        "source_md5": "7f97d2182b896652999b1b2d0c69fd7b",
+        "source_path": "emg_data/voiced_parallel_data/5-9/"
+      },
+      "earlier_selection_sessions": [
+        "parallel-5-6-first100"
+      ],
+      "evaluation_utterances": 69,
+      "choices": {
+        "earliest": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.48381818807152494,
+          "query_rank_of_28": 1
+        },
+        "mean": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.48381818807152494,
+          "query_rank_of_28": 1
+        },
+        "worst": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.48381818807152494,
+          "query_rank_of_28": 1
+        }
+      },
+      "fixed_six_mae": 0.5249144162548056,
+      "all_eight_mae": 0.47993994529816636,
+      "query_oracle_mae": 0.48381818807152494
+    },
+    {
+      "source": {
+        "name": "parallel-5-10-first100",
+        "manifest_sha256": "1c00fe26d85f0914e135e3837a7ca2a462e6c14fa36ab8cfeec5750ca8f4e87e",
+        "source_md5": "7f97d2182b896652999b1b2d0c69fd7b",
+        "source_path": "emg_data/voiced_parallel_data/5-10/"
+      },
+      "earlier_selection_sessions": [
+        "parallel-5-6-first100",
+        "parallel-5-9-first100"
+      ],
+      "evaluation_utterances": 63,
+      "choices": {
+        "earliest": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.4768034052217877,
+          "query_rank_of_28": 5
+        },
+        "mean": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.4768034052217877,
+          "query_rank_of_28": 5
+        },
+        "worst": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.4768034052217877,
+          "query_rank_of_28": 5
+        }
+      },
+      "fixed_six_mae": 0.5285946181111882,
+      "all_eight_mae": 0.4686934491313707,
+      "query_oracle_mae": 0.47018532526327744
+    },
+    {
+      "source": {
+        "name": "parallel-5-11-first100",
+        "manifest_sha256": "0e8e8002fdab1820bb049829036120caffb292167ac317734322b7070c3d7d27",
+        "source_md5": "7f97d2182b896652999b1b2d0c69fd7b",
+        "source_path": "emg_data/voiced_parallel_data/5-11/"
+      },
+      "earlier_selection_sessions": [
+        "parallel-5-6-first100",
+        "parallel-5-9-first100",
+        "parallel-5-10-first100"
+      ],
+      "evaluation_utterances": 61,
+      "choices": {
+        "earliest": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.6925022250384667,
+          "query_rank_of_28": 20
+        },
+        "mean": {
+          "channels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6
+          ],
+          "query_mae": 0.538341705299505,
+          "query_rank_of_28": 7
+        },
+        "worst": {
+          "channels": [
+            0,
+            1,
+            3,
+            4,
+            6,
+            7
+          ],
+          "query_mae": 0.6925022250384667,
+          "query_rank_of_28": 20
+        }
+      },
+      "fixed_six_mae": 0.724268060542457,
+      "all_eight_mae": 0.68295053709248,
+      "query_oracle_mae": 0.5063790782181646
+    }
+  ]
+}
