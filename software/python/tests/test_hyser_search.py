@@ -7,6 +7,8 @@ from openalterego.research.hyser_search import feasible, prepare_folds, ridge_te
 from openalterego.research.hyser_site_health import dark_contact_mask
 from openalterego.research.hyser_spatial_search import displacement_maps
 from openalterego.research.hyser_transfer import prepare_day_pair, score_day_pair
+from openalterego.research.hyser_temporal_features import temporal_trial_features
+from openalterego.research.dense_programs import prepare_fold, score_programs
 
 
 def test_dense_screen_scores_batched_and_scalar_designs_identically():
@@ -61,6 +63,30 @@ def test_batched_day_pair_matches_single_design_with_absent_train_class():
     target = (rng.normal(size=(len(target_labels), 512)), target_labels)
     designs = np.asarray([[0, 1, 64], [2, 70, 192]], dtype=np.int16)
     actual = score_day_pair(prepare_day_pair(train, target), designs)
+    expected = [ridge_test(train, target, list(row)) for row in designs]
+    np.testing.assert_allclose(actual, expected, atol=1e-12)
+
+
+def test_temporal_features_preserve_whole_trial_and_ordered_bins():
+    signal = np.ones((8, 256), dtype=np.float32)
+    signal[:2, 0] = 2
+    signal[2:4, 0] = 3
+    signal[4:6, 0] = 4
+    signal[6:8, 0] = 5
+    result = temporal_trial_features(signal).reshape(256, 10)
+    np.testing.assert_allclose(result[:, :2], trial_features(signal).reshape(256, 2))
+    np.testing.assert_allclose(result[0, [2, 4, 6, 8]], np.log([2, 3, 4, 5]))
+
+
+def test_generic_dense_program_scorer_matches_two_feature_reference():
+    rng = np.random.default_rng(19)
+    labels = np.repeat(np.arange(1, 34), 5)
+    target_labels = np.repeat(np.arange(1, 35), 2)
+    train = (rng.normal(size=(len(labels), 512)), labels)
+    target = (rng.normal(size=(len(target_labels), 512)), target_labels)
+    designs = np.asarray([[0, 1, 64], [2, 70, 192]], dtype=np.int16)
+    fold = prepare_fold(train, target, features_per_site=2)
+    actual = score_programs([fold], designs, features_per_site=2)
     expected = [ridge_test(train, target, list(row)) for row in designs]
     np.testing.assert_allclose(actual, expected, atol=1e-12)
 
